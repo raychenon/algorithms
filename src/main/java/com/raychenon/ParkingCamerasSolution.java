@@ -23,7 +23,7 @@ public class ParkingCamerasSolution {
      * time complexity O(n), space complexity O(1)
      * @param cameraRange
      * @param parkingSpaces
-     * @return the minimum number of cameras to
+     * @return the minimum number of cameras to cover the parking spaces
      */
     public static int findMinimumNumberOfCameras(int cameraRange, int[] parkingSpaces) {
 
