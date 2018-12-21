@@ -19,6 +19,7 @@ public class ParkingCamerasTest {
 
         // range = 0 means that the number of cameras is equal to the number of parking spaces.
         assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(0, new int[]{1, 2, 3, 4, 5}), 5);
+        assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(0, new int[]{1}), 1);
 
         // empty parking spaces
         assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(1, new int[]{}), 0);
