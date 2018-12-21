@@ -23,6 +23,14 @@ public class ParkingCamerasTest {
 
         // empty parking spaces
         assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(1, new int[]{}), 0);
+
+        // large array
+        int N = 10000;
+        int[] largeContinuousParking = new int[N];
+        for (int i = 0; i < N; i++) {
+            largeContinuousParking[i] = i;
+        }
+        assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(2, largeContinuousParking), 2000);
     }
 
 }
