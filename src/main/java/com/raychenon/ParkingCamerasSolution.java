@@ -35,6 +35,8 @@ public class ParkingCamerasSolution {
             if (currentIndex > 0) {
                 currentToPreviousSpace = parkingSpaces[currentIndex] - parkingSpaces[currentIndex - 1];
             }
+            // at the last index, count the missing camera to close the coverage
+            // note : handle when the array is empty
             if (currentIndex == parkingSpaces.length - 1) {
                 numberOfCameras++;
             }
@@ -48,8 +50,10 @@ public class ParkingCamerasSolution {
             //    |-----------------------------------|
             //             *coveredParkingSpace*
             // After P2, reset the coveredParkingSpace .
-            if ((currentToPreviousSpace <= cameraRange) &&
-                    ((coveredParkingSpace + currentToPreviousSpace) <= (2 * cameraRange))) {
+            if (( cameraRange >= currentToPreviousSpace) &&
+                    ((2 * cameraRange) >= (coveredParkingSpace + currentToPreviousSpace))) {
+                // The trick to avoid an inner loop ( thus quadratic run time) is to accumulate the space
+                // between the last known camera position and the current index : in variable 'coveredParkingSpace'
                 coveredParkingSpace = coveredParkingSpace + currentToPreviousSpace;
             } else {
                 numberOfCameras++;
