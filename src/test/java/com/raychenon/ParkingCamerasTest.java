@@ -16,6 +16,12 @@ public class ParkingCamerasTest {
         //  REMEMBER that camera can only be installed on top of an existing parking space.
         assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(10, new int[] { 10, 19, 30}), 2);
         assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(10, new int[] { 10, 20, 30}), 1);
+        
+        // range = 0 means that the number of cameras is equal to the number of parking spaces.
+        assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(0, new int[] { 1, 2, 3,4,5}), 5);
+
+        // empty parking spaces
+        assertEquals(ParkingCamerasSolution.findMinimumNumberOfCameras(1, new int[] { }), 0);
     }
 
 }
