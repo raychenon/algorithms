@@ -1,4 +1,4 @@
-package com.raychenon.codility;
+package com.raychenon.hackerrank;
 
 /**
  * https://www.hackerrank.com/tests/3majmoden4d/questions/a1pngfq2k73
