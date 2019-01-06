@@ -29,18 +29,18 @@ public class Brackets {
         if (S.isEmpty()) return true;
         if (S.length() % 2 == 1) return false;  // cannot have an odd number
 
-        Map<Character, Character> closing2OpeningCharMap = new HashMap<Character, Character>();
-        closing2OpeningCharMap.put('}', '{');
-        closing2OpeningCharMap.put(')', '(');
-        closing2OpeningCharMap.put(']', '[');
-        closing2OpeningCharMap.put('>', '<');
+        Map<Character, Character> closingToOpeningCharMap = new HashMap<Character, Character>();
+        closingToOpeningCharMap.put('}', '{');
+        closingToOpeningCharMap.put(')', '(');
+        closingToOpeningCharMap.put(']', '[');
+        closingToOpeningCharMap.put('>', '<');
 
         Set<Character> openingSet = new HashSet<Character>(Arrays.asList('(', '{', '[', '<'));
 
         Stack<Character> stack = new Stack<Character>();
         for (Character c : S.toCharArray()) {
-            if (closing2OpeningCharMap.containsKey(c)) {
-                if (!stack.isEmpty() && closing2OpeningCharMap.get(c) == stack.peek()) {
+            if (closingToOpeningCharMap.containsKey(c)) {
+                if (!stack.isEmpty() && closingToOpeningCharMap.get(c) == stack.peek()) {
                     stack.pop();
                 } else {
                     return false;
