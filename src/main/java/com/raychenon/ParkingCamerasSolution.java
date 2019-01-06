@@ -1,5 +1,8 @@
 package com.raychenon;
 
+/**
+ * https://docs.google.com/document/d/12UMQ9bBb_sDu-cz8-pVsv-PRvXl08ibNfc0yTM32USo/edit#heading=h.e189oszewkho
+ */
 public class ParkingCamerasSolution {
 
     public static void main(String[] args) {
