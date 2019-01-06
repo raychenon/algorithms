@@ -12,24 +12,24 @@ import java.util.*
 object BracketsKotlin {
 
     fun hasBalancedBrackets(str: String) : Boolean {
+        if(str.isEmpty()) return true
+        
         val map = mapOf(']' to '[','}' to '{',')' to '(','>' to '<')
         val openingSet = setOf('[','{','(','<')
 
         val stack = Stack<Char>()
-        for(i in 0..str.length-1){
-            val c = str[i]
+        for((index,c) in str.withIndex()){
             if(openingSet.contains(c)){
                 stack.push(c)
             }
 
             if(map.containsKey(c)){
-                if(stack.isEmpty() && map.get(c) == stack.peek()){
+                if(map.getValue(c) == stack.peek() && !stack.isEmpty()){
                     stack.pop()
-                }else{
+                } else{
                     return false
                 }
             }
-            print("$i stack $stack \n")
         }
 
         return stack.isEmpty()

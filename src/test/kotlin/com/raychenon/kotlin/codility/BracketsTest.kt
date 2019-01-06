@@ -7,7 +7,9 @@ class BracketsTest {
 
     @Test
     fun evaluateBrackets(){
-       
+        Assert.assertEquals(BracketsKotlin.hasBalancedBrackets(""), true)
+
+        Assert.assertEquals(BracketsKotlin.hasBalancedBrackets("{}"),true)
         Assert.assertEquals(BracketsKotlin.hasBalancedBrackets("{[()()]}"),true)
 
         Assert.assertEquals(BracketsKotlin.hasBalancedBrackets("([)>>()]"), false)
@@ -16,6 +18,7 @@ class BracketsTest {
         Assert.assertEquals(BracketsKotlin.hasBalancedBrackets("{[()<>()]}"), true)
         // can contain other characters
         Assert.assertEquals(BracketsKotlin.hasBalancedBrackets("{an}"), true)
+        Assert.assertEquals(BracketsKotlin.hasBalancedBrackets("{any}"), true)
     }
 
 }
