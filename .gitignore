@@ -1,5 +1,4 @@
 last-build.bin
 .gradle/
 .idea
-gradle/wrapper
 out
