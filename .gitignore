@@ -2,3 +2,6 @@ last-build.bin
 .gradle/
 .idea
 out
+build/kotlin
+build/classes
+build
