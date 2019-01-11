@@ -28,6 +28,9 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+subprojects {
+    test.useTestNG()
+}
 
 task codeCoverageReport(type: JacocoReport) {
     executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
