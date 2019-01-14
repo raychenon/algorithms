@@ -22,5 +22,7 @@ class AVeryBigSumTest {
         Assert.assertEquals(AVeryBigSumKotlin.aVeryBigSum(LongArray(100){i -> 1}.toTypedArray()), 100)
 
         Assert.assertEquals(AVeryBigSumKotlin.aVeryBigSum(LongArray(100){i -> 2}.toTypedArray()), 200)
+        
+        Assert.assertEquals(AVeryBigSumKotlin.aVeryBigSum(LongArray(100){i -> i.toLong() * 2}.toTypedArray()), 9900)
     }
 }
