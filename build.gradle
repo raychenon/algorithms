@@ -37,6 +37,24 @@ subprojects {
     test.useTestNG()
 }
 
+task codeCoverageReport(type: JacocoReport) {
+    sourceDirectories = files(subprojects.sourceSets.main.allSource.srcDirs)
+    classDirectories = files(subprojects.sourceSets.main.output)
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+
+    subprojects.each {
+        sourceSets it.sourceSets.main
+    }
+
+    reports {
+        xml.enabled true
+        xml.setDestination(file("${buildDir}/reports/jacoco/report.xml"))
+        html.enabled false
+        csv.enabled false
+    }
+}
+
+
 jacocoTestReport {
     reports {
         xml.enabled true
@@ -45,8 +63,5 @@ jacocoTestReport {
     }
 }
 
-jacocoTestReport.dependsOn {
-    subprojects*.test
-}
-
 check.dependsOn jacocoTestReport
+check.dependsOn codeCoverageReport
