@@ -34,4 +34,5 @@ jobs:
       # run tests!
       - run: gradle test
       - run: gradle check
-      - run: gradle jacocoTestReport
+      # run coverage report
+      - run: gradle codeCoverageReport
