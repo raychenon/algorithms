@@ -1,3 +1,4 @@
+
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.3.0'
@@ -41,7 +42,7 @@ task codeCoverageReport(type: JacocoReport) {
     sourceDirectories = files(subprojects.sourceSets.main.allSource.srcDirs)
     classDirectories = files(subprojects.sourceSets.main.output)
     executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
-    
+
     subprojects.each {
         sourceSets it.sourceSets.main
     }
@@ -57,3 +58,13 @@ task codeCoverageReport(type: JacocoReport) {
 codeCoverageReport.dependsOn {
     subprojects*.test
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
+check.dependsOn codeCoverageReport
