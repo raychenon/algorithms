@@ -58,4 +58,12 @@ codeCoverageReport.dependsOn {
     subprojects*.test
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
 check.dependsOn codeCoverageReport
