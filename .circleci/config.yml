@@ -9,7 +9,6 @@ jobs:
     docker:
       - image: circleci/openjdk:8-jdk
 
-
     environment:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
@@ -34,6 +33,5 @@ jobs:
 
       # run tests!
       - run: gradle test
-
-
-
+      - run: gradle check
+      - run: gradle jacocoTestReport
