@@ -3,7 +3,7 @@ package com.raychenon.hackerrank;
 /**
  * https://www.hackerrank.com/tests/3majmoden4d/questions/a1pngfq2k73
  */
-public class MergeStrings {
+public final class MergeStrings {
     
     static String mergeStrings(String a, String b) {
 
