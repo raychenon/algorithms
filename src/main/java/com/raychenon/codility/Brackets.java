@@ -10,14 +10,7 @@ import java.util.*;
  * https://codility.com/programmers/task/brackets/
  */
 public class Brackets {
-
-    public static void main(String[] args) {
-        List<String> seq = Arrays.asList("{[()()]}", "([)>>()]", "{[()<>()]}", "{[()<ab>()]}");
-        for(String s : seq) {
-            System.out.println("String  = " + s + " , " + hasBalancedBrackets(s) );
-        }
-    }
-
+    
 
     /**
      * the main idea is for any opening characters (,{,[,<  must be followed
@@ -26,8 +19,7 @@ public class Brackets {
      * @return boolean , whether the string S contains balanced brackets
      */
     public static boolean hasBalancedBrackets(String S) {
-        if (S.isEmpty()) return true;
-        if (S.length() % 2 == 1) return false;  // cannot have an odd number
+        if (S == null || S.isEmpty()) return true;
 
         Map<Character, Character> closingToOpeningCharMap = new HashMap<Character, Character>();
         closingToOpeningCharMap.put('}', '{');

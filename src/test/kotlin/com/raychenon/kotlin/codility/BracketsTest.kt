@@ -21,4 +21,12 @@ class BracketsTest {
         Assert.assertEquals(BracketsKotlin.hasBalancedBrackets("{any}"), true)
     }
 
+
+    @Test
+    fun evaluateEmptyBrackets(){
+        Assert.assertEquals(BracketsKotlin.hasBalancedBrackets(""), true)
+        val nullString: String? = null
+        Assert.assertEquals(BracketsKotlin.hasBalancedBrackets(nullString!!),true)
+    }
+
 }
