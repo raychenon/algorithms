@@ -22,4 +22,18 @@ public class BracketsTest {
         // can contain other characters
         assertEquals(Brackets.hasBalancedBrackets("{an}"), true);
     }
+
+    @Test
+    public void assertEmptyBracketsSolution() {
+
+        assertEquals(Brackets.hasBalancedBrackets(""), true);
+        assertEquals(Brackets.hasBalancedBrackets(null), true);
+    }
+
+    @Test
+    public void assertOneSidedBracketsSolution() {
+
+        assertEquals(Brackets.hasBalancedBrackets("{["), false);
+        assertEquals(Brackets.hasBalancedBrackets("{"), false);
+    }
 }

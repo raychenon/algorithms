@@ -3,14 +3,8 @@ package com.raychenon.hackerrank;
 /**
  * https://www.hackerrank.com/tests/3majmoden4d/questions/a1pngfq2k73
  */
-public class MergeStrings {
-
-
-    public static void main(String[] args) {
-        System.out.println("mergeStrings " + mergeStrings("abc", "def") + "  expected adbecf");
-        System.out.println("mergeStrings " + mergeStrings("ab", "zsd") + "  expected azbsd");
-    }
-
+public final class MergeStrings {
+    
     static String mergeStrings(String a, String b) {
 
         StringBuffer mergedString = new StringBuffer();

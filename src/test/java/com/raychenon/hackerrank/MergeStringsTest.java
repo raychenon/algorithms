@@ -12,4 +12,11 @@ public class MergeStringsTest {
         assertEquals(MergeStrings.mergeStrings("ab", "zsd"), "azbsd");
     }
 
+    @Test
+    public void assertMergeStrings_1char() {
+
+        assertEquals(MergeStrings.mergeStrings("a", "b"), "ab");
+        assertEquals(MergeStrings.mergeStrings("a", "bc"), "abc");
+        assertEquals(MergeStrings.mergeStrings("ac", "b"), "abc");
+    }
 }

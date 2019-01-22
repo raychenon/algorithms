@@ -25,4 +25,10 @@ class AVeryBigSumTest {
         
         Assert.assertEquals(AVeryBigSumKotlin.aVeryBigSum(LongArray(100){i -> i.toLong() * 2}.toTypedArray()), 9900)
     }
+
+    @Test
+    fun evaluateEmptyArraySums(){
+        Assert.assertEquals(AVeryBigSumKotlin.aVeryBigSum(emptyArray<Long>()), 0)
+        Assert.assertEquals(AVeryBigSumKotlin.aVeryBigSum(LongArray(0).toTypedArray()), 0)
+    }
 }
