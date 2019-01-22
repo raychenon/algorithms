@@ -32,7 +32,7 @@ public class Brackets {
         Stack<Character> stack = new Stack<Character>();
         for (Character c : S.toCharArray()) {
             if (closingToOpeningCharMap.containsKey(c)) {
-                if (!stack.isEmpty() && closingToOpeningCharMap.get(c) == stack.peek()) {
+                if (closingToOpeningCharMap.get(c) == stack.peek()) {
                     stack.pop();
                 } else {
                     return false;

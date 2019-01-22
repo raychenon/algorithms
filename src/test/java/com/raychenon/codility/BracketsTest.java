@@ -29,4 +29,11 @@ public class BracketsTest {
         assertEquals(Brackets.hasBalancedBrackets(""), true);
         assertEquals(Brackets.hasBalancedBrackets(null), true);
     }
+
+    @Test
+    public void assertOneSidedBracketsSolution() {
+
+        assertEquals(Brackets.hasBalancedBrackets("{["), false);
+        assertEquals(Brackets.hasBalancedBrackets("{"), false);
+    }
 }
