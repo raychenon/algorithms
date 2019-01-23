@@ -37,4 +37,9 @@ class RansomNoteTest {
             arrayOf<String>()),"No")
     }
 
+    @Test
+    fun evaluteRansomBiggerThanMagazine(){
+        Assert.assertEquals(checkMagazine(arrayOf<String>(),
+            arrayOf("a","b","c")),"No")
+    }
 }
