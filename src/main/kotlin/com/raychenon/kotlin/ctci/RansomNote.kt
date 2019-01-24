@@ -6,6 +6,19 @@ package com.raychenon.kotlin.ctci
  * https://www.hackerrank.com/challenges/ctci-ransom-note/problem
  */
 
+/**
+ *
+ * The main idea is that in order to create ransom note from a magazine,
+ * all the string in Note must contained in the Magazine.
+ *
+ * All string of Note are decremented from Magazine.
+ * Note is first converted into a Map of frequency by string to be timely efficient for a string search.
+ *
+ * M is the size of Magazine
+ * N is the size of Note
+ * time complexity : O(n) = O(M+N)
+ * space complexity : O(N)
+ */
 public fun checkMagazine(magazine: Array<String>, note: Array<String>): Boolean {
     if (magazine.size < note.size){
         return false
