@@ -15,17 +15,16 @@ public fun checkMagazine(magazine: Array<String>, note: Array<String>): Boolean 
     for(n in note){
         noteMap.put(n,noteMap.getOrDefault(n,0) + 1)
     }
-
     for(m in magazine){
         if(noteMap.containsKey(m)){
             noteMap.put(m,noteMap.getValue(m)-1)
             if(noteMap.getValue(m) == 0){
                 noteMap.remove(m)
             }
+        }
 
-            if(noteMap.size == 0){
-                return true
-            }
+        if(noteMap.size == 0){
+            return true
         }
     }
 

@@ -36,6 +36,12 @@ public class RansomNoteTest {
     }
 
     @Test
+    public void evaluateRansom_NoteIsEmpty(){
+        assertEquals(RansomNote.checkMagazine(new String[]{"any"},
+                new String[]{}), true);
+    }
+
+    @Test
     public void evaluateRansomBiggerThanMagazine(){
         assertEquals(RansomNote.checkMagazine(new String[]{},
                 new String[]{"a","b","c"}), false);

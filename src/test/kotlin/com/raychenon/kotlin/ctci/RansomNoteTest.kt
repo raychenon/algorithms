@@ -35,9 +35,9 @@ class RansomNoteTest {
     }
     
     @Test
-    fun evaluateRansomEmpty(){
+    fun evaluateRansom_NoteIsEmpty(){
         Assert.assertEquals(checkMagazine(arrayOf("any"),
-            arrayOf<String>()),false)
+            arrayOf<String>()),true)
     }
 
     @Test
