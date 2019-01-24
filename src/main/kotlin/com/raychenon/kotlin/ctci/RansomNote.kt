@@ -6,9 +6,9 @@ package com.raychenon.kotlin.ctci
  * https://www.hackerrank.com/challenges/ctci-ransom-note/problem
  */
 
-public fun checkMagazine(magazine: Array<String>, note: Array<String>): String {
+public fun checkMagazine(magazine: Array<String>, note: Array<String>): Boolean {
     if (magazine.size < note.size){
-        return "No"
+        return false
     }
 
     val noteMap = mutableMapOf<String,Int>()
@@ -24,10 +24,10 @@ public fun checkMagazine(magazine: Array<String>, note: Array<String>): String {
             }
 
             if(noteMap.size == 0){
-                return "Yes"
+                return true
             }
         }
     }
 
-    return "No"
+    return false
 }
