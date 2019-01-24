@@ -12,37 +12,31 @@ import static junit.framework.TestCase.assertEquals;
 public class RansomNoteTest {
 
     @Test
-    public void evaluteRansomValid1() {
+    public void evaluateRansomValid1() {
         assertEquals(RansomNote.checkMagazine(new String[] {"give", "me", "one","grand","today","night"},
                 new String[]{"give", "one","grand","today"} ),true);
     }
 
     @Test
-    public void evaluteRansomValidNoteisEqualToMagazine() {
+    public void evaluateRansomValidNoteisEqualToMagazine() {
         assertEquals(RansomNote.checkMagazine(new String[]{"some"},
                 new String[]{"some"}), true);
     }
 
     @Test
-    public void evaluteRansom2(){
+    public void evaluateRansom2(){
         assertEquals(RansomNote.checkMagazine(new String[]{"two" ,"times", "three", "is", "not", "four"},
                 new String[]{"two" ,"times", "two", "is", "four"}), false);
     }
 
     @Test
-    public void evaluteRansom3(){
+    public void evaluateRansom3(){
         assertEquals(RansomNote.checkMagazine(new String[]{"ive" ,"got", "a", "lovely", "bunch", "of","coconuts"},
                 new String[]{"ive" ,"got", "some", "coconuts"}), false);
     }
 
     @Test
-    public void evaluteRansomEmpty(){
-        assertEquals(RansomNote.checkMagazine(new String[]{"any"},
-                new String[]{}), false);
-    }
-
-    @Test
-    public void evaluteRansomBiggerThanMagazine(){
+    public void evaluateRansomBiggerThanMagazine(){
         assertEquals(RansomNote.checkMagazine(new String[]{},
                 new String[]{"a","b","c"}), false);
     }

@@ -11,37 +11,37 @@ import org.junit.Test
 class RansomNoteTest {
     
     @Test
-    fun evaluteRansom1(){
+    fun evaluateRansom1(){
         Assert.assertEquals(checkMagazine(arrayOf("give", "me", "one","grand","today","night"),
             arrayOf("give", "one","grand","today")),true)
     }
 
     @Test
-    fun evaluteRansom1_1(){
+    fun evaluateRansom1_1(){
         Assert.assertEquals(checkMagazine(arrayOf("some"),
             arrayOf("some")),true)
     }
 
     @Test
-    fun evaluteRansom2(){
+    fun evaluateRansom2(){
         Assert.assertEquals(checkMagazine(arrayOf("two" ,"times", "three", "is", "not", "four"),
             arrayOf("two" ,"times", "two", "is", "four")),false)
     }
 
     @Test
-    fun evaluteRansom3(){
+    fun evaluateRansom3(){
         Assert.assertEquals(checkMagazine(arrayOf("ive" ,"got", "a", "lovely", "bunch", "of","coconuts"),
             arrayOf("ive" ,"got", "some", "coconuts")),false)
     }
     
     @Test
-    fun evaluteRansomEmpty(){
+    fun evaluateRansomEmpty(){
         Assert.assertEquals(checkMagazine(arrayOf("any"),
             arrayOf<String>()),false)
     }
 
     @Test
-    fun evaluteRansomBiggerThanMagazine(){
+    fun evaluateRansomBiggerThanMagazine(){
         Assert.assertEquals(checkMagazine(arrayOf<String>(),
             arrayOf("a","b","c")),false)
     }
