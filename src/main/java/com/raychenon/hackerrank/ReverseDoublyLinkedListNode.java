@@ -14,16 +14,21 @@ public class ReverseDoublyLinkedListNode {
     }
 
     static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
-        DoublyLinkedListNode reverseNode = new DoublyLinkedListNode();
-        DoublyLinkedListNode temp = new DoublyLinkedListNode();
-        while(head.next != null){
-            reverseNode.data = head.data;
-            reverseNode.prev = head.next;
-            temp = reverseNode.prev;
-           
-            reverseNode.next = temp;
+        DoublyLinkedListNode current = head;
+        DoublyLinkedListNode temp = head;
+
+        while(temp != null){
+            DoublyLinkedListNode prev = temp.prev;
+            temp.prev = temp.next;
+            temp.next = prev;
+            current = temp;
+            temp = temp.prev;
+//            temp = current.next;
+//            current.next = temp.prev;
+//            current.prev = temp;
+//            current = current.next;
         }
-        return reverseNode;
+        return current;
     }
 
 }
