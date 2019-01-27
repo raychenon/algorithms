@@ -23,10 +23,6 @@ public class ReverseDoublyLinkedListNode {
             temp.next = prev;
             current = temp;
             temp = temp.prev;
-//            temp = current.next;
-//            current.next = temp.prev;
-//            current.prev = temp;
-//            current = current.next;
         }
         return current;
     }
