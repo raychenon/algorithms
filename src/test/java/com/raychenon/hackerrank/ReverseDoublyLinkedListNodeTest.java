@@ -19,16 +19,23 @@ public class ReverseDoublyLinkedListNodeTest {
     }
 
     @Test
-    public void assertReverseDoublyLinkedListNode() {
+    public void assertReverseEmptyNode() {
 
         ReverseDoublyLinkedListNode.DoublyLinkedListNode node = createLinkedList(1,2,3,4);
         ReverseDoublyLinkedListNode.DoublyLinkedListNode nodeReversed = createLinkedList(4,3,2,1);
         readDoublyLinkedList(node);
         readDoublyLinkedList(nodeReversed);
-        
+
         assertEquals(ReverseDoublyLinkedListNode.reverse(node),
                 nodeReversed
         );
+    }
+
+    @Test
+    public void assertReverseDoublyLinkedListNode() {
+        ReverseDoublyLinkedListNode.DoublyLinkedListNode emptyNode = new ReverseDoublyLinkedListNode.DoublyLinkedListNode();
+        
+        assertEquals(ReverseDoublyLinkedListNode.reverse(emptyNode), emptyNode);
     }
 
     static  ReverseDoublyLinkedListNode.DoublyLinkedListNode createLinkedList(int ... args){
