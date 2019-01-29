@@ -20,6 +20,19 @@ public class ReverseDoublyLinkedListNodeTest {
 
     @Test
     public void assertReverseEmptyNode() {
+        ReverseDoublyLinkedListNode.DoublyLinkedListNode emptyNode = new ReverseDoublyLinkedListNode.DoublyLinkedListNode();
+
+        assertEquals(ReverseDoublyLinkedListNode.reverse(emptyNode), emptyNode);
+    }
+
+    @Test
+    public void assertReverseNodeSize1() {
+        ReverseDoublyLinkedListNode.DoublyLinkedListNode node = createLinkedList(10);
+        assertEquals(ReverseDoublyLinkedListNode.reverse(node), node);
+    }
+    
+    @Test
+    public void assertReverseDoublyLinkedListNode() {
 
         ReverseDoublyLinkedListNode.DoublyLinkedListNode node = createLinkedList(1,2,3,4);
         ReverseDoublyLinkedListNode.DoublyLinkedListNode nodeReversed = createLinkedList(4,3,2,1);
@@ -29,13 +42,6 @@ public class ReverseDoublyLinkedListNodeTest {
         assertEquals(ReverseDoublyLinkedListNode.reverse(node),
                 nodeReversed
         );
-    }
-
-    @Test
-    public void assertReverseDoublyLinkedListNode() {
-        ReverseDoublyLinkedListNode.DoublyLinkedListNode emptyNode = new ReverseDoublyLinkedListNode.DoublyLinkedListNode();
-        
-        assertEquals(ReverseDoublyLinkedListNode.reverse(emptyNode), emptyNode);
     }
 
     static  ReverseDoublyLinkedListNode.DoublyLinkedListNode createLinkedList(int ... args){
