@@ -15,13 +15,13 @@ class DoublyLinkedListNode(
 
 
 fun reverse(llist: DoublyLinkedListNode?): DoublyLinkedListNode? {
-    var temp: DoublyLinkedListNode? = null
+    var temp: DoublyLinkedListNode? = llist
     var current: DoublyLinkedListNode? = llist
 
     while(temp != null){
         var prev: DoublyLinkedListNode? = temp.prev
-        temp?.prev = temp.next
-        temp?.next = prev
+        temp!!.prev = temp.next
+        temp!!.next = prev
         current = temp
         temp = temp.prev
     }

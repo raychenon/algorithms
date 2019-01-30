@@ -12,6 +12,13 @@ class ReverseDoublyLinkedListNodeTest {
 
     @Test
     fun evaluateReserveEmptyNode(){
+        val emptyNode = null
+        Assert.assertEquals(reverse(emptyNode),emptyNode)
+    }
+
+
+    @Test
+    fun evaluateReserveSingleNode(){
         val node = DoublyLinkedListNode(1,null,null)
         Assert.assertEquals(reverse(node),node)
     }
