@@ -1,5 +1,7 @@
 package com.raychenon.hackerrank.heap;
 
+import java.util.PriorityQueue;
+
 /**
  * User: raychenon
  * Date: 1/2/19
@@ -7,10 +9,23 @@ package com.raychenon.hackerrank.heap;
  */
 public class CookiesSweetness {
 
-    static int cookies(int k, int[] A) {
+    static int getNbOperationForCookies(int sweetnessLevelToReach, int[] cookies) {
 
-        // sweetness = (1 * Least sweet cookie) + (2 * 2nd least sweet cookie).
-        
-        return 0;
+        int nbOperations = 0;
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+
+        for(int i=0;i<cookies.length;i++){
+            queue.add(cookies[i]);
+        }
+
+        while(queue.size()>1 && queue.peek() < sweetnessLevelToReach) {
+            int leastSweet = queue.poll();
+            int secondLeastSweet = queue.poll();
+            // sweetness = (1 * Least sweet cookie) + (2 * 2nd least sweet cookie).
+            queue.add(leastSweet + 2*secondLeastSweet);
+            nbOperations++;
+        }
+
+        return (queue.peek() < sweetnessLevelToReach) ? -1 : nbOperations;
     }
 }
