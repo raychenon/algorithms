@@ -8,6 +8,8 @@ package com.raychenon.hackerrank.heap;
 public class CookiesSweetness {
 
     static int cookies(int k, int[] A) {
+
+        // sweetness = (1 * Least sweet cookie) + (2 * 2nd least sweet cookie).
         
         return 0;
     }
