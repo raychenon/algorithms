@@ -24,13 +24,20 @@ public class CookieSweetnessTest {
     }
 
     @Test
-    public void assertEmptyArray(){
+    public void assertEmptyCookie(){
         int[] emptyArr = {};
         assertEquals(CookiesSweetness.getNbOperationForCookies(7,emptyArr),-1);
         assertEquals(CookiesSweetness.getNbOperationForCookies(0,emptyArr),-1);
 
-        int[] singleCookie = {1};
-        assertEquals(CookiesSweetness.getNbOperationForCookies(1,singleCookie),-1);
+    }
+
+    @Test
+    public void assertSingleCookie(){
+        int[] singleCookie1 = {1};
+        assertEquals(CookiesSweetness.getNbOperationForCookies(10,singleCookie1),-1);
+        
+        int[] singleCookie2 = {10};
+        assertEquals(CookiesSweetness.getNbOperationForCookies(5,singleCookie2),0);
     }
     
 }

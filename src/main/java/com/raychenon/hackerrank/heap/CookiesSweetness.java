@@ -11,11 +11,6 @@ public class CookiesSweetness {
 
     static int getNbOperationForCookies(int sweetnessLevelToReach, int[] cookies) {
 
-        // always needs at least 2 cookies
-        if (cookies.length < 2) {
-            return -1;
-        }
-
         int nbOperations = 0;
         // priority queue orders the numbers
         PriorityQueue<Integer> queue = new PriorityQueue<>();
@@ -32,6 +27,11 @@ public class CookiesSweetness {
             nbOperations++;
         }
 
-        return (queue.peek() < sweetnessLevelToReach) ? -1 : nbOperations;
+        int lastCookieSweetness = queue.peek() == null ? -1 : queue.peek();
+        if (lastCookieSweetness < sweetnessLevelToReach) {
+            return -1;
+        } else {
+            return nbOperations;
+        }
     }
 }
