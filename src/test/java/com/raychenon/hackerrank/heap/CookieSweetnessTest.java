@@ -12,13 +12,25 @@ public class CookieSweetnessTest {
 
     @Test
     public void assertNbOperations4Cookie(){
-        int[] arr = {1,2,3,9,10,12};
-        assertEquals(CookiesSweetness.getNbOperationForCookies(7,arr),2);
-        
-        // 1 2 3 9 10 12
-         // 8 90 13 47 74 12 89 74 18 38 can any one explain how it come 5 answer
+        int[] orderedArr = {1,2,3,9,10,12};
+        assertEquals(CookiesSweetness.getNbOperationForCookies(7,orderedArr),2);
 
-        int[] arr1 = {13, 47, 74, 12, 89, 74, 18, 38};
-        assertEquals(CookiesSweetness.getNbOperationForCookies(90,arr),5);
+        int[] unorderedArr = {12,3,2,9,10,1};
+        assertEquals(CookiesSweetness.getNbOperationForCookies(7,unorderedArr),2);
+        
+
+        int[] biggerArr = {13, 47, 74, 12, 89, 74, 18, 38};
+        assertEquals(CookiesSweetness.getNbOperationForCookies(90,biggerArr),5);
     }
+
+    @Test
+    public void assertEmptyArray(){
+        int[] emptyArr = {};
+        assertEquals(CookiesSweetness.getNbOperationForCookies(7,emptyArr),-1);
+        assertEquals(CookiesSweetness.getNbOperationForCookies(0,emptyArr),-1);
+
+        int[] singleCookie = {1};
+        assertEquals(CookiesSweetness.getNbOperationForCookies(1,singleCookie),-1);
+    }
+    
 }
