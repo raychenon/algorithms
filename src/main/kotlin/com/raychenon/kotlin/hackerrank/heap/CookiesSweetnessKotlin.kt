@@ -9,6 +9,10 @@ import java.util.*
  */
 object CookiesSweetnessKotlin {
 
+    /**
+     * time complexity : O(n)
+     * space complexity : O(n)
+     */
     fun cookies(sweetnessLevelTarget: Int, cookies: Array<Int>): Int {
 
         var nbOperations: Int = 0
