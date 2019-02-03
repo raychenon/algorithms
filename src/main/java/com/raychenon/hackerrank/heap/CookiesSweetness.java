@@ -9,6 +9,14 @@ import java.util.PriorityQueue;
  */
 public class CookiesSweetness {
 
+    /**
+     *
+     * time complexity : O(n)
+     * space complexity : O(n)
+     * @param sweetnessLevelToReach
+     * @param cookies
+     * @return number of operations
+     */
     static int getNbOperationForCookies(int sweetnessLevelToReach, int[] cookies) {
 
         int nbOperations = 0;
