@@ -32,7 +32,7 @@ class CookiesSweetnessTest {
 
     @Test
     fun assertSingleCookie() {
-        Assert.assertEquals(CookiesSweetnessKotlin.cookies(7, Array(1) { 0 } ), -1)
-        Assert.assertEquals(CookiesSweetnessKotlin.cookies(5,  Array(1) { 5 } ), 0)
+        Assert.assertEquals(CookiesSweetnessKotlin.cookies(7, Array(1) { 0 }), -1)
+        Assert.assertEquals(CookiesSweetnessKotlin.cookies(5, Array(1) { 5 }), 0)
     }
 }

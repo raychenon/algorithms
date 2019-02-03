@@ -18,11 +18,11 @@ object CookiesSweetnessKotlin {
         var nbOperations: Int = 0
         val queue = PriorityQueue<Int>()
 
-        for (cookie in cookies){
+        for (cookie in cookies) {
             queue.add(cookie)
         }
 
-        while(queue.size > 1 && queue.peek() < sweetnessLevelTarget){
+        while (queue.size > 1 && queue.peek() < sweetnessLevelTarget) {
 
             val leastSweet = queue.poll()
             val secondLeastSweet = queue.poll()
@@ -33,10 +33,10 @@ object CookiesSweetnessKotlin {
             nbOperations++
         }
 
-        
-        if(queue.peek() != null && queue.peek()!! >= sweetnessLevelTarget ){
+
+        if (queue.peek() != null && queue.peek()!! >= sweetnessLevelTarget) {
             return nbOperations
-        }else {
+        } else {
             return -1
         }
     }
