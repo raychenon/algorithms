@@ -34,7 +34,8 @@ object CookiesSweetnessKotlin {
         }
 
 
-        if (queue.peek() != null && queue.peek()!! >= sweetnessLevelTarget) {
+        val lastSweetLevel = queue?.peek() ?: return -1
+        if (lastSweetLevel >= sweetnessLevelTarget) {
             return nbOperations
         } else {
             return -1
