@@ -12,6 +12,16 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class TreePostorderTraversalTest {
 
+
+    @Test
+    public void assertEmptyTreePostorderTraversal() {
+
+        Node nullNode = null;
+        StringBuilder outContent = TreePostorderTraversal.postOrderStr(nullNode);
+        assertEquals("", outContent.toString());
+    }
+
+
     @Test
     public void assertSingleTreePostorderTraversal() {
 

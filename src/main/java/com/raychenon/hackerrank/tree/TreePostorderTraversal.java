@@ -28,7 +28,7 @@ public class TreePostorderTraversal {
      */
     private static StringBuilder postOrderStr(Node root, StringBuilder str) {
         if(root == null){
-            return str.append("/");
+            return str.append("");
         }
 
         //   1. Traverse the left subtree, i.e., call Postorder(left-subtree)
@@ -45,31 +45,4 @@ public class TreePostorderTraversal {
     }
 
 
-}
-
-
-class Node {
-    int data;
-    Node left;
-    Node right;
-
-    public Node(int data){
-        this.data = data;
-    }
-
-    public Node insert(Node root, int data){
-        if(root == null) {
-            return new Node(data);
-        } else {
-            Node cur;
-            if(data <= root.data) {
-                cur = insert(root.left, data);
-                root.left = cur;
-            } else {
-                cur = insert(root.right, data);
-                root.right = cur;
-            }
-            return root;
-        }
-    }
 }
