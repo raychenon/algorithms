@@ -1,5 +1,7 @@
 package com.raychenon.hackerrank.tree;
 
+import java.util.List;
+
 /**
  * User: raychenon
  * Date: 6/2/19
@@ -8,24 +10,53 @@ package com.raychenon.hackerrank.tree;
 public class TreePostorderTraversal {
 
     public static void postOrder(Node root) {
+        System.out.print(postOrderStr(root).toString());
+    }
+
+    public static StringBuilder postOrderStr(Node root) {
+        StringBuilder str = new StringBuilder();
+        postOrderStr(root,str);
+        return str;
+    }
+
+
+    /**
+     * time complexity : O(n)
+     * space complexity : O(1)
+     * @param root
+     */
+    private static StringBuilder postOrderStr(Node root, StringBuilder str) {
         if(root == null){
-            return;
+            return str.append("/");
         }
 
         //   1. Traverse the left subtree, i.e., call Postorder(left-subtree)
         if (root.left != null){
-            postOrder(root.left);
+            postOrderStr(root.left,str);
         }
         //   2. Traverse the right subtree, i.e., call Postorder(right-subtree)
         if(root.right != null){
-            postOrder(root.right);
+            postOrderStr(root.right,str);
         }
         //   3. Visit the root.
 
-        System.out.print(String.format("%d ",root.data));
+        return str.append(String.format("%d ",root.data));
     }
 
-    public static Node insert(Node root, int data){
+
+}
+
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    public Node(int data){
+        this.data = data;
+    }
+
+    public Node insert(Node root, int data){
         if(root == null) {
             return new Node(data);
         } else {
@@ -39,17 +70,5 @@ public class TreePostorderTraversal {
             }
             return root;
         }
-    }
-
-}
-
-
-class Node {
-    int data;
-    Node left;
-    Node right;
-
-    public Node(int data){
-        this.data = data;
     }
 }
