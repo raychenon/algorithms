@@ -9,16 +9,17 @@ import java.util.List;
  */
 public class TreePostorderTraversal {
 
-    public static void postOrder(Node root) {
-        System.out.print(postOrderStr(root).toString());
-    }
+    // IGNORE for codecov.io
+//    public static void postOrder(Node root) {
+//        System.out.print(postOrderStr(root).toString());
+//    }
 
+    // easier to test with a String out with Junit
     public static StringBuilder postOrderStr(Node root) {
         StringBuilder str = new StringBuilder();
         postOrderStr(root,str);
         return str;
     }
-
 
     /**
      * time complexity : O(n)
