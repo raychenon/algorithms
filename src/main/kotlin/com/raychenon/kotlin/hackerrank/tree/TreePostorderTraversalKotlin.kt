@@ -52,13 +52,9 @@ object TreePostorderTraversalKotlin {
                 nextNode = temp
             } else {
 
-                temp?.right?.let {
-                    stack.push(temp?.right)
-                }
-                
-                temp?.left?.let {
-                    stack.push(temp?.left)
-                }
+                temp?.right?.let { stack.push(temp?.right) }
+
+                temp?.left?.let { stack.push(temp?.left) }
             }
         }
 
