@@ -60,8 +60,9 @@ class TreePostorderTraversalTest {
         assertNode("2 6 5 4 9 8 12 11 10 13 7 3 15 14 1 ", node)
     }
 
-    fun assertNode(expectedValue: String, node: Node?): Unit{
-        Assert.assertEquals(expectedValue,TreePostorderTraversalKotlin.postOrderRecursive(node).toString())
+    fun assertNode(expectedValue: String, node: Node?): Unit {
+        Assert.assertEquals(expectedValue, TreePostorderTraversalKotlin.postOrderRecursive(node).toString())
+        Assert.assertEquals(expectedValue, TreePostorderTraversalKotlin.postOrderIterative(node).toString())
     }
 
 }

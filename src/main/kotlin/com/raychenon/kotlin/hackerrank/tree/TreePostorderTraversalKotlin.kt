@@ -1,5 +1,7 @@
 package com.raychenon.kotlin.hackerrank.tree
 
+import java.util.*
+
 
 /**
  * User: raychenon
@@ -28,5 +30,36 @@ object TreePostorderTraversalKotlin {
         //   3. Visit the root.
 
         return str.append(String.format("%d ", root!!.data))
+    }
+
+
+    fun postOrderIterative(root: Node?): StringBuilder {
+        val stack = Stack<Node>()
+        stack.push(root)
+        var temp = root
+        var nextNode = root
+
+        val postOrderList = mutableListOf<Node>()
+
+        while (!stack.isEmpty() && temp != null) {
+            temp = stack.peek()
+
+            if ((temp?.left == null && temp?.right == null) || (nextNode == temp?.left || nextNode == temp?.right)) {
+                postOrderList.add(temp)
+                stack.pop()
+                nextNode = temp
+            } else {
+
+                temp?.right?.let { stack.push(temp?.right) }
+                temp?.left?.let { stack.push(temp?.left) }
+            }
+        }
+
+        val str = StringBuilder()
+        for (node in postOrderList) {
+            str.append(String.format("%d ", node!!.data))
+        }
+
+        return str
     }
 }
