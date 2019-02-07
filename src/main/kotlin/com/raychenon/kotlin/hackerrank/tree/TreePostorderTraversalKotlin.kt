@@ -27,6 +27,6 @@ object TreePostorderTraversalKotlin {
         
         //   3. Visit the root.
         
-        return str
+        return str.append(String.format("%d ", root!!.data))
     }
 }
