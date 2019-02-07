@@ -25,7 +25,7 @@ public class TreePostorderTraversal {
 
     /**
      * time complexity : O(n)
-     * space complexity : O(1)
+     * space complexity : O(h) where h is the Tree's height. A stack is formed from previous recursive call
      *
      * @param root
      */
@@ -47,6 +47,13 @@ public class TreePostorderTraversal {
         return str.append(String.format("%d ", root.data));
     }
 
+    /**
+     * time complexity : O(n)
+     * space complexity : O(h) for the Stack where h is the height of the Tree
+     *      + O(n) for the List. List is optional
+     * @param root
+     * @return
+     */
     public static StringBuilder postOrderIterative(Node root) {
         Node t = root;
         Stack<Node> stack = new Stack<>();

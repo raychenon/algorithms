@@ -16,6 +16,10 @@ object TreePostorderTraversalKotlin {
         return str
     }
 
+    /**
+     * time complexity : O(n)
+     * space complexity : O(h) where h is the Tree's height. A stack is formed from previous recursive call
+     */
     fun postOrderRecursive(root: Node?, str: StringBuilder): StringBuilder {
         if (root == null) {
             return str.append("")
@@ -33,6 +37,10 @@ object TreePostorderTraversalKotlin {
     }
 
 
+    /**
+     * time complexity : O(n)
+     * space complexity : O(h) for the Stack where h is the height of the Tree
+     */
     fun postOrderIterative(root: Node?): StringBuilder {
         val stack = Stack<Node>()
         stack.push(root)
