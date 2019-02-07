@@ -44,14 +44,21 @@ object TreePostorderTraversalKotlin {
         while (!stack.isEmpty() && temp != null) {
             temp = stack.peek()
 
-            if ((temp?.left == null && temp?.right == null) || (nextNode == temp?.left || nextNode == temp?.right)) {
+            if ((temp?.left == null && temp?.right == null)
+                || (nextNode == temp?.left || nextNode == temp?.right)
+            ) {
                 postOrderList.add(temp)
                 stack.pop()
                 nextNode = temp
             } else {
 
-                temp?.right?.let { stack.push(temp?.right) }
-                temp?.left?.let { stack.push(temp?.left) }
+                temp?.right?.let {
+                    stack.push(temp?.right)
+                }
+                
+                temp?.left?.let {
+                    stack.push(temp?.left)
+                }
             }
         }
 
