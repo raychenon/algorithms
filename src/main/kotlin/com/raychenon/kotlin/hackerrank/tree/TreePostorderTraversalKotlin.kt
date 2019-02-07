@@ -44,25 +44,25 @@ object TreePostorderTraversalKotlin {
     fun postOrderIterative(root: Node?): StringBuilder {
         val stack = Stack<Node>()
         stack.push(root)
-        var temp = root
-        var nextNode = root
+        var parentNode = root
+        var childeNode = root
 
         val postOrderList = mutableListOf<Node>()
 
-        while (!stack.isEmpty() && temp != null) {
-            temp = stack.peek()
+        while (!stack.isEmpty() && parentNode != null) {
+            parentNode = stack.peek()
 
-            if ((temp?.left == null && temp?.right == null)
-                || (nextNode == temp?.left || nextNode == temp?.right)
+            if ((parentNode?.left == null && parentNode?.right == null)
+                || (childeNode == parentNode?.left || childeNode == parentNode?.right)
             ) {
-                postOrderList.add(temp)
+                postOrderList.add(parentNode)
                 stack.pop()
-                nextNode = temp
+                childeNode = parentNode
             } else {
 
-                temp?.right?.let { stack.push(temp?.right) }
+                parentNode?.right?.let { stack.push(parentNode?.right) }
 
-                temp?.left?.let { stack.push(temp?.left) }
+                parentNode?.left?.let { stack.push(parentNode?.left) }
             }
         }
 
