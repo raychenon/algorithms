@@ -15,8 +15,8 @@ object TreePostorderTraversalKotlin {
     }
 
     fun postOrderRecursive(root: Node?, str: StringBuilder): StringBuilder {
-        if(root == null){
-            str.append("")
+        if (root == null) {
+            return str.append("")
         }
 
         //   1. Traverse the left subtree, i.e., call Postorder(left-subtree)
@@ -24,9 +24,9 @@ object TreePostorderTraversalKotlin {
 
         //   2. Traverse the right subtree, i.e., call Postorder(right-subtree)
         root?.right?.let { postOrderRecursive(it, str) }
-        
+
         //   3. Visit the root.
-        
+
         return str.append(String.format("%d ", root!!.data))
     }
 }
