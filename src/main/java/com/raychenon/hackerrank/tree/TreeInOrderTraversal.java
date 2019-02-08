@@ -8,9 +8,9 @@ package com.raychenon.hackerrank.tree;
 public class TreeInOrderTraversal {
 
 
-    public static void inOrder(Node root) {
-
-    }
+//    public static void inOrder(Node root) {
+//
+//    }
 
     public static StringBuilder inOrderRecursive(Node root) {
         StringBuilder str = new StringBuilder();
@@ -29,17 +29,19 @@ public class TreeInOrderTraversal {
             return str.append("");
         }
 
-        //   1. Traverse the left subtree, i.e., call Postorder(left-subtree)
+        //   1. Traverse the left subtree, i.e., call inOrder(left-subtree)
         if (root.left != null) {
             inOrderRecursive(root.left, str);
         }
-        //   2. Traverse the right subtree, i.e., call Postorder(right-subtree)
+        //   2. Visit the root.
+        str.append(String.format("%d ", root.data));
+
+        //   3. Traverse the right subtree  i.e., call inOrder(right-subtree)
         if (root.right != null) {
             inOrderRecursive(root.right, str);
         }
-        //   3. Visit the root.
 
-        return str.append(String.format("%d ", root.data));
+        return str;
     }
 
 }
