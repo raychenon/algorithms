@@ -12,13 +12,13 @@ import static junit.framework.TestCase.assertEquals;
 public class TreeInOrderTraversalTest {
 
     @Test
-    public void assertEmptyTreePostorderTraversal() {
+    public void assertEmptyTreeInOrderTraversal() {
         Node nullNode = null;
-        assertNode("", nullNode);
+        assertInOrderTraversalNode("", nullNode);
     }
 
 
-    private void assertNode(String expectedValue, Node node) {
+    private void assertInOrderTraversalNode(String expectedValue, Node node) {
         assertEquals(expectedValue, TreeInOrderTraversal.inOrderRecursive(node).toString());
     }
 }
