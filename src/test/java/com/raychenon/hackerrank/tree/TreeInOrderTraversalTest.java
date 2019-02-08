@@ -34,16 +34,16 @@ public class TreeInOrderTraversalTest {
         node.insert(node, 6);
         node.insert(node, 4);
 
-        assertInOrderTraversalNode("4 3 6 5 2 1 ", node);
+        assertInOrderTraversalNode("1 2 3 4 5 6 ", node);
     }
-
+    
+    @Test
     public void assertTreeInOrderTraversal_testcase_2() {
 
         Node node = new Node(1);
-        node.insert(node, 2);
-        node.insert(node, 5);
+        node.insert(node, 14);
         node.insert(node, 3);
-        node.insert(node, 6);
+        node.insert(node, 7);
         node.insert(node, 4);
         node.insert(node, 5);
         node.insert(node, 15);
@@ -62,5 +62,6 @@ public class TreeInOrderTraversalTest {
 
     private void assertInOrderTraversalNode(String expectedValue, Node node) {
         assertEquals(expectedValue, TreeInOrderTraversal.inOrderRecursive(node).toString());
+        assertEquals(expectedValue, TreeInOrderTraversal.inOrderIterative(node).toString());
     }
 }
