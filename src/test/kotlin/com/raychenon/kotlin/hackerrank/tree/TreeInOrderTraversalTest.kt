@@ -26,11 +26,11 @@ class TreeInOrderTraversalTest {
     @Test
     fun assertTreeInOrderTraversal_testcase_0() {
         val node: Node = Node(1)
-        node.insert(node,2)
-        node.insert(node,5)
-        node.insert(node,3)
-        node.insert(node,6)
-        node.insert(node,4)
+        node.insert(node, 2)
+        node.insert(node, 5)
+        node.insert(node, 3)
+        node.insert(node, 6)
+        node.insert(node, 4)
         assertInOrderTravesalTreeNode("1 2 3 4 5 6 ", node)
     }
 
@@ -56,8 +56,8 @@ class TreeInOrderTraversalTest {
         assertInOrderTravesalTreeNode("1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ", node)
     }
 
-
     fun assertInOrderTravesalTreeNode(expectedValue: String, node: Node?): Unit {
         Assert.assertEquals(expectedValue, TreeInOrderTraversalKotlin.inOrderRecursive(node).toString())
+        Assert.assertEquals(expectedValue, TreeInOrderTraversalKotlin.inOrderIterative(node).toString())
     }
 }

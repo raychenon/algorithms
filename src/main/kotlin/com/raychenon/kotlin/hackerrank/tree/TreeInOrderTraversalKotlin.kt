@@ -1,5 +1,7 @@
 package com.raychenon.kotlin.hackerrank.tree
 
+import java.util.*
+
 /**
  * User: raychenon
  * Date: 9/2/19
@@ -33,5 +35,31 @@ object TreeInOrderTraversalKotlin {
 
         return str
     }
-    
+
+    fun inOrderIterative(root: Node?): StringBuilder {
+
+        var current = root
+        val stack = Stack<Node>()
+        val inOderList = mutableListOf<Node>()
+
+        while (current != null || stack.size > 0) {
+            // reach the left most Node
+            while (current != null) {
+                stack.push(current)
+                current = current?.left
+            }
+
+            current = stack.pop()
+            inOderList.add(current)
+            current = current?.right
+        }
+
+        val str = StringBuilder()
+        for (node in inOderList) {
+            str.append("${node.data} ")
+        }
+
+        return str
+    }
+
 }
