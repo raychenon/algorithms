@@ -28,7 +28,7 @@ object TreeInOrderTraversalKotlin {
         root?.left?.let { inOrderRecursive(it, str) }
 
         //   2. Visit the root.
-        str.append(String.format("%d ", root!!.data))
+        str.append("${root.data} ")
 
         //   3. Traverse the right subtree, i.e., call Postorder(right-subtree)
         root?.right?.let { inOrderRecursive(it, str) }

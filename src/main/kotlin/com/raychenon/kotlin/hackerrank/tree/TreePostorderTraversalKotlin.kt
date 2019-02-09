@@ -33,7 +33,7 @@ object TreePostorderTraversalKotlin {
 
         //   3. Visit the root.
 
-        return str.append(String.format("%d ", root!!.data))
+        return str.append("${root.data} ")
     }
 
 
@@ -68,7 +68,7 @@ object TreePostorderTraversalKotlin {
 
         val str = StringBuilder()
         for (node in postOrderList) {
-            str.append(String.format("%d ", node!!.data))
+            str.append("${node.data} ")
         }
 
         return str
