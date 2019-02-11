@@ -61,6 +61,7 @@ class TreePreorderTraversalTest {
     fun assertPreOrderNode(expectedValue: String, node: Node?): Unit {
 
         Assert.assertEquals(expectedValue, TreePreorderTraversalKotlin.preOrderRecursive(node).toString())
+        Assert.assertEquals(expectedValue,TreePreorderTraversalKotlin.preOrderIterative(node).toString())
     }
 
 }

@@ -43,15 +43,39 @@ object TreePreorderTraversalKotlin {
      */
     fun preOrderIterative(root: Node?): StringBuilder {
         val stack = Stack<Node>()
-        stack.push(root)
-        var parentNode = root
-        var childNode = root
+        var currentNode = root
+        var prevNode = root
 
         val preOrderList = mutableListOf<Node>()
 
+        while (currentNode != null || stack.size > 0) {
+
+            if (currentNode?.left != null) {
+                preOrderList.add(currentNode)
+                currentNode = currentNode?.right
+            } else {
+                prevNode = currentNode?.left
+
+                // get the right most
+                while (prevNode?.right != null && prevNode?.right != currentNode) {
+                    prevNode = prevNode?.right
+                }
+
+                if (prevNode?.right == null) {
+                    prevNode?.right = currentNode
+                    preOrderList.add(currentNode!!)
+                    currentNode = currentNode?.left
+                } else {
+                    prevNode?.right = null
+                    currentNode = currentNode?.right
+                }
+            }
+        }
 
         val str = StringBuilder()
-
+        for (node in preOrderList) {
+            str.append("${node.data} ")
+        }
         return str
     }
 }
