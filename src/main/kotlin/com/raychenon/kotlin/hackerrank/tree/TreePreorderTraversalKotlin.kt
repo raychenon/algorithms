@@ -1,5 +1,7 @@
 package com.raychenon.kotlin.hackerrank.tree
 
+import java.util.*
+
 /**
  * User: raychenon
  * Date: 10/2/19
@@ -31,6 +33,24 @@ object TreePreorderTraversalKotlin {
 
         //  3. Traverse the right subtree, i.e., call Preorder(right-subtree)
         root?.right?.let { preOrderRecursive(it, str) }
+
+        return str
+    }
+
+    /**
+     * time complexity : O(n)
+     * space complexity : O(h) for the Stack where h is the height of the Tree
+     */
+    fun preOrderIterative(root: Node?): StringBuilder {
+        val stack = Stack<Node>()
+        stack.push(root)
+        var parentNode = root
+        var childNode = root
+
+        val preOrderList = mutableListOf<Node>()
+
+
+        val str = StringBuilder()
 
         return str
     }
