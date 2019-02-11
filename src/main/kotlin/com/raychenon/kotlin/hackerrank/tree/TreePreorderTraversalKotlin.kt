@@ -37,45 +37,35 @@ object TreePreorderTraversalKotlin {
         return str
     }
 
-    /**
-     * time complexity : O(n)
-     * space complexity : O(h) for the Stack where h is the height of the Tree
-     */
+
     fun preOrderIterative(root: Node?): StringBuilder {
-        val stack = Stack<Node>()
-        var currentNode = root
-        var prevNode = root
-
-        val preOrderList = mutableListOf<Node>()
-
-        while (currentNode != null || stack.size > 0) {
-
-            if (currentNode?.left != null) {
-                preOrderList.add(currentNode)
-                currentNode = currentNode?.right
-            } else {
-                prevNode = currentNode?.left
-
-                // get the right most
-                while (prevNode?.right != null && prevNode?.right != currentNode) {
-                    prevNode = prevNode?.right
-                }
-
-                if (prevNode?.right == null) {
-                    prevNode?.right = currentNode
-                    preOrderList.add(currentNode!!)
-                    currentNode = currentNode?.left
-                } else {
-                    prevNode?.right = null
-                    currentNode = currentNode?.right
-                }
-            }
-        }
-
+        val preOrderList = preOrderIterativeList(root)
         val str = StringBuilder()
         for (node in preOrderList) {
             str.append("${node.data} ")
         }
         return str
+    }
+
+    /**
+     * time complexity : O(n)
+     * space complexity : O(h) for the Stack where h is the height of the Tree
+     */
+    private fun preOrderIterativeList(root: Node?): List<Node> {
+        val stack = Stack<Node>()
+        var currentNode = root
+        val preOrderList = mutableListOf<Node>()
+
+        stack.push(root ?: return preOrderList)
+
+        while (stack.isNotEmpty()) {
+            val currentNode = stack.pop()
+            preOrderList.add(currentNode)
+
+            currentNode.right?.let { stack.push(it) }
+            currentNode.left?.let { stack.push(it) }
+        }
+
+        return preOrderList
     }
 }
