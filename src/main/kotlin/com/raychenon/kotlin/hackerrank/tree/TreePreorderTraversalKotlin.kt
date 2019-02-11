@@ -21,9 +21,6 @@ object TreePreorderTraversalKotlin {
      * space complexity : O(h) where h is the Tree's height. A stack is formed from previous recursive call
      */
     private fun preOrderRecursive(root: Node?, str: StringBuilder): StringBuilder {
-        if (root == null) {
-            return str.append("")
-        }
 
         root?.let {
             //  1. Visit the root.
