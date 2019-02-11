@@ -25,14 +25,16 @@ object TreePreorderTraversalKotlin {
             return str.append("")
         }
 
-        //  1. Visit the root.
-        str.append("${root.data} ")
+        root?.let {
+            //  1. Visit the root.
+            str.append("${root.data} ")
 
-        //  2. Traverse the left subtree, i.e., call Preorder(left-subtree)
-        root?.left?.let { preOrderRecursive(it, str) }
+            //  2. Traverse the left subtree, i.e., call Preorder(left-subtree)
+            preOrderRecursive(root.left, str)
 
-        //  3. Traverse the right subtree, i.e., call Preorder(right-subtree)
-        root?.right?.let { preOrderRecursive(it, str) }
+            //  3. Traverse the right subtree, i.e., call Preorder(right-subtree)
+            preOrderRecursive(root.right, str)
+        }
 
         return str
     }
