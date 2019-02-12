@@ -43,38 +43,40 @@ public class TreePostorderTraversal {
             postOrderRecursive(root.right, str);
         }
         //   3. Visit the root.
-
         return str.append(String.format("%d ", root.data));
     }
 
     /**
      * time complexity : O(n)
      * space complexity : O(h) for the Stack where h is the height of the Tree
-     *      + O(n) for the List. List is optional
+     * + O(n) for the List. List is optional
+     *
      * @param root
      * @return
      */
     public static StringBuilder postOrderIterative(Node root) {
-        Node t = root;
+        Node previousNode = root;
+        Node currentNode = root;
         Stack<Node> stack = new Stack<>();
         stack.push(root);
 
         List<Node> postOrder = new LinkedList<>();
 
-        while (!stack.isEmpty() && root != null) {
-            root = stack.peek();
-            if ((root.left == null && root.right == null)
-                    || (t == root.left || t == root.right)) {
-                postOrder.add(root);
+        while (!stack.isEmpty() && currentNode != null) {
+            currentNode = stack.peek();
+            // the current node itself is the last to be displayed after left and right
+            if ((currentNode.left == null && currentNode.right == null)
+                    || (previousNode == currentNode.left || previousNode == currentNode.right)) {
+                postOrder.add(currentNode);
                 stack.pop();
-                t = root;
+                previousNode = currentNode;
             } else {
-                if (root.right != null) {
-                    stack.push(root.right);
+                if (currentNode.right != null) {
+                    stack.push(currentNode.right);
                 }
 
-                if (root.left != null) {
-                    stack.push(root.left);
+                if (currentNode.left != null) {
+                    stack.push(currentNode.left);
                 }
             }
         }

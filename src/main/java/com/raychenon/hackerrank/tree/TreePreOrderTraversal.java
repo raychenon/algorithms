@@ -47,7 +47,10 @@ public class TreePreOrderTraversal {
         return str;
     }
 
-
+    /**
+     * time complexity : O(n)
+     * space complexity : O(h) for the Stack where h is the height of the Tree
+     */
     private static List<Node> preOrderIterativeList(Node root) {
         Stack<Node> stack = new Stack<>();
         Node currentNode = root;

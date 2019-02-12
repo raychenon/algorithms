@@ -45,7 +45,7 @@ object TreePostorderTraversalKotlin {
         val stack = Stack<Node>()
         stack.push(root)
         var parentNode = root
-        var childeNode = root
+        var childNode = root
 
         val postOrderList = mutableListOf<Node>()
 
@@ -53,11 +53,11 @@ object TreePostorderTraversalKotlin {
             parentNode = stack.peek()
 
             if ((parentNode?.left == null && parentNode?.right == null)
-                || (childeNode == parentNode?.left || childeNode == parentNode?.right)
+                || (childNode == parentNode?.left || childNode == parentNode?.right)
             ) {
                 postOrderList.add(parentNode)
                 stack.pop()
-                childeNode = parentNode
+                childNode = parentNode
             } else {
 
                 parentNode?.right?.let { stack.push(parentNode?.right) }
