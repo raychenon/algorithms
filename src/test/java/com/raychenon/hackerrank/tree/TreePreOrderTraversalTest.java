@@ -61,5 +61,6 @@ public class TreePreOrderTraversalTest {
     
     private void assertPreOrderTraversalNode(String expectedValue, Node node) {
         assertEquals(expectedValue, TreePreOrderTraversal.preOrderRecursive(node).toString());
+        assertEquals(expectedValue, TreePreOrderTraversal.preOrderIterative(node).toString());
     }
 }
