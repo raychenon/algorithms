@@ -3,4 +3,5 @@
 [![codecov](https://codecov.io/gh/raychenon/algorithms/branch/master/graph/badge.svg)](https://codecov.io/gh/raychenon/algorithms)
 
 # Introduction
-A collection of solved problems.
+
+A collection of problems solved in different languages ( Java, Kotlin ).
