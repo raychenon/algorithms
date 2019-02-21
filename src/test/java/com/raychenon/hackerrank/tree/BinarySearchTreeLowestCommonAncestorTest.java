@@ -32,10 +32,29 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         assertLCA(node, 1, 7, node);
     }
 
+
+    @Test
+    public void assertLCA_testcase_1() {
+
+        Node node = new Node(8);
+        node.insert(node, 4);
+        node.insert(node, 9);
+        node.insert(node, 1);
+        node.insert(node, 6);
+        node.insert(node, 2);
+        node.insert(node, 5);
+        node.insert(node, 7);
+        node.insert(node, 3);
+
+        Node node1 = new Node(2);
+
+        assertLCA(node, 2, 3, node1);
+    }
+
     private void assertLCA(Node root, int v1, int v2, Node expectedNode) {
         // recursive
-        assertEquals(expectedNode, BinarySearchTreeLowestCommonAncestor.lca(root, v1, v2));
+        assertEquals(expectedNode.data, BinarySearchTreeLowestCommonAncestor.lca(root, v1, v2).data);
         // iterative
-        assertEquals(expectedNode, BinarySearchTreeLowestCommonAncestor.lcaIterative(root, v1, v2));
+        assertEquals(expectedNode.data, BinarySearchTreeLowestCommonAncestor.lcaIterative(root, v1, v2).data);
     }
 }

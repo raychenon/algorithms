@@ -10,6 +10,8 @@ public class BinarySearchTreeLowestCommonAncestor {
 
     public static Node lca(Node root, int v1, int v2) {
 
+        assert v1 <= v2;
+
         // in binary tree,
         // - the left contains smaller value
         // - the right contains bigger value
