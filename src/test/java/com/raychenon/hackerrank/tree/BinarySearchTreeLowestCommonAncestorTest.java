@@ -12,6 +12,14 @@ import static junit.framework.TestCase.assertEquals;
 public class BinarySearchTreeLowestCommonAncestorTest {
 
     @Test
+    public void assertLCAWhenNodeIsSingle() {
+
+        Node node = new Node(1);
+
+        assertEquals(node, BinarySearchTreeLowestCommonAncestor.lca(node,1,1));
+    }
+
+    @Test
     public void assertLCA_testcase_0() {
 
         Node node = new Node(4);
@@ -21,6 +29,13 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         node.insert(node, 7);
         node.insert(node, 6);
 
-        assertEquals(node, BinarySearchTreeLowestCommonAncestor.lca(node,1,7));
+        assertLCA(node, 1, 7, node);
+    }
+
+    private void assertLCA(Node root, int v1, int v2, Node expectedNode) {
+        // recursive
+        assertEquals(expectedNode, BinarySearchTreeLowestCommonAncestor.lca(root, v1, v2));
+        // iterative
+        assertEquals(expectedNode, BinarySearchTreeLowestCommonAncestor.lcaIterative(root, v1, v2));
     }
 }
