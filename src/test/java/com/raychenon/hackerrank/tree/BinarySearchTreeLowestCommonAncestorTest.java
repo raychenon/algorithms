@@ -16,7 +16,7 @@ public class BinarySearchTreeLowestCommonAncestorTest {
 
         Node node = new Node(1);
 
-        assertEquals(node, BinarySearchTreeLowestCommonAncestor.lca(node,1,1));
+        assertEquals(node, BinarySearchTreeLowestCommonAncestor.lca(node, 1, 1));
     }
 
     @Test
@@ -28,6 +28,12 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         node.insert(node, 1);
         node.insert(node, 7);
         node.insert(node, 6);
+
+        //                   4
+        //                /     \
+        //               2       7
+        //             /   \    /
+        //            1     3  6
 
         assertLCA(node, 1, 7, node);
     }
@@ -47,6 +53,15 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         node.insert(node, 3);
 
         Node node1 = new Node(1);
+        //                  8
+        //                /    \
+        //               4      9
+        //             /   \
+        //            1     6
+        //             \   / \
+        //              2  5  7
+        //               \
+        //                3
 
         assertLCA(node, 2, 3, node1);
     }
@@ -61,6 +76,14 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         node.insert(node, 4);
         node.insert(node, 6);
         node.insert(node, 7);
+
+        //                  5
+        //                /    \
+        //               3      8
+        //             /   \    / \
+        //            2     4  6
+        //                        \
+        //                         7
 
         Node node5 = new Node(5);
 
