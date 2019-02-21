@@ -46,9 +46,27 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         node.insert(node, 7);
         node.insert(node, 3);
 
-        Node node1 = new Node(2);
+        Node node1 = new Node(1);
 
         assertLCA(node, 2, 3, node1);
+    }
+
+    @Test
+    public void assertLCA_testcase_2() {
+
+        Node node = new Node(5);
+        node.insert(node, 3);
+        node.insert(node, 8);
+        node.insert(node, 2);
+        node.insert(node, 4);
+        node.insert(node, 6);
+        node.insert(node, 7);
+
+        Node node5 = new Node(5);
+
+        // NOTE v1 < v2
+        // this input should be inverted, 3,7 instead of 7,3
+        assertLCA(node, 7, 3, node5);
     }
 
     private void assertLCA(Node root, int v1, int v2, Node expectedNode) {

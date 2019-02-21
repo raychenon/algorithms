@@ -10,7 +10,7 @@ public class BinarySearchTreeLowestCommonAncestor {
 
     public static Node lca(Node root, int v1, int v2) {
 
-        assert v1 <= v2;
+        //  assert v1 <= v2;
 
         // in binary tree,
         // - the left contains smaller value
@@ -33,15 +33,13 @@ public class BinarySearchTreeLowestCommonAncestor {
     public static Node lcaIterative(Node root, int v1, int v2) {
 
         Node temp = root;
-        while (true) {
-            if (temp.data < v1 && temp.data < v2) {
-                temp = temp.right;
-            } else if (temp.data > v1 && temp.data > v2) {
-                temp = temp.left;
-            } else {
-                return temp;
-            }
+        while (temp.data < v1 && temp.data < v2) {
+            temp = temp.right;
         }
+        while (temp.data > v1 && temp.data > v2) {
+            temp = temp.left;
+        }
+        return temp;
     }
 
 }
