@@ -22,4 +22,15 @@ object TreeLowestCommonAncestorKotlin {
         return root
     }
 
+    fun lcaIterative(root: Node, v1: Int, v2: Int): Node {
+        var temp = root
+        while (root.data < v1 && root.data < v2) {
+            temp = temp.right!!
+        }
+
+        while (root.data > v1 && root.data > v2) {
+            temp = temp.left!!
+        }
+        return temp
+    }
 }
