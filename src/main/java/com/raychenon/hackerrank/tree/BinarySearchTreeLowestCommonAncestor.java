@@ -33,11 +33,11 @@ public class BinarySearchTreeLowestCommonAncestor {
     public static Node lcaIterative(Node root, int v1, int v2) {
 
         Node temp = root;
-        while (temp.data < v1 && temp.data < v2) {
-            temp = temp.right;
-        }
         while (temp.data > v1 && temp.data > v2) {
             temp = temp.left;
+        }
+        while (temp.data < v1 && temp.data < v2) {
+            temp = temp.right;
         }
         return temp;
     }

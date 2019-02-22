@@ -54,12 +54,12 @@ public class BinarySearchTreeLowestCommonAncestorTest {
 
         Node node1 = new Node(1);
         //                  8
-        //                /    \
-        //               4      9
-        //             /   \
-        //            1     6
-        //             \   / \
-        //              2  5  7
+        //                /   \
+        //               4     9
+        //             /    \
+        //            1      6
+        //             \    / \
+        //              2   5  7
         //               \
         //                3
 
@@ -80,10 +80,10 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         //                  5
         //                /    \
         //               3      8
-        //             /   \    / \
+        //             /   \    / 
         //            2     4  6
-        //                        \
-        //                         7
+        //                       \
+        //                        7
 
         Node node5 = new Node(5);
 
