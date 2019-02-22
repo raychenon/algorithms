@@ -52,7 +52,7 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         node.insert(node, 7);
         node.insert(node, 3);
 
-        Node node1 = new Node(1);
+        Node node4 = new Node(4);
         //                  8
         //                /   \
         //               4     9
@@ -63,7 +63,7 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         //               \
         //                3
 
-        assertLCA(node, 2, 3, node1);
+        assertLCA(node, 2, 5, node4);
     }
 
     @Test

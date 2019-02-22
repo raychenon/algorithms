@@ -38,6 +38,33 @@ class TreeLowestCommonAncestorTest {
     }
 
     @Test
+    fun assertLCA_testcase_1() {
+
+        val node = Node(8)
+        node.insert(node, 4)
+        node.insert(node, 9)
+        node.insert(node, 1)
+        node.insert(node, 6)
+        node.insert(node, 2)
+        node.insert(node, 5)
+        node.insert(node, 7)
+        node.insert(node, 3)
+
+        val node4 = Node(4)
+        //                  8
+        //                /   \
+        //               4     9
+        //             /    \
+        //            1      6
+        //             \    / \
+        //              2   5  7
+        //               \
+        //                3
+
+        assertLCA(node, 1, 7, node4)
+    }
+
+    @Test
     fun assertLCA_testcase_2() {
 
         val node = Node(5)
