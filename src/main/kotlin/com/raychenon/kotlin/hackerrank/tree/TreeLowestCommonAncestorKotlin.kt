@@ -38,16 +38,15 @@ object TreeLowestCommonAncestorKotlin {
 
     fun conditionNodeBiggerThan(node: Node?, v1: Int, v2: Int, biggerThan: Boolean): Boolean {
 
-        if (node == null) {
+        node?.let {
+            if (biggerThan) {
+                return it.data > v1 && it.data > v2
+            } else {
+                return it.data < v1 && it.data < v2
+            }
+        } ?: run {
             return false
         }
-
-        if (biggerThan) {
-            return node.data > v1 && node.data > v2
-        } else {
-            return node.data < v1 && node.data < v2
-        }
-
     }
 
 }
