@@ -24,13 +24,30 @@ object TreeLowestCommonAncestorKotlin {
 
     fun lcaIterative(root: Node, v1: Int, v2: Int): Node? {
         var temp: Node? = root
-        while (temp != null && temp.data < v1 && temp.data < v2) {
+
+        while (conditionNodeBiggerThan(temp, v1, v2, false)) {
             temp = temp?.right
         }
 
-        while (temp != null && temp.data > v1 && temp.data > v2) {
+        while (conditionNodeBiggerThan(temp, v1, v2, true)) {
             temp = temp?.left
         }
         return temp
     }
+
+
+    fun conditionNodeBiggerThan(node: Node?, v1: Int, v2: Int, biggerThan: Boolean): Boolean {
+
+        if (node == null) {
+            return false
+        }
+
+        if (biggerThan) {
+            return node.data > v1 && node.data > v2
+        } else {
+            return node.data < v1 && node.data < v2
+        }
+
+    }
+
 }
