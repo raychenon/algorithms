@@ -7,7 +7,7 @@ package com.raychenon.kotlin.hackerrank.tree
  */
 object TreeLowestCommonAncestorKotlin {
 
-    fun lca(root: Node, v1: Int, v2: Int): Node {
+    fun lca(root: Node, v1: Int, v2: Int): Node? {
 
         // if smaller, search the right node
         if (root.data < v1 && root.data < v2) {

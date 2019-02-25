@@ -92,7 +92,7 @@ class TreeLowestCommonAncestorTest {
 
 
     fun assertLCA(node: Node, v1: Int, v2: Int, expectedNode: Node): Unit {
-        Assert.assertEquals(expectedNode.data, TreeLowestCommonAncestorKotlin.lca(node, v1, v2).data)
+        Assert.assertEquals(expectedNode.data, TreeLowestCommonAncestorKotlin.lca(node, v1, v2)?.data)
         Assert.assertEquals(expectedNode.data, TreeLowestCommonAncestorKotlin.lcaIterative(node, v1, v2)?.data)
     }
 
