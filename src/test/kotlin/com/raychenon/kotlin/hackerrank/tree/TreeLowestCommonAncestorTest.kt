@@ -6,7 +6,7 @@ import org.junit.Test
 /**
  * User: raychenon
  * Date: 22/2/19
- * Time: 6:26 PM
+ * https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem
  */
 class TreeLowestCommonAncestorTest {
 
@@ -92,7 +92,7 @@ class TreeLowestCommonAncestorTest {
 
 
     fun assertLCA(node: Node, v1: Int, v2: Int, expectedNode: Node): Unit {
-        Assert.assertEquals(expectedNode.data, TreeLowestCommonAncestorKotlin.lca(node, v1, v2).data)
+        Assert.assertEquals(expectedNode.data, TreeLowestCommonAncestorKotlin.lca(node, v1, v2)?.data)
         Assert.assertEquals(expectedNode.data, TreeLowestCommonAncestorKotlin.lcaIterative(node, v1, v2)?.data)
     }
 
