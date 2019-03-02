@@ -96,6 +96,26 @@ public class BinarySearchTreeLowestCommonAncestorTest {
         assertLCA(node, 7, 3, node5);
     }
 
+    @Test
+    public void assertLCA_right_branch() {
+        Node node = new Node(5);
+        node.insert(node, 6);
+        node.insert(node, 7);
+        node.insert(node, 8);
+        node.insert(node, 9);
+
+        //       5
+        //        \
+        //         6
+        //          \
+        //           7
+        //            \
+        //             8
+
+        Node expectedNode = new Node(6);
+        assertLCA(node, 6, 8, expectedNode);
+    }
+
     private void assertLCA(Node root, int v1, int v2, Node expectedNode) {
         // recursive
         assertEquals(expectedNode.data, BinarySearchTreeLowestCommonAncestor.lca(root, v1, v2).data);
