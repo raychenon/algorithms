@@ -40,5 +40,25 @@ public class BinaryTreeHeightTest {
 
         assertEquals(3, BinaryTreeHeight.height(node));
     }
+    
+    @Test
+    public void assertTreeHeightOnlyRightBranch() {
+
+        Node node = new Node(3);
+        node.insert(node, 1);
+        node.insert(node, 7);
+        node.insert(node, 5);
+        node.insert(node, 4);
+
+        //            3
+        //           / \
+        //          1   4
+        //               \
+        //                5
+        //                 \
+        //                  7
+
+        assertEquals(3, BinaryTreeHeight.height(node));
+    }
 
 }
