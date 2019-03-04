@@ -8,7 +8,15 @@ package com.raychenon.hackerrank.tree;
 public class BinaryTreeHeight {
 
     public static int height(Node root) {
-        return 0;
+        int accHeight = 0;
+        if (root.left != null) {
+            accHeight = 1 + height(root.left);
+        }
+
+        if (root.right != null) {
+            accHeight = 1 + height(root.right);
+        }
+        return accHeight;
     }
 
 }
