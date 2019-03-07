@@ -7,7 +7,7 @@ package com.raychenon.kotlin.hackerrank.tree
  */
 object BinaryTreeHeightKotlin {
 
-    fun height(root: Node?): Int {
+    tailrec fun height(root: Node?): Int {
         root?.let {
             val left = 1 + height(root?.left)
             val right = 1 + height(root?.right)
