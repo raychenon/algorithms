@@ -1,5 +1,7 @@
 package com.raychenon.hackerrank.tree;
 
+import java.util.Stack;
+
 /**
  * User: raychenon
  * Date: 3/3/19
@@ -18,5 +20,34 @@ public class BinaryTreeHeight {
         int right = 1 + height(root.right);
         return Math.max(left, right);
     }
+
+    public static int heightIterative(Node root) {
+        if (root == null) {
+            return -1;
+        }
+
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+
+        int left = 0;
+        int right = 0;
+
+        while (!stack.isEmpty()) {
+            Node currentNode = stack.pop();
+
+            if (currentNode.left != null) {
+                left = left + 1;
+                stack.push(currentNode.left);
+            }
+
+            if (currentNode.right != null) {
+                right = right + 1;
+                stack.push(currentNode.right);
+            }
+        }
+
+        return Math.max(left, right);
+    }
+
 
 }

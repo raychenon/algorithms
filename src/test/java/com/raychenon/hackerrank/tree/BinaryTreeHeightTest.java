@@ -16,7 +16,7 @@ public class BinaryTreeHeightTest {
     public void assertSingleNodeHeight() {
 
         Node node = new Node(1);
-        assertEquals(0, BinaryTreeHeight.height(node));
+        assertHeight(0, node);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class BinaryTreeHeightTest {
         //                 \
         //                  7
 
-        assertEquals(3, BinaryTreeHeight.height(node));
+        assertHeight(3, node);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class BinaryTreeHeightTest {
         //                 \
         //                  7
 
-        assertEquals(3, BinaryTreeHeight.height(node));
+        assertHeight(3, node);
     }
 
     /**
@@ -85,7 +85,12 @@ public class BinaryTreeHeightTest {
         //          /
         //         5
 
-        assertEquals(4, BinaryTreeHeight.height(node));
+        assertHeight(4, node);
     }
 
+
+    private void assertHeight(int expectedHeight, Node node) {
+        assertEquals(expectedHeight, BinaryTreeHeight.height(node));
+        assertEquals(expectedHeight, BinaryTreeHeight.heightIterative(node));
+    }
 }
