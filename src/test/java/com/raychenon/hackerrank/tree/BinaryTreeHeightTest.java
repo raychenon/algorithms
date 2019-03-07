@@ -13,6 +13,12 @@ public class BinaryTreeHeightTest {
 
 
     @Test
+    public void assertNulldeHeight() {
+        Node nullNode = null;
+        assertHeight(-1, nullNode);
+    }
+    
+    @Test
     public void assertSingleNodeHeight() {
 
         Node node = new Node(1);
