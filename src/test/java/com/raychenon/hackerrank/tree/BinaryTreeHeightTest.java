@@ -40,7 +40,7 @@ public class BinaryTreeHeightTest {
 
         assertEquals(3, BinaryTreeHeight.height(node));
     }
-    
+
     @Test
     public void assertTreeHeightOnlyRightBranch() {
 
@@ -59,6 +59,33 @@ public class BinaryTreeHeightTest {
         //                  7
 
         assertEquals(3, BinaryTreeHeight.height(node));
+    }
+
+    /**
+     * the longest height is not on the extreme left or right branch
+     */
+    @Test
+    public void assertHeightTreeWhenLongestHeightIsNotExtremeLeftOrRight() {
+
+        Node node = new Node(3);
+        node.insert(node, 1);
+        node.insert(node, 11);
+        node.insert(node, 9);
+        node.insert(node, 20);
+        node.insert(node, 7);
+        node.insert(node, 5);
+
+        //            3
+        //           / \
+        //          1   11
+        //              /\
+        //             9  20
+        //            /
+        //           7
+        //          /
+        //         5
+
+        assertEquals(4, BinaryTreeHeight.height(node));
     }
 
 }

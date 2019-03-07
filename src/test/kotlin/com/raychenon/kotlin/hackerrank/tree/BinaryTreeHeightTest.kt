@@ -66,4 +66,30 @@ class BinaryTreeHeightTest {
     }
 
 
+    /**
+     * the longest height is not on the extreme left or right branch
+     */
+    @Test
+    fun assertHeightTreeWhenLongestHeightIsNotExtremeLeftOrRight() {
+        val node: Node = Node(3)
+        node.insert(node, 1)
+        node.insert(node, 11)
+        node.insert(node, 9)
+        node.insert(node, 20)
+        node.insert(node, 7)
+        node.insert(node, 5)
+
+        //            3
+        //           / \
+        //          1   11
+        //              /\
+        //             9  20
+        //            /
+        //           7
+        //          /
+        //         5
+
+        Assert.assertEquals(4, BinaryTreeHeightKotlin.height(node))
+    }
+
 }
