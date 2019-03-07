@@ -1,5 +1,7 @@
 package com.raychenon.kotlin.hackerrank.tree
 
+import java.util.*
+
 /**
  * User: raychenon
  * Date: 5/3/19
@@ -16,4 +18,30 @@ object BinaryTreeHeightKotlin {
             return -1
         }
     }
+
+    fun heightIterative(root: Node?): Int {
+        val stack = Stack<Node>()
+
+        stack.push(root ?: return -1)
+
+        var right: Int = 0
+        var left: Int = 0
+
+        while (stack.isNotEmpty()) {
+            val currentNode = stack.pop()
+
+            currentNode.left?.let {
+                left = left + 1
+                stack.push(it)
+            }
+
+            currentNode.right?.let {
+                right = right + 1
+                stack.push(it)
+            }
+        }
+
+        return Math.max(left, right)
+    }
+
 }

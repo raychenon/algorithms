@@ -14,14 +14,14 @@ class BinaryTreeHeightTest {
     @Test
     fun assertHeightNullNode() {
         val nullNode: Node? = null
-        Assert.assertEquals(-1, BinaryTreeHeightKotlin.height(nullNode))
+        assertHeight(-1, nullNode)
     }
 
 
     @Test
     fun assertHeightSingleNode() {
         val node: Node = Node(11)
-        Assert.assertEquals(0, BinaryTreeHeightKotlin.height(node))
+        assertHeight(0, node)
     }
 
 
@@ -43,7 +43,7 @@ class BinaryTreeHeightTest {
         //                 \
         //                  7
 
-        Assert.assertEquals(3, BinaryTreeHeightKotlin.height(node))
+        assertHeight(3, node)
     }
 
     @Test
@@ -62,7 +62,7 @@ class BinaryTreeHeightTest {
         //                 \
         //                  7
 
-        Assert.assertEquals(3, BinaryTreeHeightKotlin.height(node))
+        assertHeight(3, node)
     }
 
 
@@ -89,7 +89,12 @@ class BinaryTreeHeightTest {
         //          /
         //         5
 
-        Assert.assertEquals(4, BinaryTreeHeightKotlin.height(node))
+        assertHeight(4, node)
+    }
+
+    fun assertHeight(expectedHeight: Int, node: Node?): Unit {
+        Assert.assertEquals(expectedHeight, BinaryTreeHeightKotlin.height(node))
+        Assert.assertEquals(expectedHeight, BinaryTreeHeightKotlin.heightIterative(node))
     }
 
 }
