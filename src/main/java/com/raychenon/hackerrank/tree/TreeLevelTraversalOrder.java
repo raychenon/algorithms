@@ -1,6 +1,6 @@
 package com.raychenon.hackerrank.tree;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
  * User: raychenon
@@ -11,6 +11,7 @@ public class TreeLevelTraversalOrder {
 
     /**
      * In level order traversal, we visit the nodes level by level from left to right.
+     * => Breadth First Search ( BFS ) , use a Queue
      *
      * @param root
      * @return String
@@ -20,20 +21,20 @@ public class TreeLevelTraversalOrder {
             return "";
         }
 
-        Stack<Node> stack = new Stack();
-        stack.push(root);
+        LinkedList<Node> queue = new LinkedList<Node>();
+        queue.add(root);
 
         StringBuilder str = new StringBuilder();
-        while (!stack.isEmpty()) {
-            Node n = stack.pop();
+        while (!queue.isEmpty()) {
+            Node n = queue.poll();
             str.append(n.data).append(" ");
 
             if (n.left != null) {
-                stack.push(n.left);
+                queue.add(n.left);
             }
 
             if (n.right != null) {
-                stack.push(n.right);
+                queue.add(n.right);
             }
 
         }

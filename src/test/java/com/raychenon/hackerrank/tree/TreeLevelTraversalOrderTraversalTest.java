@@ -29,9 +29,9 @@ public class TreeLevelTraversalOrderTraversalTest {
         //            5
         //           / \
         //          3   6
-        //          \
-        //           4
+        //           \
+        //            4
 
-        assertEquals("1 2 5 6 3 4", TreeLevelTraversalOrder.levelOrder(node));
+        assertEquals("1 2 5 3 6 4", TreeLevelTraversalOrder.levelOrder(node));
     }
 }
