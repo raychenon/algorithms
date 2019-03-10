@@ -38,7 +38,7 @@ public class TreeLevelTraversalOrder {
             }
 
         }
-        return str.substring(0, str.length() - 1);
+        return str.deleteCharAt(str.length() - 1).toString();
     }
 
 }

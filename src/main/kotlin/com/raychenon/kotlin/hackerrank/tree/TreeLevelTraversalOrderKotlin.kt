@@ -23,6 +23,6 @@ object TreeLevelTraversalOrderKotlin {
             n?.right?.let { queue.add(it) }
         }
 
-        return str.substring(0, str.length - 1)
+        return str.deleteCharAt(str.length - 1).toString()
     }
 }
