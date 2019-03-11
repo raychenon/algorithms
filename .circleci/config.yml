@@ -3,8 +3,6 @@
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
 version: 2.1
-orbs:
-  codecov: codecov/codecov@1.0.4
 jobs:
   build:
     working_directory: ~/algorithms
@@ -34,7 +32,7 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: gradle test
       - run: gradle check
+      - run: gradle test
       # run coverage report
       - run: gradle jacocoTestReport
