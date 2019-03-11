@@ -16,6 +16,8 @@ install: echo "skip 'gradle assemble' step"
 script:
   - ./gradlew check
   - ./gradlew build --continue
-  - ./gradlew jacocoTestReport
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+# Circle CI reports the test coverage
+#
+#  - ./gradlew jacocoTestReport
+#after_success:
+#  - bash <(curl -s https://codecov.io/bash)
