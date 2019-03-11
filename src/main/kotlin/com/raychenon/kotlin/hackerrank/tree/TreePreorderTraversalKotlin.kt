@@ -52,7 +52,6 @@ object TreePreorderTraversalKotlin {
      */
     private fun preOrderIterativeList(root: Node?): List<Node> {
         val stack = Stack<Node>()
-        var currentNode = root
         val preOrderList = mutableListOf<Node>()
 
         stack.push(root ?: return preOrderList)
