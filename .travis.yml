@@ -15,7 +15,7 @@ before_script:
 install: echo "skip 'gradle assemble' step"
 script:
   - ./gradlew check
-  - ./gradle build --continue
+  - ./gradlew build --continue
   - ./gradlew jacocoTestReport
 after_success:
   - bash <(curl -s https://codecov.io/bash)
