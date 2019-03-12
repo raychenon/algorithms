@@ -11,8 +11,11 @@ cache:
     - $HOME/.gradle/wrapper/
 before_script:
   - chmod +x gradlew
+
+install: echo "skip 'gradle assemble' step"
 script:
   - ./gradlew check
+  - ./gradlew build --continue
   - ./gradlew jacocoTestReport
 after_success:
   - bash <(curl -s https://codecov.io/bash)
