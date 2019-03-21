@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.info (the value of the node)
+https://www.hackerrank.com/challenges/tree-level-order-traversal/problem
+"""
 def levelOrder(root):
     if root is None:
         return
