@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+from node import Node
+from node import BinarySearchTree
 
 """
 Node is defined as
