@@ -1,6 +1,8 @@
 from node import Node
 from node import BinarySearchTree
 
+import unittest
+
 """
 Node is defined as
 self.left (the left child of the node)
@@ -20,3 +22,10 @@ def levelOrder(root):
             q.append(n.left)
         if n.right:
             q.append(n.right)
+
+
+
+class TreeLevelTraversalOrder(unittest.TestCase):
+
+    def tree1(self):
+        self.assertEqual(1,1)
