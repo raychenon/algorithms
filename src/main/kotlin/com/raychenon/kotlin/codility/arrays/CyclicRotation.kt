@@ -11,10 +11,10 @@ object CyclicRotation {
      * extension function for IntArray
      */
     fun rotate(A: IntArray, K: Int): IntArray {
-        var tab = A.copyOf()
         val size = A.size
+        var tab = A.copyOf()
 
-        for ((index, value) in A.withIndex()) {
+        for ((index) in A.withIndex()) {
             val shift = (index + K) % size
             tab[shift] = A[index]
         }
