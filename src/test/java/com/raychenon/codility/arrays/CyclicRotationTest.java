@@ -14,8 +14,16 @@ import static junit.framework.TestCase.assertTrue;
 public class CyclicRotationTest {
 
     @Test
-    public void assertArrayRotation() {
-        assertTrue(Arrays.equals(CyclicRotation.rotate(new int[]{1, 2, 3, 4}, 1), new int[]{2, 3, 4, 1}));
+    public void assertArrayFullRotation() {
+        assertTrue(Arrays.equals(CyclicRotation.rotate(new int[]{1, 2, 3, 4}, 1), new int[]{4, 1, 2, 3}));
+        assertTrue(Arrays.equals(CyclicRotation.rotate(new int[]{1, 2, 3, 4}, 2), new int[]{3, 4, 1, 2}));
+        assertTrue(Arrays.equals(CyclicRotation.rotate(new int[]{1, 2, 3, 4}, 3), new int[]{2, 3, 4, 1}));
+    }
+
+
+    @Test
+    public void assertCyclicRotation() {
+        assertTrue(Arrays.equals(CyclicRotation.rotate(new int[]{3, 8, 9, 7, 6}, 3), new int[]{9, 7, 6, 3, 8}));
     }
 
 

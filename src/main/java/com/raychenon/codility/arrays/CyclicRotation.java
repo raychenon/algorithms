@@ -20,21 +20,11 @@ public class CyclicRotation {
     public static int[] rotate(int[] A, int K) {
         int size = A.length;
         int[] tab = new int[size];
-        int rotation = K % size;
 
         for (int i = 0; i < size; i++) {
-            int index = i + rotation;
-            if (index > size - 1) {
-                index = index - size;
-            }
-            tab[i] = A[index];
+            int index = (i + K) % size;
+            tab[index] = A[i];
         }
-
-        for (int i = 0; i < size; i++) {
-            System.out.println(String.format("%d ", tab[i]));
-        }
-
-
 
         return tab;
     }
