@@ -19,9 +19,6 @@ object CyclicRotation {
             tab[shift] = A[index]
         }
 
-        for ( i in 0..size-1){
-            print("tab $i = ${tab[i]} \n")
-        }
         return tab
     }
 
