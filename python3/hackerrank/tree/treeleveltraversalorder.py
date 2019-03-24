@@ -1,7 +1,7 @@
 from node import Node
 from node import BinarySearchTree
 
-import unittest
+import unittest2
 
 """
 Node is defined as
@@ -25,7 +25,7 @@ def levelOrder(root):
 
 
 
-class TreeLevelTraversalOrder(unittest.TestCase):
+class TreeLevelTraversalOrder(unittest2.TestCase):
 
     def tree1(self):
         self.assertEqual(1,1)
