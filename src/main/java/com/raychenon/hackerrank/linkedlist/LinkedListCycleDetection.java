@@ -7,7 +7,6 @@ package com.raychenon.hackerrank.linkedlist;
  */
 public final class LinkedListCycleDetection {
 
-    private static final int LIST_SIZE = 1000;
 
     /**
      * Slow and fast pointers
@@ -26,14 +25,12 @@ public final class LinkedListCycleDetection {
         SinglyLinkedListNode tortoise = head;
         SinglyLinkedListNode hare = head.next;
 
-        int count = 0;
-        while (tortoise != hare || count < LIST_SIZE) {
+        while (tortoise != hare) {
             if (hare == null || hare.next == null) {
                 return false;
             }
             tortoise = tortoise.next;
             hare = hare.next.next;
-            count++;
         }
 
         return true;
