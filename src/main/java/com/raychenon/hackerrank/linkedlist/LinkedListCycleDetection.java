@@ -7,11 +7,6 @@ package com.raychenon.hackerrank.linkedlist;
  */
 public final class LinkedListCycleDetection {
 
-    class SinglyLinkedListNode {
-        int data;
-        SinglyLinkedListNode next;
-    }
-
     private static final int LIST_SIZE = 1000;
 
     /**
