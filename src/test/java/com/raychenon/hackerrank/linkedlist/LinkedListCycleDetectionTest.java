@@ -29,9 +29,9 @@ public class LinkedListCycleDetectionTest {
     @Test
     public void assertCycleDetectionWhenOnlyList() {
 
-        SinglyLinkedListNode head = new SinglyLinkedListNode(1, null);
-        SinglyLinkedListNode node2 = new SinglyLinkedListNode(2, head);
-        SinglyLinkedListNode node3 = new SinglyLinkedListNode(3, node2);
+        SinglyLinkedListNode node3 = new SinglyLinkedListNode(3, null);
+        SinglyLinkedListNode node2 = new SinglyLinkedListNode(2, node3);
+        SinglyLinkedListNode head = new SinglyLinkedListNode(1, node2);
         assertEquals(linkedListCycleDetection.hasCycle(head), false);
     }
 
