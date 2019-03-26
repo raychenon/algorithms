@@ -1,6 +1,6 @@
 package com.raychenon.hackerrank.linkedlist;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -12,10 +12,10 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class LinkedListCycleDetectionTest {
 
-    private LinkedListCycleDetection linkedListCycleDetection;
+    private static LinkedListCycleDetection linkedListCycleDetection;
 
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         linkedListCycleDetection = new LinkedListCycleDetection();
     }
 
