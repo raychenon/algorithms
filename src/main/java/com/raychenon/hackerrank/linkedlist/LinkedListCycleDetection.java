@@ -7,6 +7,8 @@ package com.raychenon.hackerrank.linkedlist;
  */
 public final class LinkedListCycleDetection {
 
+    private LinkedListCycleDetection() {
+    }
 
     /**
      * Slow and fast pointers
