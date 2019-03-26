@@ -1,5 +1,6 @@
 package com.raychenon.hackerrank.linkedlist;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -11,10 +12,17 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class LinkedListCycleDetectionTest {
 
+    private LinkedListCycleDetection linkedListCycleDetection;
+
+    @Before
+    public void setUp() {
+        linkedListCycleDetection = new LinkedListCycleDetection();
+    }
+
     @Test
     public void assertCycleDetectionForNullNode() {
         SinglyLinkedListNode nullNode = null;
-        assertEquals(LinkedListCycleDetection.hasCycle(nullNode), false);
+        assertEquals(linkedListCycleDetection.hasCycle(nullNode), false);
     }
 
 
@@ -24,7 +32,7 @@ public class LinkedListCycleDetectionTest {
         SinglyLinkedListNode head = new SinglyLinkedListNode(1, null);
         SinglyLinkedListNode node2 = new SinglyLinkedListNode(2, head);
         SinglyLinkedListNode node3 = new SinglyLinkedListNode(3, node2);
-        assertEquals(LinkedListCycleDetection.hasCycle(head), false);
+        assertEquals(linkedListCycleDetection.hasCycle(head), false);
     }
 
 
@@ -37,7 +45,7 @@ public class LinkedListCycleDetectionTest {
         SinglyLinkedListNode head = new SinglyLinkedListNode(0, node3);
         node1.next = head;
 
-        assertEquals(LinkedListCycleDetection.hasCycle(head), true);
+        assertEquals(linkedListCycleDetection.hasCycle(head), true);
     }
 
 

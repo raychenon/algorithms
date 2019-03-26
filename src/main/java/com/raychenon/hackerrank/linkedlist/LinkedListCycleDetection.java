@@ -7,7 +7,7 @@ package com.raychenon.hackerrank.linkedlist;
  */
 public final class LinkedListCycleDetection {
 
-    private LinkedListCycleDetection() {
+    public LinkedListCycleDetection() {
     }
 
     /**
@@ -19,7 +19,7 @@ public final class LinkedListCycleDetection {
      * @param head
      * @return boolean
      */
-    static boolean hasCycle(SinglyLinkedListNode head) {
+     boolean hasCycle(SinglyLinkedListNode head) {
         if (head == null) {
             return false;
         }
