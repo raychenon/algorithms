@@ -17,7 +17,7 @@ public class CyclicRotation {
      * @param K
      * @return
      */
-    public static int[] rotate(int[] A, int K) {
+    public int[] rotate(int[] A, int K) {
         int size = A.length;
         int[] tab = new int[size];
 
