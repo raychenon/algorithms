@@ -16,7 +16,7 @@ public class TreeLevelTraversalOrder {
      * @param root
      * @return String
      */
-    public static String levelOrder(Node root) {
+    public String levelOrder(Node root) {
         if (root == null) {
             return "";
         }

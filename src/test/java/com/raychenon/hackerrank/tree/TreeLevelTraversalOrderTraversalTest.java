@@ -1,5 +1,6 @@
 package com.raychenon.hackerrank.tree;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -12,10 +13,18 @@ import static junit.framework.TestCase.assertEquals;
 public class TreeLevelTraversalOrderTraversalTest {
 
 
+    private static TreeLevelTraversalOrder treeLevelTraversalOrder;
+
+    @BeforeClass
+    public static void setUp() {
+        treeLevelTraversalOrder = new TreeLevelTraversalOrder();
+    }
+
+
     @Test
     public void assertEmptyTreeLevelOrder() {
         Node node = null;
-        assertEquals("", TreeLevelTraversalOrder.levelOrder(node));
+        assertEquals("", treeLevelTraversalOrder.levelOrder(node));
     }
 
     @Test
@@ -38,7 +47,7 @@ public class TreeLevelTraversalOrderTraversalTest {
         //           \
         //            4
 
-        assertEquals("1 2 5 3 6 4", TreeLevelTraversalOrder.levelOrder(node));
+        assertEquals("1 2 5 3 6 4", treeLevelTraversalOrder.levelOrder(node));
     }
 
 
@@ -70,7 +79,7 @@ public class TreeLevelTraversalOrderTraversalTest {
         //   1  7   12  17    22  27  33  37
         //
 
-        assertEquals("20 10 30 5 15 25 35 1 7 12 17 22 27 33 37", TreeLevelTraversalOrder.levelOrder(node));
+        assertEquals("20 10 30 5 15 25 35 1 7 12 17 22 27 33 37", treeLevelTraversalOrder.levelOrder(node));
     }
 
 }
