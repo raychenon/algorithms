@@ -9,6 +9,7 @@ public class BinarySearchTree {
 
     boolean checkBST(Node root) {
 
+        return false;
     }
-    
+
 }
