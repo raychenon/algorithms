@@ -8,8 +8,21 @@ package com.raychenon.hackerrank.tree;
 public class BinarySearchTree {
 
     boolean checkBST(Node root) {
+        if (root.left != null) {
+            if (root.data < root.left.data) {
+                return false;
+            }
+            return checkBST(root.left);
+        }
 
-        return false;
+        if (root.right != null) {
+            if (root.data > root.right.data) {
+                return false;
+            }
+            return checkBST(root.right);
+        }
+
+        return true;
     }
 
 }
