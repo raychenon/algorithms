@@ -21,6 +21,21 @@ public class BinarySearchTreeTest {
 
 
     @Test
+    public void assertBinarySearchSimpleTreeIsCorrect() {
+        Node root = new Node(3);
+        Node nodeLeft2 = new Node(1);
+        Node nodeRight2 = new Node(5);
+        root.left = nodeLeft2;
+        root.right = nodeRight2;
+
+        //        3
+        //      /    \
+        //     1      5
+        assertEquals(binarySearchTree.checkBST(root), true);
+    }
+
+
+    @Test
     public void assertBinarySearchTreeIsCorrect() {
         Node root = new Node(3);
         Node nodeLeft2 = new Node(2);
@@ -43,7 +58,7 @@ public class BinarySearchTreeTest {
     }
 
     @Test
-    public void assertIsBinarySearchTree() {
+    public void assertNotBinarySearchTree() {
         Node root = new Node(3);
         Node nodeLeft2 = new Node(5);
         Node nodeRight2 = new Node(2);
