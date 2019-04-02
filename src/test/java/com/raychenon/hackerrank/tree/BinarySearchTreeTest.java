@@ -73,4 +73,24 @@ public class BinarySearchTreeTest {
         assertEquals(binarySearchTree.checkBST(root), false);
     }
 
+//    Input (stdin) Download
+//    2
+//    1 2 3 5 4 6 7
+
+//    Expected Output Download
+//    No
+
+    @Test
+    public void assertIsBinarySearchTree() {
+
+        Node node = new Node(1);
+        node.insert(node, 2);
+        node.insert(node, 3);
+        node.insert(node, 5);
+        node.insert(node, 4);
+        node.insert(node, 6);
+        node.insert(node, 7);
+
+        assertEquals(binarySearchTree.checkBST(node), true);
+    }
 }
