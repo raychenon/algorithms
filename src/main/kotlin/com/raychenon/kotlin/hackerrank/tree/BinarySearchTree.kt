@@ -1,0 +1,23 @@
+package com.raychenon.kotlin.hackerrank.tree
+
+/**
+ * User: raychenon
+ * Date: 3/4/19
+ * Time: 10:14 PM
+ */
+object BinarySearchTree {
+
+    fun checkBST(root: Node?): Boolean {
+        return checkBSTMinMax(root, Int.MIN_VALUE, Int.MAX_VALUE)
+    }
+
+    fun checkBSTMinMax(root: Node?, min: Int, max: Int): Boolean {
+        root?.let { return true }
+
+        val data: Int = root!!.data
+
+        return (data > min && data < max) &&
+                checkBSTMinMax(root.left, min, data) &&
+                checkBSTMinMax(root.right, data, max)
+    }
+}
