@@ -3,7 +3,7 @@ package com.raychenon.kotlin.hackerrank.tree
 /**
  * User: raychenon
  * Date: 3/4/19
- * Time: 10:14 PM
+ * https://www.hackerrank.com/challenges/is-binary-search-tree/problem
  */
 object BinarySearchTree {
 
@@ -11,8 +11,9 @@ object BinarySearchTree {
         return checkBSTMinMax(root, Int.MIN_VALUE, Int.MAX_VALUE)
     }
 
-    fun checkBSTMinMax(root: Node?, min: Int, max: Int): Boolean {
-        root?.let { return true }
+    private fun checkBSTMinMax(root: Node?, min: Int, max: Int): Boolean {
+        // if null 
+        root ?: return true
 
         val data: Int = root!!.data
 
