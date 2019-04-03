@@ -51,4 +51,25 @@ class BinarySearchTreeTest {
         Assert.assertTrue(BinarySearchTree.checkBST(root))
     }
 
+
+    @Test
+    fun assertNotBinarySearchTree() {
+        val root = Node(3)
+
+        val nodeLeft = Node(5)
+        val nodeRight = Node(2)
+        nodeLeft.left = Node(1)
+        nodeLeft.right = Node(4)
+        nodeRight.left = Node(6)
+
+        root.left = nodeLeft
+        root.right = nodeRight
+        //        3
+        //      /    \
+        //     5      2
+        //    / \    / \
+        //   1   4   6
+        Assert.assertEquals(false, BinarySearchTree.checkBST(root))
+    }
+
 }
