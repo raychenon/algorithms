@@ -31,7 +31,7 @@ public class BinarySearchTreeTest {
         //        3
         //      /    \
         //     1      5
-        assertEquals(binarySearchTree.checkBST(root), true);
+        assertEquals(true, binarySearchTree.checkBST(root));
     }
 
 
@@ -45,7 +45,7 @@ public class BinarySearchTreeTest {
 
         Node nodeLeft3 = new Node(1);
         nodeLeft2.left = nodeLeft3;
-        
+
         nodeRight2.left = new Node(4);
         nodeRight2.right = new Node(7);
 
@@ -54,7 +54,7 @@ public class BinarySearchTreeTest {
         //     2      5
         //    /      / \
         //   1       4  7
-        assertEquals(binarySearchTree.checkBST(root), true);
+        assertEquals(true, binarySearchTree.checkBST(root));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class BinarySearchTreeTest {
         //     5      2
         //    / \    / \
         //   1   4   6
-        assertEquals(binarySearchTree.checkBST(root), false);
+        assertEquals(false, binarySearchTree.checkBST(root));
     }
 
 //    Input (stdin) Download
@@ -91,6 +91,25 @@ public class BinarySearchTreeTest {
         node.insert(node, 6);
         node.insert(node, 7);
 
-        assertEquals(binarySearchTree.checkBST(node), true);
+        assertEquals(true, binarySearchTree.checkBST(node));
+    }
+
+    @Test
+    public void assertBinarySearchTreeOnRightBranch() {
+
+        Node node = new Node(3);
+
+        Node nodeRight = new Node(5);
+        nodeRight.right = new Node(2);
+
+        node.left = new Node(1);
+        node.right = nodeRight;
+        //        3
+        //       /  \
+        //      1    5
+        //          / \
+        //             2
+
+        assertEquals(false, binarySearchTree.checkBST(node));
     }
 }
