@@ -34,7 +34,7 @@ setup(
     keywords='circleci ci cd api sdk',
     packages=['circleci'],
     install_requires=[
-        'requests==2.18.4',
+        'requests>=2.20.0',
     ],
     python_requires='>=3',
     cmdclass={
