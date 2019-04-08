@@ -13,21 +13,23 @@ public class SockMerchant {
     int sockMerchant(int n, int[] ar) {
         Map<Integer, Integer> map = new HashMap<>();
 
-        // group by pair
-        for (int i = 0; i < ar.length; i++) {
+        for (int i = 0; i < n; i++) {
             int value = ar[i];
             if (map.containsKey(value)) {
-                map.put(value, map.get(value));
+                map.put(value, map.get(value) + 1);
             } else {
                 map.put(value, 1);
             }
         }
+        System.out.println("Map = " + map);
 
         int pairSock = 0;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            // only complete pairs are counted.
+            // odd number are round down . ex: 3/2 = 1
             pairSock = pairSock + entry.getValue() / 2;
-
         }
+
 
         return pairSock;
     }
