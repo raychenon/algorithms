@@ -13,13 +13,10 @@ public class SockMerchant {
     int sockMerchant(int n, int[] ar) {
         Map<Integer, Integer> map = new HashMap<>();
 
+
         for (int i = 0; i < n; i++) {
             int value = ar[i];
-            if (map.containsKey(value)) {
-                map.put(value, map.get(value) + 1);
-            } else {
-                map.put(value, 1);
-            }
+            map.compute(value, (k, v) -> v == null ? 1 : v + 1);
         }
         System.out.println("Map = " + map);
 
