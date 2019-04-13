@@ -19,7 +19,6 @@ public class RepeatedStringTest {
         repeatedString = new RepeatedString();
     }
 
-
     @Test
     public void assertforLetterARepeatedXTimes() {
         assertEquals(repeatedString.repeatedString("a", 10000000000000L), 10000000000000L);
@@ -35,5 +34,9 @@ public class RepeatedStringTest {
         assertEquals(repeatedString.repeatedString("aba", 10L), 7L);
     }
 
+    @Test
+    public void assertForShorterString() {
+        assertEquals(repeatedString.repeatedString("avatar", 3L), 2L);
+    }
 
 }
