@@ -1,5 +1,6 @@
 package com.raychenon.hackerrank.warmup;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -11,12 +12,12 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class RepeatedStringTest {
 
-//    private static RepeatedString repeatedString;
-//
-//    @BeforeClass
-//    public static void setUp() {
-//        repeatedString = new RepeatedString();
-//    }
+    private static RepeatedString repeatedString;
+
+    @BeforeClass
+    public static void setUp() {
+        repeatedString = new RepeatedString();
+    }
 
 
     @Test

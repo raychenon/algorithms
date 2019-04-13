@@ -16,7 +16,7 @@ public class RepeatedString {
      * @return number of 'a' in the repeated string
      */
     // Complete the repeatedString function below.
-    static long repeatedString(String s, long n) {
+    long repeatedString(String s, long n) {
 
         long nbA = s.chars().filter(e -> e == 'a').count();
 
@@ -31,7 +31,7 @@ public class RepeatedString {
     }
 
 
-    private static long remainderCounter(String s, long end) {
+    private long remainderCounter(String s, long end) {
         int limit = (int) end;
         String sub = s.substring(0, limit);
         return sub.chars().filter(e -> e == 'a').count();
