@@ -21,7 +21,7 @@ public class RepeatedString {
 
         StringBuffer str = new StringBuffer(s);
         while(str.length() < n){
-            str.append(s);
+            str.append(str);
         }
 
         int length = (int) n;
