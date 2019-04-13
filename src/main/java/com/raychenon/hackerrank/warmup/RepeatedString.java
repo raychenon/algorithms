@@ -1,7 +1,5 @@
 package com.raychenon.hackerrank.warmup;
 
-import java.util.*;
-
 /**
  * User: raychenon
  * Date: 13/4/19
@@ -12,6 +10,7 @@ public class RepeatedString {
     /**
      * repeat the String s to the length of n
      * return the number of 'a' in the string
+     *
      * @param s contains only lower case characters
      * @param n
      * @return number of 'a' in the repeated string
@@ -19,12 +18,23 @@ public class RepeatedString {
     // Complete the repeatedString function below.
     static long repeatedString(String s, long n) {
 
-        StringBuffer str = new StringBuffer(s);
-        while(str.length() < n){
-            str.append(str);
+        long nbA = s.chars().filter(e -> e == 'a').count();
+
+        if (nbA == 0) {
+            return 0;
         }
 
-        int length = (int) n;
-        return str.substring(0,length).chars().filter(e -> e =='a').count();
+        long nbS = n / s.length();
+        long remainder = n % s.length();
+
+        return s.length() > n ? remainderCounter(s, n) : nbS * nbA + remainderCounter(s, remainder);
     }
+
+
+    private static long remainderCounter(String s, long end) {
+        int limit = (int) end;
+        String sub = s.substring(0, limit);
+        return sub.chars().filter(e -> e == 'a').count();
+    }
+
 }
