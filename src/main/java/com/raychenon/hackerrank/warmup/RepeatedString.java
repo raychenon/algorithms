@@ -27,7 +27,7 @@ public class RepeatedString {
         long nbS = n / s.length();
         long remainder = n % s.length();
 
-        return s.length() > n ? remainderCounter(s, n) : nbS * nbA + remainderCounter(s, remainder);
+        return nbS * nbA + remainderCounter(s, remainder);
     }
 
 
