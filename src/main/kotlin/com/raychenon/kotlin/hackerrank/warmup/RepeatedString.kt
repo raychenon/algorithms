@@ -25,7 +25,12 @@ object RepeatedString {
         val remainderS = n % s.length
 
         val remainingAinLastSegment = s.substring(0, remainderS.toInt()).filter { i -> i == 'a' }.count()
-
+        
+        //  <---- s ----->                         <-----> ( remainder )
+        //  |------------|------------|------------|-----|
+        //  <--------------------- n ------------------->
+        //  == nb of S * nb of 'a' in String s + remainder
+        
         return nbS * nbAin1S + remainingAinLastSegment
     }
 }

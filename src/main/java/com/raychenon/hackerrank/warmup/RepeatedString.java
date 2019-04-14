@@ -27,6 +27,11 @@ public class RepeatedString {
         long nbS = n / s.length();
         long remainder = n % s.length();
 
+        //  <---- s ----->                         <-----> ( remainder )
+        //  |------------|------------|------------|-----|
+        //  <--------------------- n ------------------->
+        //  == nb of S * nb of 'a' in String s + remainder
+
         return nbS * nbA + remainderCounter(s, remainder);
     }
 
