@@ -20,10 +20,16 @@ class CountingValleysTest {
     
     @Test
     fun assertCountTwoValleys() {
-        //      _/\      _
-        //         \    /
-        //          \/\/
+        //      _          /\
+        //       \  /\    /
+        //        \/  \/\/
         Assert.assertEquals(2, CountingValleys.countingValleys(12, "DDUUDDUDUUUD"))
+    }
+
+
+    @Test
+    fun assertCountAnyValleys() {
+        Assert.assertEquals(1, CountingValleys.countingValleys(12, "DDanyUUDDUDU"))
     }
 
 }
