@@ -17,5 +17,13 @@ class CountingValleysTest {
         //          \/\/
         Assert.assertEquals(1, CountingValleys.countingValleys(8, "UDDDUDUU"))
     }
+    
+    @Test
+    fun assertCountTwoValleys() {
+        //      _/\      _
+        //         \    /
+        //          \/\/
+        Assert.assertEquals(2, CountingValleys.countingValleys(12, "DDUUDDUDUUUD"))
+    }
 
 }
