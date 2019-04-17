@@ -19,7 +19,6 @@ object CountingValleys {
         var wasBelowSeaLeval: Boolean = false
         for (c in s.toCharArray()) {
             level = level + valueOfStep(c)
-            print("level $c , accumulated level = $level \n")
             if (level < 0) {
                 wasBelowSeaLeval = true
             }
@@ -32,7 +31,7 @@ object CountingValleys {
         return nbValleys
     }
 
-    internal fun valueOfStep(c: Char): Int {
+    private fun valueOfStep(c: Char): Int {
         when (c) {
             'D' -> return -1
             'U' -> return 1
