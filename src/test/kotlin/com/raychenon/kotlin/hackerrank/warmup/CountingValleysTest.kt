@@ -11,7 +11,10 @@ import org.junit.Test
 class CountingValleysTest {
 
     @Test
-    fun assertforLetterARepeatedXTimes() {
+    fun assertCountOneValley() {
+        //      _/\      _
+        //         \    /
+        //          \/\/
         Assert.assertEquals(1, CountingValleys.countingValleys(8, "UDDDUDUU"))
     }
 

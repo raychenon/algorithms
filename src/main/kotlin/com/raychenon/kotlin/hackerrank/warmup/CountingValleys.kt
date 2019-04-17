@@ -8,6 +8,7 @@ package com.raychenon.kotlin.hackerrank.warmup
 object CountingValleys {
 
     fun countingValleys(n: Int, s: String): Int {
+//        A valley is a sequence of consecutive steps below sea level, starting with a step down from sea level and ending with a step up to sea level.
         return 0
     }
 }
