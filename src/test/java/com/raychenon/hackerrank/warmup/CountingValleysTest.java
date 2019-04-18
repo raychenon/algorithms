@@ -1,5 +1,6 @@
 package com.raychenon.hackerrank.warmup;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -11,12 +12,21 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class CountingValleysTest {
 
+
+    private static CountingValleys countingValleys;
+
+    @BeforeClass
+    public static void setUp() {
+        countingValleys = new CountingValleys();
+    }
+
+
     @Test
     public void assertCountOneValley() {
         //      _/\      _
         //         \    /
         //          \/\/
-        assertEquals(1, CountingValleys.countingValleys(8, "UDDDUDUU"));
+        assertEquals(1, countingValleys.countingValleys(8, "UDDDUDUU"));
     }
 
     @Test
@@ -24,11 +34,11 @@ public class CountingValleysTest {
         //    sea level  _          /\
         //                \  /\    /
         //                 \/  \/\/
-        assertEquals(2, CountingValleys.countingValleys(12, "DDUUDDUDUUUD"));
+        assertEquals(2, countingValleys.countingValleys(12, "DDUUDDUDUUUD"));
     }
 
     @Test
     public void assertCountAnyValleys() {
-        assertEquals(1, CountingValleys.countingValleys(12, "DDanyUUDDUDU"));
+        assertEquals(1, countingValleys.countingValleys(12, "DDanyUUDDUDU"));
     }
 }
