@@ -8,7 +8,7 @@ package com.raychenon.hackerrank.warmup;
 public class CountingValleys {
 
     static int countingValleys(int n, String s) {
-        
+
         //  A valley is a sequence of consecutive steps below sea level,
         //  starting with a step down from sea level and ending with a step up to sea level.
         //      _/\      _
@@ -27,7 +27,7 @@ public class CountingValleys {
             }
 
             if (wasBelowSeaLevel && level >= 0) {
-                nbValleys++;
+                nbValleys = nbValleys + 1;
                 wasBelowSeaLevel = false;
             }
 
@@ -38,9 +38,9 @@ public class CountingValleys {
     private static int valueOfStep(Character c) {
         switch (c) {
             case 'U':
-                return -1;
+                return 1;
             case 'D':
-                return +1;
+                return -1;
             default:
                 return 0;
         }
