@@ -7,12 +7,7 @@ package com.raychenon.kotlin.hackerrank.warmup
  */
 object BonAppetit {
 
-    fun bonAppetit(bill: Array<Int>, k: Int, b: Int): Unit {
-        var result = calculateBillCharged(bill, k, b)
-        print("$result")
-    }
-
-    fun calculateBillCharged(bill: Array<Int>, indexNotBilled: Int, amountCharged: Int): String {
+    fun calculateBillCharged(bill: Array<Int>, indexNotBilled: Int, amountCollected: Int): String {
         var amount = 0
         for ((index, foodCost) in bill.withIndex()) {
             if (index != indexNotBilled) {
@@ -21,10 +16,10 @@ object BonAppetit {
         }
 
         amount = amount / 2
-        if (amount == amountCharged) {
+        if (amount == amountCollected) {
             return "Bon Appetit"
         } else {
-            val overcharged = amountCharged - amount
+            val overcharged = amountCollected - amount
             return "$overcharged"
         }
     }
