@@ -24,7 +24,8 @@ object BonAppetit {
         if (amount == amountCharged) {
             return "Bon Appetit"
         } else {
-            return "$amount"
+            val overcharged = amountCharged - amount
+            return "$overcharged"
         }
     }
 }
