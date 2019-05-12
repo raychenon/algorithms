@@ -1,6 +1,7 @@
 package com.raychenon.hackerrank.warmup;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * User: raychenon
@@ -13,12 +14,17 @@ public class BonAppetit {
 
         int amount = 0;
         int i = 0;
-        while (i < bill.size()) {
-            if (i != indexNotBilled) {
-                amount = amount + bill.get(i);
-            }
-            i++;
-        }
+        amount = IntStream.range(0, bill.size())
+                .filter(e -> bill.get(e) != indexNotBilled)
+                .map(x -> bill.get(x))
+                .sum();
+
+//        while (i < bill.size()) {
+//            if (i != indexNotBilled) {
+//                amount = amount + bill.get(i);
+//            }
+//            i++;
+//        }
 
         amount = amount / 2;
         int amountOverCharged = amountCollected - amount;
