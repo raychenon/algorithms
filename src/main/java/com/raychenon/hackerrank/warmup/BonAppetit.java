@@ -15,7 +15,7 @@ public class BonAppetit {
         int amount = 0;
         int i = 0;
         amount = IntStream.range(0, bill.size())
-                .filter(e -> bill.get(e) != indexNotBilled)
+                .filter(e -> bill.get(e) != bill.get(indexNotBilled))
                 .map(x -> bill.get(x))
                 .sum();
 
