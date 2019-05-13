@@ -13,12 +13,12 @@ public class BonAppetit {
     String calculateBillCharged(List<Integer> bill, int indexNotBilled, int amountCollected) {
 
         int amount = 0;
-        int i = 0;
         amount = IntStream.range(0, bill.size())
-                .filter(e -> bill.get(e) != bill.get(indexNotBilled))
+                .filter(e -> e != indexNotBilled)
                 .map(x -> bill.get(x))
                 .sum();
 
+//        int i = 0;
 //        while (i < bill.size()) {
 //            if (i != indexNotBilled) {
 //                amount = amount + bill.get(i);
