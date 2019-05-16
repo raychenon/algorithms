@@ -26,8 +26,6 @@ matrix:
         - 3.6
       dist: xenial
       sudo: true
-      virtualenv:
-        system_site_packages: true
       before_install:
         - cd python3/
         - sudo apt-get update
