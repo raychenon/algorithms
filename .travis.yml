@@ -35,7 +35,6 @@ matrix:
         - pip install -r requirements.txt
         - pip install codecov
       script:
-#        - python test_all.py
-        - ./tests.sh
+        - python test_all.py
       after_success:
         - codecov

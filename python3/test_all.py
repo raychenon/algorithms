@@ -1,6 +1,6 @@
-import unittest
+import unittest2
 
-loader = unittest.TestLoader()
+loader = unittest2.TestLoader()
 tests = loader.discover('.')
-testRunner = unittest.runner.TextTestRunner()
+testRunner = unittest2.runner.TextTestRunner()
 testRunner.run(tests)
