@@ -31,11 +31,9 @@ matrix:
         - sudo apt-get update
         - sudo apt-get install python3
       install:
-        - pip install --upgrade virtualenv
         - pip install -r requirements.txt
         - pip install codecov
       script:
         - python -m unittest2 discover hackerrank
-        - coverage report -m
       after_success:
         - codecov

@@ -4,3 +4,4 @@ last-build.bin
 out
 build
 *.pyc
+.coverage
