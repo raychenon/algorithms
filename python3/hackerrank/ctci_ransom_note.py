@@ -28,8 +28,5 @@ def checkMagazine(magazine, ransom):
             ransomMap[w] = ransomMap.get(w, 0) - 1
             if ransomMap.get(w) == 0:
                 del ransomMap[w]
-            if len(ransomMap) == 0:
-                return True
 
-    return False
-
+    return (len(ransomMap) == 0)

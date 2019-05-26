@@ -22,7 +22,7 @@ class Test_ransom_note(unittest.TestCase):
         self.assertEquals(checkMagazine(['me'], ['Me']), False)
 
     def test_ransom_empty(self):
-        self.assertEquals(checkMagazine(['me'], []), False)
+        self.assertEquals(checkMagazine(['me'], []), True)
 
     def test_ransom_2(self):
         self.assertEquals(
