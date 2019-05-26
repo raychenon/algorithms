@@ -3,3 +3,5 @@ last-build.bin
 .idea
 out
 build
+*.pyc
+.coverage

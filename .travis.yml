@@ -1,21 +1,39 @@
-language: java
-jdk:
-  - oraclejdk8
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  bundler: true
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-before_script:
-  - chmod +x gradlew
+matrix:
+  include:
+    - language: java
+      jdk:
+        - oraclejdk8
+      before_cache:
+        - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+        - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+      cache:
+        bundler: true
+        directories:
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+      before_script:
+        - chmod +x gradlew
 
-install: echo "skip 'gradle assemble' step"
-script:
-  - ./gradlew check
-  - ./gradlew build --continue
-  - ./gradlew jacocoTestReport
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+      install: echo "skip 'gradle assemble' step"
+      script:
+        - ./gradlew check
+        - ./gradlew build --continue
+        - ./gradlew jacocoTestReport
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
+    - language: python
+      python:
+        - 3.6
+      dist: xenial
+      sudo: true
+      before_install:
+        - cd python3/
+        - sudo apt-get update
+        - sudo apt-get install python3
+      install:
+        - pip install -r requirements.txt
+        - pip install codecov
+      script:
+        - python -m unittest2 discover hackerrank
+      after_success:
+        - codecov
