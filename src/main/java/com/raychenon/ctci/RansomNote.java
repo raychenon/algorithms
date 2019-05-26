@@ -46,17 +46,21 @@ public class RansomNote {
                     noteMap.remove(magazineWord);
                 }
             }
-
-            // only when all words from Note are removed,
-            // we are sure there are enough words in Magazine to form the Note
-            if (noteMap.size() == 0) {
-                return true;
-            }
         }
-        return false;
+
+        // only when all words from Note are removed,
+        // we are sure there are enough words in Magazine to form the Note
+        return noteMap.isEmpty();
     }
 
 
+    /**
+     * same method written in Functional Programming Style
+     *
+     * @param magazine
+     * @param note
+     * @return
+     */
     static boolean checkMagazineFP(String[] magazine, String[] note) {
         if (magazine.length < note.length) {
             return false;

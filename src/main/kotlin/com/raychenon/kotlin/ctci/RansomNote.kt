@@ -36,7 +36,9 @@ public fun checkMagazine(magazine: Array<String>, note: Array<String>): Boolean 
             }
         }
 
-        if(noteMap.size == 0){
+        // no need to iterate all the magazine elements,
+        // as soon as all words in noteMap are removed, exit the method
+        if(noteMap.isEmpty()){
             return true
         }
     }
