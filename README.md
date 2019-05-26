@@ -4,4 +4,4 @@
 
 # Introduction
 
-A collection of problems solved in different languages ( Java, Kotlin ).
+A collection of problems solved in different languages ( Java, Kotlin, Python 3 ).
