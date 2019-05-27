@@ -14,8 +14,14 @@ The thunder clouds (marked by 1) have to be avoided.
 
 class Test_jumping_on_clouds(unittest.TestCase):
 
+    def test_case_0(self):
+        self.assertEquals(jumpingOnClouds([0, 0, 1, 0, 0, 1, 0]), 4)
+
     def test_case_1(self):
         self.assertEquals(jumpingOnClouds([0, 0, 0, 1, 0, 0]), 3)
+
+    def test_case_contain_only_0(self):
+        self.assertEquals(jumpingOnClouds([0, 0, 0, 0, 0, 0]), 3)
 
 
 if __name__ == '__main__':

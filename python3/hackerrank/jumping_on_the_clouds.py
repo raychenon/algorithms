@@ -10,7 +10,7 @@ The thunder clouds (marked by 1) have to be avoided.
 def jumpingOnClouds(c):
     i = 0
     nbJump = 0
-    while (i < len(c)):
+    while (i < len(c) - 1):
         if (c[i] == 0):
             i += 1
         nbJump += 1
