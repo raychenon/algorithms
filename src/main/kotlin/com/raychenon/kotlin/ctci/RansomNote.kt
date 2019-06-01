@@ -45,3 +45,36 @@ public fun checkMagazine(magazine: Array<String>, note: Array<String>): Boolean 
 
     return false
 }
+
+
+public fun checkMagazineFP(magazine: Array<String>, note: Array<String>): Boolean {
+    if (magazine.size < note.size){
+        return false
+    }
+
+    val noteMap = transformMap(note)
+    for(m in magazine){
+        if(noteMap.containsKey(m)){
+            noteMap.put(m,noteMap.getValue(m)-1)
+            if(noteMap.getValue(m) == 0){
+                noteMap.remove(m)
+            }
+        }
+
+        // no need to iterate all the magazine elements,
+        // as soon as all words in noteMap are removed, exit the method
+        if(noteMap.isEmpty()){
+            return true
+        }
+    }
+
+    return false
+}
+
+fun transformMap(array: Array<String>): Map<String, Int> {
+    val map = mutableMapOf<String,Int>()
+    for(n in array){
+        map.put(n,map.getOrDefault(n,0) + 1)
+    }
+    return map
+}
