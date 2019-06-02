@@ -9,40 +9,48 @@ import org.junit.Test
  * https://www.hackerrank.com/challenges/ctci-ransom-note/problem
  */
 class RansomNoteTest {
-    
+
     @Test
-    fun evaluateRansom1(){
-        Assert.assertEquals(checkMagazine(arrayOf("give", "me", "one","grand","today","night"),
-            arrayOf("give", "one","grand","today")),true)
+    fun evaluateRansom1() {
+        assertValidity(
+            arrayOf("give", "me", "one", "grand", "today", "night"),
+            arrayOf("give", "one", "grand", "today"), true
+        )
     }
 
     @Test
-    fun evaluateRansom1_1(){
-        Assert.assertEquals(checkMagazine(arrayOf("some"),
-            arrayOf("some")),true)
+    fun evaluateRansom1_1() {
+        assertValidity(arrayOf("some"), arrayOf("some"), true)
     }
 
     @Test
-    fun evaluateRansom2(){
-        Assert.assertEquals(checkMagazine(arrayOf("two" ,"times", "three", "is", "not", "four"),
-            arrayOf("two" ,"times", "two", "is", "four")),false)
+    fun evaluateRansom2() {
+        assertValidity(
+            arrayOf("two", "times", "three", "is", "not", "four"),
+            arrayOf("two", "times", "two", "is", "four"), false
+        )
     }
 
     @Test
-    fun evaluateRansom3(){
-        Assert.assertEquals(checkMagazine(arrayOf("ive" ,"got", "a", "lovely", "bunch", "of","coconuts"),
-            arrayOf("ive" ,"got", "some", "coconuts")),false)
-    }
-    
-    @Test
-    fun evaluateRansom_NoteIsEmpty(){
-        Assert.assertEquals(checkMagazine(arrayOf("any"),
-            arrayOf<String>()),true)
+    fun evaluateRansom3() {
+        assertValidity(
+            arrayOf("ive", "got", "a", "lovely", "bunch", "of", "coconuts"),
+            arrayOf("ive", "got", "some", "coconuts"), false
+        )
     }
 
     @Test
-    fun evaluateRansomBiggerThanMagazine(){
-        Assert.assertEquals(checkMagazine(arrayOf<String>(),
-            arrayOf("a","b","c")),false)
+    fun evaluateRansom_NoteIsEmpty() {
+        assertValidity(arrayOf("any"), arrayOf<String>(), true)
+    }
+
+    @Test
+    fun evaluateRansomBiggerThanMagazine() {
+        assertValidity(arrayOf<String>(), arrayOf("a", "b", "c"), false)
+    }
+
+    private fun assertValidity(magazine: Array<String>, note: Array<String>, expectedResult: Boolean) {
+        Assert.assertEquals(expectedResult, checkMagazine(magazine, note))
+        Assert.assertEquals(expectedResult, checkMagazineFP(magazine, note))
     }
 }

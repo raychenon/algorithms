@@ -20,28 +20,49 @@ package com.raychenon.kotlin.ctci
  * space complexity : O(N)
  */
 public fun checkMagazine(magazine: Array<String>, note: Array<String>): Boolean {
-    if (magazine.size < note.size){
+    if (magazine.size < note.size) {
         return false
     }
 
-    val noteMap = mutableMapOf<String,Int>()
-    for(n in note){
-        noteMap.put(n,noteMap.getOrDefault(n,0) + 1)
+    val noteMap = mutableMapOf<String, Int>()
+    for (n in note) {
+        noteMap.put(n, noteMap.getOrDefault(n, 0) + 1)
     }
-    for(m in magazine){
-        if(noteMap.containsKey(m)){
-            noteMap.put(m,noteMap.getValue(m)-1)
-            if(noteMap.getValue(m) == 0){
+    for (m in magazine) {
+        if (noteMap.containsKey(m)) {
+            noteMap.put(m, noteMap.getValue(m) - 1)
+            if (noteMap.getValue(m) == 0) {
                 noteMap.remove(m)
             }
         }
 
         // no need to iterate all the magazine elements,
         // as soon as all words in noteMap are removed, exit the method
-        if(noteMap.isEmpty()){
+        if (noteMap.isEmpty()) {
             return true
         }
     }
 
     return false
+}
+
+
+/**
+ * time complexity : O(n) = O(M+N)
+ * space complexity : O(N+M)
+ */
+public fun checkMagazineFP(magazine: Array<String>, note: Array<String>): Boolean {
+    if (magazine.size < note.size) {
+        return false
+    }
+
+    val noteMap = transformMap(note)
+    val magazineMap = transformMap(magazine)
+
+    return noteMap.map { it }
+        .all { n -> magazineMap.getOrDefault(n.key, 0) >= n.value }
+}
+
+private fun transformMap(array: Array<String>): Map<String, Int> {
+    return array.groupingBy { it }.eachCount()
 }
