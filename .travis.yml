@@ -35,5 +35,6 @@ matrix:
         - pip install codecov
       script:
         - python -m unittest2 discover hackerrank
+        - python -m unittest2 discover codility
       after_success:
         - codecov
