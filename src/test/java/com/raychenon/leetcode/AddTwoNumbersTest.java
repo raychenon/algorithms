@@ -34,7 +34,7 @@ public class AddTwoNumbersTest {
 
     @Test
     public void assertCompareListNode() {
-        compareListNode(createListNode(1, 2, 3), createListNode(1, 2));
+        compareListNode(createListNode(1, 2, 3), createListNode(1, 2, 3));
     }
 
     private void compareListNode(ListNode l1, ListNode l2) {
