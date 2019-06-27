@@ -25,6 +25,12 @@ public class AddTwoNumbersTest {
 
 
     @Test
+    public void assertAdditionDifferentListSize() {
+
+        compareListNode(createListNode(2, 2, 0), addTwoNumbers.addTwoNumbers(createListNode(1, 2), createListNode(1, 0, 0)));
+    }
+
+    @Test
     public void assertSumSameListSize() {
 
         assertEquals(Arrays.asList(8, 0, 7), addTwoNumbers.addTwoNumbersList(Arrays.asList(3, 4, 2), Arrays.asList(4, 6, 5)));
@@ -33,11 +39,19 @@ public class AddTwoNumbersTest {
     }
 
     @Test
+    public void assertAdditionCarryOverflow() {
+
+        compareListNode(createListNode(1, 7, 1), addTwoNumbers.addTwoNumbers(createListNode(9, 8), createListNode(2, 8)));
+    }
+
+    @Test
     public void assertCompareListNode() {
         compareListNode(createListNode(1, 2, 3), createListNode(1, 2, 3));
     }
 
     private void compareListNode(ListNode l1, ListNode l2) {
+
+        System.out.println("---------------");
         while (l1 != null || l2 != null) {
 
             int val1 = (l1 != null) ? l1.val : -1;
