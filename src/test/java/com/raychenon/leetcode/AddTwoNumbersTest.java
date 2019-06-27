@@ -1,9 +1,10 @@
 package com.raychenon.leetcode;
 
-import com.sun.tools.javac.util.List;
 import org.jetbrains.annotations.NotNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.Arrays;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -26,7 +27,7 @@ public class AddTwoNumbersTest {
     @Test
     public void assertSumSameListSize() {
 
-        assertEquals(List.of(8, 0, 7), addTwoNumbers.addTwoNumbersList(List.of(3, 4, 2), List.of(4, 6, 5)));
+        assertEquals(Arrays.asList(8, 0, 7), addTwoNumbers.addTwoNumbersList(Arrays.asList(3, 4, 2), Arrays.asList(4, 6, 5)));
 
         compareListNode(createListNode(7, 0, 8), addTwoNumbers.addTwoNumbers(createListNode(3, 4, 2), createListNode(4, 6, 5)));
     }
