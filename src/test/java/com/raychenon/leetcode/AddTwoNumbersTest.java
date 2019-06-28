@@ -25,9 +25,15 @@ public class AddTwoNumbersTest {
 
 
     @Test
-    public void assertAdditionDifferentListSize() {
+    public void assertAdditionDifferentListSize1() {
 
-        compareListNode(createListNode(2, 2, 0), addTwoNumbers.addTwoNumbers(createListNode(1, 2), createListNode(1, 0, 0)));
+        compareListNode(createListNode(2, 2, 0), addTwoNumbers.addTwoNumbers(createListNode(1, 0, 0), createListNode(1, 2)));
+    }
+
+    @Test
+    public void assertAdditionDifferentListSize2() {
+
+        compareListNode(createListNode(1, 0, 1), addTwoNumbers.addTwoNumbers(createListNode(1), createListNode(0, 0, 1)));
     }
 
     @Test
@@ -54,8 +60,8 @@ public class AddTwoNumbersTest {
         System.out.println("---------------");
         while (l1 != null || l2 != null) {
 
-            int val1 = (l1 != null) ? l1.val : -1;
-            int val2 = (l2 != null) ? l2.val : -1;
+            int val1 = (l1 != null) ? l1.val : 0;
+            int val2 = (l2 != null) ? l2.val : 0;
 
             System.out.println(String.format("L1 = %d , L2 = %d", val1, val2));
 
