@@ -2,10 +2,10 @@ package com.raychenon.kotlin.leetcode
 
 /**
  * User: raychenon
- * Date: 2019-06-29
+ * Date: 2019-07-02
  * https://leetcode.com/problems/add-two-numbers/
  */
-class AddTwoNumbers {
+object AddTwoNumbers {
 
     fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
         val head = ListNode(0)
