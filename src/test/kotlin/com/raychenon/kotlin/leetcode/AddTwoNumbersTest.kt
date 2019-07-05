@@ -12,9 +12,31 @@ class AddTwoNumbersTest {
 
 
     @Test
-    fun evaluateReserveEmptyNode() {
+    fun evaluateComparreListNodes() {
+        compareListNodes(createListNode(listOf(1, 2)), createListNode(listOf(1, 2)))
+
+        compareListNodes(createListNode(listOf(3)), createListNode(listOf(3)))
     }
 
+    private fun compareListNodes(l1: ListNode, l2: ListNode): Unit {
+
+        println("---------------")
+        var ln1: ListNode? = l1
+        var ln2: ListNode? = l2
+        while (ln1 != null || ln2 != null) {
+
+            val val1 = ln1?.`val` ?: 0
+            val val2 = ln2?.`val` ?: 0
+
+            println(String.format("L1 = %d , L2 = %d", val1, val2))
+
+            Assert.assertEquals(val1, val2)
+
+            ln1 = ln1?.next
+            ln2 = ln2?.next
+        }
+
+    }
 
     private fun createListNode(ts: List<Int>): ListNode {
         var head = ListNode(ts.get(0))
