@@ -17,6 +17,12 @@ class AddTwoNumbersTest {
     }
 
     @Test
+    fun evaluateListNodeAddition_9_plus_2() {
+        val resultNode = AddTwoNumbers.addTwoNumbers(createListNode(listOf(2)), createListNode(listOf(9)))
+        compareListNodes(createListNode(listOf(1, 1)), resultNode)
+    }
+
+    @Test
     fun evaluateListNodeAddition_342_plus_465() {
         val resultNode = AddTwoNumbers.addTwoNumbers(createListNode(listOf(3, 4, 2)), createListNode(listOf(4, 6, 5)))
         compareListNodes(createListNode(listOf(8, 0, 7)), resultNode)
