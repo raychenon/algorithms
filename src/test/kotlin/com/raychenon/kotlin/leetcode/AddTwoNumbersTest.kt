@@ -17,9 +17,15 @@ class AddTwoNumbersTest {
     }
 
     @Test
-    fun evaluateListNodeAddition() {
-        val resultNode = AddTwoNumbers.addTwoNumbers(createListNode(listOf(1, 0, 0)), createListNode(listOf(1)))
-        compareListNodes(createListNode(listOf(1, 0, 1)), resultNode)
+    fun evaluateListNodeAddition_342_plus_465() {
+        val resultNode = AddTwoNumbers.addTwoNumbers(createListNode(listOf(3, 4, 2)), createListNode(listOf(4, 6, 5)))
+        compareListNodes(createListNode(listOf(8, 0, 7)), resultNode)
+    }
+
+    @Test
+    fun evaluateListNodeAdditionToEmptyList() {
+        val resultNode = AddTwoNumbers.addTwoNumbers(createListNode(listOf(1, 0, 0)), createListNode(emptyList()))
+        compareListNodes(createListNode(listOf(1, 0, 0)), resultNode)
     }
 
     @Test
@@ -52,6 +58,7 @@ class AddTwoNumbersTest {
     }
 
     private fun createListNode(ts: List<Int>): ListNode {
+        if (ts.isNullOrEmpty()) return ListNode(0)
         val size = ts.size
         var head = ListNode(ts.get(size - 1))
         var node = head
