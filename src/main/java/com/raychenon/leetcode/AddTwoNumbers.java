@@ -55,26 +55,6 @@ public class AddTwoNumbers {
             curr.next = new ListNode(carry);
         }
         return dummyHead.next;
-        
-//        ListNode head = new ListNode(0);
-//        ListNode curr = head;
-//        int carry = 0;
-//        while (l1.next != null || l2.next != null) {
-//
-//            int sum = carry + l1.val + l2.val;
-//            carry = sum / 10;
-//
-//            curr.next = new ListNode(sum % 10);
-//
-//            curr = curr.next;
-//            l1 = l1.next;
-//            l2 = l2.next;
-//        }
-//        if (carry > 0) {
-//            curr.next = new ListNode(carry);
-//        }
-//
-//        return head.next;
     }
 
 }
