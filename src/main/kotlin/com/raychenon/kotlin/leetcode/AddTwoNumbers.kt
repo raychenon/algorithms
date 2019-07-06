@@ -25,7 +25,7 @@ object AddTwoNumbers {
             if (l1 != null) l1 = l1!!.next
             if (l2 != null) l2 = l2!!.next
 
-            print("carry = $carry")
+            print("carry = $carry \n")
         }
         if (carry > 0) {
             curr!!.next = ListNode(carry)

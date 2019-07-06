@@ -37,6 +37,19 @@ class AddTwoNumbersTest {
         compareListNodes(ListNode(1), ListNode(1))
     }
 
+
+    @Test
+    fun assertAddition_when_l1_longer() {
+        val resultNode = AddTwoNumbers.addTwoNumbers(createListNode(listOf(1, 9, 0, 0)), createListNode(listOf(8, 4)))
+        compareListNodes(createListNode(listOf(1, 9, 8, 4)), resultNode)
+    }
+
+    @Test
+    fun assertAddition_when_l2_longer() {
+        val resultNode = AddTwoNumbers.addTwoNumbers(createListNode(listOf(1)), createListNode(listOf(1, 0, 0)))
+        compareListNodes(createListNode(listOf(1, 0, 1)), resultNode)
+    }
+
     private fun compareListNodes(l1: ListNode?, l2: ListNode?): Unit {
 
         println("---------------")
