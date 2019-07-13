@@ -7,7 +7,6 @@ package com.raychenon.kotlin.leetcode
  */
 object SearchInsertPosition {
     fun searchInsert(nums: IntArray, target: Int): Int {
-
         // edge limit
         val min = nums.get(0)
         val max = nums.get(nums.size - 1)
@@ -16,7 +15,7 @@ object SearchInsertPosition {
         } else if (target > max) {
             return nums.size
         }
-        
+
         // general
         for ((i, v) in nums.withIndex()) {
             // found
@@ -24,7 +23,7 @@ object SearchInsertPosition {
                 return i
             } else if (v > target) {
                 // target not found , between numbers
-                if ((i - 1) > 0 && nums.get(i - 1) < target) {
+                if ((i - 1) >= 0 && nums.get(i - 1) < target) {
                     return i
                 }
             }
