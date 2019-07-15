@@ -6,14 +6,20 @@ package com.raychenon.kotlin.leetcode
  * https://leetcode.com/problems/search-insert-position/
  */
 object SearchInsertPosition {
+    /**
+     * search for an integer in a sorted array
+     *
+     * @param nums   sorted array
+     * @param target integer to find
+     * @return the index if found or the index where target number should be
+     * runtime complexity : O(n)
+     * space   complexity : O(1)
+     */
     fun searchInsert(nums: IntArray, target: Int): Int {
         // edge limit
         val min = nums.get(0)
-        val max = nums.get(nums.size - 1)
         if (target < min) {
             return 0
-        } else if (target > max) {
-            return nums.size
         }
 
         // general
