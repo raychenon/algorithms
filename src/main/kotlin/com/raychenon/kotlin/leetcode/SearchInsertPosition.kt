@@ -30,4 +30,10 @@ object SearchInsertPosition {
         }
         return nums.size
     }
+
+}
+
+fun IntArray.searchInsert(target: Int): Int {
+    val nums = this
+    return SearchInsertPosition.searchInsert(nums, target)
 }
