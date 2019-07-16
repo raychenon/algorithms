@@ -11,6 +11,12 @@ import org.junit.Test
 class SearchInsertPositionTest {
 
     @Test
+    fun testSearchInsert_WhenInArrayIsEmpty() {
+        val position = SearchInsertPosition.searchInsert(intArrayOf(), 5)
+        Assert.assertEquals(0, position)
+    }
+
+    @Test
     fun testSearchInsert_WhenTargetIsInArray() {
         val position = SearchInsertPosition.searchInsert(intArrayOf(1, 3, 5, 6), 5)
         Assert.assertEquals(2, position)
