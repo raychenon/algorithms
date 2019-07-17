@@ -6,6 +6,15 @@ package com.raychenon.kotlin.leetcode
  * https://leetcode.com/problems/search-insert-position/
  */
 object SearchInsertPosition {
+    /**
+     * search for an integer in a sorted array
+     *
+     * @param nums   sorted array
+     * @param target integer to find
+     * @return the index if found or the index where target number should be
+     * runtime complexity : O(n)
+     * space   complexity : O(1)
+     */
     fun searchInsert(nums: IntArray, target: Int): Int {
         if (nums.isEmpty()) return 0
 
@@ -29,4 +38,10 @@ object SearchInsertPosition {
         }
         return nums.size
     }
+
+}
+
+fun IntArray.searchInsert(target: Int): Int {
+    val nums = this
+    return SearchInsertPosition.searchInsert(nums, target)
 }

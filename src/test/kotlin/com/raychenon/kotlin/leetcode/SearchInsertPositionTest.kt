@@ -18,7 +18,7 @@ class SearchInsertPositionTest {
 
     @Test
     fun testSearchInsert_WhenTargetIsInArray() {
-        val position = SearchInsertPosition.searchInsert(intArrayOf(1, 3, 5, 6), 5)
+        val position = intArrayOf(1, 3, 5, 6).searchInsert(5)
         Assert.assertEquals(2, position)
     }
 
