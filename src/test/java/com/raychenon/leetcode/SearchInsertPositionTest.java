@@ -46,4 +46,11 @@ public class SearchInsertPositionTest {
         int position = searchInsertPosition.searchInsert(sortedArray, 0);
         assertEquals(0, position);
     }
+
+    @Test
+    public void testSearchInsert_WhenTargetIsBetweenFirstTwoElements() {
+        int sortedArray[] = {1, 5, 6};
+        int position = searchInsertPosition.searchInsert(sortedArray, 3);
+        assertEquals(1, position);
+    }
 }

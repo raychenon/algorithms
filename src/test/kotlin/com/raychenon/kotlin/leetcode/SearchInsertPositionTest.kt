@@ -40,4 +40,9 @@ class SearchInsertPositionTest {
         Assert.assertEquals(0, position)
     }
 
+    @Test
+    fun testSearchInsert_WhenTargetIsBetweenFirstTwoElements() {
+        val position = SearchInsertPosition.searchInsert(intArrayOf(1, 5, 6), 3)
+        Assert.assertEquals(1, position)
+    }
 }
