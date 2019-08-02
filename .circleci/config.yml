@@ -13,7 +13,8 @@ jobs:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
-
+    orbs:
+      codecov: codecov/codecov@1.0.2
     steps:
       - checkout
 
@@ -36,3 +37,7 @@ jobs:
       - run: gradle test
       # run coverage report
       - run: gradle jacocoTestReport
+      - run:
+          name: Upload Coverage Results
+          command: |
+            curl -s https://codecov.io/bash | bash -s

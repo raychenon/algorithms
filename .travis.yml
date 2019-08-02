@@ -18,9 +18,9 @@ matrix:
       script:
         - ./gradlew check
         - ./gradlew build --continue
-        - ./gradlew jacocoTestReport
-      after_success:
-        - bash <(curl -s https://codecov.io/bash)
+#        - ./gradlew jacocoTestReport
+#      after_success:
+#        - bash <(curl -s https://codecov.io/bash)
     - language: python
       python:
         - 3.6
@@ -32,9 +32,9 @@ matrix:
         - sudo apt-get install python3
       install:
         - pip install -r requirements.txt
-        - pip install codecov
+#        - pip install codecov
       script:
         - python -m unittest2 discover hackerrank
         - python -m unittest2 discover codility
-      after_success:
-        - codecov
+#      after_success:
+#        - codecov
