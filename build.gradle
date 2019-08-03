@@ -7,7 +7,6 @@ plugins {
 
 jacoco {
     toolVersion = "0.8.4"
-    reportsDir = file("$buildDir/customJacocoReportDir")
 }
 
 allprojects {
@@ -49,6 +48,14 @@ jacocoTestReport {
         xml.enabled true
         csv.enabled false
         html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+task copyJacocoReport(type: Copy) {
+    from "$buildDir/reports/jacoco/test/jacocoTestReport.xml"
+    into "$buildDir/jacoco"
+    rename { String fileName ->
+        fileName.replace("jacocoTestReport.xml", "jacoco.xml")
     }
 }
 
