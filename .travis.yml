@@ -21,12 +21,17 @@ matrix:
       install: echo "skip 'gradle assemble' step"
       script:
         - ./gradlew check
-        - ./gradlew build --continue
-        - ./gradlew jacocoTestReport
+        - ./gradlew clean build jacocoTestReport
       after_success:
         - bash <(curl -s https://codecov.io/bash)
-        # Upload code coverage to code climate
-        - ./cc-test-reporter after-build -t jacoco --exit-code $TRAVIS_TEST_RESULT
+        # Set up xml path for code climate
+        - JACOCO_SOURCE_PATH=src/main
+        - ./cc-test-reporter format-coverage ./build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
+        # Upload coverage to code climate
+        - run:
+            name: Upload code climate report
+            command: ./cc-test-reporter upload-coverage -d -r $CC_TEST_REPORTER_ID
+            when: on_success
     - language: python
       python:
         - 3.6
