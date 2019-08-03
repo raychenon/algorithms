@@ -22,12 +22,11 @@ matrix:
       script:
         - ./gradlew check
         - ./gradlew clean build jacocoTestReport
-        - ./gradlew copyJacocoReport
       after_success:
         - bash <(curl -s https://codecov.io/bash)
         # Set up xml path for code climate
         - JACOCO_SOURCE_PATH=src/main
-        - ./cc-test-reporter format-coverage ./build/jacoco/jacoco.xml --input-type jacoco
+        - ./cc-test-reporter format-coverage ./build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
         # Upload coverage to code climate
         - run:
             name: Upload code climate report

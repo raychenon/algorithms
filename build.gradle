@@ -51,12 +51,4 @@ jacocoTestReport {
     }
 }
 
-task copyJacocoReport(type: Copy) {
-    from "$buildDir/reports/jacoco/test/jacocoTestReport.xml"
-    into "$buildDir/jacoco"
-    rename { String fileName ->
-        fileName.replace("jacocoTestReport.xml", "jacoco.xml")
-    }
-}
-
 check.dependsOn jacocoTestReport
