@@ -30,6 +30,10 @@ matrix:
         - cd python3/
         - sudo apt-get update
         - sudo apt-get install python3
+      before_script:
+        # code climate
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
       install:
         - pip install -r requirements.txt
         - pip install codecov
@@ -38,3 +42,5 @@ matrix:
         - python -m unittest2 discover codility
       after_success:
         - codecov
+        # code climate
+        - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
