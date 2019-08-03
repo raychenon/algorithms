@@ -13,6 +13,10 @@ matrix:
           - $HOME/.gradle/wrapper/
       before_script:
         - chmod +x gradlew
+        # Set up code climate test reporter
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
+        - ./cc-test-reporter before-build
 
       install: echo "skip 'gradle assemble' step"
       script:
@@ -21,6 +25,8 @@ matrix:
         - ./gradlew jacocoTestReport
       after_success:
         - bash <(curl -s https://codecov.io/bash)
+        # Upload code coverage to code climate
+        - ./cc-test-reporter after-build -t jacoco --exit-code $TRAVIS_TEST_RESULT
     - language: python
       python:
         - 3.6
@@ -30,6 +36,10 @@ matrix:
         - cd python3/
         - sudo apt-get update
         - sudo apt-get install python3
+      before_script:
+        # code climate
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
       install:
         - pip install -r requirements.txt
         - pip install codecov
@@ -38,3 +48,5 @@ matrix:
         - python -m unittest2 discover codility
       after_success:
         - codecov
+        # code climate
+        - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
