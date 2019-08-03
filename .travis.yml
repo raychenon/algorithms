@@ -26,11 +26,9 @@ matrix:
       after_success:
         - bash <(curl -s https://codecov.io/bash)
         # Upload code coverage to code climate
-        - JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter \
-          format-coverage build/reports/jacoco/test/jacocoTestReport.xml     \
-          --input-type jacoco
-          ./cc-test-reporter upload-coverage
-        - ./cc-test-reporter upload-coverage -d
+        - JACOCO_SOURCE_PATH=src/main/java
+        - ./cc-test-reporter format-coverage build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
+        - ./cc-test-reporter upload-coverage
     - language: python
       python:
         - 3.6
