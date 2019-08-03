@@ -13,6 +13,10 @@ matrix:
           - $HOME/.gradle/wrapper/
       before_script:
         - chmod +x gradlew
+        # Set up code climate test reporter
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
+        - ./cc-test-reporter before-build
 
       install: echo "skip 'gradle assemble' step"
       script:
@@ -21,11 +25,19 @@ matrix:
         - ./gradlew jacocoTestReport
       after_success:
         - bash <(curl -s https://codecov.io/bash)
+        # Upload code coverage to code climate - with workaround for jacoco
+        - cp target/site/jacoco/jacoco.xml src/main/java/jacoco.xml
+        - cd src/main/java/
+        - ../../../cc-test-reporter after-build -t jacoco --exit-code $TRAVIS_TEST_RESULT
     - language: python
       python:
         - 3.6
       dist: xenial
       sudo: true
+      # command to install dependencies
+      before_script:
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
       before_install:
         - cd python3/
         - sudo apt-get update
@@ -38,3 +50,4 @@ matrix:
         - python -m unittest2 discover codility
       after_success:
         - codecov
+        - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
