@@ -4,8 +4,8 @@
 #
 version: 2.1
 
-orbs:
-  codecov: codecov/codecov@1.0.5
+#orbs:
+#  codecov: codecov/codecov@1.0.5
 
 jobs:
   build:
@@ -39,5 +39,5 @@ jobs:
       - run: gradle test
       # run coverage report
       - run: gradle jacocoTestReport
-      - codecov/upload:
-          file: ../build/reports/jacoco/test/jacocoTestReport.xml
+#      - codecov/upload:
+#          file: ../build/reports/jacoco/test/jacocoTestReport.xml
