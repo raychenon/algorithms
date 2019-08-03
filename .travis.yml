@@ -21,8 +21,7 @@ matrix:
       install: echo "skip 'gradle assemble' step"
       script:
         - ./gradlew check
-        - ./gradlew build --continue
-        - ./gradlew jacocoTestReport
+        - ./gradlew clean build jacocoTestReport
       after_success:
         - bash <(curl -s https://codecov.io/bash)
         # Upload code coverage to code climate
