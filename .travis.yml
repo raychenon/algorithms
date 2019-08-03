@@ -25,10 +25,14 @@ matrix:
         - ./gradlew copyJacocoReport
       after_success:
         - bash <(curl -s https://codecov.io/bash)
-        # Upload code coverage to code climate
-        - JACOCO_SOURCE_PATH=src/main/java
-        - ./cc-test-reporter format-coverage build/jacoco/jacoco.xml --input-type jacoco
-        - ./cc-test-reporter upload-coverage
+        # Set up xml path for code climate
+        - JACOCO_SOURCE_PATH=src/main
+        - ./cc-test-reporter format-coverage ./build/jacoco/jacoco.xml --input-type jacoco
+        # Upload coverage to code climate
+        - run:
+            name: Upload code climate report
+            command: ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
+            when: on_success
     - language: python
       python:
         - 3.6
