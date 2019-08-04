@@ -1,7 +1,5 @@
 package com.raychenon.kotlin.leetcode
 
-import java.util.*
-
 /**
  * User: raychenon
  * Date: 2019-08-04
@@ -13,8 +11,14 @@ object RemoveDuplicatesSortedArray {
      * nums: pass by refence
      */
     fun removeDuplicates(nums: IntArray): Int {
-        val set = TreeSet<Int>()
-        set.addAll(nums.toSortedSet())
-        return set.size
+        var prevValue = -1
+        for (index in nums.size - 1 downTo 0) {
+            val value = nums.get(index)
+            if (value == prevValue) {
+                // delete
+            }
+            prevValue = value
+        }
+        return nums.size
     }
 }
