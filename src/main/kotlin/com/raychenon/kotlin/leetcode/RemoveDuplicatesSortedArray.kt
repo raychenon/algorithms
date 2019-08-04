@@ -9,16 +9,20 @@ object RemoveDuplicatesSortedArray {
 
     /**
      * nums: pass by refence
+     * Elements in array cannot be removed
+     * Time complexity : O(n)
+     * Space complexity : O(1)
      */
     fun removeDuplicates(nums: IntArray): Int {
-        var prevValue = -1
-        for (index in nums.size - 1 downTo 0) {
-            val value = nums.get(index)
-            if (value == prevValue) {
-                // delete
+        var count = 0
+        if (nums.size == 0) return 0
+
+        for (index in 0..nums.size - 1) {
+            if (nums.get(index) != nums.get(count)) {
+                count = count + 1
+                nums.set(count, nums.get(index))
             }
-            prevValue = value
         }
-        return nums.size
+        return count + 1
     }
 }
