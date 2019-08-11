@@ -39,6 +39,6 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '.', '4', '1', '9', '.', '.', '5'),
             charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
         )
-        Assert.assertEquals(true, ValidSudoku.isValidSudoku(grid))
+        Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
     }
 }

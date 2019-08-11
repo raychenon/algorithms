@@ -13,6 +13,41 @@ object ValidSudoku {
      * Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
      */
     fun isValidSudoku(board: Array<CharArray>): Boolean {
-       return true
+        val column = board.size - 1
+        val row = board.get(0).size - 1
+
+        // Each row must contain the digits 1-9 without repetition.
+        for (i in 0..column) {
+            var set = HashSet<Char>()
+            for (j in 0..row) {
+                val element = board.get(i).get(j)
+                if (!'.'.equals(element)) {
+                    if (set.contains(element)) {
+                        return false
+                    } else {
+                        set.add(element)
+                    }
+                }
+            }
+        }
+
+        // Each column must contain the digits 1-9 without repetition.
+        for (j in 0..row) {
+            var set = HashSet<Char>()
+            for (i in 0..column) {
+                val element = board.get(i).get(j)
+                if (!'.'.equals(element)) {
+                    if (set.contains(element)) {
+                        return false
+                    } else {
+                        set.add(element)
+                    }
+                }
+            }
+        }
+
+        // Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+        
+        return true
     }
 }
