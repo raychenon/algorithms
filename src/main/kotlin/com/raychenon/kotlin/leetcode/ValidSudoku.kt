@@ -61,13 +61,13 @@ object ValidSudoku {
 
     private fun isSubBoardValid(board: Array<CharArray>, iStart: Int, jStart: Int): Boolean {
         val subSquareSize = Math.sqrt(board.size.toDouble()).toInt() - 1
-        for (j in jStart..jStart + subSquareSize) {
-            var set = HashSet<Char>()
-            for (i in iStart..iStart + subSquareSize) {
+        var set = HashSet<Char>()
+        for (i in iStart..iStart + subSquareSize) {
+            for (j in jStart..jStart + subSquareSize) {
                 val element = board.get(i).get(j)
 
-                print("Grid , i = $i, j = $j , cell = $element \n")
                 if (!'.'.equals(element)) {
+                    print("Grid , i = $i, j = $j , cell = $element , contained ${set.contains(element)} \n")
                     if (set.contains(element)) {
                         return false
                     } else {
@@ -79,6 +79,4 @@ object ValidSudoku {
 
         return true
     }
-
-
 }

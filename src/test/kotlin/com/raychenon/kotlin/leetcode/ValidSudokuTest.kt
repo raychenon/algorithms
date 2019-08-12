@@ -44,6 +44,7 @@ class ValidSudokuTest {
 
     @Test
     fun isExample3Valid() {
+        // invalid, because the su-grid at top right corner contains two '1'
         val grid: Array<CharArray> = arrayOf(
             charArrayOf('.', '.', '.', '.', '5', '.', '.', '1', '.'),
             charArrayOf('.', '4', '.', '3', '.', '.', '.', '.', '.'),
