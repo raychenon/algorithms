@@ -41,4 +41,21 @@ class ValidSudokuTest {
         )
         Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
     }
+
+    @Test
+    fun isExample3Valid() {
+        val grid: Array<CharArray> = arrayOf(
+            charArrayOf('.', '.', '.', '.', '5', '.', '.', '1', '.'),
+            charArrayOf('.', '4', '.', '3', '.', '.', '.', '.', '.'),
+            charArrayOf('.', '.', '.', '.', '.', '3', '.', '.', '1'),
+            charArrayOf('8', '.', '.', '.', '.', '.', '.', '2', '.'),
+            charArrayOf('.', '.', '2', '.', '7', '.', '.', '.', '.'),
+            charArrayOf('.', '1', '5', '.', '.', '.', '.', '.', '.'),
+            charArrayOf('.', '.', '.', '.', '.', '2', '.', '.', '.'),
+            charArrayOf('.', '2', '.', '9', '.', '.', '.', '.', '.'),
+            charArrayOf('.', '.', '4', '.', '.', '.', '.', '.', '.')
+        )
+        Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
+    }
+
 }

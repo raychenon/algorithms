@@ -47,7 +47,38 @@ object ValidSudoku {
         }
 
         // Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
-        
+        val subSquareSize = Math.sqrt(board.size.toDouble()).toInt()
+        for (i in 0..row step subSquareSize) {
+            for (j in 0..column step subSquareSize) {
+                val result = isSubBoardValid(board, i, j)
+                if (!result) {
+                    return false
+                }
+            }
+        }
         return true
     }
+
+    private fun isSubBoardValid(board: Array<CharArray>, iStart: Int, jStart: Int): Boolean {
+        val subSquareSize = Math.sqrt(board.size.toDouble()).toInt() - 1
+        for (j in jStart..jStart + subSquareSize) {
+            var set = HashSet<Char>()
+            for (i in iStart..iStart + subSquareSize) {
+                val element = board.get(i).get(j)
+
+                print("Grid , i = $i, j = $j , cell = $element \n")
+                if (!'.'.equals(element)) {
+                    if (set.contains(element)) {
+                        return false
+                    } else {
+                        set.add(element)
+                    }
+                }
+            }
+        }
+
+        return true
+    }
+
+
 }
