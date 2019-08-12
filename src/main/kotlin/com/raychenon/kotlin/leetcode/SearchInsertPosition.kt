@@ -9,7 +9,7 @@ object SearchInsertPosition {
     /**
      * search for an integer in a sorted array
      *
-     * @param nums   sorted array
+     * @param nums sorted array
      * @param target integer to find
      * @return the index if found or the index where target number should be
      * runtime complexity : O(n)
@@ -38,7 +38,6 @@ object SearchInsertPosition {
         }
         return nums.size
     }
-
 }
 
 fun IntArray.searchInsert(target: Int): Int {
