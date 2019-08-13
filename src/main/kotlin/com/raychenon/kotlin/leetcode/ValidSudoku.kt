@@ -59,7 +59,13 @@ object ValidSudoku {
         return true
     }
 
-    private fun isSubBoardValid(board: Array<CharArray>, rowStart: Int, rowEnd: Int, colStart: Int, colEnd: Int): Boolean {
+    private fun isSubBoardValid(
+        board: Array<CharArray>,
+        rowStart: Int,
+        rowEnd: Int,
+        colStart: Int,
+        colEnd: Int
+    ): Boolean {
         val hashSet = HashSet<Char>()
         for (i in rowStart..rowEnd) {
             for (j in colStart..colEnd) {
