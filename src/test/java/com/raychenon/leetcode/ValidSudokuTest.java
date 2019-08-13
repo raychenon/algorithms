@@ -51,7 +51,7 @@ public class ValidSudokuTest {
     }
 
     @Test
-    public void isExample3Valid() {
+    public void isInvalid_when_SubgridsHaveDuplicates() {
         // invalid, because the su-grid at top right corner contains two '1'
         char[][] grid = new char[][]{
                 {'.', '.', '.', '.', '5', '.', '.', '1', '.'},
@@ -63,6 +63,38 @@ public class ValidSudokuTest {
                 {'.', '.', '.', '.', '.', '2', '.', '.', '.'},
                 {'.', '2', '.', '9', '.', '.', '.', '.', '.'},
                 {'.', '.', '4', '.', '.', '.', '.', '.', '.'}
+        };
+        Assert.assertEquals(false, validSudoku.isValidSudoku(grid));
+    }
+
+    @Test
+    public void isInValid_when_RowsHaveDuplicates() {
+        char[][] grid = new char[][]{
+                {'5', '3', '.', '.', '7', '.', '5', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+        Assert.assertEquals(false, validSudoku.isValidSudoku(grid));
+    }
+
+    @Test
+    public void isInValid_when_ColumnsHaveDuplicates() {
+        char[][] grid = new char[][]{
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '3', '.', '.', '8', '.', '.', '7', '9'}
         };
         Assert.assertEquals(false, validSudoku.isValidSudoku(grid));
     }
