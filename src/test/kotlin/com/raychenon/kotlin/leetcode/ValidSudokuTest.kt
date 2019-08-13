@@ -11,7 +11,7 @@ import org.junit.Test
 class ValidSudokuTest {
 
     @Test
-    fun isExample1Valid() {
+    fun isValid_when_NoDuplicates() {
         val grid: Array<CharArray> = arrayOf(
             charArrayOf('5', '3', '.', '.', '7', '.', '.', '.', '.'),
             charArrayOf('6', '.', '.', '1', '9', '5', '.', '.', '.'),
@@ -46,7 +46,7 @@ class ValidSudokuTest {
 
     @Test
     fun isInvalid_when_SubgridsHaveDuplicates() {
-        // invalid, because the su-grid at top right corner contains two '1'
+        // invalid, because the sub-grid at top right corner contains two '1'
         val grid: Array<CharArray> = arrayOf(
             charArrayOf('.', '.', '.', '.', '5', '.', '.', '1', '.'),
             charArrayOf('.', '4', '.', '3', '.', '.', '.', '.', '.'),

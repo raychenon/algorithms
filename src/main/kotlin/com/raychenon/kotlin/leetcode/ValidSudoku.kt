@@ -19,17 +19,19 @@ object ValidSudoku {
      *  |_|_|_|
      */
     fun isValidSudoku(board: Array<CharArray>): Boolean {
-        val set = HashSet<String>()
+        val rowSet = HashSet<String>()
+        val colSet = HashSet<String>()
+        val subgridSet = HashSet<String>()
         val size = board.size
         val smallBoardSize = Math.sqrt(size.toDouble()).toInt()
-        for (i in 0 until size) {
-            for (j in 0 until size) {
+        for (i in 0..size - 1) {
+            for (j in 0..size - 1) {
                 val element = board[i][j]
                 if (element != '.') {
                     val b = String.format("(%c)", element)
-                    if (!set.add(String.format("%s in row %d", b, i)) ||
-                        !set.add(String.format("", b, j)) ||
-                        !set.add(String.format("%s in sub-grid %d , %d", b, i / smallBoardSize, j / smallBoardSize))
+                    if (!rowSet.add("$b in row $i") ||
+                        !colSet.add("$b in column $j") ||
+                        !subgridSet.add("$b in sub-grid ${i / smallBoardSize} , ${j / smallBoardSize}")
                     )
                         return false
                 }

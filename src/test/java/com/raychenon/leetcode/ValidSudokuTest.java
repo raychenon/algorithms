@@ -52,7 +52,7 @@ public class ValidSudokuTest {
 
     @Test
     public void isInvalid_when_SubgridsHaveDuplicates() {
-        // invalid, because the su-grid at top right corner contains two '1'
+        // invalid, because the sub-grid at top right corner contains two '1'
         char[][] grid = new char[][]{
                 {'.', '.', '.', '.', '5', '.', '.', '1', '.'},
                 {'.', '4', '.', '3', '.', '.', '.', '.', '.'},
