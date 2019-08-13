@@ -50,7 +50,7 @@ object ValidSudoku {
         val subSquareSize = Math.sqrt(board.size.toDouble()).toInt()
         for (i in 0..row step subSquareSize) {
             for (j in 0..column step subSquareSize) {
-                val result = isSubBoardValid(board, i, j)
+                val result = isSubBoardValid(board, i, i + subSquareSize - 1, j, j + subSquareSize - 1)
                 if (!result) {
                     return false
                 }
@@ -59,24 +59,19 @@ object ValidSudoku {
         return true
     }
 
-    private fun isSubBoardValid(board: Array<CharArray>, iStart: Int, jStart: Int): Boolean {
-        val subSquareSize = Math.sqrt(board.size.toDouble()).toInt() - 1
-        var set = HashSet<Char>()
-        for (i in iStart..iStart + subSquareSize) {
-            for (j in jStart..jStart + subSquareSize) {
+    private fun isSubBoardValid(board: Array<CharArray>, rowStart: Int, rowEnd: Int, colStart: Int, colEnd: Int): Boolean {
+        val hashSet = HashSet<Char>()
+        for (i in rowStart..rowEnd) {
+            for (j in colStart..colEnd) {
                 val element = board.get(i).get(j)
-
-                if (!'.'.equals(element)) {
-                    print("Grid , i = $i, j = $j , cell = $element , contained ${set.contains(element)} \n")
-                    if (set.contains(element)) {
-                        return false
-                    } else {
-                        set.add(element)
-                    }
+                if (!'.'.equals(element) && hashSet.contains(element)) {
+                    print("Grid , row = $i, col = $j , cell = $element , contained ${hashSet.contains(element)} , $hashSet \n")
+                    return false
+                } else {
+                    hashSet.add(element)
                 }
             }
         }
-
         return true
     }
 }
