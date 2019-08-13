@@ -24,8 +24,8 @@ object ValidSudoku {
         val subgridSet = HashSet<String>()
         val size = board.size
         val smallBoardSize = Math.sqrt(size.toDouble()).toInt()
-        for (i in 0..size - 1) {
-            for (j in 0..size - 1) {
+        for (i in 0 until size) {
+            for (j in 0 until size) {
                 val element = board[i][j]
                 if (element != '.') {
                     val b = String.format("(%c)", element)
@@ -46,13 +46,13 @@ object ValidSudoku {
      * Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
      */
     fun isValidSudokuBruteForce(board: Array<CharArray>): Boolean {
-        val column = board.size - 1
-        val row = board.get(0).size - 1
+        val column = board.size
+        val row = board.get(0).size
 
         // Each row must contain the digits 1-9 without repetition.
-        for (i in 0..column) {
+        for (i in 0 until column) {
             var set = HashSet<Char>()
-            for (j in 0..row) {
+            for (j in 0 until row) {
                 val element = board.get(i).get(j)
                 if (!'.'.equals(element)) {
                     if (set.contains(element)) {
@@ -65,9 +65,9 @@ object ValidSudoku {
         }
 
         // Each column must contain the digits 1-9 without repetition.
-        for (j in 0..row) {
+        for (j in 0 until row) {
             var set = HashSet<Char>()
-            for (i in 0..column) {
+            for (i in 0 until column) {
                 val element = board.get(i).get(j)
                 if (!'.'.equals(element)) {
                     if (set.contains(element)) {
@@ -81,8 +81,8 @@ object ValidSudoku {
 
         // Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
         val subSquareSize = Math.sqrt(board.size.toDouble()).toInt()
-        for (i in 0..row step subSquareSize) {
-            for (j in 0..column step subSquareSize) {
+        for (i in 0 until row step subSquareSize) {
+            for (j in 0 until column step subSquareSize) {
                 val result = isSubBoardValid(board, i, i + subSquareSize - 1, j, j + subSquareSize - 1)
                 if (!result) {
                     return false
