@@ -24,7 +24,6 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
         )
         Assert.assertEquals(true, ValidSudoku.isValidSudoku(grid))
-        Assert.assertEquals(true, ValidSudoku.isValidSudokuBruteForce(grid))
     }
 
     @Test
@@ -41,7 +40,6 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
         )
         Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
-        Assert.assertEquals(false, ValidSudoku.isValidSudokuBruteForce(grid))
     }
 
     @Test
@@ -59,7 +57,6 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '4', '.', '.', '.', '.', '.', '.')
         )
         Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
-        Assert.assertEquals(false, ValidSudoku.isValidSudokuBruteForce(grid))
     }
 
     @Test
@@ -76,7 +73,6 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
         )
         Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
-        Assert.assertEquals(false, ValidSudoku.isValidSudokuBruteForce(grid))
     }
 
     @Test
@@ -93,6 +89,5 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
         )
         Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
-        Assert.assertEquals(false, ValidSudoku.isValidSudokuBruteForce(grid))
     }
 }
