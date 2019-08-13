@@ -24,6 +24,7 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
         )
         Assert.assertEquals(true, ValidSudoku.isValidSudoku(grid))
+        Assert.assertEquals(true, ValidSudoku.isValidSudokuBruteForce(grid))
     }
 
     @Test
@@ -40,10 +41,11 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
         )
         Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
+        Assert.assertEquals(false, ValidSudoku.isValidSudokuBruteForce(grid))
     }
 
     @Test
-    fun isExample3Valid() {
+    fun isInvalid_when_SubgridsHaveDuplicates() {
         // invalid, because the su-grid at top right corner contains two '1'
         val grid: Array<CharArray> = arrayOf(
             charArrayOf('.', '.', '.', '.', '5', '.', '.', '1', '.'),
@@ -57,6 +59,40 @@ class ValidSudokuTest {
             charArrayOf('.', '.', '4', '.', '.', '.', '.', '.', '.')
         )
         Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
+        Assert.assertEquals(false, ValidSudoku.isValidSudokuBruteForce(grid))
     }
 
+    @Test
+    fun isInvalid_when_RowsHaveDuplicates() {
+        val grid: Array<CharArray> = arrayOf(
+            charArrayOf('5', '3', '.', '.', '7', '.', '.', '5', '.'),
+            charArrayOf('6', '.', '.', '1', '9', '5', '.', '.', '.'),
+            charArrayOf('.', '9', '8', '.', '.', '.', '.', '6', '.'),
+            charArrayOf('8', '.', '.', '.', '6', '.', '.', '.', '3'),
+            charArrayOf('4', '.', '.', '8', '.', '3', '.', '.', '1'),
+            charArrayOf('7', '.', '.', '.', '2', '.', '.', '.', '6'),
+            charArrayOf('.', '6', '.', '.', '.', '.', '2', '8', '.'),
+            charArrayOf('.', '.', '.', '4', '1', '9', '.', '.', '5'),
+            charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
+        )
+        Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
+        Assert.assertEquals(false, ValidSudoku.isValidSudokuBruteForce(grid))
+    }
+
+    @Test
+    fun isInvalid_when_ColumnsHaveDuplicates() {
+        val grid: Array<CharArray> = arrayOf(
+            charArrayOf('5', '3', '.', '.', '7', '.', '.', '.', '.'),
+            charArrayOf('6', '.', '.', '1', '9', '5', '.', '.', '.'),
+            charArrayOf('.', '9', '8', '.', '.', '.', '.', '6', '.'),
+            charArrayOf('8', '.', '.', '.', '6', '.', '.', '.', '3'),
+            charArrayOf('4', '.', '.', '8', '.', '3', '.', '.', '1'),
+            charArrayOf('7', '.', '.', '.', '2', '.', '.', '.', '6'),
+            charArrayOf('.', '6', '.', '.', '.', '.', '2', '8', '.'),
+            charArrayOf('7', '.', '.', '4', '1', '9', '.', '.', '5'),
+            charArrayOf('.', '.', '.', '.', '8', '.', '.', '7', '9')
+        )
+        Assert.assertEquals(false, ValidSudoku.isValidSudoku(grid))
+        Assert.assertEquals(false, ValidSudoku.isValidSudokuBruteForce(grid))
+    }
 }

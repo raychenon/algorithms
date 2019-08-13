@@ -8,11 +8,42 @@ package com.raychenon.kotlin.leetcode
 object ValidSudoku {
 
     /**
+
+     * The key in this Solution is to save in String the following conditions :
+     * - Each row must contain the digits 1-9 without repetition. ex : "(5) in row 1"
+     * - Each column must contain the digits 1-9 without repetition. ex : "(7) in row 3"
+     * - Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+     *  ex: "(6) in sub-grid 2 , 0"
+     *  |_|_|x|  col=2, row=0
+     *  |_|_|_|
+     *  |_|_|_|
+     */
+    fun isValidSudoku(board: Array<CharArray>): Boolean {
+        val set = HashSet<String>()
+        val size = board.size
+        val smallBoardSize = Math.sqrt(size.toDouble()).toInt()
+        for (i in 0 until size) {
+            for (j in 0 until size) {
+                val element = board[i][j]
+                if (element != '.') {
+                    val b = String.format("(%c)", element)
+                    if (!set.add(String.format("%s in row %d", b, i)) ||
+                        !set.add(String.format("", b, j)) ||
+                        !set.add(String.format("%s in sub-grid %d , %d", b, i / smallBoardSize, j / smallBoardSize))
+                    )
+                        return false
+                }
+            }
+        }
+        return true
+    }
+
+    /**
      * Each row must contain the digits 1-9 without repetition.
      * Each column must contain the digits 1-9 without repetition.
      * Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
      */
-    fun isValidSudoku(board: Array<CharArray>): Boolean {
+    fun isValidSudokuBruteForce(board: Array<CharArray>): Boolean {
         val column = board.size - 1
         val row = board.get(0).size - 1
 

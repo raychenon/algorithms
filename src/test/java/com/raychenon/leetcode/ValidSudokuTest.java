@@ -68,7 +68,7 @@ public class ValidSudokuTest {
     }
 
     @Test
-    public void isInValid_when_RowsHaveDuplicates() {
+    public void isInvalid_when_RowsHaveDuplicates() {
         char[][] grid = new char[][]{
                 {'5', '3', '.', '.', '7', '.', '5', '.', '.'},
                 {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
@@ -84,7 +84,7 @@ public class ValidSudokuTest {
     }
 
     @Test
-    public void isInValid_when_ColumnsHaveDuplicates() {
+    public void isInvalid_when_ColumnsHaveDuplicates() {
         char[][] grid = new char[][]{
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
                 {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
