@@ -15,16 +15,15 @@ public class ProductofArrayExceptSelf {
         }
 
         int output[] = new int[size];
-        int j = 0;
-        int product = 1;
-        while (j < size) {
-            product = product * nums[j];
-            j++;
-        }
-        output[0] = product / nums[0];
 
-        for (int i = 1; i < size; i++) {
-            output[i] = product / nums[i];
+        for (int i = 0; i < size; i++) {
+            int prod = 1;
+            for (int j = 0; j < size; j++) {
+                if (j != i) {
+                    prod = prod * nums[j];
+                }
+            }
+            output[i] = prod;
         }
 
         return output;

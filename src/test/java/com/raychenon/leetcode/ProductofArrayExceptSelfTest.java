@@ -34,4 +34,12 @@ public class ProductofArrayExceptSelfTest {
         assertArrayEquals(output, instance.productExceptSelf(input));
     }
 
+    @Test
+    public void testProductOfArray_when_containsZero() {
+        int input[] = {1, 0};
+        int output[] = {0, 1};
+        assertArrayEquals(output, instance.productExceptSelf(input));
+    }
+
+
 }
