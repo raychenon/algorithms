@@ -16,14 +16,33 @@ public class ProductofArrayExceptSelf {
 
         int output[] = new int[size];
 
+        //  prodLeft  i   prodRight
+        //  ---------> <-----------
+        // [ | | | | | | | | | | | ]
+        int prodLeft = 1;
+        int prodRight = 1;
+
+        for (int i = 1; i < size; i++) {
+            prodRight = prodRight * nums[i];
+        }
+        boolean isFirst = true;
+
         for (int i = 0; i < size; i++) {
-            int prod = 1;
-            for (int j = 0; j < size; j++) {
-                if (j != i) {
-                    prod = prod * nums[j];
+            if (i - 1 > 0) {
+                if (nums[i - 1] != 0) {
+                    prodLeft = prodLeft * nums[i - 1];
                 }
             }
+            if (i < size && !isFirst) {
+                if (nums[i] != 0) {
+                    prodRight = prodRight / nums[i];
+                }
+            }
+            isFirst = false;
+
+            int prod = prodLeft * prodRight;
             output[i] = prod;
+            System.out.println("prod = " + prod + " , index = " + i + " , left = " + prodLeft + " , right = " + prodRight);
         }
 
         return output;

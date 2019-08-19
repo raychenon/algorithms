@@ -41,5 +41,4 @@ public class ProductofArrayExceptSelfTest {
         assertArrayEquals(output, instance.productExceptSelf(input));
     }
 
-
 }
