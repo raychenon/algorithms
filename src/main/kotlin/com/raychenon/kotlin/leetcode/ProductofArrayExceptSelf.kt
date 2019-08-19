@@ -21,16 +21,16 @@ object ProductofArrayExceptSelf {
         val rightProd = IntArray(size)
 
         rightProd[size - 1] = 1
-        for (i in (size - 2) downTo 0 step 1) {
+        for (i in (size - 2) downTo 0) {
             rightProd[i] = rightProd.get(i + 1) * nums.get(i + 1)
         }
 
         leftProd[0] = 1
-        for (i in 1..size - 1) {
+        for (i in 1 until size) {
             leftProd[i] = leftProd.get(i - 1) * nums.get(i - 1)
         }
 
-        for (i in 0..size - 1) {
+        for (i in 0 until size) {
             output[i] = leftProd.get(i) * rightProd.get(i)
         }
 
