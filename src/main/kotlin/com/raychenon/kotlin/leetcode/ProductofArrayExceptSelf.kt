@@ -26,11 +26,11 @@ object ProductofArrayExceptSelf {
         }
 
         leftProd[0] = 1
-        for (i in 1..size - 1) {
+        for (i in 1 until size) {
             leftProd[i] = leftProd.get(i - 1) * nums.get(i - 1)
         }
 
-        for (i in 0..(size - 1)) {
+        for (i in 0 until size) {
             output[i] = leftProd.get(i) * rightProd.get(i)
         }
 
