@@ -32,4 +32,15 @@ public class ReverseIntegerTest {
     public void testReverseIntegerWith0Ending() {
         assertEquals(21, reverseInteger.reverse(120));
     }
+
+    @Test
+    public void testReverseLargeInteger() {
+        assertEquals(2147483641, reverseInteger.reverse(1463847412));
+    }
+
+    @Test
+    public void testReverseLargeNegativeInteger() {
+        assertEquals(-2147483641, reverseInteger.reverse(-1463847412));
+    }
+
 }

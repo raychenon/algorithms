@@ -21,7 +21,17 @@ class ReverseIntegerTest {
     }
 
     @Test
-    fun testReverseIntegers() {
+    fun testReverseInteger() {
         Assert.assertEquals(21, ReverseInteger.reverse(120))
+    }
+
+    @Test
+    fun testReverseLargeInteger() {
+        Assert.assertEquals(2147483641, ReverseInteger.reverse(1463847412))
+    }
+
+    @Test
+    fun testReverseLargeNegativeInteger() {
+        Assert.assertEquals(-2147483641, ReverseInteger.reverse(-1463847412))
     }
 }

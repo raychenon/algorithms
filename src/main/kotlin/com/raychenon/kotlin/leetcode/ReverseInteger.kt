@@ -6,13 +6,21 @@ package com.raychenon.kotlin.leetcode
  * https://leetcode.com/problems/reverse-integer
  */
 internal object ReverseInteger {
+
+    /**
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
     fun reverse(x: Int): Int {
         var reversed = 0
         var remainder = x
         while (remainder != 0) {
-            val rest = remainder % 10
+            val pop = remainder % 10
+            if (reversed > Integer.MAX_VALUE / 10 || (reversed == Integer.MAX_VALUE / 10 && pop > 7)) return 0
+            if (reversed < Integer.MIN_VALUE / 10 || reversed == Integer.MIN_VALUE / 10 && pop < -8) return 0
+
             remainder = remainder / 10
-            reversed = reversed * 10 + rest
+            reversed = reversed * 10 + pop
         }
 
         return reversed
