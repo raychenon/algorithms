@@ -40,8 +40,10 @@ matrix:
       sudo: true
       before_install:
         - cd python3/
-        - sudo apt-get update
         - sudo apt-get install python3
+      addons:
+        apt:
+          update: true
       before_script:
         # code climate
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
