@@ -38,12 +38,12 @@ class ReverseIntegerTest {
     @Test
     fun testReverseVeryLargeInteger() {
         // Integer.MAX_VALUE = 0x7fffffff = 2147483647
-        Assert.assertEquals(0, ReverseInteger.reverse(2147483647))
+        Assert.assertEquals(1463847412, ReverseInteger.reverse(2147483641))
     }
 
     @Test
     fun testReverseVeryLargeNegativeInteger() {
         // Integer.MIN_VALUE = 0x80000000 = -2147483648
-        Assert.assertEquals(0, ReverseInteger.reverse(-2147483648))
+        Assert.assertEquals(-1463847412, ReverseInteger.reverse(-2147483641))
     }
 }

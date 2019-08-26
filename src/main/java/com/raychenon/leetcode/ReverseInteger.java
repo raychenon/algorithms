@@ -7,13 +7,14 @@ package com.raychenon.leetcode;
  */
 public class ReverseInteger {
 
+    /**
+     * Time Complexity: O(N) ~ log10(n), N is the size of Array
+     * Space Complexity: O(1)
+     */
     public int reverse(int x) {
         int reversed = 0;
         while (x != 0) {
             int pop = x % 10;
-            if (reversed > Integer.MAX_VALUE / 10 || (reversed == Integer.MAX_VALUE / 10 && pop > 7)) return 0;
-            if (reversed < Integer.MIN_VALUE / 10 || (reversed == Integer.MIN_VALUE / 10 && pop < -8)) return 0;
-
             x = x / 10;
             reversed = reversed * 10 + pop;
         }
