@@ -24,4 +24,9 @@ class PowTest {
     fun testPowerNegativeExponent() {
         Assert.assertEquals("test negative exponent", 0.25, Pow.myPow(2.0, -2), 0.001)
     }
+
+    @Test
+    fun testPowerofZero() {
+        Assert.assertEquals("test power of zero", 1.0, Pow.myPow(0.44528, 0), 0.001)
+    }
 }
