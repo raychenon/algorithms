@@ -43,4 +43,16 @@ public class ReverseIntegerTest {
         assertEquals(-2147483641, reverseInteger.reverse(-1463847412));
     }
 
+    @Test
+    public void testReverseVeryLargeInteger() {
+        // Integer.MAX_VALUE = 0x7fffffff = 2147483647
+        assertEquals(0, reverseInteger.reverse(2147483647));
+    }
+
+    @Test
+    public void testReverseVeryLargeNegativeInteger() {
+        // Integer.MIN_VALUE = 0x80000000 = -2147483648
+        assertEquals(0, reverseInteger.reverse(-2147483648));
+    }
+
 }
