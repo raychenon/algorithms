@@ -11,7 +11,7 @@ object Pow {
      * Exponentiation by squaring
      * https://en.wikipedia.org/wiki/Exponentiation_by_squaring
      *
-     *Time Complexity: O(log(n)), where 'n' is the exponent
+     * Time Complexity: O(log(n)), where 'n' is the exponent
      * Space Complexity: O(1)
      */
     fun myPow(base: Double, exp: Int): Double {
