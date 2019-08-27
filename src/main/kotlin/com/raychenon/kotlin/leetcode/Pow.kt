@@ -18,4 +18,18 @@ object Pow {
         }
         return res
     }
+
+    fun myPowRecursive(x: Double, n: Int): Double {
+        if (n == 0) return 1.0
+        
+        val temp = myPowRecursive(x, n / 2)
+        return if (n % 2 == 0) {
+            temp * temp
+        } else {
+            if (n > 0)
+                x * temp * temp
+            else
+                temp * temp / x
+        }
+    }
 }

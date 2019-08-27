@@ -12,21 +12,33 @@ class PowTest {
 
     @Test
     fun testPowExample1() {
-        Assert.assertEquals("test example 1", 1024.0, Pow.myPow(2.0, 10), 0.001)
+        assertPowerMethods(1024.0, 2.0, 10, "test example 1")
     }
 
     @Test
     fun testPowExample2() {
-        Assert.assertEquals("test example 2", 9.261, Pow.myPow(2.10, 3), 0.001)
+        assertPowerMethods(9.261, 2.10, 3, "test example 2")
     }
 
     @Test
     fun testPowerNegativeExponent() {
-        Assert.assertEquals("test negative exponent", 0.25, Pow.myPow(2.0, -2), 0.001)
+        assertPowerMethods(0.25, 2.0, -2, "test negative exponent")
     }
 
     @Test
     fun testPowerofZero() {
-        Assert.assertEquals("test power of zero", 1.0, Pow.myPow(0.44528, 0), 0.001)
+        assertPowerMethods(1.0, 0.44528, 0, "test power of zero")
+    }
+
+    @Test
+    fun testPowerofBigExponent() {
+        assertPowerMethods(1.0, 1.0, 2147483647, "test power of big exponent")
+    }
+
+    private val delta = 0.001
+
+    private fun assertPowerMethods(expected: Double, x: Double, n: Int, msg: String = "") {
+        Assert.assertEquals(msg, expected, Pow.myPow(x, n), delta)
+        Assert.assertEquals(msg, expected, Pow.myPowRecursive(x, n), delta)
     }
 }
