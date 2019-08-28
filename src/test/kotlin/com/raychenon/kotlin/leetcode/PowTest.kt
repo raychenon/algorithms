@@ -34,11 +34,11 @@ class PowTest {
     fun testPowerofBigExponent() {
         assertPowerMethods(1.0, 1.0, 2147483647, "test power of big exponent")
     }
-    
-//    @Test
-//    fun testPowerofBigNegativeExponent() {
-//        assertPowerMethods(0.0, 2.0, -2147483648, "test power of big negative exponent")
-//    }
+
+    @Test
+    fun testPowerofBigNegativeExponent() {
+        assertPowerMethods(0.0, 2.0, -2147483647, "test power of big negative exponent")
+    }
 
     private val delta = 0.001
 

@@ -43,10 +43,10 @@ public class PowTest {
         assertPowerMethods(1.0, 1.0, 2147483647, "test power of big exponent");
     }
 
-//    @Test
-//    public void testPowerofBigNegativeExponent() {
-//        assertPowerMethods(0.0, 2.0, -2147483648, "test power of big negative exponent");
-//    }
+    @Test
+    public void testPowerofBigNegativeExponent() {
+        assertPowerMethods(0.0, 2.0, -2147483646, "test power of big negative exponent");
+    }
 
     private double delta = 0.001;
 
