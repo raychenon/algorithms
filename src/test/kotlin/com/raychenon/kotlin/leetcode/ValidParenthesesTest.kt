@@ -24,7 +24,7 @@ class ValidParenthesesTest {
     @Test
     fun validNonOnlyParenthesesTest() {
         // with space
-        assertEquals(true, ValidParentheses.isValid(" ( )"))
+        assertEquals(true, ValidParentheses.isValid(" ()"))
         // with character
         assertEquals(true, ValidParentheses.isValid("[a]"))
     }
@@ -33,6 +33,7 @@ class ValidParenthesesTest {
     @Test
     fun startByClosingTest() {
         assertEquals(false, ValidParentheses.isValid("]["))
+        assertEquals(false, ValidParentheses.isValid(" )("))
     }
 
     @Test
