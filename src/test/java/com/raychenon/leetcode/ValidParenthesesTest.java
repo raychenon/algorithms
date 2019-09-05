@@ -20,8 +20,13 @@ public class ValidParenthesesTest {
     }
 
     @Test
-    public void test_when_validParentheses() {
+    public void validAllParenthesesTest() {
         assertEquals(true, validParentheses.isValid("()"));
+        assertEquals(true, validParentheses.isValid("[]"));
+        assertEquals(true, validParentheses.isValid("{}"));
+        assertEquals(true, validParentheses.isValid("<>"));
+        // with space
+        assertEquals(true, validParentheses.isValid(" ( )"));
     }
 
     @Test
@@ -30,8 +35,13 @@ public class ValidParenthesesTest {
     }
 
     @Test
-    public void test_when_coupleOfParentheses() {
+    public void coupleOfParentheses() {
         assertEquals(true, validParentheses.isValid("[]()"));
+    }
+
+    @Test
+    public void emptyStringTest() {
+        assertEquals(true, validParentheses.isValid(null));
     }
 
 }
