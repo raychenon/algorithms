@@ -31,8 +31,8 @@ public class ValidParenthesesTest {
 
     @Test
     public void startByClosingTest() {
-        assertEquals(false, validParentheses.isValid("]["));
         assertEquals(false, validParentheses.isValid(" )(]["));
+        assertEquals(false, validParentheses.isValid("]["));
     }
 
     @Test

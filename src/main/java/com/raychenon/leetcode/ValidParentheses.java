@@ -23,8 +23,10 @@ public class ValidParentheses {
         Stack<Character> stack = new Stack<Character>();
         for (Character c : s.toCharArray()) {
             if (map.containsKey(c)) {
-                if (!stack.isEmpty() && map.get(c) == stack.peek()) {
-                    stack.pop();
+                if (!stack.isEmpty()) {
+                    if (map.get(c) == stack.peek()) {
+                        stack.pop();
+                    }
                 } else {
                     return false;
                 }
