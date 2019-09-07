@@ -22,8 +22,10 @@ object ValidParentheses {
             }
             // closing pararentheses
             if (map.containsKey(c)) {
-                if (!stack.isEmpty() && map.getValue(c) == stack.peek()) {
-                    stack.pop()
+                if (!stack.isEmpty()) {
+                    if (map.getValue(c) == stack.peek()) {
+                        stack.pop()
+                    }
                 } else {
                     return false
                 }
