@@ -1,6 +1,6 @@
 package com.raychenon.kotlin.leetcode
 
-import java.util.*
+import java.util.Stack
 
 /**
  * User: raychenon
@@ -8,6 +8,13 @@ import java.util.*
  * https://leetcode.com/problems/valid-parentheses/
  */
 object ValidParentheses {
+
+    /**
+     * time complexity : O(n)
+     * space complexity : O(n) for only opening parentheses
+     * The trick is to store the different parentheses in FIFO structure: Stack
+     * An opening parenthese must be closed by its closing counterpart.
+     */
     fun isValid(s: String): Boolean {
         if (s.isEmpty()) return true
 
@@ -27,6 +34,7 @@ object ValidParentheses {
                         stack.pop()
                     }
                 } else {
+                    // if more closing parenthese, can already fast-exit
                     return false
                 }
             }

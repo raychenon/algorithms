@@ -9,6 +9,12 @@ import java.util.*;
  */
 public class ValidParentheses {
 
+    /**
+     * time complexity : O(n)
+     * space complexity : O(n) for only opening parentheses
+     * The trick is to store the different parentheses in FIFO structure: Stack
+     * An opening parenthese must be closed by its closing counterpart.
+     */
     public boolean isValid(String s) {
         if (s == null || s.isEmpty()) return true;
 
@@ -28,6 +34,7 @@ public class ValidParentheses {
                         stack.pop();
                     }
                 } else {
+                    // if more closing parenthese, can already fast-exit
                     return false;
                 }
             }
