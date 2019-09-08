@@ -29,13 +29,12 @@ object ValidParentheses {
             }
             // closing pararentheses
             if (map.containsKey(c)) {
-                if (!stack.isEmpty()) {
-                    if (map.getValue(c) == stack.peek()) {
-                        stack.pop()
-                    }
-                } else {
+                // De Morgan's laws, complement of (!stack.isEmpty() && map.getValue(c) == stack.peek())
+                if (stack.isEmpty() || map.getValue(c) != stack.peek()) {
                     // if more closing parenthese, can already fast-exit
                     return false
+                } else {
+                    stack.pop()
                 }
             }
         }

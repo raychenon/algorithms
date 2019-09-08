@@ -1,6 +1,11 @@
 package com.raychenon.leetcode;
 
-import java.util.*;
+import java.util.Stack;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Arrays;
 
 /**
  * User: raychenon
@@ -29,13 +34,12 @@ public class ValidParentheses {
         Stack<Character> stack = new Stack<Character>();
         for (Character c : s.toCharArray()) {
             if (map.containsKey(c)) {
-                if (!stack.isEmpty()) {
-                    if (map.get(c) == stack.peek()) {
-                        stack.pop();
-                    }
-                } else {
-                    // if more closing parenthese, can already fast-exit
+                // If more closing parenthese, can already fast-exit.
+                // De Morgan's laws, complement of (!stack.isEmpty() && map.getValue(c) == stack.peek())
+                if (stack.isEmpty() || map.get(c) != stack.peek()) {
                     return false;
+                } else {
+                    stack.pop();
                 }
             }
             if (openingSet.contains(c)) {
