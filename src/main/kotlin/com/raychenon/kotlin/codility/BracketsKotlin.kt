@@ -24,7 +24,7 @@ object BracketsKotlin {
             }
 
             if(map.containsKey(c)){
-                if(map.getValue(c) == stack.peek() && !stack.isEmpty()){
+                if(!stack.isEmpty() && map.getValue(c) == stack.peek()){
                     stack.pop()
                 } else{
                     return false
