@@ -1,16 +1,25 @@
 #!/bin/python3
 
-class ValidParentheses
-    def isValid(self, s: str) -> bool:
-        stack = []
-        mapping = {")": "(", "}": "{", "]": "["}
-        opening = {"(", "[", "{"}
-        for char in s:
-            if char in opening:
-                stack.append(char)
-            if char in mapping:
-                if stack[-1] == char:
-                    stack.pop()
-                else:
-                    return False
-        return not stack
+
+def isValid(s: str) -> bool:
+    stack = []
+    mapping = {")": "(", "}": "{", "]": "["}
+    opening = {"(", "[", "{"}
+    for char in s:
+        if char in opening:
+            stack.append(char)
+            print("stack ", stack)
+        if char in mapping:
+            top_element = stack.pop() if stack else '+'
+            if mapping[char] != top_element:
+                return False
+    return not stack
+
+
+if __name__ == '__main__':
+    assert isValid(["()"]) == True
+    assert isValid(["([{}])"]) == True
+    assert isValid(["(){}[]"]) == True
+    assert isValid(["([{}])"]) == True
+    assert isValid(["(])"]) == False
+    assert isValid(["][)("]) == False
