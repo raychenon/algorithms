@@ -19,20 +19,15 @@ public class GroupAnagrams {
             // sort string
             String signature = sort(current);
 
-            if (map.containsKey(signature)) {
-                List<String> list = map.get(signature);
-                list.add(current);
-                map.put(signature, list);
-            } else {
-                LinkedList<String> list = new LinkedList<String>();
-                list.add(current);
-                map.put(signature, list);
+            if (!map.containsKey(signature)) {
+                map.put(signature, new LinkedList());
             }
+            map.get(signature).add(current);
         }
         return map.values().stream().collect(Collectors.toList());
     }
 
-    private String sort(String str){
+    private String sort(String str) {
         char temp[] = str.toCharArray();
         Arrays.sort(temp);
         return new String(temp);
