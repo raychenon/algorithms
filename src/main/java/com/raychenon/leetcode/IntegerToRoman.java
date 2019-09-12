@@ -18,7 +18,7 @@ public class IntegerToRoman {
             new Tuple(100, "C"),
             new Tuple(90, "XC"),
             new Tuple(50, "L"),
-            new Tuple(40, "IV"),
+            new Tuple(40, "XL"),
             new Tuple(10, "X"),
             new Tuple(9, "IX"),
             new Tuple(5, "V"),
