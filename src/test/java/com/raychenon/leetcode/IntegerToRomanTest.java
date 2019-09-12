@@ -25,6 +25,11 @@ public class IntegerToRomanTest {
     }
 
     @Test
+    public void test40() {
+        assertEquals("XL", integerToRoman.intToRoman(40));
+    }
+
+    @Test
     public void test58() {
         assertEquals("LVIII", integerToRoman.intToRoman(58));
     }
