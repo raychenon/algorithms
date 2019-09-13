@@ -22,6 +22,11 @@ public class RomanToInteger {
                     {'M', 1000}
             }).collect(Collectors.toMap(data -> (Character) data[0], data -> (Integer) data[1]));
 
+
+    /**
+     * time complexity: O(n) where n is the length of the String
+     * space complexity: 0(1) constant
+     */
     public int romanToInt(String s) {
         int sum = 0;
 
