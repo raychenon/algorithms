@@ -31,6 +31,7 @@ def find_anagrams(s: str, p: str) -> List[int]:
             if letterCount.get(first) <= 0:
                 del letterCount[first]
             letterCount[last] = letterCount.get(last, 0) + 1
+        # python compare dict by value not by address , https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
         if (letterCount == signature):
             res.append(i)
     return res
