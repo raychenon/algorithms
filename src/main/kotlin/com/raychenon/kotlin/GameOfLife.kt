@@ -10,7 +10,7 @@ object GameOfLife {
     val live = 1
     val dead = 0
 
-    fun nextGen(grid: Array<IntArray>): Array<IntArray> {
+    fun gameOfLife(grid: Array<IntArray>): Array<IntArray> {
         val sizeX = grid.size
         val sizeY = grid.get(0).size
 
@@ -18,7 +18,7 @@ object GameOfLife {
 
         for (i in 0 until grid.size) {
             for (j in 0 until grid.get(0).size) {
-                grid[i][j] = if (nextGenInOneCell(grid, i, j)) live else dead
+                grid[i][j] = (nextGenInOneCell(grid, i, j))
             }
         }
         return mutableGrid
@@ -31,36 +31,35 @@ object GameOfLife {
     3. Any live cell with two or three live neighbours lives on to the next generation.
     4. Any dead cell with exactly three live neighbours becomes a live cell.
      */
-    private fun nextGenInOneCell(grid: Array<IntArray>, x: Int, y: Int): Boolean {
+    private fun nextGenInOneCell(grid: Array<IntArray>, x: Int, y: Int): Int {
 
         // save states
         var countAlive: Int = 0
 
-        countAlive += countCellAlive(grid, x, y - 1) // Top
-        countAlive += countCellAlive(grid, x + 1, y - 1) // Top right
-        countAlive += countCellAlive(grid, x - 1, y - 1) // Top left
-        countAlive += countCellAlive(grid, x - 1, y) // Left
-        countAlive += countCellAlive(grid, x + 1, y) // Right
-        countAlive += countCellAlive(grid, x, y + 1) // Bottom
-        countAlive += countCellAlive(grid, x + 1, y + 1) // Bottom right
-        countAlive += countCellAlive(grid, x - 1, y + 1) // Bottom left
+        countAlive += countAdjacentLivingCell(grid, x, y - 1)        // Top
+        countAlive += countAdjacentLivingCell(grid, x + 1, y - 1) // Top right
+        countAlive += countAdjacentLivingCell(grid, x - 1, y - 1) // Top left
+        countAlive += countAdjacentLivingCell(grid, x - 1, y)        // Left
+        countAlive += countAdjacentLivingCell(grid, x + 1, y)        // Right
+        countAlive += countAdjacentLivingCell(grid, x, y + 1)        // Bottom
+        countAlive += countAdjacentLivingCell(grid, x + 1, y + 1) // Bottom right
+        countAlive += countAdjacentLivingCell(grid, x - 1, y + 1) // Bottom left
 
         return if (grid.get(x).get(y) == live) {
             when (countAlive) {
-                0, 1 -> false   // rule 1
-                2 -> true       // rule 3
-                3 -> true
-                else -> false   // rule 2
+                0, 1 -> dead    // rule 1
+                2, 3 -> live    // rule 3
+                else -> dead    // rule 2
             }
         } else {
             when (countAlive) {
-                3 -> true
-                else -> false   // rule 4
+                3 -> live
+                else -> dead    // rule 4
             }
         }
     }
 
-    private fun countCellAlive(grid: Array<IntArray>, x: Int, y: Int): Int {
+    private fun countAdjacentLivingCell(grid: Array<IntArray>, x: Int, y: Int): Int {
         val sizeY = grid.get(0).size
         val sizeX = grid.size
 

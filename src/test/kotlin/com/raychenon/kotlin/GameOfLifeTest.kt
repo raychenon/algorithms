@@ -26,7 +26,7 @@ class GameOfLifeTest {
             intArrayOf(0, 0, 0)
         )
 
-        Assert.assertEquals(result, GameOfLife.nextGen(grid))
+        Assert.assertEquals(result, GameOfLife.gameOfLife(grid))
     }
 
 }
