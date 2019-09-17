@@ -14,22 +14,23 @@ object RotateImage {
      * and then the inner circle until the side length of the last inner circle is smaller than 2
      * (meaning there is only one center element left).
      *
+     * Time  complexity: O(n^2)
+     * Space complexity: O(1)
+     *
      */
     fun rotate(matrix: Array<IntArray>): Unit {
-        val n = matrix.get(0).size
+        val n = matrix.size
 
-        for (i in n downTo 1 step -2) {
-            val start = (n - i) / 2
-            val end = start + i - 1
-
-            for (j in 0 until i) {
-
-                val temp = matrix[end - i][start]
-                matrix[end - i][start] = matrix[end][end - i]
-                matrix[end][end - 1] = matrix[start + i][end]
-                matrix[start + 1][end] = matrix[start][start - i]
-                matrix[start][start + 1] = temp
+        for (i in 0 until (n) / 2) {
+            // one of the loop has to round up if the size of Matrix is an odd number
+            for (j in 0 until (n + 1) / 2) {
+                val temp = matrix[n - 1 - j][i]
+                matrix[n - 1 - j][i] = matrix[n - 1 - i][n - j - 1]   // bottom left = bottom right
+                matrix[n - 1 - i][n - j - 1] = matrix[j][n - 1 - i]   // bottom right = top right
+                matrix[j][n - 1 - i] = matrix[i][j]                   // top right = top left
+                matrix[i][j] = temp                                   // top left = bottom left
             }
         }
     }
+
 }
