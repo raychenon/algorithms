@@ -53,5 +53,4 @@ public class RotateImageTest {
         Assert.assertEquals(result, matrix);
     }
 
-
 }

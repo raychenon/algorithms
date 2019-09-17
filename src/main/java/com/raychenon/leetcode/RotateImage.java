@@ -8,6 +8,11 @@ package com.raychenon.leetcode;
 public class RotateImage {
 
     /**
+     * The basic idea is that we process the matrix from outer to inner.
+     * First we process the outer circle of the matrix,
+     * and then the inner circle until the side length of the last inner circle is smaller than 2
+     * (meaning there is only one center element left).
+     *
      * Rotate clockwise
      * time complexity: O(n^2)
      * space complexity: O(1)
