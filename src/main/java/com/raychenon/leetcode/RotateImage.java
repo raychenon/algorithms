@@ -8,6 +8,7 @@ package com.raychenon.leetcode;
 public class RotateImage {
 
     /**
+     * Rotate clockwise
      * time complexity: O(n^2)
      * space complexity: O(1)
      *
