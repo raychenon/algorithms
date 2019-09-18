@@ -7,19 +7,19 @@ package com.raychenon.leetcode;
  */
 public class FloodFill {
 
-    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-        int currentColor = image[sr][sc];
-        if (currentColor != newColor) DFS(image, sr, sc, currentColor, newColor);
+    public int[][] floodFill(int[][] image, int row, int col, int newColor) {
+        int currentColor = image[row][col];
+        if (currentColor != newColor) DFS(image, row, col, currentColor, newColor);
         return image;
     }
 
-    private void DFS(int[][] image, int y, int x, int color, int targetColor) {
-        if (image[y][x] == color) {
-            image[y][x] = targetColor;
-            if (y > 0) DFS(image, y - 1, x, color, targetColor); // top
-            if (x > 0) DFS(image, y, x - 1, color, targetColor); // left
-            if (y < image.length - 1) DFS(image, y + 1, x, color, targetColor);     // top
-            if (x < image[0].length - 1) DFS(image, y, x + 1, color, targetColor);  // right
+    private void DFS(int[][] image, int row, int col, int color, int targetColor) {
+        if (image[row][col] == color) {
+            image[row][col] = targetColor;
+            if (row > 0) DFS(image, row - 1, col, color, targetColor); // top
+            if (col > 0) DFS(image, row, col - 1, color, targetColor); // left
+            if (row < image.length - 1) DFS(image, row + 1, col, color, targetColor);     // bottom
+            if (col < image[0].length - 1) DFS(image, row, col + 1, color, targetColor);  // right
         }
     }
 
