@@ -1,9 +1,9 @@
 package com.raychenon.leetcode;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
 
 /**
  * User: raychenon
@@ -29,10 +29,26 @@ public class FloodFillTest {
         int[][] result = new int[][]{
                 {2, 2, 2},
                 {2, 2, 0},
-                {1, 0, 1}
+                {2, 0, 1}
         };
 
-        assertEquals(result, floodfill.floodFill(image, 1, 1, 2));
+        Assert.assertEquals(result, floodfill.floodFill(image, 1, 1, 2));
+    }
+
+    @Test
+    public void fillMatrix4x3Test() {
+        int[][] image = new int[][]{
+                {1, 1, 1, 1},
+                {1, 1, 0, 2},
+                {1, 0, 1, 1}
+        };
+        int[][] result = new int[][]{
+                {2, 2, 2, 2},
+                {2, 2, 0, 2},
+                {2, 0, 1, 1}
+        };
+
+        Assert.assertEquals(result, floodfill.floodFill(image, 1, 1, 2));
     }
 
 }
