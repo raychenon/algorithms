@@ -6,3 +6,6 @@ build
 *.pyc
 .coverage
 venv
+python3/.eggs
+python3/Algorithms.egg-info
+Algorithms-0.0.1-py3.7.egg

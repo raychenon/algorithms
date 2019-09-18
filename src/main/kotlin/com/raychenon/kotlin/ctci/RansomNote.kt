@@ -46,7 +46,6 @@ public fun checkMagazine(magazine: Array<String>, note: Array<String>): Boolean 
     return false
 }
 
-
 /**
  * time complexity : O(n) = O(M+N)
  * space complexity : O(N+M)
