@@ -29,7 +29,7 @@ object T9Text {
             for (c in word) {
                 key = key * 10 + convertToKeypadNum(c)
             }
-            
+
             if (dictionary.containsKey(key)) {
                 val set = dictionary.get(key)!!
                 set.add(word)
@@ -54,20 +54,5 @@ object T9Text {
             else -> 0
         }
     }
-
-    fun Character.convertToKey(): Int{
-        return when (this.charValue()) {
-            'a', 'b', 'c' -> 2
-            'd', 'e', 'f' -> 3
-            'g', 'h', 'i' -> 4
-            'j', 'k', 'l' -> 5
-            'm', 'n', 'o' -> 6
-            'p', 'q', 'r', 's' -> 7
-            't', 'u', 'v' -> 8
-            'w', 'x', 'y', 'z' -> 9
-            else -> 0
-        }
-    }
-
 
 }
