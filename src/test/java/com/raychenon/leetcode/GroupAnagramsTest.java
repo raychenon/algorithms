@@ -24,11 +24,13 @@ public class GroupAnagramsTest {
 
     @Test
     public void groupAnagramsTest() {
-        List<List<String>> expectedResult = Arrays.asList(Arrays.asList("ate", "eat", "tea"), Arrays.asList("bat"), Arrays.asList("nat", "tan"));
+        List<List<String>> expectedResult = Arrays.asList(Arrays.asList("bat"), Arrays.asList("nat", "tan"), Arrays.asList("ate", "eat", "tea"));
         List<List<String>> result = groupAnagrams.groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
 
         // to test the equality without order, assert that all elements are contained in a list and vice versa
         Assert.assertTrue(expectedResult.get(0).containsAll(result.get(0)));
+        Assert.assertTrue(result.get(0).containsAll(expectedResult.get(0)));
+
         Assert.assertTrue(result.get(1).containsAll(expectedResult.get(1)));
     }
 
