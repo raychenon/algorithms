@@ -43,11 +43,4 @@ object GroupAnagrams {
         return sb.toString()
     }
 
-    fun anagramKey(str: String): Map<Char, Int> {
-        val map = mutableMapOf<Char, Int>()
-        for (c in str) {
-            map.put(c, map.getOrDefault(c, 0) + 1)
-        }
-        return map
-    }
 }
