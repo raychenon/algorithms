@@ -17,9 +17,13 @@ class GroupAnagramsTest {
             Arrays.asList(Arrays.asList("ate", "eat", "tea"), Arrays.asList("bat"), Arrays.asList("nat", "tan"))
         val result = GroupAnagrams.groupAnagrams(arrayOf("eat", "tea", "tan", "ate", "nat", "bat"))
 
+        Assert.assertEquals(expectedResult.size, result.size)
         // to test the equality without order, assert that all elements are contained in a list and vice versa
-        Assert.assertTrue(expectedResult[0].containsAll(result.get(0)))
-        Assert.assertTrue(result.get(1).containsAll(expectedResult[1]))
+        Assert.assertTrue(expectedResult.get(0).containsAll(result.get(0)))
+        Assert.assertTrue(result.get(0).containsAll(expectedResult.get(0)))
+
+        Assert.assertTrue(expectedResult.get(1).containsAll(result.get(2)))
+        Assert.assertTrue(expectedResult.get(2).containsAll(result.get(1)))
     }
 
     @Test

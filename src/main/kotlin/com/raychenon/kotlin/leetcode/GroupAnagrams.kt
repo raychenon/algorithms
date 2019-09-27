@@ -18,13 +18,8 @@ object GroupAnagrams {
                 val list = mutableListOf<String>(str)
                 map.put(key, list)
             } else {
-                print("present $str")
                 map[key]!!.add(str)
             }
-        }
-
-        for (entry in map) {
-            print("Map key = ${entry.key} , value = ${entry.value} \n")
         }
         return map.values.toList()
     }
