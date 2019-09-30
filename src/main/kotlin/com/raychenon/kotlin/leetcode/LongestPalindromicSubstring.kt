@@ -7,6 +7,6 @@ package com.raychenon.kotlin.leetcode
  */
 object LongestPalindromicSubstring {
     fun longestPalindrome(s: String): String {
-
+        return ""
     }
 }
