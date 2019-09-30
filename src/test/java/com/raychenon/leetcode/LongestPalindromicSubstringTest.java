@@ -20,8 +20,20 @@ public class LongestPalindromicSubstringTest {
     }
 
     @Test
-    public void test1() {
+    public void palindromeLengthIsOddTest() {
         assertEquals("aba", instance.longestPalindrome("babad"));
+    }
+
+    @Test
+    public void palindromeLengthIsEvenTest() {
+        assertEquals("abba", instance.longestPalindrome("babbad"));
+    }
+
+    @Test
+    public void twoSameLengthPalindromeTest() {
+        // aba and ada are two possible palindromes
+        // the one returned will be "ada", because all the string has to be traversed from left to right.
+        assertEquals("ada", instance.longestPalindrome("babada"));
     }
 
 }

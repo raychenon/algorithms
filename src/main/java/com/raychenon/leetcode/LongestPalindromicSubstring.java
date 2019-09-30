@@ -7,24 +7,36 @@ package com.raychenon.leetcode;
  */
 public class LongestPalindromicSubstring {
 
+    /**
+     * time complexity: O(n^2). Single for loop + while loop in {@link #expandAroundCenter}
+     * space complexity: O(1)
+     *
+     * @param s
+     * @return longest palindrome
+     */
     public String longestPalindrome(String s) {
         if (s == null || s.length() < 1) return "";
 
         int start = 0;
         int end = 0;
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expendAroundCenter(s, i, i);
-            int len2 = expendAroundCenter(s, i, i + 1);
+        for (int center = 0; center < s.length(); center++) {
+            int len1 = expandAroundCenter(s, center, center);           // s length is odd
+            int len2 = expandAroundCenter(s, center, center + 1);  // s length is even
             int len = Math.max(len1, len2);
             if (len > end - start) {
-                start = i - (len - 1) / 2;
-                end = i + len / 2;
+                start = center - (len - 1) / 2;
+                end = center + len / 2;
             }
         }
         return s.substring(start, end + 1);
     }
 
-    int expendAroundCenter(String s, int start, int end) {
+    /**
+     * \ \start\ \ \i\ \ \ \end|
+     *          <---  ----->
+     *          |--length--|
+     */
+    private int expandAroundCenter(String s, int start, int end) {
         int left = start, right = end;
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
