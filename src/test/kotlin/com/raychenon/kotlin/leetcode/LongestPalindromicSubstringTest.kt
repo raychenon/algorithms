@@ -26,5 +26,9 @@ class LongestPalindromicSubstringTest {
         // the one returned will be "ada", because all the string has to be traversed from left to right.
         Assert.assertEquals("ada", LongestPalindromicSubstring.longestPalindrome("babada"))
     }
-    
+
+    @Test
+    fun emptyStringTest() {
+        Assert.assertEquals("", LongestPalindromicSubstring.longestPalindrome(""))
+    }
 }

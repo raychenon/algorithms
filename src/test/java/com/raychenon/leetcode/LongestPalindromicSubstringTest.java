@@ -36,4 +36,10 @@ public class LongestPalindromicSubstringTest {
         assertEquals("ada", instance.longestPalindrome("babada"));
     }
 
+    @Test
+    public void emptyStringTest() {
+        assertEquals("", instance.longestPalindrome(""));
+        assertEquals("", instance.longestPalindrome(null));
+    }
+
 }
