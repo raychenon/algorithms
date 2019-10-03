@@ -6,6 +6,17 @@ package com.raychenon.kotlin.leetcode
  * https://leetcode.com/problems/find-all-anagrams-in-a-string
  */
 object FindAllAnagramsInaString {
+    
+    /**
+     * time complexity: O(n), supposing the method {@link #matches(int[], int[])} is O(1)
+     * space complexity: O(1)
+     * <p>
+     * Find all the start indices of p's anagrams in s.
+     *
+     * @param s
+     * @param p
+     * @return
+     */
     fun findAnagrams(s: String, p: String): List<Int> {
 
         val result = mutableListOf<Int>()

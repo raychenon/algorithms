@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class FindAllAnagramsInaString {
     /**
-     * time complexity: O(n)
+     * time complexity: O(n), supposing the method {@link #matches(int[], int[])} is O(1)
      * space complexity: O(1)
      * <p>
      * Find all the start indices of p's anagrams in s.
