@@ -46,13 +46,12 @@ public class FindAllAnagramsInaString {
             if (matches(arrayP, arrayS)) {
                 startIndexes.add(i);
             }
-
         }
         return startIndexes;
     }
 
     private boolean matches(int[] count1, int[] count2) {
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < count1.length; i++) {
             if (count1[i] != count2[i]) {
                 return false;
             }
