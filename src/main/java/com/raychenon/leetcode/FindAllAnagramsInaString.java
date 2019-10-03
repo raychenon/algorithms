@@ -37,9 +37,7 @@ public class FindAllAnagramsInaString {
             } else {
                 char first = s.charAt(i - 1);
                 char last = s.charAt(i + lenP - 1);
-                if (arrayS[first - 'a'] > 0) {
-                    arrayS[first - 'a']--;
-                }
+                if (arrayS[first - 'a']-- > 0)
                 arrayS[last - 'a']++;
             }
 

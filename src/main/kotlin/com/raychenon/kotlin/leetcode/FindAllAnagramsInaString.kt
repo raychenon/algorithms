@@ -6,7 +6,7 @@ package com.raychenon.kotlin.leetcode
  * https://leetcode.com/problems/find-all-anagrams-in-a-string
  */
 object FindAllAnagramsInaString {
-    
+
     /**
      * time complexity: O(n), supposing the method {@link #matches(int[], int[])} is O(1)
      * space complexity: O(1)
@@ -28,7 +28,7 @@ object FindAllAnagramsInaString {
         val lenP = p.length
         var arrayS = IntArray(26) { 0 }
 
-        for (i in 0..s.length - lenP) {
+        for (i in 0..(s.length - lenP)) {
             if (i == 0) {
                 for (y in 0 until lenP) {
                     arrayS[s[y] - 'a']++
@@ -37,7 +37,7 @@ object FindAllAnagramsInaString {
                 val first = s[i - 1]
                 val last = s[i + lenP - 1]
 
-                if (arrayS[first - 'a'] > 0) {
+                if (arrayS.get(first - 'a') > 0) {
                     arrayS[first - 'a']--
                 }
                 arrayS[last - 'a']++
@@ -52,7 +52,7 @@ object FindAllAnagramsInaString {
     }
 
     private fun matches(count1: IntArray, count2: IntArray): Boolean {
-        for (i in 0..count1.size-1) {
+        for (i in 0..count1.size - 1) {
             if (count1[i] != count2[i]) {
                 return false
             }
