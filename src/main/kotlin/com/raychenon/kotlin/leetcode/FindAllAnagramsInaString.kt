@@ -8,7 +8,7 @@ package com.raychenon.kotlin.leetcode
 object FindAllAnagramsInaString {
 
     /**
-     * time complexity: O(n), supposing the method {@link #matches(int[], int[])} is O(1)
+     * time complexity: O(n), supposing the method {@link #equals(int[], int[])} could be O(1) at best
      * space complexity: O(1)
      * <p>
      * Find all the start indices of p's anagrams in s.
@@ -28,7 +28,7 @@ object FindAllAnagramsInaString {
         val lenP = p.length
         var arrayS = IntArray(26) { 0 }
 
-        for (i in 0..(s.length - lenP)) {
+        for (i in 0 until (s.length - lenP + 1)) {
             if (i == 0) {
                 for (y in 0 until lenP) {
                     arrayS[s[y] - 'a']++
@@ -43,7 +43,7 @@ object FindAllAnagramsInaString {
                 arrayS[last - 'a']++
             }
 
-            if (matches(arrayP, arrayS)) {
+            if (equals(arrayP, arrayS)) {
                 result.add(i)
             }
         }
@@ -51,9 +51,9 @@ object FindAllAnagramsInaString {
         return result
     }
 
-    private fun matches(count1: IntArray, count2: IntArray): Boolean {
-        for (i in 0..count1.size - 1) {
-            if (count1[i] != count2[i]) {
+    private fun equals(count1: IntArray, count2: IntArray): Boolean {
+        for (j in 0..count1.size - 1) {
+            if (count1[j] != count2[j]) {
                 return false
             }
         }
