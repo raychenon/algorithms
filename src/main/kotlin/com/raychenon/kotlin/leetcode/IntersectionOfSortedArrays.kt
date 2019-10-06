@@ -24,8 +24,13 @@ object IntersectionOfSortedArrays {
         while (i1 < arr1.size && i2 < arr2.size && i3 < arr3.size) {
             val min = Math.min(arr1.get(i1), Math.min(arr2.get(i2), arr3.get(i3)))
 
-            if (min == arr1.get(i1) && min == arr2.get(i2) && min == arr3.get(i3)) {
-                results.add(min)
+            // Trick better codecov.io : replace by (min == arr1.get(i1) && min == arr2.get(i2) && min == arr3.get(i3))
+            if (min == arr1.get(i1)) {
+                if (min == arr2.get(i2)) {
+                    if (min == arr3.get(i3)) {
+                        results.add(min)
+                    }
+                }
             }
 
             if (arr1.get(i1) == min) {
