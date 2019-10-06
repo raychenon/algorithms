@@ -26,7 +26,7 @@ public class IntersectionOfSortedArrays {
         int i3 = 0;
         List<Integer> results = new LinkedList<>();
 
-        while (i1 < arr1.length && i2 < arr2.length && i3 < arr3.length) {
+        while ((i1 < arr1.length) && (i2 < arr2.length) && (i3 < arr3.length)) {
 
             int min = Math.min(arr1[i1], Math.min(arr2[i2], arr3[i3]));
 

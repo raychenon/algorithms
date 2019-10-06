@@ -21,7 +21,8 @@ object IntersectionOfSortedArrays {
         var i1: Int = 0
         var i2: Int = 0
         var i3: Int = 0
-        while (i1 < arr1.size && i2 < arr2.size && i3 < arr3.size) {
+
+        while ((i1 < arr1.size) && (i2 < arr2.size) && (i3 < arr3.size)) {
             val min = Math.min(arr1.get(i1), Math.min(arr2.get(i2), arr3.get(i3)))
 
             // Trick better codecov.io : replace by (min == arr1.get(i1) && min == arr2.get(i2) && min == arr3.get(i3))
