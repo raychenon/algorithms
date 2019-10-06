@@ -11,7 +11,7 @@ import java.util.List;
 public class IntersectionOfSortedArrays {
 
     /**
-     * Use pointers to save on memory
+     * Use pointers to save memory instead of using Set collections
      * Time Complexity: O(n)
      * Space Complexity: O(1)
      * @param arr1
