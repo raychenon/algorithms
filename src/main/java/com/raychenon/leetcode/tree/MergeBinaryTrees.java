@@ -11,6 +11,9 @@ public class MergeBinaryTrees {
 
     /**
      * Preorder traversal is used to create a copy of the tree.
+     * <p>
+     * Time complexity : O(n).
+     * Space complexity : O(n). The depth of the recursion tree can go up to n in the case of a skewed tree. In average case, depth will be O(log n).
      *
      * @param t1
      * @param t2
@@ -28,6 +31,14 @@ public class MergeBinaryTrees {
         return t1;
     }
 
+    /**
+     * Time complexity : O(n). We traverse over a total of nn nodes. Here, nn refers to the smaller of the number of nodes in the two trees.
+     * Space complexity : O(n). The depth of stack can grow upto nn in case of a skewed tree.
+     *
+     * @param t1
+     * @param t2
+     * @return
+     */
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         if (t1 == null) return t2;
 
@@ -49,13 +60,13 @@ public class MergeBinaryTrees {
                 t.t1.left = t.t2.left;
             } else {
                 // if the left child of the first tree exists, we push the left child(pair) of both the trees onto the stack
-                stack.push(new PairNode(t1.left, t2.left));
+                stack.push(new PairNode(t.t1.left, t.t2.left));
             }
 
             if (t.t1.right == null) {
                 t.t1.right = t.t2.right;
             } else {
-                stack.push(new PairNode(t1.right, t2.right));
+                stack.push(new PairNode(t.t1.right, t.t2.right));
             }
         }
 
