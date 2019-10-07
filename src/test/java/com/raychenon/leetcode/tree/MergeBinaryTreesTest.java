@@ -28,7 +28,8 @@ public class MergeBinaryTreesTest {
         t1Root.left = t1_3;
         t1Root.right = t1_2;
         t1_3.left = t1_5;
-        assertEquals("1 3 5 2 ", t1Root.preOrderIterative());
+        // compute the tree traversal string, because it is easier to compare a Tree content
+        assertEquals("1 3 5 2", t1Root.preOrderIterative());
 
 
         TreeNode t2Root = new TreeNode(2);
@@ -39,11 +40,11 @@ public class MergeBinaryTreesTest {
         t2Root.left = t2_1;
         t2Root.right = t2_3;
         t2_1.right = t2_4;
-        t2_7.right = t2_7;
-        assertEquals("2 1 4 3 ", t2Root.preOrderIterative());
+        t2_3.right = t2_7;
+        assertEquals("2 1 4 3 7", t2Root.preOrderIterative());
 
         TreeNode t3 = instance.mergeTrees(t1Root, t2Root);
 
-        assertEquals("3 4 5 4 5 ", t3.preOrderIterative());
+        assertEquals("3 4 5 4 5 7", t3.preOrderIterative());
     }
 }

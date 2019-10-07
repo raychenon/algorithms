@@ -3,6 +3,7 @@ package com.raychenon.leetcode.tree;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 /**
  * User: raychenon
@@ -18,13 +19,12 @@ public class TreeNode {
         val = x;
     }
 
-    public StringBuilder preOrderIterative() {
-        StringBuilder str = new StringBuilder();
-        for (TreeNode node : preOrderIterativeList(this)) {
-            str.append(String.format("%d ", node.val));
-        }
+    private String getVal() {
+        return String.valueOf(val);
+    }
 
-        return str;
+    public String preOrderIterative() {
+        return preOrderIterativeList(this).stream().map(TreeNode::getVal).collect(Collectors.joining(" "));
     }
 
     /**
