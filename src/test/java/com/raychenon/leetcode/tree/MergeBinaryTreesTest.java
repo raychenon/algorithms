@@ -43,8 +43,10 @@ public class MergeBinaryTreesTest {
         t2_3.right = t2_7;
         assertEquals("2 1 4 3 7", t2Root.preOrderIterative());
 
+        TreeNode t3Rec = instance.mergeTreesRecursive(t1Root, t2Root);
         TreeNode t3 = instance.mergeTrees(t1Root, t2Root);
 
+        assertEquals("3 4 5 4 5 7", t3Rec.preOrderIterative());
         assertEquals("3 4 5 4 5 7", t3.preOrderIterative());
     }
 }
