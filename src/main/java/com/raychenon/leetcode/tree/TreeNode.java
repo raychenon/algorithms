@@ -11,20 +11,20 @@ import java.util.stream.Collectors;
  * https://leetcode.com/problems/merge-two-binary-trees/
  */
 public class TreeNode {
-    int val;
+    public int value;
     public TreeNode left;
     public TreeNode right;
 
     public TreeNode(int x) {
-        val = x;
+        value = x;
     }
 
-    private String getVal() {
-        return String.valueOf(val);
+    private String getValue() {
+        return String.valueOf(value);
     }
 
     public String preOrderIterative() {
-        return preOrderIterativeList(this).stream().map(TreeNode::getVal).collect(Collectors.joining(" "));
+        return preOrderIterativeList(this).stream().map(TreeNode::getValue).collect(Collectors.joining(" "));
     }
 
     /**

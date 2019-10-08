@@ -24,7 +24,7 @@ public class MergeBinaryTrees {
         if (t2 == null) return t1;
 
         // t2 is copied into t1
-        t1.val += t2.val;
+        t1.value += t2.value;
         t1.left = mergeTrees(t1.left, t2.left);
         t1.right = mergeTrees(t1.right, t2.right);
 
@@ -52,7 +52,7 @@ public class MergeBinaryTrees {
             if (t.t1 == null || t.t2 == null) {
                 continue;
             }
-            t.t1.val += t.t2.val;
+            t.t1.value += t.t2.value;
 
             // If the left child of the first tree doesn't exist,
             // append the left child(subtree) of the second tree to the current node
