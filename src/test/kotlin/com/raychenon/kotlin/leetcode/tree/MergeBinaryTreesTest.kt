@@ -22,8 +22,10 @@ class MergeBinaryTreesTest {
 
         // use the method buildT*() because t1 node is modified after mergeTrees() method
         val t3 = MergeBinaryTrees.mergeTrees(buildT1(), buildT2())
+        val t3Iter = MergeBinaryTrees.mergeTreesIter(buildT1(), buildT2())
 
         assertEquals("3 4 5 4 5 7", t3!!.preOrderIterative())
+        assertEquals("3 4 5 4 5 7", t3Iter!!.preOrderIterative())
     }
 
 
