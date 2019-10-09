@@ -13,11 +13,11 @@ public class LongestArithmeticSubsequenceofGivenDifference {
     public int longestSubsequence(int[] arr, int difference) {
         Map<Integer, Integer> map = new HashMap<>();
 
-        int maxLen = 1;
+        int longest = 1;
         for (int a : arr) {
             map.put(a, map.getOrDefault(a - difference, 0) + 1);
-            maxLen = Math.max(maxLen, map.get(a));
+            longest = Math.max(longest, map.get(a));
         }
-        return maxLen;
+        return longest;
     }
 }

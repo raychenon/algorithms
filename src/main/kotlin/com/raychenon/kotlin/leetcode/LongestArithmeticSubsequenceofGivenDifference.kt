@@ -19,6 +19,6 @@ object LongestArithmeticSubsequenceofGivenDifference {
             las.put(a, las.getOrDefault(a - difference, 0) + 1)
             longest = Math.max(longest, las.getOrDefault(a, 0))
         }
-        return las.size
+        return longest
     }
 }
