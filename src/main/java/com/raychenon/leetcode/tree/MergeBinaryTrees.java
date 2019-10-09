@@ -54,6 +54,12 @@ public class MergeBinaryTrees {
             }
             t.t1.value += t.t2.value;
 
+            if (t.t1.right == null) {
+                t.t1.right = t.t2.right;
+            } else {
+                stack.push(new PairNode(t.t1.right, t.t2.right));
+            }
+            
             // If the left child of the first tree doesn't exist,
             // append the left child(subtree) of the second tree to the current node
             if (t.t1.left == null) {
@@ -63,11 +69,6 @@ public class MergeBinaryTrees {
                 stack.push(new PairNode(t.t1.left, t.t2.left));
             }
 
-            if (t.t1.right == null) {
-                t.t1.right = t.t2.right;
-            } else {
-                stack.push(new PairNode(t.t1.right, t.t2.right));
-            }
         }
 
         return t1;

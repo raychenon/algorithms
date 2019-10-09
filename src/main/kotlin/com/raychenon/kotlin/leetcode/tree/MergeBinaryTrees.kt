@@ -37,18 +37,18 @@ object MergeBinaryTrees {
                 t.first.value += t.second.value
             }
 
+            if (t.first.right == null) {
+                t.first.right = t.second.right
+            } else {
+                stack.push(Pair(t.first.right, t.second.right))
+            }
+
             // If the left child of the first tree doesn't exist,
             // append the left child(subtree) of the second tree to the current node
             if (t.first.left == null) {
                 t.first.left = t.second.left
             } else {
                 stack.push(Pair(t.first.left, t.second.left))
-            }
-
-            if (t.first.right == null) {
-                t.first.right = t.second.right
-            } else {
-                stack.push(Pair(t.first.right, t.second.right))
             }
         }
 
