@@ -7,13 +7,18 @@ package com.raychenon.kotlin.leetcode
  */
 object LongestArithmeticSubsequenceofGivenDifference {
 
+    /**
+     *  time complexity: O(n)
+     *  space complexity: O(n)
+     *  TODO need more explanation on thought process on this Dynamic Programming
+     */
     fun longestSubsequence(arr: IntArray, difference: Int): Int {
-        var map = mutableMapOf<Int, Int>()
+        var las = mutableMapOf<Int, Int>() //  longest arithmetic subsequence(LAS)
         var longest: Int = 0
         for (a in arr) {
-            map.put(a, map.getOrDefault(a - difference, 0) + 1)
-            longest = Math.max(longest, map.getOrDefault(a, 0))
+            las.put(a, las.getOrDefault(a - difference, 0) + 1)
+            longest = Math.max(longest, las.getOrDefault(a, 0))
         }
-        return longest
+        return las.size
     }
 }
