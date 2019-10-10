@@ -58,7 +58,7 @@ object ProductofArrayExceptSelf {
         }
 
         var R = 1
-        for (i in (size - 2) downTo 0) {
+        for (i in (size - 1) downTo 0) {
             output[i] = output.get(i) * R
             R = R * nums.get(i)
         }
