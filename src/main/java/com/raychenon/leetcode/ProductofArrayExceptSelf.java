@@ -52,7 +52,6 @@ public class ProductofArrayExceptSelf {
         //  prodLeft  i
         //  ---------> |-----------
         // [ | | | | | | | | | | | ]
-
         output[0] = 1;
         for (int i = 1; i < size; i++) {
             output[i] = output[i - 1] * nums[i - 1];
@@ -61,10 +60,10 @@ public class ProductofArrayExceptSelf {
         //            i   Right
         //  -------- |  <-----------
         // [ | | | | | | | | | | | ]
-        int right = 1;
+        int prodRight = 1;
         for (int i = size - 1; i >= 0; i--) {
-            output[i] = output[i + 1] * nums[i + 1];
-            right = right * nums[i + 1];
+            output[i] = output[i] * prodRight;
+            prodRight = prodRight * nums[i];
         }
 
         return output;
