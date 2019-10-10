@@ -23,7 +23,7 @@ public class ProductofArrayExceptSelfTest {
     public void testProductOfArray() {
         int input[] = {1, 2, 3, 4};
         int output[] = {24, 12, 8, 6};
-        assertArrayEquals(output, instance.productExceptSelf(input));
+        assertArrays(output, instance.productExceptSelf(input));
     }
 
     @Test
@@ -31,14 +31,20 @@ public class ProductofArrayExceptSelfTest {
         // Given an array nums of n integers where n > 1
         int input[] = {};
         int output[] = {};
-        assertArrayEquals(output, instance.productExceptSelf(input));
+        assertArrays(output, instance.productExceptSelf(input));
     }
 
     @Test
     public void testProductOfArray_when_containsZero() {
         int input[] = {1, 0};
         int output[] = {0, 1};
+        assertArrays(output, instance.productExceptSelf(input));
+    }
+
+
+    public void assertArrays(int[] input, int[] output) {
         assertArrayEquals(output, instance.productExceptSelf(input));
+        assertArrayEquals(output, instance.productExceptSelfConstantSpace(input));
     }
 
 }
