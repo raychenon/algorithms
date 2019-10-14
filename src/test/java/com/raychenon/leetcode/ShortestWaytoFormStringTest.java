@@ -21,17 +21,22 @@ public class ShortestWaytoFormStringTest {
 
     @Test
     public void example1Test() {
-        assertEquals(2, shortestWaytoFormString.shortestWay("abc", "abcbc"));
+        assertShortestWay(2, "abc", "abcbc");
     }
 
     @Test
     public void example2Test() {
-        assertEquals(-1, shortestWaytoFormString.shortestWay("abc", "acdbc"));
+        assertShortestWay(-1, "abc", "acdbc");
     }
 
     @Test
     public void example3Test() {
-        assertEquals(3, shortestWaytoFormString.shortestWay("xyz", "xzyxz"));
+        assertShortestWay(3, "xyz", "xzyxz");
+    }
+
+    void assertShortestWay(int expectedValue, String source, String target) {
+        assertEquals(expectedValue, shortestWaytoFormString.shortestWayPointers(source, target));
+        assertEquals(expectedValue, shortestWaytoFormString.shortestWayInvertedIndex(source, target));
     }
 
 }
