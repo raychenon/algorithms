@@ -21,20 +21,26 @@ public class ShortestWaytoFormStringTest {
 
     @Test
     public void example1Test() {
-        assertShortestWay(2, "abc", "abcbc");
+        assertShortestWayMethods(2, "abc", "abcbc");
     }
 
     @Test
     public void example2Test() {
-        assertShortestWay(-1, "abc", "acdbc");
+        assertShortestWayMethods(-1, "abc", "acdbc");
     }
 
     @Test
     public void example3Test() {
-        assertShortestWay(3, "xyz", "xzyxz");
+        assertShortestWayMethods(3, "xyz", "xzyxz");
     }
 
-    void assertShortestWay(int expectedValue, String source, String target) {
+    @Test
+    public void duplicateCharInSourceTest() {
+        // aab ab ab aaa a
+        assertShortestWayMethods(5, "aaab", "aabababaaaa");
+    }
+
+    void assertShortestWayMethods(int expectedValue, String source, String target) {
         assertEquals(expectedValue, shortestWaytoFormString.shortestWayPointers(source, target));
         assertEquals(expectedValue, shortestWaytoFormString.shortestWayInvertedIndex(source, target));
     }

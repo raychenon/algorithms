@@ -24,6 +24,12 @@ class ShortestWaytoFormStringTest {
     fun example3Test() {
         assertShortestWayMethods(3, "xyz", "xzyxz")
     }
+
+    @Test
+    fun duplicateCharInSourceTest() {
+        // aab ab ab aaa a
+        assertShortestWayMethods(5, "aaab", "aabababaaaa")
+    }
     
     fun assertShortestWayMethods(expected: Int, source: String, target: String) {
         Assert.assertEquals(expected, ShortestWaytoFormString.shortestWayPointers(source, target))
