@@ -1,5 +1,7 @@
 package com.raychenon.kotlin.leetcode
 
+import java.util.*
+
 
 /**
  * User: raychenon
@@ -51,48 +53,35 @@ object ShortestWaytoFormString {
      */
     fun shortestWayInvertedIndex(source: String, target: String): Int {
 
-        
-        val mapIdx = mutableListOf<Map<Char, Int>>()
-        for ((i, c) in source.withIndex()) {
-            var map = mutableMapOf<Char, Int>()
-            for ((j, ch) in source.withIndex()) {
-                map.put(ch, j)
-            }
-            mapIdx.add(map)
+        val Empty = -1
+        val S = source.length
+        val dictIndex = Array(S) { IntArray(26) }
+
+        dictIndex[S - 1].fill(Empty)  // -1 means no that char in source
+        dictIndex[S - 1][source[S - 1] - 'a'] = S - 1
+
+
+        for (x in S - 2 downTo 0) {
+            dictIndex[x] = Arrays.copyOf(dictIndex[x + 1], 26)
+            dictIndex[x][source[x] - 'a'] = x
         }
 
+        var count = 0
+        var idx = 0
+        for (c in target) {
+            if (dictIndex[0][c - 'a'] == Empty) return -1
+            if (dictIndex[idx][c - 'a'] == Empty) {
+                count++
+                idx = 0
+            }
 
-        var mapIdx: Map<Char, Array<Int>> = mutableMapOf()
-
-        for ((i, c) in source.withIndex()) {
-            if (mapIdx.containsKey(c)) {
-                mapIdx[c]!![i] = i
-            } else {
-                val idx = IntArray(source.length)
-                idx[]
-                mapIdx[c]!![i] = i
+            idx = dictIndex[idx][c - 'a'] + 1
+            if (idx == S) {
+                count++
+                idx = 0
             }
         }
 
-        val cs = source.toCharArray()
-        val ts = target.toCharArray()
-
-        var j = 0
-        var res = 1
-        var i = 0
-        while (i < ts.size) {
-            if (j == cs.size) {
-                j = 0
-                res++
-            }
-            if (mapIdx.get(j).getOrDefault(ts.get(0), -1) == -1) return -1
-            j = mapIdx.get(j).getOrDefault(ts.get(i), 0)
-            if (j == 0) {
-                res++
-                i--
-            }
-            i++
-        }
-        return res
+        return count + (if (idx == 0) 0 else 1)
     }
 }

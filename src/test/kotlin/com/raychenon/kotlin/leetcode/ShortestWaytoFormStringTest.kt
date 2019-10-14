@@ -12,16 +12,21 @@ class ShortestWaytoFormStringTest {
 
     @Test
     fun example1Test() {
-        Assert.assertEquals(2, ShortestWaytoFormString.shortestWay("abc", "abcbc"))
+        assertShortestWayMethods(2, "abc", "abcbc")
     }
 
     @Test
     fun example2Test() {
-        Assert.assertEquals(-1, ShortestWaytoFormString.shortestWay("abc", "acdbc"))
+        assertShortestWayMethods(-1, "abc", "acdbc")
     }
 
     @Test
     fun example3Test() {
-        Assert.assertEquals(3, ShortestWaytoFormString.shortestWay("xyz", "xzyxz"))
+        assertShortestWayMethods(3, "xyz", "xzyxz")
+    }
+    
+    fun assertShortestWayMethods(expected: Int, source: String, target: String) {
+        Assert.assertEquals(expected, ShortestWaytoFormString.shortestWayPointers(source, target))
+        Assert.assertEquals(expected, ShortestWaytoFormString.shortestWayInvertedIndex(source, target))
     }
 }
