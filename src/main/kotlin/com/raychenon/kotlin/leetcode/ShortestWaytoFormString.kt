@@ -10,24 +10,30 @@ object ShortestWaytoFormString {
 
     /**
      * time complexity: O(S*T) , where S: length of source and T: length of target
+     *
      */
     fun shortestWay(source: String, target: String): Int {
-
-        val sc = source.toCharArray()
-        val ts = target.toCharArray()
-        var res = 0
+        var count = 0
         var i = 0
-        while (i < ts.size) {
-            val indexI = i
-            for (j in sc.indices) {
-                if (i < ts.size && sc[j] == ts[i])
+        while (i < target.length) {
+            /**
+             * source : "xyz"
+             * |x| z | y | x | z |
+             * <-----><--><------>
+             */
+            val startI = i  // index in target at each cycle
+            for (c in source) {
+                if (i < target.length && target.get(i).equals(c)) {
                     i++
+                }
             }
-            // if target contains at least a letter that "source" doesn't have, then return -1
-            if (i == indexI) return -1
-            res++
-        }
-        return res
 
+            // if the pointer on targer didn't move, this letter is not contained in "source" then return -1
+            if (startI == i) {
+                return -1
+            }
+            count++
+        }
+        return count
     }
 }
