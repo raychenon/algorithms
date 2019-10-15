@@ -1,6 +1,8 @@
 package com.raychenon.leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * User: raychenon
@@ -63,6 +65,39 @@ public class ShortestWaytoFormString {
             }
 
             idx = dictIndex[idx][c - 'a'] + 1;
+            if (idx == S) {
+                ++ans;
+                idx = 0;
+            }
+        }
+        return ans + (idx == 0 ? 0 : 1);
+    }
+
+    public int shortestWayMap(String source, String target) {
+        char[] sArr = source.toCharArray();
+        char[] tArr = target.toCharArray();
+        int S = sArr.length;
+        Map<Character, Integer>[] dictIndex = new HashMap[S];
+        for (int x = 0; x < S; x++) {
+            Map<Character, Integer> map = new HashMap<>();
+            for (int i = x; i < S; i++) {
+                map.put(sArr[i], i);
+            }
+            dictIndex[x] = map;
+
+            dictIndex[x].put(sArr[x], x);
+        }
+        int ans = 0;
+        int idx = 0;
+        for (char c : tArr) {
+            if (!dictIndex[0].containsKey(c)) return -1;
+
+            if (!dictIndex[idx].containsKey(c)) {
+                ++ans;
+                idx = 0;
+            }
+
+            idx = dictIndex[idx].getOrDefault(c, 0) + 1;
             if (idx == S) {
                 ++ans;
                 idx = 0;

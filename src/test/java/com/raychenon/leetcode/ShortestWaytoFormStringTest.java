@@ -43,6 +43,7 @@ public class ShortestWaytoFormStringTest {
     void assertShortestWayMethods(int expectedValue, String source, String target) {
         assertEquals(expectedValue, shortestWaytoFormString.shortestWayPointers(source, target));
         assertEquals(expectedValue, shortestWaytoFormString.shortestWayInvertedIndex(source, target));
+        assertEquals(expectedValue, shortestWaytoFormString.shortestWayMap(source, target));
     }
 
 }
