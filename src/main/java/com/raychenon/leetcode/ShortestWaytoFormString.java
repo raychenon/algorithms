@@ -78,31 +78,41 @@ public class ShortestWaytoFormString {
         char[] tArr = target.toCharArray();
         int S = sArr.length;
         Map<Character, Integer>[] dictIndex = new HashMap[S];
+        /**
+         * dicIndex is the Inverted Index of string "source"
+         * For any index in source, each letter is mapped to its index.
+         * If there are duplicate letters, the letter is mapped to its leftmost index
+         * source: aaab
+         * [0] = [a ->0 , b->3]
+         * [1] = [a ->1 , b->3]
+         * [2] = [a ->2 , b->3]
+         * [3] = [b->3]
+         */
         for (int x = 0; x < S; x++) {
             Map<Character, Integer> map = new HashMap<>();
             for (int i = x; i < S; i++) {
                 map.put(sArr[i], i);
             }
             dictIndex[x] = map;
-
+            // for repeated letters, set the left most index
             dictIndex[x].put(sArr[x], x);
         }
-        int ans = 0;
+        int count = 0;
         int idx = 0;
         for (char c : tArr) {
             if (!dictIndex[0].containsKey(c)) return -1;
 
             if (!dictIndex[idx].containsKey(c)) {
-                ++ans;
+                ++count;
                 idx = 0;
             }
 
             idx = dictIndex[idx].getOrDefault(c, 0) + 1;
             if (idx == S) {
-                ++ans;
+                ++count;
                 idx = 0;
             }
         }
-        return ans + (idx == 0 ? 0 : 1);
+        return count + (idx == 0 ? 0 : 1);
     }
 }
