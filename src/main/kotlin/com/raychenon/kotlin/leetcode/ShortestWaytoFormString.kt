@@ -84,4 +84,53 @@ object ShortestWaytoFormString {
 
         return count + (if (idx == 0) 0 else 1)
     }
+
+    /**
+     * Inverted index data structure with a Map
+     * dictIndex[i][c - 'a'] represents the earliest index >= i where character c occurs in source.
+     * <p>
+     * time complexity:  O(S+T) , where S is the length of source and T is the length of target
+     * space complexity: O(S)
+     *
+     */
+    fun shortestWayMap(source: String, target: String): Int {
+        var dictIndex = arrayOfNulls<Map<Char, Int>>(source.length)
+
+        /**
+         * dicIndex is the Inverted Index of string "source"
+         * For any index in source, each letter is mapped to its index.
+         * If there are duplicate letters, the letter is mapped to its leftmost index
+         * source: aaab
+         * [0] = [a ->0 , b->3]
+         * [1] = [a ->1 , b->3]
+         * [2] = [a ->2 , b->3]
+         * [3] = [b->3]
+         */
+        for (i in source.length - 1 downTo 0) {
+            var map = mutableMapOf<Char, Int>()
+            for (j in i..source.length - 1) {
+                map.put(source.get(j), j)
+            }
+            map.put(source.get(i), i)
+            dictIndex[i] = map
+        }
+
+        var count = 0
+        var index = 0
+        for (c in target) {
+            if (!dictIndex.get(0)!!.containsKey(c)) return -1
+            if (!dictIndex.get(index)!!.containsKey(c)) {
+                index = 0
+                count++
+            }
+            index = dictIndex.get(index)!!.getOrDefault(c, 0) + 1
+            if (index == source.length) {
+                index = 0
+                count++
+            }
+        }
+
+        return count
+    }
+
 }

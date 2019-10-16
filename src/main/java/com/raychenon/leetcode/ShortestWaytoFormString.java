@@ -73,6 +73,14 @@ public class ShortestWaytoFormString {
         return ans + (idx == 0 ? 0 : 1);
     }
 
+    /**
+     * Inverted index data structure with a Map
+     * dictIndex[i][c - 'a'] represents the earliest index >= i where character c occurs in source.
+     * <p>
+     * time complexity:  O(S+T) , where S is the length of source and T is the length of target
+     * space complexity: O(S)
+     *
+     */
     public int shortestWayMap(String source, String target) {
         char[] sArr = source.toCharArray();
         char[] tArr = target.toCharArray();

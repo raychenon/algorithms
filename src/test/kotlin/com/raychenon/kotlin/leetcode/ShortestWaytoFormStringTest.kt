@@ -30,9 +30,10 @@ class ShortestWaytoFormStringTest {
         // aab ab ab aaa a
         assertShortestWayMethods(5, "aaab", "aabababaaaa")
     }
-    
+
     fun assertShortestWayMethods(expected: Int, source: String, target: String) {
         Assert.assertEquals(expected, ShortestWaytoFormString.shortestWayPointers(source, target))
         Assert.assertEquals(expected, ShortestWaytoFormString.shortestWayInvertedIndex(source, target))
+        Assert.assertEquals(expected, ShortestWaytoFormString.shortestWayMap(source, target))
     }
 }
