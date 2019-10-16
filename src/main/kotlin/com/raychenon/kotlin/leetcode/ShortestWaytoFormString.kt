@@ -119,10 +119,12 @@ object ShortestWaytoFormString {
         var index = 0
         for (c in target) {
             if (!dictIndex.get(0)!!.containsKey(c)) return -1
-            if (!dictIndex.get(index)!!.containsKey(c)) {
+
+            if (!dictIndex[index]!!.containsKey(c)) {
                 index = 0
-                count++
+                ++count
             }
+
             index = dictIndex.get(index)!!.getOrDefault(c, 0) + 1
             if (index == source.length) {
                 index = 0
@@ -130,7 +132,7 @@ object ShortestWaytoFormString {
             }
         }
 
-        return count
+        return count + if (index == 0) 0 else 1
     }
 
 }
