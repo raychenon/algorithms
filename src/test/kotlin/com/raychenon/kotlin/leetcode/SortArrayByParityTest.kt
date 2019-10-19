@@ -23,7 +23,7 @@ class SortArrayByParityTest {
     }
 
     @Test
-    fun example1ConstantSpaceTest(){
+    fun example1ConstantSpaceTest() {
         Assert.assertTrue(
             Arrays.equals(
                 intArrayOf(4, 2, 1, 3),

@@ -39,9 +39,10 @@ object SortArrayByParity {
      */
     fun sortArrayByParityInPlace(A: IntArray): IntArray {
         var l = 0
-        var r = 0
+        var r = A.size - 1
 
         while (l < r) {
+            // if left is odd and right is even, then swap
             if (A.get(l) % 2 > A.get(r) % 2) {
                 val tmp = A.get(l)
                 A[l] = A.get(r)
