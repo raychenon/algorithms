@@ -24,6 +24,9 @@ public class SortArrayByParityTest {
     public void example1Test() {
         int[] input = new int[]{3, 1, 2, 4};
         int[] output = new int[]{2, 4, 3, 1};
-        Assert.assertTrue(Arrays.equals(output, sortArrayByParity.sortArrayByParity(input)));
+        Assert.assertTrue(Arrays.equals(output, sortArrayByParity.sortArrayByParityTwoPasses(input)));
+
+        int[] outputInPlace = new int[]{4,2,1,3};
+        Assert.assertTrue(Arrays.equals(outputInPlace, sortArrayByParity.sortArrayByParityInPlace(input)));
     }
 }
