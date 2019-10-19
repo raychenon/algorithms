@@ -42,8 +42,8 @@ object SortArrayByParity {
         var r = A.size - 1
 
         while (l < r) {
-            // if left is odd and right is even, then swap
-            if (A.get(l) % 2 == 1 && A.get(r) % 2 == 0) {
+            // if left is odd and right is even (_%2==1) > (_%2==0), then swap
+            if (A.get(l) % 2 > A.get(r) % 2) {
                 val tmp = A.get(l)
                 A[l] = A.get(r)
                 A[r] = tmp
