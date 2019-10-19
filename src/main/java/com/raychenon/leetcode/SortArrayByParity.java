@@ -38,17 +38,17 @@ public class SortArrayByParity {
      * @return an array consisting of all the even elements of A, followed by all the odd elements of A.
      */
     public int[] sortArrayByParityInPlace(int[] A) {
-        int iEven = 0, iOdd = A.length - 1;
-        while (iEven < iOdd) {
+        int iLeft = 0, iRight = A.length - 1;
+        while (iLeft < iRight) {
             // if left is odd and right is even, then swap
-            if (A[iEven] % 2 > A[iOdd] % 2) {
-                int tmp = A[iEven];
-                A[iEven] = A[iOdd];
-                A[iOdd] = tmp;
+            if (A[iLeft] % 2 > A[iRight] % 2) {
+                int tmp = A[iLeft];
+                A[iLeft] = A[iRight];
+                A[iRight] = tmp;
             }
 
-            if (A[iEven] % 2 == 0) iEven++;
-            if (A[iOdd] % 2 == 1) iOdd--;
+            if (A[iLeft] % 2 == 0) iLeft++;
+            if (A[iRight] % 2 == 1) iRight--;
         }
 
         return A;

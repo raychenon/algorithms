@@ -19,6 +19,17 @@ class SortArrayByParityTest {
                 SortArrayByParity.sortArrayByParity(intArrayOf(3, 1, 2, 4))
             )
         )
+
+    }
+
+    @Test
+    fun example1ConstantSpaceTest(){
+        Assert.assertTrue(
+            Arrays.equals(
+                intArrayOf(4, 2, 1, 3),
+                SortArrayByParity.sortArrayByParityInPlace(intArrayOf(3, 1, 2, 4))
+            )
+        )
     }
 
 }
