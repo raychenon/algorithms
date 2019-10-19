@@ -41,14 +41,18 @@ public class SortArrayByParity {
         int iLeft = 0, iRight = A.length - 1;
         while (iLeft < iRight) {
             // if left is odd and right is even, then swap
-            if (A[iLeft] % 2 > A[iRight] % 2) {
+            if ((A[iLeft] % 2) > (A[iRight] % 2)) {
                 int tmp = A[iLeft];
                 A[iLeft] = A[iRight];
                 A[iRight] = tmp;
             }
 
-            if (A[iLeft] % 2 == 0) iLeft++;
-            if (A[iRight] % 2 == 1) iRight--;
+            if (A[iLeft] % 2 == 0) {
+                iLeft++;
+            }
+            if (A[iRight] % 2 == 1) {
+                iRight--;
+            }
         }
 
         return A;
