@@ -7,8 +7,8 @@ package com.raychenon.leetcode.tree;
  */
 public class TreeNode {
     int val;
-    com.raychenon.leetcode.TreeNode left;
-    com.raychenon.leetcode.TreeNode right;
+    TreeNode left;
+    TreeNode right;
 
     TreeNode(int x) {
         val = x;
