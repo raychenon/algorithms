@@ -43,10 +43,8 @@ object InvertBinaryTree {
             current.left = current?.right
             current.right = temp
 
-            // current?.left.let { queue.add(it) }
-            // current?.right.let { queue.add(it) }
-            if (current.left != null) queue.add(current.left)
-            if (current.right != null) queue.add(current.right)
+            current?.left?.apply { queue.add(this) }
+            current?.right?.let { queue.add(it) }
         }
         return root
     }
