@@ -20,11 +20,11 @@ public class InvertBinaryTreeTest {
 
     @Test
     public void example1Test() {
-        TreeNode node4 = new TreeNode(4);
+        TreeNode root = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);
         TreeNode node7 = new TreeNode(7);
-        node4.left = node2;
-        node4.right = node7;
+        root.left = node2;
+        root.right = node7;
         TreeNode node1 = new TreeNode(1);
         TreeNode node3 = new TreeNode(3);
         node2.left = node1;
@@ -34,7 +34,8 @@ public class InvertBinaryTreeTest {
         node7.left = node6;
         node7.right = node9;
 
-        assertEquals("abba", invertBinaryTree.invertTree(node4));
+        // easier to compare pre order traversal output than to recreate another tree
+        assertEquals("4 7 9 6 2 3 1", invertBinaryTree.invertTree(root).preOrderTraversalOutput());
     }
 
 }
