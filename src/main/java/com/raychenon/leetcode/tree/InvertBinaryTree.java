@@ -29,8 +29,10 @@ public class InvertBinaryTree {
     }
 
     /**
-     * swap the left and right child of all nodes in the tree
+     * Swap the left and right child of all nodes in the tree
      *
+     * time complexity: O(n)
+     * space complexity: O(n
      * @param root
      * @return
      */
