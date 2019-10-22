@@ -36,6 +36,11 @@ public class InvertBinaryTreeTest {
 
         // easier to compare pre order traversal output than to recreate another tree
         assertEquals("4 7 9 6 2 3 1", invertBinaryTree.invertTree(root).preOrderTraversalOutput());
+
+        // invert again == identity
+        invertBinaryTree.invertTreeIter(root);
+        // then invert to test
+        assertEquals("4 7 9 6 2 3 1", invertBinaryTree.invertTreeIter(root).preOrderTraversalOutput());
     }
 
 }
