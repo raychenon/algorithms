@@ -23,18 +23,18 @@ public class MergeBinaryTreesTest {
     public void mergeBinaryTreesTest() {
         TreeNode t1Root = buildT1();
         // compute the tree traversal string, because it is easier to compare a Tree content
-        assertEquals("1 3 5 2", t1Root.preOrderIterative());
+        assertEquals("1 3 5 2", t1Root.preOrderTraversalOutput());
 
         TreeNode t2Root = buildT2();
-        assertEquals("2 1 4 3 7", t2Root.preOrderIterative());
+        assertEquals("2 1 4 3 7", t2Root.preOrderTraversalOutput());
 
         // use the method buildT*() because t1 node is modified after mergeTrees() method
         // addition is commutative, merge(t1,t2) == merge(t2,t1)
         TreeNode t3Rec = instance.mergeTreesRecursive(buildT2(), buildT1());
         TreeNode t3 = instance.mergeTrees(buildT1(), buildT2());
 
-        assertEquals("3 4 5 4 5 7", t3Rec.preOrderIterative());
-        assertEquals("3 4 5 4 5 7", t3.preOrderIterative());
+        assertEquals("3 4 5 4 5 7", t3Rec.preOrderTraversalOutput());
+        assertEquals("3 4 5 4 5 7", t3.preOrderTraversalOutput());
     }
 
     private TreeNode buildT1() {
