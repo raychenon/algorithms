@@ -16,11 +16,11 @@ public class InvertBinaryTree {
      * @param root
      * @return
      */
-    public TreeNode invertTree(TreeNode root) {
+    public TreeNode invertTreeRecurisve(TreeNode root) {
         if (root == null) return null;
 
-        TreeNode left = invertTree(root.left);
-        TreeNode right = invertTree(root.right);
+        TreeNode left = invertTreeRecurisve(root.left);
+        TreeNode right = invertTreeRecurisve(root.right);
 
         root.left = right;
         root.right = left;

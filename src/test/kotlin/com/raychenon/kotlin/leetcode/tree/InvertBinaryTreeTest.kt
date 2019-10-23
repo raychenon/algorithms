@@ -33,4 +33,11 @@ class InvertBinaryTreeTest {
         InvertBinaryTree.invertTreeIter(root)
         Assert.assertEquals("4 7 9 6 2 3 1", InvertBinaryTree.invertTreeIter(root)?.preOrderTraversalOutput())
     }
+
+    @Test
+    fun nullTest() {
+        val root : TreeNode? = null
+        Assert.assertEquals(null, InvertBinaryTree.invertTreeRecursive(root))
+        Assert.assertEquals(null, InvertBinaryTree.invertTreeIter(root))
+    }
 }
