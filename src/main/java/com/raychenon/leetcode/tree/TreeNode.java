@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
  * User: raychenon
  * Date: 2019-10-07
  * https://leetcode.com/problems/merge-two-binary-trees/
+ * https://leetcode.com/problems/invert-binary-tree/
  */
 public class TreeNode {
     public int value;
@@ -23,7 +24,7 @@ public class TreeNode {
         return String.valueOf(value);
     }
 
-    public String preOrderIterative() {
+    public String preOrderTraversalOutput() {
         return preOrderIterativeList(this).stream().map(TreeNode::getValue).collect(Collectors.joining(" "));
     }
 
