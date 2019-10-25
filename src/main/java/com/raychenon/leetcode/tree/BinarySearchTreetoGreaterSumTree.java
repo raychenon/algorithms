@@ -7,6 +7,12 @@ package com.raychenon.leetcode.tree;
  */
 public class BinarySearchTreetoGreaterSumTree {
 
+    /**
+     * Given the root of a binary search tree with distinct values,
+     * modify it so that every node has a new value equal to the sum of the values of the original tree that are greater than or equal to node.val.
+     * @param root
+     * @return
+     */
     public TreeNode bstToGst(TreeNode root) {
         int[] sum = new int[1];
         inOrder(root, sum);
