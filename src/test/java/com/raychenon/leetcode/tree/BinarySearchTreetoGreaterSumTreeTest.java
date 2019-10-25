@@ -39,6 +39,6 @@ public class BinarySearchTreetoGreaterSumTreeTest {
         node6.right = node7;
         node7.right = new TreeNode(8);
 
-        assertEquals("30 36 36 35 33 21 26 15 8", instance.bstToGst(root).preOrderTraversalOutput());
+        assertEquals("30,36,36,35,33,21,26,15,8", instance.bstToGst(root).preOrderNodes());
     }
 }
