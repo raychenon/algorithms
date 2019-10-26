@@ -21,6 +21,7 @@ public class BinarySearchTreetoGreaterSumTree {
 
     public void inOrder(TreeNode root, int[] sum) {
         if (root == null) return;
+        // traverse from right to left, to give us reversed in_order traversal
         inOrder(root.right, sum);
         sum[0] += root.value;
         root.value = sum[0];
