@@ -7,24 +7,25 @@ package com.raychenon.leetcode.tree;
  */
 public class BinarySearchTreetoGreaterSumTree {
 
+    int previous = 0;
+
     /**
      * Given the root of a binary search tree with distinct values,
      * modify it so that every node has a new value equal to the sum of the values of the original tree that are greater than or equal to node.val.
+     * <p>
+     * <p>
+     * We need to do the work from biggest to smallest, right to left.
+     * "previous" will record the previous value the we get, which the total sum of bigger values.
+     * For each node, we update root.val with root.val + pre.
+     *
      * @param root
      * @return
      */
     public TreeNode bstToGst(TreeNode root) {
-        int[] sum = new int[1];
-        inOrder(root, sum);
+        if (root.right != null) bstToGst(root.right);
+        previous = root.value = previous + root.value;
+        if (root.left != null) bstToGst(root.left);
         return root;
     }
 
-    public void inOrder(TreeNode root, int[] sum) {
-        if (root == null) return;
-        // traverse from right to left, to give us reversed in_order traversal
-        inOrder(root.right, sum);
-        sum[0] += root.value;
-        root.value = sum[0];
-        inOrder(root.left, sum);
-    }
 }

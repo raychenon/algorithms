@@ -41,4 +41,5 @@ public class BinarySearchTreetoGreaterSumTreeTest {
 
         assertEquals("30,36,36,35,33,21,26,15,8", instance.bstToGst(root).preOrderPath());
     }
+
 }

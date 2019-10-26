@@ -27,14 +27,15 @@ public class TreeNode {
     public String preOrderPath() {
         TreeNode root = this;
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode currentNode = root;
-        List<TreeNode> preOrderList = new LinkedList<TreeNode>();
 
         if (root == null) {
             return "";
         } else {
             stack.push(root);
         }
+
+        TreeNode currentNode = root;
+        List<TreeNode> preOrderList = new LinkedList<TreeNode>();
 
         while (!stack.isEmpty()) {
             currentNode = stack.pop();
@@ -49,7 +50,7 @@ public class TreeNode {
         }
         return preOrderList.stream().map(TreeNode::getValue).collect(Collectors.joining(","));
     }
-    
+
     public String preOrderTraversalOutput() {
         return preOrderIterativeList(this).stream().map(TreeNode::getValue).collect(Collectors.joining(" "));
     }
