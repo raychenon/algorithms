@@ -7,22 +7,17 @@ import com.raychenon.leetcode.tree.TreeNode
  * Date: 2019-10-26
  * https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/
  */
-object BinarySearchTreetoGreaterSumTree {
+class BinarySearchTreetoGreaterSumTree {
 
-    var previous: Int = 0
+    private var previous: Int = 0
 
     fun bstToGst(root: TreeNode?): TreeNode? {
-        previous = 0
-        inOrder(root)
-        return root
-    }
-
-    private fun inOrder(root: TreeNode?): TreeNode? {
-        root?.right?.apply { inOrder(this) }
-        root?.value = previous + root!!.value
+        if (root == null) return null
+        root?.right?.apply { bstToGst(this) }
+        root?.value = previous + root?.value
         previous = root?.value
 
-        root?.left?.apply { inOrder(this) }
+        root?.left?.apply { bstToGst(this) }
         return root
     }
 

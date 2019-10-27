@@ -11,6 +11,8 @@ import org.junit.Test
  */
 class BinarySearchTreetoGreaterSumTreeTest {
 
+    lateinit var instance: BinarySearchTreetoGreaterSumTree
+
     @Test
     fun example1Test() {
         val root = TreeNode(4)
@@ -31,9 +33,10 @@ class BinarySearchTreetoGreaterSumTreeTest {
         node6.right = node7
         node7.right = TreeNode(8)
 
+        instance = BinarySearchTreetoGreaterSumTree()
         Assert.assertEquals(
             "30,36,36,35,33,21,26,15,8",
-            BinarySearchTreetoGreaterSumTree.bstToGst(root)?.preOrderPath()
+            instance?.bstToGst(root)?.preOrderPath()
         )
     }
 }
