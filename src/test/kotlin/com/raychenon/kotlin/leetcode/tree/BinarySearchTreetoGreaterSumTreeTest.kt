@@ -1,7 +1,7 @@
 package com.raychenon.kotlin.leetcode.tree
 
 import com.raychenon.leetcode.tree.TreeNode
-import junit.framework.Assert
+import org.junit.Assert
 import org.junit.Test
 
 /**
@@ -36,6 +36,16 @@ class BinarySearchTreetoGreaterSumTreeTest {
         instance = BinarySearchTreetoGreaterSumTree()
         Assert.assertEquals(
             "30,36,36,35,33,21,26,15,8",
+            instance?.bstToGst(root)?.preOrderPath()
+        )
+    }
+
+    @Test
+    fun nullTreeNodeTest() {
+        val root = null
+        instance = BinarySearchTreetoGreaterSumTree()
+        Assert.assertEquals(
+            null,
             instance?.bstToGst(root)?.preOrderPath()
         )
     }
