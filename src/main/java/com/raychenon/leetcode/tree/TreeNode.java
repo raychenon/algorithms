@@ -24,6 +24,33 @@ public class TreeNode {
         return String.valueOf(value);
     }
 
+    public String preOrderPath() {
+        TreeNode root = this;
+        Stack<TreeNode> stack = new Stack<>();
+
+        if (root == null) {
+            return "";
+        } else {
+            stack.push(root);
+        }
+
+        TreeNode currentNode = root;
+        List<TreeNode> preOrderList = new LinkedList<TreeNode>();
+
+        while (!stack.isEmpty()) {
+            currentNode = stack.pop();
+            preOrderList.add(currentNode);
+
+            if (currentNode.right != null) {
+                stack.push(currentNode.right);
+            }
+            if (currentNode.left != null) {
+                stack.push(currentNode.left);
+            }
+        }
+        return preOrderList.stream().map(TreeNode::getValue).collect(Collectors.joining(","));
+    }
+
     public String preOrderTraversalOutput() {
         return preOrderIterativeList(this).stream().map(TreeNode::getValue).collect(Collectors.joining(" "));
     }
