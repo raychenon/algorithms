@@ -9,17 +9,21 @@ import com.raychenon.leetcode.tree.TreeNode
  */
 object BinarySearchTreetoGreaterSumTree {
 
+    var previous: Int = 0
+
     fun bstToGst(root: TreeNode?): TreeNode? {
-        val sum = IntArray(1)
-        inOrder(root, sum)
+        previous = 0
+        inOrder(root)
         return root
     }
 
-    fun inOrder(root: TreeNode?, sum: IntArray): Unit {
-        if (root == null) return
-        inOrder(root?.right, sum)
-        sum[0] = root?.value
-        root?.value = sum[0]
-        inOrder(root?.left, sum)
+    private fun inOrder(root: TreeNode?): TreeNode? {
+        root?.right?.apply { inOrder(this) }
+        root?.value = previous + root!!.value
+        previous = root?.value
+
+        root?.left?.apply { inOrder(this) }
+        return root
     }
+
 }
