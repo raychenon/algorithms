@@ -23,7 +23,8 @@ public class BinarySearchTreetoGreaterSumTree {
      */
     public TreeNode bstToGst(TreeNode root) {
         if (root.right != null) bstToGst(root.right);
-        previous = root.value = previous + root.value;
+        root.value = previous + root.value;
+        previous = root.value;
         if (root.left != null) bstToGst(root.left);
         return root;
     }
