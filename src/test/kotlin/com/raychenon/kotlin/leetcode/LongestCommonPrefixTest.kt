@@ -33,4 +33,10 @@ class LongestCommonPrefixTest {
         val input = arrayOf<String>()
         assertEquals("", LongestCommonPrefix.longestCommonPrefix(input))
     }
+
+    @Test
+    fun sameStringTest() {
+        val input = arrayOf<String>("sam","sam","sam")
+        assertEquals("sam", LongestCommonPrefix.longestCommonPrefix(input))
+    }
 }

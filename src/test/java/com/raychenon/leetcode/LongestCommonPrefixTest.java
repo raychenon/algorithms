@@ -43,4 +43,10 @@ public class LongestCommonPrefixTest {
         String input[] = {};
         assertEquals("", instance.longestCommonPrefix(input));
     }
+
+    @Test
+    public void sameStringTest() {
+        String input[] = {"sam", "sam", "sam"};
+        assertEquals("sam", instance.longestCommonPrefix(input));
+    }
 }
