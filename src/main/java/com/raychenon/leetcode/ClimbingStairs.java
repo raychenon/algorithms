@@ -13,6 +13,23 @@ public class ClimbingStairs {
     /**
      * Dynamic Programming
      * Time complexity : O(n)
+     * Space complexity : O(1)
+     */
+    public int climbStairsFibonacci(int n) {
+        if (n == 1) return 1;
+        int first = 1;
+        int second = 2;
+        for (int i = 3; i <= n; i++) {
+            int res = first + second;
+            first = second;
+            second = res;
+        }
+        return second;
+    }
+
+    /**
+     * Dynamic Programming
+     * Time complexity : O(n)
      * Space complexity : O(n)
      *
      * @param n

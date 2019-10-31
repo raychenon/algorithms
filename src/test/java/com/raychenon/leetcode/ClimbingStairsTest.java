@@ -48,5 +48,6 @@ public class ClimbingStairsTest {
     private void assertClimbStairs(int expected, int actual) {
         assertEquals(expected, climbingStairs.climbStairsRec(actual));
         assertEquals(expected, climbingStairs.climbStairsDynamic(actual));
+        assertEquals(expected, climbingStairs.climbStairsFibonacci(actual));
     }
 }
