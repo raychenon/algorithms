@@ -20,18 +20,33 @@ public class ClimbingStairsTest {
     }
 
     @Test
+    public void climb1StairsTest() {
+        assertClimbStairs(1, 1);
+    }
+
+    @Test
     public void climb2StairsTest() {
-        assertEquals(2, climbingStairs.climbStairsRec(2));
+        assertClimbStairs(2, 2);
     }
 
     @Test
     public void climb3StairsTest() {
-        assertEquals(3, climbingStairs.climbStairsRec(3));
+        assertClimbStairs(3, 3);
     }
 
     @Test
     public void climb5StairsTest() {
-        assertEquals(8, climbingStairs.climbStairsRec(5));
+        assertClimbStairs(8, 5);
     }
 
+    @Test
+    public void climb7StairsTest() {
+        assertClimbStairs(21, 7);
+    }
+
+
+    private void assertClimbStairs(int expected, int actual) {
+        assertEquals(expected, climbingStairs.climbStairsRec(actual));
+        assertEquals(expected, climbingStairs.climbStairsDynamic(actual));
+    }
 }
