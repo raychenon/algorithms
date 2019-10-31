@@ -49,5 +49,6 @@ public class ClimbingStairsTest {
         assertEquals(expected, climbingStairs.climbStairsRec(actual));
         assertEquals(expected, climbingStairs.climbStairsDynamic(actual));
         assertEquals(expected, climbingStairs.climbStairsFibonacci(actual));
+        assertEquals(expected, climbingStairs.climbStairsFibonacciFormula(actual));
     }
 }
