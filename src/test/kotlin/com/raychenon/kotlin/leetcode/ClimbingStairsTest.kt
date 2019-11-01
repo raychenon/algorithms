@@ -38,5 +38,6 @@ class ClimbingStairsTest {
 
     private fun assertClimbStairs(expected: Int, actual: Int) {
         assertEquals(expected, ClimbingStairs.climbStairsDynamic(actual))
+        assertEquals(expected, ClimbingStairs.climbStairsFibonacci(actual))
     }
 }
