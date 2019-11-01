@@ -9,6 +9,17 @@ object ClimbingStairs {
 
     /**
      * Dynamic Programming
+     * Time complexity : O(log(n))
+     * Space complexity : O(1)
+     */
+    fun climbStairsFibonacciFormula(n: Int): Int {
+        val sqrt5 = Math.sqrt(5.0)
+        val fibn = Math.pow((1 + sqrt5) / 2, (n + 1).toDouble()) - Math.pow((1 - sqrt5) / 2, (n + 1).toDouble())
+        return (fibn / sqrt5).toInt()
+    }
+
+    /**
+     * Dynamic Programming
      * Time complexity : O(n)
      * Space complexity : O(n)
      *
@@ -41,5 +52,25 @@ object ClimbingStairs {
             second = res
         }
         return second
+    }
+
+    /**
+     * Recursion with Memoization
+     * Time complexity : O(n)
+     * Space complexity : O(n)
+     *
+     * @param n
+     * @return
+     */
+    fun climbStairsRec(n: Int): Int {
+        val memo = IntArray(n + 1)
+        return climbStairsRec(0, n, memo)
+    }
+
+    private fun climbStairsRec(i: Int, n: Int, memo: IntArray): Int {
+        if (i == n) return 1
+        if (i > n) return 0
+        memo[i] = climbStairsRec(i + 1, n, memo) + climbStairsRec(i + 2, n, memo)
+        return memo[i]
     }
 }
