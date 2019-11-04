@@ -15,11 +15,11 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class GenerateParenthesesTest {
 
-    private static GenerateParenthesis instance;
+    private static GenerateParentheses instance;
 
     @BeforeClass
     public static void setUp() {
-        instance = new GenerateParenthesis();
+        instance = new GenerateParentheses();
     }
 
     @Test

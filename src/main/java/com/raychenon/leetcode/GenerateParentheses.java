@@ -9,7 +9,7 @@ import java.util.List;
  * Date: 2019-11-04
  * https://leetcode.com/problems/generate-parentheses/
  */
-public class GenerateParenthesis {
+public class GenerateParentheses {
 
     public List<String> generateParenthesis(int n) {
         List<String> ans = new LinkedList<>();
