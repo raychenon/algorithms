@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 
 /**
  * User: raychenon
@@ -26,6 +27,7 @@ public class GenerateParenthesesTest {
     public void size1Test() {
         List<String> expectedResults = Arrays.asList("()");
         assertEquals(expectedResults, instance.generateParenthesis(1));
+        assertEquals(expectedResults, instance.generateParenthesisClosureNumber(1));
     }
 
     @Test
@@ -36,6 +38,7 @@ public class GenerateParenthesesTest {
                 "()(())",
                 "()()()");
         assertEquals(expectedResults, instance.generateParenthesis(3));
+        assertTrue(instance.generateParenthesisClosureNumber(3).containsAll(expectedResults));
     }
 
 

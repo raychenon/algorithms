@@ -11,6 +11,23 @@ import java.util.List;
  */
 public class GenerateParentheses {
 
+
+    public List<String> generateParenthesisClosureNumber(int n) {
+        List<String> ans = new LinkedList<>();
+        if (n == 0) {
+            ans.add("");
+        } else {
+            for (int i = 0; i < n; i++) {
+                for (String left : generateParenthesisClosureNumber(i)) {
+                    for (String right : generateParenthesisClosureNumber(n - 1 - i)) {
+                        ans.add("(" + left + ")" + right);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
     public List<String> generateParenthesis(int n) {
         List<String> ans = new LinkedList<>();
         backtrack(ans, "", 0, 0, n);
