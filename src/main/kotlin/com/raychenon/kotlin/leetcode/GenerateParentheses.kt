@@ -1,11 +1,29 @@
 package com.raychenon.kotlin.leetcode
 
+import java.util.*
+
 /**
  * User: raychenon
  * Date: 2019-11-05
  * https://leetcode.com/problems/generate-parentheses/
  */
 object GenerateParentheses {
+
+    fun generateParenthesisClosureNumber(n: Int): List<String> {
+        val ans = LinkedList<String>()
+        if (n == 0) {
+            ans.add("")
+        } else {
+            for (i in 0 until n) {
+                for (left in generateParenthesisClosureNumber(i)) {
+                    for (right in generateParenthesisClosureNumber(n - 1 - i)) {
+                        ans.add("(" + left + ")" + right)
+                    }
+                }
+            }
+        }
+        return ans
+    }
 
     fun generateParenthesis(n: Int): List<String> {
         var list = mutableListOf<String>()

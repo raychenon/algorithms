@@ -1,6 +1,7 @@
 package com.raychenon.kotlin.leetcode
 
 import junit.framework.Assert.assertEquals
+import junit.framework.Assert.assertTrue
 import org.junit.Test
 import java.util.*
 
@@ -13,13 +14,14 @@ class GenerateParenthesesTest {
 
     @Test
     fun size1Test() {
-        val expectedResults = Arrays.asList("()")
+        val expectedResults = listOf("()")
         assertEquals(expectedResults, GenerateParentheses.generateParenthesis(1))
+        assertEquals(expectedResults, GenerateParentheses.generateParenthesisClosureNumber(1))
     }
 
     @Test
     fun size3Test() {
-        val expectedResults = Arrays.asList(
+        val expectedResults = listOf(
             "((()))",
             "(()())",
             "(())()",
@@ -27,5 +29,6 @@ class GenerateParenthesesTest {
             "()()()"
         )
         assertEquals(expectedResults, GenerateParentheses.generateParenthesis(3))
+        assertTrue(GenerateParentheses.generateParenthesisClosureNumber(3).containsAll(expectedResults))
     }
 }
