@@ -38,6 +38,10 @@ public class GenerateParentheses {
         return (balance == 0);
     }
 
+
+    /**
+     * Time and Space Complexity: O(4^n/sqrt(n)) similar to Backtracking
+     */
     public List<String> generateParenthesisClosureNumber(int n) {
         List<String> ans = new LinkedList<>();
         if (n == 0) {
@@ -54,7 +58,11 @@ public class GenerateParentheses {
         return ans;
     }
 
-    public List<String> generateParenthesis(int n) {
+    /**
+     * Time Complexity : O(4^n/sqrt(n)). Each valid sequence has at most n steps during the backtracking procedure.
+     * Space Complexity : O(4^n/sqrt(n)), as described above, and using O(n)O(n) space to store the sequence.
+     */
+    public List<String> generateParenthesisBackTrack(int n) {
         List<String> ans = new LinkedList<>();
         backtrack(ans, "", 0, 0, n);
         return ans;

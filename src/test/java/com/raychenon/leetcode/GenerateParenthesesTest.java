@@ -26,7 +26,7 @@ public class GenerateParenthesesTest {
     @Test
     public void size1Test() {
         List<String> expectedResults = Arrays.asList("()");
-        assertEquals(expectedResults, instance.generateParenthesis(1));
+        assertEquals(expectedResults, instance.generateParenthesisBackTrack(1));
         assertEquals(expectedResults, instance.generateParenthesisClosureNumber(1));
         assertEquals(expectedResults, instance.generateParenthesisBruteForce(1));
     }
@@ -38,7 +38,7 @@ public class GenerateParenthesesTest {
                 "(())()",
                 "()(())",
                 "()()()");
-        assertEquals(expectedResults, instance.generateParenthesis(3));
+        assertEquals(expectedResults, instance.generateParenthesisBackTrack(3));
         assertTrue(instance.generateParenthesisClosureNumber(3).containsAll(expectedResults));
         assertTrue(instance.generateParenthesisBruteForce(3).containsAll(expectedResults));
     }
