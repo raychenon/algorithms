@@ -28,6 +28,7 @@ public class GenerateParenthesesTest {
         List<String> expectedResults = Arrays.asList("()");
         assertEquals(expectedResults, instance.generateParenthesis(1));
         assertEquals(expectedResults, instance.generateParenthesisClosureNumber(1));
+        assertEquals(expectedResults, instance.generateParenthesisBruteForce(1));
     }
 
     @Test
@@ -39,6 +40,7 @@ public class GenerateParenthesesTest {
                 "()()()");
         assertEquals(expectedResults, instance.generateParenthesis(3));
         assertTrue(instance.generateParenthesisClosureNumber(3).containsAll(expectedResults));
+        assertTrue(instance.generateParenthesisBruteForce(3).containsAll(expectedResults));
     }
 
 
