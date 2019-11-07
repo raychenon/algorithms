@@ -16,10 +16,11 @@ object CustomSortString {
      */
     fun customSortString(S: String, T: String): String {
         var map = mutableMapOf<Char, Int>()
+        // create a map of occurrences of chars for T
         for (c in T) {
             map.put(c, map.getOrDefault(c, 0) + 1)
         }
-        //println("map = $map")
+
         // add chars from S
         var str = StringBuilder()
         for (c in S) {
@@ -30,15 +31,14 @@ object CustomSortString {
                 map.remove(c)
             }
         }
-        //println("map = $map")
 
-
+        // append the remaining chars in T
+        // How keys in Map are "magically" sorted in right alphabetical order ?
         for ((k, v) in map) {
             for (i in 1..v) {
                 str.append(k)
             }
         }
-        //println("str = $str")
 
         return str.toString()
     }

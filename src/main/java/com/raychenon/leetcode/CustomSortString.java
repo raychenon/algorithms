@@ -39,6 +39,7 @@ public class CustomSortString {
         }
 
         // append the remaining chars in T
+        // How keys in Map are "magically" sorted in right alphabetical order ?
         for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             for (int i = 0; i < entry.getValue(); i++) {
                 str.append(entry.getKey());
