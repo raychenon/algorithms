@@ -34,7 +34,7 @@ object GameOfLife {
                     println("x=$y , y=$x , $curr ,res = $liveRes")
                     board[x][y] = liveRes
                 } else {
-                    // rule 4 , Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
+                    // 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
                     if (countNumberLiveCell(boardCopy, x, y) == 3) {
                         board[x][y] = 1
                     }
@@ -44,27 +44,27 @@ object GameOfLife {
 
     }
 
-    private fun countNumberLiveCell(board: Array<IntArray>, x: Int, y: Int): Int {
+    private fun countNumberLiveCell(board: Array<IntArray>, y: Int, x: Int): Int {
         var count = 0
-        val length = board.size
-        val height = board.get(0).size
-        // left
-        if ((x - 1) >= 0) {
-            if (board.get(x - 1).get(y) == 1) ++count
-            if (y - 1 >= 0 && board.get(x - 1).get(y - 1) == 1) ++count
-            if (y + 1 < height && board.get(x - 1).get(y + 1) == 1) ++count
+        val width = board.get(0).size
+        val height = board.size
+        // top
+        if ((y - 1) >= 0) {
+            if (board.get(y - 1).get(x) == 1) ++count
+            if (x - 1 >= 0 && board.get(y - 1).get(x - 1) == 1) ++count
+            if (x + 1 < width && board.get(y - 1).get(x + 1) == 1) ++count
         }
 
-        // right
-        if ((x + 1) < length) {
-            if (board.get(x + 1).get(y) == 1) ++count
-            if (y - 1 >= 0 && board.get(x + 1).get(y - 1) == 1) ++count
-            if (y + 1 < height && board.get(x + 1).get(y + 1) == 1) ++count
-        }
-        // up
-        if (y - 1 >= 0 && board.get(x).get(y - 1) == 1) ++count
         // bottom
-        if (y + 1 < height && board.get(x).get(y + 1) == 1) ++count
+        if ((y + 1) < height) {
+            if (board.get(y + 1).get(x) == 1) ++count
+            if (x - 1 >= 0 && board.get(y + 1).get(x - 1) == 1) ++count
+            if (x + 1 < width && board.get(y + 1).get(x + 1) == 1) ++count
+        }
+        // left
+        if (x - 1 >= 0 && board.get(y).get(x - 1) == 1) ++count
+        // right
+        if (x + 1 < width && board.get(y).get(x + 1) == 1) ++count
 
         return count
     }
