@@ -34,6 +34,12 @@ public class PalindromeLinkedListTest {
     }
 
     @Test
+    public void palindromeSizeEvenTest() {
+        ListNode root = ListNode.createList(Arrays.asList(1, 1, 2, 1));
+        assertEquals(false, instance.isPalindrome(root));
+    }
+
+    @Test
     public void notPalindromeTest() {
         ListNode root = ListNode.createList(Arrays.asList(1, 2));
         assertEquals(false, instance.isPalindrome(root));

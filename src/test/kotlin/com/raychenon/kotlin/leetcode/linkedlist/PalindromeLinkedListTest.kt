@@ -25,6 +25,12 @@ class PalindromeLinkedListTest {
     }
 
     @Test
+    fun palindromeSizeEvenTest() {
+        val root = ListNode.createList(Arrays.asList(1, 1, 2, 1))
+        assertEquals(false, PalindromeLinkedList.isPalindrome(root))
+    }
+
+    @Test
     fun notPalindromeTest() {
         val root = ListNode.createList(Arrays.asList(1, 2))
         assertEquals(false, PalindromeLinkedList.isPalindrome(root))
