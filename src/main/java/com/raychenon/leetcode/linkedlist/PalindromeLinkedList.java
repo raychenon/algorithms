@@ -7,6 +7,19 @@ package com.raychenon.leetcode.linkedlist;
  */
 public class PalindromeLinkedList {
 
+    /**
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     * Idea : Reverse the 2nd half and compare the two halves
+     * 1 -> 2 -> 3 -> 2 -> 1 -> null
+     *           |         |
+     *      slowPointer  fastPointer
+     * <p>
+     * fastPointer moves twice as fast as slowPointer, when fastPointer reaches the end, slowPointer is at the middle.
+     *
+     * @param head
+     * @return
+     */
     public boolean isPalindrome(ListNode head) {
         ListNode fast = head, slow = head;
         while (fast != null && fast.next != null) {
