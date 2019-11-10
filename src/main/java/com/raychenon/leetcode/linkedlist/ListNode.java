@@ -8,14 +8,14 @@ import java.util.List;
  * https://leetcode.com/problems/palindrome-linked-list/
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     ListNode(int x) {
         val = x;
     }
 
-    static ListNode createList(List<Integer> items) {
+    public static ListNode createList(List<Integer> items) {
 
         ListNode head = new ListNode(items.get(0));
         ListNode cur = head;

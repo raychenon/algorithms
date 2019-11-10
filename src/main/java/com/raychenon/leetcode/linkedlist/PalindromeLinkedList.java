@@ -11,9 +11,10 @@ public class PalindromeLinkedList {
      * Time complexity: O(n)
      * Space complexity: O(1)
      * Idea : Reverse the 2nd half and compare the two halves
+     * <p>
      * 1 -> 2 -> 3 -> 2 -> 1 -> null
-     *           |         |
-     *      slowPointer  fastPointer
+     * ..........|         |
+     * ..... slowPointer  fastPointer
      * <p>
      * fastPointer moves twice as fast as slowPointer, when fastPointer reaches the end, slowPointer is at the middle.
      *
@@ -33,6 +34,12 @@ public class PalindromeLinkedList {
             slow = slow.next;
         }
 
+        /**
+         * ..... 1 -> 2 -> 3 -> 2 -> 1 -> null
+         * ..... |         |
+         * ..... |     slowPointer
+         *  fastPointer
+         */
         slow = reverse(slow);
         fast = head;
 
