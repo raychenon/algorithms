@@ -16,7 +16,7 @@ object MaxProductSubarray {
         var product = nums.get(0)
         var max = product
         var min = product
-        
+
         for (l in 1..nums.size - 1) {
 
 
@@ -39,8 +39,8 @@ object MaxProductSubarray {
     /**
      * Kadane algorithm
      */
-    fun maxProduct(nums: IntArray): Int {
-        if (nums == null || nums.isEmpty()) return 0
+    fun maxProduct(nums: FloatArray): Float {
+        if (nums == null || nums.isEmpty()) return 0f
 
         var product = nums.get(0)
         var max = product
@@ -62,10 +62,10 @@ object MaxProductSubarray {
     }
 
 
-    fun maxProductBrute2(nums: IntArray): Int {
-        if (nums.isEmpty()) return 0
+    fun maxProductBrute2(nums: FloatArray): Float {
+        if (nums.isEmpty()) return 0f
 
-        var product = 1
+        var product = 1.0f
         var max = nums.get(0)
         for (l in 0..nums.size - 1) {  // take subsequence of size 1
             product = product * nums.get(l)
@@ -80,16 +80,16 @@ object MaxProductSubarray {
                     max = product
                 }
             }
-            product = 1
+            product = 1.0f
         }
 
         return max
     }
 
-    fun maxProductBrute1(nums: IntArray): Int {
-        if (nums.isEmpty()) return 0
+    fun maxProductBrute1(nums: FloatArray): Float {
+        if (nums.isEmpty()) return 0f
 
-        var product = 1
+        var product = 1.0f
         var max = nums.get(0)
         for (l in 0..nums.size - 2) {
             product = product * nums.get(l)
@@ -104,7 +104,7 @@ object MaxProductSubarray {
                     max = product
                 }
             }
-            product = 1
+            product = 1.0f
         }
 
         // for single element
