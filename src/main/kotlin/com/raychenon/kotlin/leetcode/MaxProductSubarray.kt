@@ -10,10 +10,39 @@ object MaxProductSubarray {
     /**
      * Kadane algorithm
      */
+    fun maxProductOptimal(nums: IntArray): Int {
+        if (nums == null || nums.isEmpty()) return 0
+
+        var product = nums.get(0)
+        var max = product
+        var min = product
+        
+        for (l in 1..nums.size - 1) {
+
+
+            val cur = nums.get(l)
+            if (cur < 0) {
+                var tmp = max
+                max = min
+                min = tmp
+            }
+
+            max = Math.max(cur, max + cur)
+            min = Math.min(cur, min * cur)
+
+            product = Math.max(product, max)
+        }
+
+        return product
+    }
+
+    /**
+     * Kadane algorithm
+     */
     fun maxProduct(nums: IntArray): Int {
         if (nums == null || nums.isEmpty()) return 0
 
-        var product: Int = nums.get(0)
+        var product = nums.get(0)
         var max = product
         var min = product
         for (l in 1..nums.size - 1) {
@@ -36,9 +65,9 @@ object MaxProductSubarray {
     fun maxProductBrute2(nums: IntArray): Int {
         if (nums.isEmpty()) return 0
 
-        var product: Int = 1
+        var product = 1
         var max = nums.get(0)
-        for (l in 0..nums.size - 1) {
+        for (l in 0..nums.size - 1) {  // take subsequence of size 1
             product = product * nums.get(l)
             // for single element
             if (product > max) {
@@ -60,7 +89,7 @@ object MaxProductSubarray {
     fun maxProductBrute1(nums: IntArray): Int {
         if (nums.isEmpty()) return 0
 
-        var product: Int = 1
+        var product = 1
         var max = nums.get(0)
         for (l in 0..nums.size - 2) {
             product = product * nums.get(l)

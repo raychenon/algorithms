@@ -18,8 +18,8 @@ class MaxProductSubarrayTest {
 
     @Test
     fun example2Test() {
-        val nums = intArrayOf(2, 3, -2, 4)
-        assertMaxProduct(6,nums)
+        val nums = intArrayOf(2, 3, 3,-2, 4)
+        assertMaxProduct(18,nums)
     }
 
     @Test
@@ -45,6 +45,6 @@ class MaxProductSubarrayTest {
         assertEquals(expected, MaxProductSubarray.maxProductBrute2(nums))
 
         assertEquals(expected, MaxProductSubarray.maxProduct(nums))
-
+        //assertEquals(expected, MaxProductSubarray.maxProductOptimal(nums))
     }
 }
