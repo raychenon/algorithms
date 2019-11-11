@@ -7,6 +7,31 @@ package com.raychenon.kotlin.leetcode
  */
 object MaxProductSubarray {
 
+    /**
+     * Kadane algorithm
+     */
+    fun maxProduct(nums: IntArray): Int {
+        if (nums == null || nums.isEmpty()) return 0
+
+        var product: Int = nums.get(0)
+        var max = product
+        var min = product
+        for (l in 1..nums.size - 1) {
+            val cur = nums.get(l)
+            if (cur > 0) {
+                max = Math.max(cur, max * cur)
+                min = Math.min(cur, min * cur)
+            } else {
+                val tmp = max
+                max = Math.max(cur, min * cur)
+                min = Math.min(cur, tmp * cur)
+            }
+            product = Math.max(product, max)
+        }
+
+        return product
+    }
+
 
     fun maxProductBrute2(nums: IntArray): Int {
         if (nums.isEmpty()) return 0

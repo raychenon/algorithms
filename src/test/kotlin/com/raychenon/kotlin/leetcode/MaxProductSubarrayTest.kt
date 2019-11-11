@@ -43,5 +43,8 @@ class MaxProductSubarrayTest {
     fun assertMaxProduct(expected: Int, nums: IntArray){
         assertEquals(expected, MaxProductSubarray.maxProductBrute1(nums))
         assertEquals(expected, MaxProductSubarray.maxProductBrute2(nums))
+
+        assertEquals(expected, MaxProductSubarray.maxProduct(nums))
+
     }
 }
