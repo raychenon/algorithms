@@ -13,31 +13,35 @@ class MaxProductSubarrayTest {
     @Test
     fun example1Test() {
         val nums = intArrayOf(2, 3, -2, 4)
-        assertEquals(6, MaxProductSubarray.maxProductBrute1(nums))
+        assertMaxProduct(6,nums)
     }
 
     @Test
     fun example2Test() {
         val nums = intArrayOf(2, 3, -2, 4)
-        assertEquals(6, MaxProductSubarray.maxProductBrute1(nums))
+        assertMaxProduct(6,nums)
     }
-
 
     @Test
     fun productSize2Test() {
         val nums = intArrayOf(0, 2)
-        assertEquals(2, MaxProductSubarray.maxProductBrute1(nums))
+        assertMaxProduct(2,nums)
     }
 
     @Test
     fun productSize3Test() {
         val nums = intArrayOf(-2, 0, -1)
-        assertEquals(0, MaxProductSubarray.maxProductBrute1(nums))
+        assertMaxProduct(0,nums)
     }
 
     @Test
     fun emptyArray3Test() {
         val nums = intArrayOf()
-        assertEquals(0, MaxProductSubarray.maxProductBrute1(nums))
+        assertMaxProduct(0,nums)
+    }
+
+    fun assertMaxProduct(expected: Int, nums: IntArray){
+        assertEquals(expected, MaxProductSubarray.maxProductBrute1(nums))
+        assertEquals(expected, MaxProductSubarray.maxProductBrute2(nums))
     }
 }

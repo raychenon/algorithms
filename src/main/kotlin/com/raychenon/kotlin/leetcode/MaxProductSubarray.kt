@@ -8,6 +8,30 @@ package com.raychenon.kotlin.leetcode
 object MaxProductSubarray {
 
 
+    fun maxProductBrute2(nums: IntArray): Int {
+        if (nums.isEmpty()) return 0
+
+        var product: Int = 1
+        var max = nums.get(0)
+        for (l in 0..nums.size - 1) {
+            product = product * nums.get(l)
+            // for single element
+            if (product > max) {
+                max = product
+            }
+            for (r in l + 1..nums.size - 1) {
+                product = product * nums.get(r)
+
+                if (product > max) {
+                    max = product
+                }
+            }
+            product = 1
+        }
+
+        return max
+    }
+
     fun maxProductBrute1(nums: IntArray): Int {
         if (nums.isEmpty()) return 0
 
