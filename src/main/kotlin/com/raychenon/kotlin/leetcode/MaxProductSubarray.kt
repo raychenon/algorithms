@@ -9,37 +9,10 @@ object MaxProductSubarray {
 
     /**
      * Kadane algorithm
+     * Time complexity: O(N)
+     * Space complexity: O(1)
      */
-    fun maxProductOptimal(nums: IntArray): Int {
-        if (nums == null || nums.isEmpty()) return 0
-
-        var product = nums.get(0)
-        var max = product
-        var min = product
-
-        for (l in 1..nums.size - 1) {
-
-
-            val cur = nums.get(l)
-            if (cur < 0) {
-                var tmp = max
-                max = min
-                min = tmp
-            }
-
-            max = Math.max(cur, max + cur)
-            min = Math.min(cur, min * cur)
-
-            product = Math.max(product, max)
-        }
-
-        return product
-    }
-
-    /**
-     * Kadane algorithm
-     */
-    fun maxProduct(nums: FloatArray): Float {
+    fun maxProduct(nums: FloatArray?): Float {
         if (nums == null || nums.isEmpty()) return 0f
 
         var product = nums.get(0)
@@ -82,7 +55,6 @@ object MaxProductSubarray {
             }
             product = 1.0f
         }
-
         return max
     }
 

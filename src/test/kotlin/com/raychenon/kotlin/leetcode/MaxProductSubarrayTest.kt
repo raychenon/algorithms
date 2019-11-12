@@ -47,16 +47,15 @@ class MaxProductSubarrayTest {
     }
 
     @Test
-    fun emptyArray3Test() {
+    fun emptyArrayTest() {
         val nums = floatArrayOf()
         assertMaxProduct(0f, nums)
     }
 
     fun assertMaxProduct(expected: Float, nums: FloatArray) {
+        assertEquals(expected, MaxProductSubarray.maxProduct(nums))
         assertEquals(expected, MaxProductSubarray.maxProductBrute1(nums))
         assertEquals(expected, MaxProductSubarray.maxProductBrute2(nums))
-
-        assertEquals(expected, MaxProductSubarray.maxProduct(nums))
         //assertEquals(expected, MaxProductSubarray.maxProductOptimal(nums))
     }
 }
