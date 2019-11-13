@@ -52,7 +52,7 @@ public class MaxProductSubarrayTest {
 
     @Test
     public void intNFloatTest() {
-        float[] nums = {50f, -0.1f, 0.9f, -0.8f, 0.5f};
+        float[] nums = {-50f, -0.1f, 0.9f, -0.8f, 0.5f};
         assertMaxProduct(5f, nums);
     }
 
