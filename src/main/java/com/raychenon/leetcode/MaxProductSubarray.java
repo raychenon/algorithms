@@ -7,19 +7,29 @@ package com.raychenon.leetcode;
  */
 public class MaxProductSubarray {
 
+    /**
+     * The optimized solution is linear.
+     * There were a few tricks :
+     * - a large negative number can become large positive number. So the local min will be stored.
+     * - if the current element is larger than the accumulated max product, then the current element.
+     * <p>
+     * time complexity: O(n)
+     * space complexity: O(1)
+     */
     public float maxProductOptimal(float[] nums) {
 
         if (nums == null || nums.length == 0) return 0.0f;
+
         float product = nums[0];
-        float max = nums[0];
-        float min = nums[0];
+        float max = product;
+        float min = product;
         for (int i = 1; i < nums.length; ++i) {
             if (nums[i] > 0) {
                 max = Math.max(nums[i], max * nums[i]);
                 min = Math.min(nums[i], min * nums[i]);
             } else {
                 float tmp = max;
-                max = Math.min(nums[i], min * nums[i]);
+                max = Math.max(nums[i], min * nums[i]);
                 min = Math.min(nums[i], tmp * nums[i]);
             }
             product = Math.max(product, max);
@@ -27,6 +37,7 @@ public class MaxProductSubarray {
 
         return product;
     }
+
 
     /**
      * time complexity: O(n^2)
