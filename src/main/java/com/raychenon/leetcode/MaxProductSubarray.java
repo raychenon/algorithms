@@ -7,10 +7,31 @@ package com.raychenon.leetcode;
  */
 public class MaxProductSubarray {
 
+    public float maxProductOptimal(float[] nums) {
+
+        if (nums == null || nums.length == 0) return 0.0f;
+        float product = nums[0];
+        float max = nums[0];
+        float min = nums[0];
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] > 0) {
+                max = Math.max(nums[i], max * nums[i]);
+                min = Math.min(nums[i], min * nums[i]);
+            } else {
+                float tmp = max;
+                max = Math.min(nums[i], min * nums[i]);
+                min = Math.min(nums[i], tmp * nums[i]);
+            }
+            product = Math.max(product, max);
+        }
+
+        return product;
+    }
+
     /**
      * time complexity: O(n^2)
      * space complexity: O(1)
-     *      
+     *
      * @param nums
      * @return
      */
