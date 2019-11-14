@@ -71,6 +71,7 @@ public class MaxProductSubarrayTest {
     void assertMaxProduct(Float expected, float[] nums) {
         assertEquals(expected, instance.maxProductBrute(nums));
         assertEquals(expected, instance.maxProductOptimal(nums));
+        assertEquals(expected, instance.maxProductOptimalShorter(nums));
     }
 
 

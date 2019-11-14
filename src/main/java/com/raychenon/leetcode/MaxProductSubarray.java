@@ -38,6 +38,30 @@ public class MaxProductSubarray {
         return product;
     }
 
+    /**
+     * Same as {@link #maxProductOptimal(float[])}}  , shorter version
+     *  time complexity: O(n)
+     *   ssssssssssspace complexity: O(1)
+     * @param nums
+     * @return
+     */
+    public float maxProductOptimalShorter(float[] nums) {
+
+        if (nums == null || nums.length == 0) return 0.0f;
+
+        float product = nums[0];
+        float max = product;
+        float min = product;
+        for (int i = 1; i < nums.length; ++i) {
+            max = Math.max(Math.max(nums[i], max * nums[i]), min * nums[i]);
+            min = Math.min(Math.min(nums[i], min * nums[i]), max * nums[i]);
+
+            product = Math.max(product, max);
+        }
+
+        return product;
+    }
+
 
     /**
      * time complexity: O(n^2)
