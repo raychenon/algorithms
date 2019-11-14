@@ -12,8 +12,8 @@ object MaxProductSubarray {
      * Time complexity: O(N)
      * Space complexity: O(1)
      */
-    fun maxProduct(nums: FloatArray?): Float {
-        if (nums == null || nums.isEmpty()) return 0f
+    fun maxProduct(nums: FloatArray): Float {
+        if (nums.isEmpty()) return 0f
 
         var product = nums.get(0)
         var max = product

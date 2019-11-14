@@ -56,6 +56,5 @@ class MaxProductSubarrayTest {
         assertEquals(expected, MaxProductSubarray.maxProduct(nums))
         assertEquals(expected, MaxProductSubarray.maxProductBrute1(nums))
         assertEquals(expected, MaxProductSubarray.maxProductBrute2(nums))
-        //assertEquals(expected, MaxProductSubarray.maxProductOptimal(nums))
     }
 }
