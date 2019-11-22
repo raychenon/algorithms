@@ -24,7 +24,7 @@ public class MaximumDistanceToClosestPersonTest {
     public void example1Test() {
         int input[] = {1, 0, 0, 0, 1, 0, 1};
         //             <-----|----->
-        assertEquals(2, instance.maxDistToClosest(input));
+        maxDistToClosestTest(2, input);
     }
 
 
@@ -32,7 +32,7 @@ public class MaximumDistanceToClosestPersonTest {
     public void noOneonRightTest() {
         int input[] = {1, 0, 0, 0};
         //             |-------->
-        assertEquals(3, instance.maxDistToClosest(input));
+        maxDistToClosestTest(3, input);
     }
 
 
@@ -40,20 +40,27 @@ public class MaximumDistanceToClosestPersonTest {
     public void noOneonLeftTest() {
         int input[] = {0, 0, 0, 1};
         //             <--------|
-        assertEquals(3, instance.maxDistToClosest(input));
+        maxDistToClosestTest(3, input);
     }
 
     @Test
     public void middleEvenTest() {
         int input[] = {1, 0, 0, 1};
         //             |--->
-        assertEquals(1, instance.maxDistToClosest(input));
+        maxDistToClosestTest(1, input);
     }
 
     @Test
     public void middleOddTest() {
         int input[] = {1, 0, 0, 0, 1};
         //             |-----><----|
-        assertEquals(2, instance.maxDistToClosest(input));
+        maxDistToClosestTest(2, input);
     }
+
+    
+    private void maxDistToClosestTest(int expected,int[] input) {
+        assertEquals(expected, instance.maxDistToClosest(input));
+        assertEquals(expected, instance.maxDistToClosestGroupByFreeSeats(input));
+    }
+
 }
