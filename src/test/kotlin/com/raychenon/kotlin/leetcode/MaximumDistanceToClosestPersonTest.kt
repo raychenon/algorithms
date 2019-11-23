@@ -47,6 +47,7 @@ class MaximumDistanceToClosestPersonTest {
 
     fun evaluateMaximumDistanceToClosestPerson(expected: Int, seats: IntArray) {
         Assert.assertEquals(expected, MaximumDistanceToClosestPerson.maxDistToClosest(seats))
+        Assert.assertEquals(expected, MaximumDistanceToClosestPerson.maxDistToClosestGroupByFreeSeats(seats))
     }
 
 }
