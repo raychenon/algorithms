@@ -29,13 +29,13 @@ object MaximumDistanceToClosestPerson {
                     ++right;
                 }
                 var l = if (left == -1) N else i - left
-                var r = if (right == N) N else right - 1
+                var r = if (right == N) N else right - i
                 ans = Math.max(ans, Math.min(l, r))
             }
         }
 
         return ans
-
     }
-    
+
+
 }
