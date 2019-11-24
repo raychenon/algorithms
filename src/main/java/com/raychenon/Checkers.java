@@ -34,28 +34,28 @@ public class Checkers {
 
 
         int step1Top = posY;
-        int step1right = posX;
-        int step1left = posX;
         step1Top = step1Top - 1;
 
         // count the maximum pawns beaten in ONE turn.
         // Jafar has the additonal play when an opposing pawn is taken.
         while (step1Top >= 0) {
-            step1right = step1right + 1;
-            step1left = step1left - 1;
+            int step1right = posX + 1;
+            int step1left = posX - 1;
             int step2Top = step1Top - 1;
-            if (step1Top >= 0) {
+            if (step1Top >= 0 && step2Top >= 0) {
                 if (step1right < N && board[step1Top].charAt(step1right) == AladdinPawn) {
                     // up right
                     // check  if the 2 step up right is available
-                    if (step2Top >= 0 && (step1right + 1 < N) && board[step2Top].charAt(step1right + 1) != AladdinPawn) {
+                    if ((step1right + 1 < N) && board[step2Top].charAt(step1right + 1) != AladdinPawn) {
                         ++count;
+                        posX = posX + 2;
                     }
                 } else if (step1left >= 0 && board[step1Top].charAt(step1left) == AladdinPawn) {
                     // up left
                     // check  if the 2 step up left is available
-                    if (step2Top >= 0 && (step1left - 1 >= 0) && board[step2Top].charAt(step1left - 1) != AladdinPawn) {
+                    if ((step1left - 1 >= 0) && board[step2Top].charAt(step1left - 1) != AladdinPawn) {
                         ++count;
+                        posX = posX - 2;
                     }
                 }
             } else {

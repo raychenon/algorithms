@@ -44,4 +44,19 @@ public class CheckersTest {
         assertEquals(0, instance.countPawnsBeaten(board));
     }
 
+    @Test
+    public void board3Test() {
+
+        String[] board = new String[]{
+                ".......",
+                "..X....",
+                "...c...",
+                "....X..",
+                ".X...c.",
+                "..X.X..",
+                "...O..."
+        };
+        assertEquals(3, instance.countPawnsBeaten(board));
+    }
+
 }
