@@ -34,7 +34,6 @@ public class RotatedDigitsTest {
         evaluateRotatedDigits(316, 1000);
     }
 
-
     private void evaluateRotatedDigits(int expected, int N) {
         assertEquals(expected, instance.rotatedDigits(N));
     }

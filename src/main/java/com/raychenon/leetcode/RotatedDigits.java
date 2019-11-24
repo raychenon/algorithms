@@ -18,15 +18,16 @@ public class RotatedDigits {
     private boolean isValid(int n) {
         StringBuilder str = new StringBuilder();
 
-        while (n != 0) {
-            int modulo = n % 10;
+        int rem = n;  // remainder
+        while (rem != 0) {
+            int modulo = rem % 10;
             // invalid digits: 3,4,7
             if (modulo == 3 || modulo == 4 || modulo == 7) {
                 return false;
             }
             modulo = reversedDigit(modulo);
             str.append(modulo);
-            n = n / 10;
+            rem = rem / 10;
         }
 
         str.reverse();
@@ -43,7 +44,7 @@ public class RotatedDigits {
             case 6:
                 return 9;
             case 9:
-                return 9;
+                return 6;
             default:
                 return n;
         }
