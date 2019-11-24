@@ -34,20 +34,32 @@ public class Checkers {
 
         // possible moves
 
-        // check if up right has X
-        int posNextTop = posY - 2;
-        int right = posX + 2;
-        int left = posX - 2;
-        if (posNextTop >= 0) {
-            if (right < N && board[posNextTop].charAt(right) == AladdinPawn) {
-                // up right
-                ++count;
-            } else if (left >= 0 && board[posNextTop].charAt(left) == AladdinPawn) {
-                // up left
-                ++count;
+
+        int step1Top = posY;
+        int step1right = posX;
+        int step1left = posX;
+        step1Top = step1Top - 2;
+
+        while (step1Top >= 0) {
+            step1right = step1right + 2;
+            step1left = step1left - 2;
+            int step2Top = step1Top - 1;
+            if (step1Top >= 0) {
+                if (step1right < N && board[step1Top].charAt(step1right) == AladdinPawn) {
+                    // up right
+                    if (step2Top >= 0 && (step1right + 1 < N) && board[step2Top].charAt(step1right + 1) != AladdinPawn) {
+                        ++count;
+                    }
+                } else if (step1left >= 0 && board[step1Top].charAt(step1left) == AladdinPawn) {
+                    // up left
+                    if (step2Top >= 0 && (step1left - 1 >= 0) && board[step2Top].charAt(step1left - 1) != AladdinPawn) {
+                        ++count;
+                    }
+                }
+            } else {
+                return count;
             }
-        } else {
-            return count;
+            step1Top = step1Top - 2;
         }
 
         return count;
