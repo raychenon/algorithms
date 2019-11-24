@@ -50,9 +50,9 @@ public class CheckersTest {
         String[] board = new String[]{
                 ".......",
                 "..X....",
-                "...c...",
+                ".......",
                 "....X..",
-                ".X...c.",
+                ".X.....",
                 "..X.X..",
                 "...O..."
         };
