@@ -32,13 +32,11 @@ public class Checkers {
             }
         }
 
-
-        int step1Top = posY;
-        step1Top = step1Top - 1;
-
         // count the maximum pawns beaten in ONE turn.
         // Jafar has the additonal play when an opposing pawn is taken.
-        while (step1Top >= 0) {
+        int step1Top = posY - 1;
+        while (posY >= 0 && step1Top >= 0) {
+            step1Top = posY - 1;
             int step1right = posX + 1;
             int step1left = posX - 1;
             int step2Top = step1Top - 1;
@@ -61,7 +59,7 @@ public class Checkers {
             } else {
                 return count;
             }
-            step1Top = step1Top - 1;
+            posY = posY - 2;
         }
 
         return count;
