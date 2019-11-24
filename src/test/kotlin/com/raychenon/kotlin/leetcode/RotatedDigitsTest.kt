@@ -27,5 +27,6 @@ class RotatedDigitsTest {
 
     fun evaluateRotatedDigits(expected: Int, N: Int) {
         Assert.assertEquals(expected, RotatedDigits.rotatedDigits(N))
+        Assert.assertEquals(expected, RotatedDigits.rotatedDigitsDP(N))
     }
 }
