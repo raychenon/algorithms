@@ -1,12 +1,16 @@
-package com.raychenon.leetcode
+package com.raychenon.kotlin.leetcode
 
 /**
  * User: raychenon
  * Date: 2019-11-24
  * https://leetcode.com/problems/rotated-digits
  */
-object RotateDigits {
+object RotatedDigits {
 
+    /**
+     * Time complexity: O(N* log10(n))
+     * Space complexity: O(log10(N))
+     */
     fun rotatedDigits(N: Int): Int {
         var count = 0
         for (i in 1..N) {
@@ -22,17 +26,18 @@ object RotateDigits {
 
     // 2<->5
     // 6<->9
-
-    // invalid  3,4,7
-    fun isValid(n: Int): Boolean {
+    /**
+     * Time complexity: O(log10(n)) length the number. ex : log10(1000) = 3
+     * Space complexity: O(log10(n)) for the String
+     */
+    internal fun isValid(n: Int): Boolean {
         var nb = n
         var rotated = 0
         var str = StringBuffer()
         while (nb != 0) {
             var modulo = nb % 10
-            // invalid
+            // invalid digits: 3,4,7
             if (modulo == 3 || modulo == 4 || modulo == 7) {
-                // println("n = $n")
                 return false
             }
             modulo = when (modulo) {
