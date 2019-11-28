@@ -39,4 +39,33 @@ public class ProductofArrayExceptSelf {
 
         return output;
     }
+
+    public int[] productExceptSelfConstantSpace(int[] nums) {
+        int size = nums.length;
+        // quote : Given an array nums of n integers where n > 1
+        if (size <= 0) {
+            return new int[0];
+        }
+
+        int output[] = new int[size];
+
+        //  prodLeft  i
+        //  ---------> |-----------
+        // [ | | | | | | | | | | | ]
+        output[0] = 1;
+        for (int i = 1; i < size; i++) {
+            output[i] = output[i - 1] * nums[i - 1];
+        }
+
+        //            i   Right
+        //  -------- |  <-----------
+        // [ | | | | | | | | | | | ]
+        int prodRight = 1;
+        for (int i = size - 1; i >= 0; i--) {
+            output[i] = output[i] * prodRight;
+            prodRight = prodRight * nums[i];
+        }
+
+        return output;
+    }
 }

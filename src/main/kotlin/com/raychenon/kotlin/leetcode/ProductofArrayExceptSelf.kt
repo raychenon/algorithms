@@ -36,4 +36,33 @@ object ProductofArrayExceptSelf {
 
         return output
     }
+
+
+    /**
+     * time complexity: O(n)
+     * space complexity: O(1)
+     */
+    fun productExceptSelfConstantSpace(nums: IntArray): IntArray {
+        if (nums.isEmpty()) {
+            return intArrayOf()
+        }
+        val size = nums.size
+        val output = IntArray(size)
+
+        //  prodLeft  i   prodRight
+        //  ---------> <-----------
+        // [ | | | | | | | | | | | ]
+        output[0] = 1
+        for (i in 1 until size) {
+            output[i] = output.get(i - 1) * nums.get(i - 1)
+        }
+
+        var R = 1
+        for (i in (size - 1) downTo 0) {
+            output[i] = output.get(i) * R
+            R = R * nums.get(i)
+        }
+
+        return output
+    }
 }
