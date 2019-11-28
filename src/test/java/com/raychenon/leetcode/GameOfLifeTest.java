@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 /**
@@ -38,6 +39,18 @@ public class GameOfLifeTest {
         };
 
         gameOfLife.gameOfLife(grid);
-        assertTrue(Arrays.equals(expected, grid));
+        
+        compareBoards(expected,grid);
+    }
+
+    public void compareBoards(int[][] expected, int[][] actual) {
+        assertEquals(expected.length, actual.length);
+        assertEquals(expected[0].length, actual[0].length);
+
+        for (int i = 0; i < expected.length; ++i) {
+            for (int j = 0; j < expected[0].length; ++j) {
+                assertEquals(expected[i][j], actual[i][j]);
+            }
+        }
     }
 }
