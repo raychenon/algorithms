@@ -3,10 +3,7 @@ package com.raychenon.leetcode;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertTrue;
 
 /**
  * User: raychenon
@@ -38,29 +35,26 @@ public class GameOfLifeTest {
                 {0, 1, 0}
         };
 
-        gameOfLife.gameOfLife(grid);
-        
-        compareBoards(expected,grid);
+        compareMethods(expected, grid);
     }
 
-    @Test
-    public void gameOfLifeCSTest() {
-        int[][] grid = new int[][]{
-                {0, 1, 0},
-                {0, 0, 1},
-                {1, 1, 1},
-                {0, 0, 0}
-        };
-        int[][] expected = new int[][]{
-                {0, 0, 0},
-                {1, 0, 1},
-                {0, 1, 1},
-                {0, 1, 0}
-        };
+    public void compareMethods(int[][] expected, int[][] grid) {
 
-        gameOfLife.gameOfLifeConstantSpace(grid);
+        int[][] grid1 = new int[grid.length][grid[0].length];
+        int[][] grid2 = new int[grid.length][grid[0].length];
 
-        compareBoards(expected,grid);
+        for (int r = 0; r < grid.length; ++r) {
+            for (int c = 0; c < grid[0].length; ++c) {
+                grid1[r][c] = grid[r][c];
+                grid2[r][c] = grid[r][c];
+            }
+        }
+
+        gameOfLife.gameOfLife(grid1);
+        compareBoards(expected, grid1);
+
+        gameOfLife.gameOfLifeConstantSpace(grid2);
+        compareBoards(expected, grid2);
     }
 
     public void compareBoards(int[][] expected, int[][] actual) {
