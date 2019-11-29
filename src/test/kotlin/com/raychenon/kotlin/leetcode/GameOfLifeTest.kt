@@ -25,7 +25,7 @@ class GameOfLifeTest {
             intArrayOf(0, 1, 0)
         )
 
-        GameOfLife.gameOfLifeCS(board)
+        GameOfLife.gameOfLife(board)
 
         compareBoards(expected, board)
     }
@@ -36,6 +36,7 @@ class GameOfLifeTest {
         TestCase.assertEquals(expected[0].size, actual[0].size)
         for (i in expected.indices) {
             for (j in 0 until expected[0].size) {
+                println("i = $i , j = $j")
                 TestCase.assertEquals(expected[i][j], actual[i][j])
             }
         }
