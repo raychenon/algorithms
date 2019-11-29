@@ -7,6 +7,12 @@ package com.raychenon.kotlin.leetcode
  */
 object GameOfLife {
 
+    /**
+     * time complexity: O(R*C) R number of rows, C number of columns
+     * space complexity: O(1)
+     *
+     * @param board
+     */
     fun gameOfLifeCS(board: Array<IntArray>): Unit {
 
         val dir = arrayOf(
@@ -58,6 +64,12 @@ object GameOfLife {
 
     }
 
+    /**
+     * time complexity : O(R*C) R number of rows, C number of columns
+     * space complexity : O(R*C) R number of rows, C number of columns
+     *
+     * @param board
+     */
     fun gameOfLife(board: Array<IntArray>): Unit {
 
         // copy board

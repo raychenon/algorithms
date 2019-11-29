@@ -25,11 +25,23 @@ class GameOfLifeTest {
             intArrayOf(0, 1, 0)
         )
 
-        GameOfLife.gameOfLife(board)
-
-        compareBoards(expected, board)
+        compareMethods(expected, board)
     }
 
+    fun compareMethods(expected: Array<IntArray>, grid: Array<IntArray>) {
+        val grid1 = Array(grid.size) { IntArray(grid[0].size) }
+        val grid2 = Array(grid.size) { IntArray(grid[0].size) }
+        for (r in grid.indices) {
+            for (c in grid[0].indices) {
+                grid1[r][c] = grid[r][c]
+                grid2[r][c] = grid[r][c]
+            }
+        }
+        GameOfLife.gameOfLife(grid1)
+        compareBoards(expected, grid1)
+        GameOfLife.gameOfLifeCS(grid2)
+        compareBoards(expected, grid2)
+    }
 
     fun compareBoards(expected: Array<IntArray>, actual: Array<IntArray>) {
         TestCase.assertEquals(expected.size, actual.size)
