@@ -45,6 +45,24 @@ class GameOfLifeTest {
         compareMethods(expected, grid)
     }
 
+    @Test
+    fun gameOfLifeOscillatorTest() {
+        val grid =
+            arrayOf(
+                intArrayOf(0, 0, 0),
+                intArrayOf(1, 1, 1),
+                intArrayOf(0, 0, 0)
+            )
+        val expected =
+            arrayOf(
+                intArrayOf(0, 1, 0),
+                intArrayOf(0, 1, 0),
+                intArrayOf(0, 1, 0)
+            )
+        compareMethods(expected, grid)
+    }
+
+
     fun compareMethods(expected: Array<IntArray>, grid: Array<IntArray>) {
         val grid1 = Array(grid.size) { IntArray(grid[0].size) }
         val grid2 = Array(grid.size) { IntArray(grid[0].size) }
