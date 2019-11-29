@@ -38,6 +38,24 @@ public class GameOfLifeTest {
         compareMethods(expected, grid);
     }
 
+    @Test
+    public void gameOfLifeCenterIdentityTest() {
+        int[][] grid = new int[][]{
+                {0, 0, 0, 0},
+                {0, 1, 1, 0},
+                {0, 1, 1, 0},
+                {0, 0, 0, 0}
+        };
+        int[][] expected = new int[][]{
+                {0, 0, 0, 0},
+                {0, 1, 1, 0},
+                {0, 1, 1, 0},
+                {0, 0, 0, 0}
+        };
+
+        compareMethods(expected, grid);
+    }
+
     public void compareMethods(int[][] expected, int[][] grid) {
 
         int[][] grid1 = new int[grid.length][grid[0].length];
