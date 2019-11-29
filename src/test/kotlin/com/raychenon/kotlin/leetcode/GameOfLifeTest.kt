@@ -10,6 +10,8 @@ import org.junit.Test
  */
 class GameOfLifeTest {
 
+    // more tests  http://www.scholarpedia.org/article/Game_of_Life
+
     @Test
     fun gameofLifeTest() {
         val board = arrayOf(
@@ -59,6 +61,33 @@ class GameOfLifeTest {
                 intArrayOf(0, 1, 0),
                 intArrayOf(0, 1, 0)
             )
+        compareMethods(expected, grid)
+    }
+
+    @Test
+    fun gameOfLifeGliderGunTest() {
+        val grid = arrayOf(
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 1, 1, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 1, 0, 0, 0, 1, 0, 0, 0),
+            intArrayOf(0, 1, 0, 0, 0, 0, 0, 1, 0, 0),
+            intArrayOf(0, 1, 0, 0, 0, 1, 0, 1, 1, 0),
+            intArrayOf(0, 1, 0, 0, 0, 0, 0, 1, 0, 0),
+            intArrayOf(0, 0, 1, 0, 0, 0, 1, 0, 0, 0),
+            intArrayOf(0, 0, 0, 1, 1, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+        )
+        val expected = arrayOf(
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 1, 1, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 1, 1, 0, 0, 0, 0, 1, 1, 0),
+            intArrayOf(1, 1, 1, 0, 0, 0, 0, 1, 1, 0),
+            intArrayOf(0, 1, 1, 0, 0, 0, 0, 1, 1, 0),
+            intArrayOf(0, 0, 1, 1, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+        )
         compareMethods(expected, grid)
     }
 

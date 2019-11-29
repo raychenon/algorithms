@@ -20,6 +20,8 @@ public class GameOfLifeTest {
         gameOfLife = new GameOfLife();
     }
 
+    // more tests  http://www.scholarpedia.org/article/Game_of_Life
+
     @Test
     public void gameOfLifeTest() {
         int[][] grid = new int[][]{
@@ -55,7 +57,7 @@ public class GameOfLifeTest {
 
         compareMethods(expected, grid);
     }
-    
+
     @Test
     public void gameOfLifeOscillatorTest() {
         int[][] grid = new int[][]{
@@ -67,6 +69,35 @@ public class GameOfLifeTest {
                 {0, 1, 0},
                 {0, 1, 0},
                 {0, 1, 0}
+        };
+
+        compareMethods(expected, grid);
+    }
+
+
+    @Test
+    public void gameOfLifeGliderGunTest() {
+        int[][] grid = new int[][]{
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                {0, 0, 1, 0, 0, 0, 1, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 1, 0, 0, 0, 1, 0, 1, 1, 0},
+                {0, 1, 0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 1, 0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        };
+        int[][] expected = new int[][]{
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                {0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                {0, 1, 1, 0, 0, 0, 0, 1, 1, 0},
+                {1, 1, 1, 0, 0, 0, 0, 1, 1, 0},
+                {0, 1, 1, 0, 0, 0, 0, 1, 1, 0},
+                {0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         };
 
         compareMethods(expected, grid);
