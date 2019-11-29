@@ -24,7 +24,6 @@ object GameOfLife {
         // 1 -> 01 dead cell becomes live
         // 2 -> 10 live cell becomes dead
         // 3 -> 11 live cell stays alive
-
         for (row in board.indices) {
             for (col in board[0].indices) {
                 var countLive = 0
@@ -39,11 +38,10 @@ object GameOfLife {
                         countLive++
                     }
                 }
-
                 // Rule 1: Any live cell with fewer than two live neighbors dies, as if caused by under-population.
                 // Rule 3: Any live cell with more than three live neighbors dies, as if by over-population.
                 if (board[row][col] == 1 && (countLive < 2 || countLive > 3)) {
-                    board[row][col] = 3
+                    board[row][col] = 2
                 }
 
                 // Rule 4: Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
@@ -52,7 +50,6 @@ object GameOfLife {
                 }
             }
         }
-
         for (row in board.indices) {
             for (col in 0 until board[0].size) {
                 board[row][col] %= 2
