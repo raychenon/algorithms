@@ -43,6 +43,26 @@ public class GameOfLifeTest {
         compareBoards(expected,grid);
     }
 
+    @Test
+    public void gameOfLifeCSTest() {
+        int[][] grid = new int[][]{
+                {0, 1, 0},
+                {0, 0, 1},
+                {1, 1, 1},
+                {0, 0, 0}
+        };
+        int[][] expected = new int[][]{
+                {0, 0, 0},
+                {1, 0, 1},
+                {0, 1, 1},
+                {0, 1, 0}
+        };
+
+        gameOfLife.gameOfLifeConstantSpace(grid);
+
+        compareBoards(expected,grid);
+    }
+
     public void compareBoards(int[][] expected, int[][] actual) {
         assertEquals(expected.length, actual.length);
         assertEquals(expected[0].length, actual[0].length);
