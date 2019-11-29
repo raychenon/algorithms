@@ -59,11 +59,13 @@ object GameOfLife {
     }
 
     fun gameOfLife(board: Array<IntArray>): Unit {
-        val height = board.size
-        val length = board.get(0).size
-        var boardCopy = Array(height, { IntArray(length) })
-        for (x in 0 until length) {
-            boardCopy[x] = board.get(x)
+
+        // copy board
+        var boardCopy = Array(board.size, { IntArray(board.get(0).size) })
+        for (row in 0 until board.size) {
+            for (col in 0 until board.get(0).size) {
+                boardCopy[row][col] = board[row][col]
+            }
         }
 
         for (row in board.indices) {
@@ -120,6 +122,10 @@ object GameOfLife {
             if (board[d[0] + row][d[1] + col] == 1) {
                 count++
             }
+        }
+
+        if (row == 1 && col == 0) {
+            val i = 0
         }
         return count
     }
