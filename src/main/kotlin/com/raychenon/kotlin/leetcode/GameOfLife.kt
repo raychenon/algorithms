@@ -86,12 +86,10 @@ object GameOfLife {
                 val countLiveCell = (countNumberLiveCell(boardCopy, row, col))
                 if (curr == 1) {
                     val cellNextState = when (countLiveCell) {
-                        // 1. Any live cell with fewer than two live neighbors dies, as if caused by under-population.
-                        0 -> 0
-                        1 -> 0
                         // 2. Any live cell with two or three live neighbors lives on to the next generation.
                         2 -> 1
                         3 -> 1
+                        // 1. Any live cell with fewer than two live neighbors dies, as if caused by under-population.
                         // 3. Any live cell with more than three live neighbors dies, as if by over-population..
                         else -> 0
                     }
