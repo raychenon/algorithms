@@ -1,9 +1,8 @@
 package com.raychenon.leetcode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * User: raychenon
@@ -24,75 +23,29 @@ public class QueensThatCanAttackTheKing {
         // From the King perspectice, who can attack horizontally,vertically,diagonally
         // any Queens on these coordinates is on the answer list.
 
-        // vertical
-        for (int[] queen : queens) {
-            if (king[0] == queen[0]) {
-                List<Integer> list = Arrays.stream(queen).boxed().collect(Collectors.toList());
-                ans.add(list);
-            }
+        int[][] dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        boolean[] isVisitedArr = new boolean[8];
+        boolean[][] table = new boolean[8][8];
+        for (int i = 0; i < queens.length; i++) {
+            table[queens[i][0]][queens[i][1]] = true;
         }
-
-        // horizontal
-        for (int[] queen : queens) {
-            if (king[1] == queen[1]) {
-                List<Integer> list = Arrays.stream(queen).boxed().collect(Collectors.toList());
-                ans.add(list);
-            }
-        }
+        List<List<Integer>> list = new LinkedList<>();
 
 
-        // diagonal  \
-        for (int[] queen : queens) {
-            int row = 0;
-            int col = 0;
-            while (king[0] + row < 8 && king[0] + row >= 0 && king[1] + col < 8 && king[1] + col >= 0) {
-                row++;
-                col++;
-                if (queen[0] == king[0] + row && queen[1] == king[1] + col) {
-                    List<Integer> list = Arrays.stream(queen).boxed().collect(Collectors.toList());
-                    ans.add(list);
-                }
-            }
-
-            row = 0;
-            col = 0;
-            while (king[0] + row < 8 && king[0] + row >= 0 && king[1] + col < 8 && king[1] + col >= 0) {
-                --row;
-                --col;
-                if (queen[0] == king[0] + row && queen[1] == king[1] + col) {
-                    List<Integer> list = Arrays.stream(queen).boxed().collect(Collectors.toList());
-                    ans.add(list);
+        for (int row = king[0], col = king[1], count = 1; count < 8; count++) {
+            for (int k = 0; k < dir.length; k++) {
+                int trow = row + dir[k][0] * count;
+                int tcol = col + dir[k][1] * count;
+                if (trow >= 0 && trow < 8 && tcol >= 0 && tcol < 8 && table[trow][tcol] && !isVisitedArr[k]) {
+                    isVisitedArr[k] = true;
+                    List<Integer> temp = new LinkedList<>();
+                    temp.add(trow);
+                    temp.add(tcol);
+                    list.add(temp);
                 }
             }
         }
-
-
-        // diagonal  /
-        for (int[] queen : queens) {
-            int row = 0;
-            int col = 0;
-            while (king[0] + row < 8 && king[0] + row >= 0 && king[1] + col < 8 && king[1] + col >= 0) {
-                row--;
-                col++;
-                if (queen[0] == king[0] + row && queen[1] == king[1] + col) {
-                    List<Integer> list = Arrays.stream(queen).boxed().collect(Collectors.toList());
-                    ans.add(list);
-                }
-            }
-
-            row = 0;
-            col = 0;
-            while (king[0] + row < 8 && king[0] + row >= 0 && king[1] + col < 8 && king[1] + col >= 0) {
-                ++row;
-                --col;
-                if (queen[0] == king[0] + row && queen[1] == king[1] + col) {
-                    List<Integer> list = Arrays.stream(queen).boxed().collect(Collectors.toList());
-                    ans.add(list);
-                }
-            }
-        }
-
-        return ans;
+        return list;
     }
 
 
