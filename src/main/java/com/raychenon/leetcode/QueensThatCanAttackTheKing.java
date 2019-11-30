@@ -1,6 +1,5 @@
 package com.raychenon.leetcode;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,19 +17,18 @@ import java.util.List;
 public class QueensThatCanAttackTheKing {
 
     public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
-        List<List<Integer>> ans = new ArrayList<>();
 
-        // From the King perspectice, who can attack horizontally,vertically,diagonally
+        // From the King position, see who can attack horizontally,vertically,diagonally
         // any Queens on these coordinates is on the answer list.
 
         int[][] dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
         boolean[] isVisitedArr = new boolean[dir.length];
         boolean[][] table = new boolean[8][8];
+        // copy the queens positions in the 8x8 chessboard
         for (int i = 0; i < queens.length; i++) {
             table[queens[i][0]][queens[i][1]] = true;
         }
         List<List<Integer>> list = new LinkedList<>();
-
 
         for (int row = king[0], col = king[1], count = 1; count < 8; count++) {
             for (int k = 0; k < dir.length; k++) {
