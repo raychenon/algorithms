@@ -30,12 +30,12 @@ object QueensThatCanAttackTheKing {
         }
         val list = mutableListOf<List<Int>>()
 
-        for (count in 0 until 8) {
-            for (p in 0 until dir.size) {
 
-                val row = king[0] + dir[p][0] * count
-                val col = king[1] + dir[p][1] * count
-                if (col >= 0 && col < 8 && row >= 0 && row < 8 && table[row][col] && !isVisitedArr[count]) {
+        for (p in 0 until dir.size) {
+            for (step in 0 until 8) {
+                val row = king[0] + dir[p][0] * step
+                val col = king[1] + dir[p][1] * step
+                if (col >= 0 && col < 8 && row >= 0 && row < 8 && table[row][col] && !isVisitedArr[p]) {
                     isVisitedArr[p] = true
 
                     val validQueen = intArrayOf(row, col).toList()
