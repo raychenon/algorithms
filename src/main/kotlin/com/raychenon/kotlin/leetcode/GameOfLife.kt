@@ -134,9 +134,6 @@ object GameOfLife {
             }
         }
 
-        if (row == 1 && col == 0) {
-            val i = 0
-        }
         return count
     }
 
