@@ -24,7 +24,7 @@ public class QueensThatCanAttackTheKing {
         // any Queens on these coordinates is on the answer list.
 
         int[][] dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
-        boolean[] isVisitedArr = new boolean[8];
+        boolean[] isVisitedArr = new boolean[dir.length];
         boolean[][] table = new boolean[8][8];
         for (int i = 0; i < queens.length; i++) {
             table[queens[i][0]][queens[i][1]] = true;
