@@ -22,11 +22,11 @@ object QueensThatCanAttackTheKing {
             intArrayOf(-1, -1)
         )
         var isVisitedArr = BooleanArray(dir.size)
-        val table = Array(8) { BooleanArray(8) }
+        val chessboard = Array(8) { BooleanArray(8) }
 
         // copy the queens positions in the 8x8 chessboard
         for (i in queens.indices) {
-            table[queens[i][0]][queens[i][1]] = true
+            chessboard[queens[i][0]][queens[i][1]] = true
         }
         val list = mutableListOf<List<Int>>()
 
@@ -35,7 +35,7 @@ object QueensThatCanAttackTheKing {
             for (step in 0 until 8) {
                 val row = king[0] + dir[p][0] * step
                 val col = king[1] + dir[p][1] * step
-                if (col >= 0 && col < 8 && row >= 0 && row < 8 && table[row][col] && !isVisitedArr[p]) {
+                if (col >= 0 && col < 8 && row >= 0 && row < 8 && chessboard[row][col] && !isVisitedArr[p]) {
                     isVisitedArr[p] = true
 
                     val validQueen = intArrayOf(row, col).toList()

@@ -35,7 +35,14 @@ class QueensThatCanAttackTheKingTest {
         compareMethods(expected, queens, king)
     }
 
-
+    // |Q| | | | | | | |
+    // | |Q| | | | | | |
+    // | | |A| | | | | |
+    // | | | |K|A|Q| | |
+    // | | | | |A|Q| | |
+    // | | | | | | | | |
+    // | | | | | | | | |
+    // | | | | | | | | |
     @Test
     fun queens2Test() {
         val queens = arrayOf(
@@ -51,8 +58,15 @@ class QueensThatCanAttackTheKingTest {
         val expected = arrayOf(intArrayOf(2, 2), intArrayOf(3, 4), intArrayOf(4, 4))
         compareMethods(expected, queens, king)
     }
-
-
+    
+    // |Q|Q| |Q|Q|Q|Q|Q|
+    // |Q|Q|Q| |A| |A|Q|
+    // | |Q|Q|A| | |Q|Q|
+    // | | | | |K| | |A|
+    // |Q| |Q|A| |A|Q| |
+    // |Q|Q|Q| |A| |Q| |
+    // | |Q| |Q|Q| | | |
+    // | | | | | |Q| |Q|
     @Test
     fun queens3Test() {
         val queens = arrayOf(

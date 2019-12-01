@@ -47,7 +47,14 @@ public class QueensThatCanAttackTheKingTest {
         compareMethods(expected, queens, king);
     }
 
-
+    // |Q| | | | | | | |
+    // | |Q| | | | | | |
+    // | | |A| | | | | |
+    // | | | |K|A|Q| | |
+    // | | | | |A|Q| | |
+    // | | | | | | | | |
+    // | | | | | | | | |
+    // | | | | | | | | |
     @Test
     public void queens2Test() {
         int[][] queens = new int[][]{
@@ -64,6 +71,14 @@ public class QueensThatCanAttackTheKingTest {
     }
 
 
+    // |Q|Q| |Q|Q|Q|Q|Q|
+    // |Q|Q|Q| |A| |A|Q|
+    // | |Q|Q|A| | |Q|Q|
+    // | | | | |K| | |A|
+    // |Q| |Q|A| |A|Q| |
+    // |Q|Q|Q| |A| |Q| |
+    // | |Q| |Q|Q| | | |
+    // | | | | | |Q| |Q|
     @Test
     public void queens3Test() {
         int[][] queens = new int[][]{
