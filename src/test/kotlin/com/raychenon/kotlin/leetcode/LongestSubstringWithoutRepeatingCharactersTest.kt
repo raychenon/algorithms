@@ -11,7 +11,7 @@ import org.junit.Test
 class LongestSubstringWithoutRepeatingCharactersTest {
 
     @Test
-    fun example1Test() {
+    fun sexample1Test() {
         Assert.assertEquals(3, LongestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring("abcabcbb"))
     }
 

@@ -8,28 +8,26 @@ package com.raychenon.kotlin.leetcode
  */
 object LongestSubstringWithoutRepeatingCharacters {
 
+    /**
+     *
+     * time complexity: O(n).
+     * space complexity: O(min(string_length,alphabet_count)),
+     * if the string is longer than 26 (total of aplhabet letters), then the string repeats characters
+     *
+     */
     fun lengthOfLongestSubstring(s: String): Int {
         var start = 0
         var end = start
 
-        var map = mutableMapOf<Char, Int>()
-
-        var c = s[0]
-        map.put(c, 1)
+        var set = mutableSetOf<Char>()  // Set for current substring
         var maxLen = 0
-        for (i in 1..s.length - 1) {
-            if (map.containsKey(s[i])) {
-                end = i
+        while (start < s.length && end < s.length) {
+            if (!set.contains(s[end])) {
+                set.add(s[end++])
                 maxLen = Math.max(maxLen, end - start)
+            } else {
+                set.remove(s[start++])
             }
-
-            // equal to previous char
-            if (c == s[i]) {
-                start = i
-            }
-
-            map.put(s[i], map.getOrDefault(s[i], 0) + 1)
-            c = s[i]
         }
 
         return maxLen
