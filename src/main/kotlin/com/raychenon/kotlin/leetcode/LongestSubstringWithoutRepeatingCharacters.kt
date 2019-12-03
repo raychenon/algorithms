@@ -21,7 +21,7 @@ object LongestSubstringWithoutRepeatingCharacters {
 
         var set = mutableSetOf<Char>()  // Set for current substring
         var maxLen = 0
-        while (start < s.length && end < s.length) {
+        while (end < s.length) { // && start < s.length
             if (!set.contains(s[end])) {
                 set.add(s[end++])
                 maxLen = Math.max(maxLen, end - start)

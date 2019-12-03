@@ -7,6 +7,7 @@ import java.util.Set;
  * User: raychenon
  * Date: 2019-12-03
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ * Given a string, find the length of the longest substring without repeating characters.
  */
 public class LongestSubstringWithoutRepeatingCharacters {
 
@@ -19,7 +20,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int start = 0, end = 0;
         int maxLen = 0;
         Set<Character> charsInCurrentSubStringSet = new HashSet<>();
-        while (start < s.length() && end < s.length()) {
+        while (end < s.length()) { // && start < s.length()
             if (!charsInCurrentSubStringSet.contains(s.charAt(end))) {
                 charsInCurrentSubStringSet.add(s.charAt(end++));
                 maxLen = Math.max(maxLen, end - start);
