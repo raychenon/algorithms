@@ -7,17 +7,22 @@ package com.raychenon.kotlin.leetcode
  */
 object MergeIntervals {
 
+    /**
+     * Time complexity: O(N)
+     * Space complexity: O(1)
+     */
     fun merge(intervals: Array<IntArray>): Array<IntArray> {
         var arr = mutableListOf<IntArray>()
-        var prevSubArr = intervals.get(0)
-        for (i in 1 until intervals.size) {
+        var currentBiggest = 0
+        for (i in 0 until intervals.size) {
             var current = intervals.get(i)
-            if (prevSubArr[1] >= current[0]) {
-                prevSubArr[1] = current.get(1)
+            // if the interval overlap, change the biggest element of the interval
+            if (currentBiggest >= current.get(0)) {
+                arr.get(arr.lastIndex)[1] = current.get(1)
             } else {
-                arr.add(prevSubArr)
-                prevSubArr = current
+                arr.add(current)
             }
+            currentBiggest = current.get(1)
         }
 
         return arr.toTypedArray()

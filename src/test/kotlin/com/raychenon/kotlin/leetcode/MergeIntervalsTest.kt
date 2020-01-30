@@ -9,8 +9,7 @@ import org.junit.Test
  * https://leetcode.com/problems/merge-intervals/
  */
 class MergeIntervalsTest {
-
-
+    
     @Test
     fun example1Test() {
         val input = arrayOf(intArrayOf(1, 3), intArrayOf(2, 6), intArrayOf(8, 10), intArrayOf(15, 18))
