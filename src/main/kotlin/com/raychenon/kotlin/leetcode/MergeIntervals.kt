@@ -13,16 +13,21 @@ object MergeIntervals {
      */
     fun merge(intervals: Array<IntArray>): Array<IntArray> {
         var arr = mutableListOf<IntArray>()
-        var currentBiggest = 0
-        for (i in 0 until intervals.size) {
-            var current = intervals.get(i)
+        var curBiggest = 0
+        var curSmallest = 0
+        for (current in intervals) {
+            if (curSmallest >= current.get(0)) {
+                arr.get(arr.lastIndex)[0] = current.get(0)
+            }
+
             // if the interval overlap, change the biggest element of the interval
-            if (currentBiggest >= current.get(0)) {
-                arr.get(arr.lastIndex)[1] = current.get(1)
+            if (curBiggest >= current.get(0)) {
+                arr.get(arr.lastIndex)[1] = Math.max(curBiggest, current.get(1))
             } else {
                 arr.add(current)
             }
-            currentBiggest = current.get(1)
+            curBiggest = current.get(1)
+            curSmallest = current.get(0)
         }
 
         return arr.toTypedArray()
