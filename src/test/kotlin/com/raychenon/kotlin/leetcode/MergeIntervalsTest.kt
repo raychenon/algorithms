@@ -43,4 +43,12 @@ class MergeIntervalsTest {
             arrayOf(intArrayOf(0, 4)), MergeIntervals.merge(input)
         )
     }
+
+    @Test
+    fun example5Test() {
+        val input = arrayOf(intArrayOf(1, 4), intArrayOf(0, 0))
+        Assert.assertEquals(
+            arrayOf(intArrayOf(0, 0), intArrayOf(1, 4)), MergeIntervals.merge(input)
+        )
+    }
 }
