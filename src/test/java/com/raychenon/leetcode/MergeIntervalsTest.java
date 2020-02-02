@@ -1,8 +1,11 @@
 package com.raychenon.leetcode;
 
-import junit.framework.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.Arrays;
+
+import static junit.framework.TestCase.assertTrue;
 
 /**
  * User: raychenon
@@ -21,11 +24,9 @@ public class MergeIntervalsTest {
 
     @Test
     public void example1Test() {
-        int input[][] = {{1, 3}, {8, 10}, {15, 18}};
+        int input[][] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         int expectedResult[][] = {{1, 6}, {8, 10}, {15, 18}};
-        Assert.assertEquals(expectedResult,
-                instance.merge(input)
-        );
+        assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
 
 
@@ -33,9 +34,7 @@ public class MergeIntervalsTest {
     public void example2Test() {
         int input[][] = {{1, 4}, {4, 5}};
         int expectedResult[][] = {{1, 5}};
-        Assert.assertEquals(expectedResult,
-                instance.merge(input)
-        );
+        assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
 
 
@@ -43,9 +42,7 @@ public class MergeIntervalsTest {
     public void example3Test() {
         int input[][] = {{1, 4}, {0, 4}};
         int expectedResult[][] = {{0, 4}};
-        Assert.assertEquals(expectedResult,
-                instance.merge(input)
-        );
+        assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
 
 
@@ -53,9 +50,7 @@ public class MergeIntervalsTest {
     public void example4Test() {
         int input[][] = {{1, 4}, {0, 1}};
         int expectedResult[][] = {{0, 4}};
-        Assert.assertEquals(expectedResult,
-                instance.merge(input)
-        );
+        assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
 
 
@@ -63,9 +58,7 @@ public class MergeIntervalsTest {
     public void example5Test() {
         int input[][] = {{1, 4}, {0, 0}};
         int expectedResult[][] = {{0, 0}, {1, 4}};
-        Assert.assertEquals(expectedResult,
-                instance.merge(input)
-        );
+        assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
 
 }
