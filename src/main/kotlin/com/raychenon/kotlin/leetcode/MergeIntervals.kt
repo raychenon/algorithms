@@ -1,5 +1,7 @@
 package com.raychenon.kotlin.leetcode
 
+import java.util.Arrays
+
 /**
  * User: raychenon
  * Date: 2020-01-30
@@ -8,26 +10,35 @@ package com.raychenon.kotlin.leetcode
 object MergeIntervals {
 
     /**
-     * Time complexity: O(N)
+     * Time complexity: O(N * Log(N))
      * Space complexity: O(1)
      */
     fun merge(intervals: Array<IntArray>): Array<IntArray> {
-        var arr = mutableListOf<IntArray>()
-        var curBiggest = 0
-        var curSmallest = 0
-        for (current in intervals) {
-            if (curSmallest >= current.get(0)) {
-                arr.get(arr.lastIndex)[0] = current.get(0)
-            }
+        
+        if (intervals.size <= 1) return intervals
 
+        // Sort by ascending starting point
+        // sorting is n*log(n) operation
+        Arrays.sort(
+            intervals
+        ) { i1: IntArray, i2: IntArray ->
+            Integer.compare(
+                i1[0],
+                i2[0]
+            )
+        }
+        var arr = mutableListOf<IntArray>()
+        var curInterv = intervals.get(0)
+        arr.add(curInterv)
+
+        for (interval in intervals) {
             // if the interval overlap, change the biggest element of the interval
-            if (curBiggest >= current.get(0)) {
-                arr.get(arr.lastIndex)[1] = Math.max(curBiggest, current.get(1))
+            if (curInterv.get(1) >= interval.get(0)) {
+                curInterv[1] = Math.max(curInterv.get(1), interval.get(1))
             } else {
-                arr.add(current)
+                curInterv = interval
+                arr.add(curInterv)
             }
-            curBiggest = current.get(1)
-            curSmallest = current.get(0)
         }
 
         return arr.toTypedArray()
