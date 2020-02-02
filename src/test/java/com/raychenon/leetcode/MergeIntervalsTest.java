@@ -29,14 +29,12 @@ public class MergeIntervalsTest {
         assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
 
-
     @Test
     public void example2Test() {
         int input[][] = {{1, 4}, {4, 5}};
         int expectedResult[][] = {{1, 5}};
         assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
-
 
     @Test
     public void example3Test() {
@@ -45,14 +43,12 @@ public class MergeIntervalsTest {
         assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
 
-
     @Test
     public void example4Test() {
         int input[][] = {{1, 4}, {0, 1}};
         int expectedResult[][] = {{0, 4}};
         assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
-
 
     @Test
     public void example5Test() {
@@ -61,4 +57,10 @@ public class MergeIntervalsTest {
         assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
     }
 
+    @Test
+    public void emptyIntervalTest() {
+        int input[][] = {};
+        int expectedResult[][] = {};
+        assertTrue(Arrays.deepEquals(expectedResult, instance.merge(input)));
+    }
 }

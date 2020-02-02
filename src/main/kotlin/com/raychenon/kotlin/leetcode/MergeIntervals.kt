@@ -14,7 +14,7 @@ object MergeIntervals {
      * Space complexity: O(1)
      */
     fun merge(intervals: Array<IntArray>): Array<IntArray> {
-        
+
         if (intervals.size <= 1) return intervals
 
         // Sort by ascending starting point
@@ -28,16 +28,16 @@ object MergeIntervals {
             )
         }
         var arr = mutableListOf<IntArray>()
-        var curInterv = intervals.get(0)
-        arr.add(curInterv)
+        var currInterval = intervals.get(0)
+        arr.add(currInterval)
 
         for (interval in intervals) {
             // if the interval overlap, change the biggest element of the interval
-            if (curInterv.get(1) >= interval.get(0)) {
-                curInterv[1] = Math.max(curInterv.get(1), interval.get(1))
+            if (currInterval.get(1) >= interval.get(0)) {
+                currInterval[1] = Math.max(currInterval.get(1), interval.get(1))
             } else {
-                curInterv = interval
-                arr.add(curInterv)
+                arr.add(interval)
+                currInterval = interval
             }
         }
 
