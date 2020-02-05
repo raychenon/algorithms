@@ -1,5 +1,6 @@
 package com.raychenon.kotlin.leetcode
 
+
 /**
  * User: raychenon
  * Date: 5/2/2020
@@ -8,7 +9,9 @@ package com.raychenon.kotlin.leetcode
 object MostCommonWord {
 
     fun mostCommonWord(paragraph: String, banned: Array<String>): String {
-        val words = paragraph.toLowerCase().split("\\s+".toRegex())
+        val re = Regex("[^A-Za-z0-9 ]")
+        val paragraphNoPunctuation = re.replace(paragraph, " ")
+        val words: Array<String> = paragraphNoPunctuation.toLowerCase().split(" ").toTypedArray()
         var mapFrequency = mutableMapOf<String, Int>()
 
         for (word in words) {

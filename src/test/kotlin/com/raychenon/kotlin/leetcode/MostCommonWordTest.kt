@@ -1,6 +1,6 @@
 package com.raychenon.kotlin.leetcode
 
-import junit.framework.Assert
+import junit.framework.TestCase
 import org.junit.Test
 
 /**
@@ -12,10 +12,20 @@ class MostCommonWordTest {
 
     @Test
     fun example1Test() {
-        Assert.assertEquals(
+        TestCase.assertEquals(
             "ball", MostCommonWord.mostCommonWord(
-                "Bob hit a ball the hit BALL flew far after it was hit.",
+                "Bob hit a ball, the hit BALL flew far after it was hit.",
                 arrayOf("hit")
+            )
+        )
+    }
+
+    @Test
+    fun example2Test() {
+        TestCase.assertEquals(
+            "b", MostCommonWord.mostCommonWord(
+                "a, a, a, a, b,b,b,c, c",
+                arrayOf("a")
             )
         )
     }
