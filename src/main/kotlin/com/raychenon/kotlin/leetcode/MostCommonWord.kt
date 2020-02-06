@@ -11,7 +11,8 @@ object MostCommonWord {
     fun mostCommonWord(paragraph: String, banned: Array<String>): String {
         val re = Regex("[^A-Za-z0-9 ]")
         val paragraphNoPunctuation = re.replace(paragraph, " ")
-        val words: Array<String> = paragraphNoPunctuation.toLowerCase().split(" ").toTypedArray()
+        val words: Array<String> = paragraphNoPunctuation.toLowerCase().split(" ")
+            .map { w -> w.replace(" ", "") }.toTypedArray()
         var mapFrequency = mutableMapOf<String, Int>()
 
         for (word in words) {
@@ -23,6 +24,7 @@ object MostCommonWord {
                 mapFrequency.remove(ban)
             }
         }
+        mapFrequency.remove("")
 
         val max = mapFrequency.maxBy { it.value }
         return max?.key!!
