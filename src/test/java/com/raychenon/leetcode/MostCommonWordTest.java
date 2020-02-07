@@ -21,15 +21,19 @@ public class MostCommonWordTest {
     @Test
     public void example1Test() {
         String[] banned = {"hit"};
-        TestCase.assertEquals("ball",
-                instance.mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", banned));
+        test("ball", "Bob hit a ball, the hit BALL flew far after it was hit.", banned);
     }
 
     @Test
     public void example2Test() {
         String[] banned = {"a"};
-        TestCase.assertEquals("b",
-                instance.mostCommonWord("a, a, a, a, b,b,b,c, c", banned));
+        test("b", "a, a, a, a, b,b,b,c, c", banned);
     }
 
+    private void test(String expected, String paragraph, String[] banned) {
+        TestCase.assertEquals(expected,
+                instance.mostCommonWord(paragraph, banned));
+        TestCase.assertEquals(expected,
+                instance.mostCommonWordOptimizedTrie(paragraph, banned));
+    }
 }
