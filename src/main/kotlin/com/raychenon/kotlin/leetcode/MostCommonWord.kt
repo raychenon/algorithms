@@ -9,19 +9,16 @@ package com.raychenon.kotlin.leetcode
 object MostCommonWord {
 
     fun mostCommonWord(paragraph: String, banned: Array<String>): String {
-        val re = Regex("[^A-Za-z0-9 ]")
+        val re = Regex("\\W+")
         val paragraphNoPunctuation = re.replace(paragraph, " ")
         val words: Array<String> = paragraphNoPunctuation.toLowerCase().split(" ")
             .map { w -> w.replace(" ", "") }.toTypedArray()
         var mapFrequency = mutableMapOf<String, Int>()
+        val bannedSet = banned.toSet()
 
         for (word in words) {
-            mapFrequency.put(word, mapFrequency.getOrDefault(word, 0) + 1)
-        }
-
-        for (ban in banned) {
-            if (mapFrequency.containsKey(ban)) {
-                mapFrequency.remove(ban)
+            if(!bannedSet.contains(word)) {
+                mapFrequency.put(word, mapFrequency.getOrDefault(word, 0) + 1)
             }
         }
         mapFrequency.remove("")
