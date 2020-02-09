@@ -30,4 +30,14 @@ class MostCommonWordTest {
         )
     }
 
+    @Test
+    fun emptyTest() {
+        TestCase.assertEquals(
+            "", MostCommonWord.mostCommonWord(
+                " ",
+                arrayOf("")
+            )
+        )
+    }
+
 }

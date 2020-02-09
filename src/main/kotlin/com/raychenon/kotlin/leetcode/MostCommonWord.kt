@@ -17,13 +17,13 @@ object MostCommonWord {
         val bannedSet = banned.toSet()
 
         for (word in words) {
-            if(!bannedSet.contains(word)) {
+            if (!bannedSet.contains(word)) {
                 mapFrequency.put(word, mapFrequency.getOrDefault(word, 0) + 1)
             }
         }
         mapFrequency.remove("")
 
-        val max = mapFrequency.maxBy { it.value }
-        return max?.key!!
+        return mapFrequency.maxBy { it.value }?.let { it.key }
+            ?: run { "" }
     }
 }
