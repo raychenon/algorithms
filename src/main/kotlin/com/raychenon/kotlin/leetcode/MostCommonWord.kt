@@ -23,7 +23,8 @@ object MostCommonWord {
         }
         mapFrequency.remove("")
 
-        return mapFrequency.maxBy { it.value }?.let { it.key }
-            ?: run { "" }
+        return mapFrequency.maxBy { it.value }
+            ?.let { it.key }
+            ?: ""
     }
 }
