@@ -11,6 +11,10 @@ public class RottingOranges {
     public static final int FRESH = 1;
     public static final int ROTTEN = 2;
 
+    /**
+    Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.
+    Return the minimum number of minutes that must elapse until no cell has a fresh orange.  If this is impossible, return -1 instead.
+    **/
     public int orangesRotting(int[][] grid) {
 
     }
