@@ -29,5 +29,5 @@ class RottingOrangesTest {
         val matrix = arrayOf(intArrayOf(0, 2))
         TestCase.assertEquals(0, RottingOranges.orangesRotting(matrix))
     }
-    
+
 }
