@@ -3,6 +3,7 @@ package com.raychenon.kotlin
 import org.junit.Assert
 import org.junit.Test
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 /**
@@ -12,6 +13,7 @@ import java.util.*
  */
 class BirthdayPartyCalendarTest {
 
+    val format = SimpleDateFormat("yyyy-MM-dd")
 
 //    @Test
 //    fun birthdaysInAprilTest() {
@@ -35,6 +37,16 @@ class BirthdayPartyCalendarTest {
 
 
     @Test
+    fun getEndOfNextMonthTest() {
+
+        val nextLocalDate = BirthdayPartyCalendar.getEndOfNextMonth(
+            format.parse("2020-02-18")
+        )
+        
+        Assert.assertEquals(nextLocalDate, LocalDate.of(2020, 3, 31))
+    }
+
+    @Test
     fun parseLinesTest() {
 
         val pairs = BirthdayPartyCalendar.parseBirthdateLines(
@@ -42,8 +54,6 @@ class BirthdayPartyCalendarTest {
                     "1988-04-01 Bob\n" +
                     "2005-04-06 Carol"
         )
-
-        val format = SimpleDateFormat("yyyy-MM-dd")
 
         Assert.assertEquals(pairs[0].first, format.parse("1995-03-29"))
         Assert.assertEquals(pairs[0].second, "Alice")
