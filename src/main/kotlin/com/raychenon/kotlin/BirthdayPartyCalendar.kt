@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.ZoneId
 import java.util.*
+import kotlin.text.Typography.paragraph
 
 /**
  * User: raychenon
@@ -24,24 +25,19 @@ object BirthdayPartyCalendar {
             .atZone(ZoneId.systemDefault())
             .toLocalDate()
         localDate = localDate.plusMonths(1)
-        val result =  localDate.withDayOfMonth(
+        val result = localDate.withDayOfMonth(
             localDate.getMonth().length(localDate.isLeapYear())
         )
         return result
     }
 
     fun parseBirthdateLines(paragraph: String): List<Pair<Date, String>> {
-        val lines = paragraph.split("\n")
-
-        return lines.map { l -> Pair(dateFormat.parse(l.split(" ")[0]), l.split(" ")[1]) }
-
-//        var results = mutableListOf<Pair<Date, String>>()
-//        for (line in lines) {
-//            val content = line.split(" ")
-//            val date: Date = dateFormat.parse(content[0])
-//            val firstName = content[1]
-//            results.add(Pair(date,firstName))
-//        }
-//        return results
+        return paragraph.split("\n")
+            .fold(listOf<Pair<Date, String>>()) { list, line ->
+            with(line.split(" ")) {
+                list + Pair(dateFormat.parse(this[0]), this[1])
+            }
+        }
     }
+        
 }
