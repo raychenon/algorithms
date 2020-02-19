@@ -2,12 +2,8 @@ package com.raychenon.kotlin
 
 import org.junit.Assert
 import org.junit.Test
-import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.Period
-import java.time.temporal.ChronoUnit
-
-
+import java.time.format.DateTimeFormatter
 
 
 /**
@@ -17,7 +13,7 @@ import java.time.temporal.ChronoUnit
  */
 class BirthdayPartyCalendarTest {
 
-    val format = SimpleDateFormat("yyyy-MM-dd")
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
 //    @Test
 //    fun birthdaysInAprilTest() {
@@ -44,9 +40,9 @@ class BirthdayPartyCalendarTest {
     fun getEndOfNextMonthTest() {
 
         val nextLocalDate = BirthdayPartyCalendar.getEndOfNextMonth(
-            format.parse("2020-02-18")
+            LocalDate.parse("2020-02-18", formatter)
         )
-        
+
         Assert.assertEquals(nextLocalDate, LocalDate.of(2020, 3, 31))
     }
 
@@ -59,7 +55,7 @@ class BirthdayPartyCalendarTest {
                     "2005-04-06 Carol"
         )
 
-        Assert.assertEquals(pairs[0].first, format.parse("1995-03-29"))
+        Assert.assertEquals(pairs[0].first, LocalDate.parse("1995-03-29", formatter))
         Assert.assertEquals(pairs[0].second, "Alice")
         Assert.assertEquals(pairs[1].second, "Bob")
         Assert.assertEquals(pairs[2].second, "Carol")

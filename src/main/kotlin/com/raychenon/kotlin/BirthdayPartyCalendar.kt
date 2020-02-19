@@ -1,10 +1,8 @@
 package com.raychenon.kotlin
 
-import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.text.Typography.paragraph
 
 /**
  * User: raychenon
@@ -12,32 +10,29 @@ import kotlin.text.Typography.paragraph
  */
 object BirthdayPartyCalendar {
 
-    val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+    val dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
-    fun findNextBirthdays(paragraph: String, date: Date): List<String> {
+    fun findNextBirthdays(paragraph: String, date: LocalDate): List<String> {
         val birthdays = parseBirthdateLines(paragraph)
 //        val filteredNextMonth = birthdays.filter { p -> p.first.after() }
         return listOf()
     }
 
-    fun getEndOfNextMonth(date: Date): LocalDate {
-        var localDate = date.toInstant()
-            .atZone(ZoneId.systemDefault())
-            .toLocalDate()
-        localDate = localDate.plusMonths(1)
-        val result = localDate.withDayOfMonth(
-            localDate.getMonth().length(localDate.isLeapYear())
+    fun getEndOfNextMonth(localDate: LocalDate): LocalDate {
+        val nextLocalDate = localDate.plusMonths(1)
+        val result = nextLocalDate.withDayOfMonth(
+            nextLocalDate.getMonth().length(nextLocalDate.isLeapYear())
         )
         return result
     }
 
-    fun parseBirthdateLines(paragraph: String): List<Pair<Date, String>> {
+    fun parseBirthdateLines(paragraph: String): List<Pair<LocalDate, String>> {
         return paragraph.split("\n")
-            .fold(listOf<Pair<Date, String>>()) { list, line ->
-            with(line.split(" ")) {
-                list + Pair(dateFormat.parse(this[0]), this[1])
+            .fold(listOf<Pair<LocalDate, String>>()) { list, line ->
+                with(line.split(" ")) {
+                    list + Pair(LocalDate.parse(this[0], dateFormat), this[1])
+                }
             }
-        }
     }
-        
+
 }
