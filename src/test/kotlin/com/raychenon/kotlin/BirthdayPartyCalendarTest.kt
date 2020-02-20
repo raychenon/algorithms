@@ -1,5 +1,6 @@
 package com.raychenon.kotlin
 
+import com.raychenon.kotlin.birthday.BirthdayPartyCalendar
 import org.junit.Assert
 import org.junit.Test
 import java.time.LocalDate
@@ -39,13 +40,13 @@ class BirthdayPartyCalendarTest {
     @Test
     fun getEndOfNextMonthTest() {
 
-        val nextLocalDate = BirthdayPartyCalendar.getEndOfNextMonth(
-            LocalDate.parse("2020-02-18", formatter)
-        )
+        val localDate = LocalDate.parse("2020-02-18", formatter)
+        val nextLocalDate = BirthdayPartyCalendar.getEndOfNextMonth(localDate)
 
         Assert.assertEquals(nextLocalDate, LocalDate.of(2020, 3, 31))
+        Assert.assertTrue(nextLocalDate.isAfter(localDate))
     }
-
+                                                                                     
     @Test
     fun parseLinesTest() {
 
@@ -55,9 +56,9 @@ class BirthdayPartyCalendarTest {
                     "2005-04-06 Carol"
         )
 
-        Assert.assertEquals(pairs[0].first, LocalDate.parse("1995-03-29", formatter))
-        Assert.assertEquals(pairs[0].second, "Alice")
-        Assert.assertEquals(pairs[1].second, "Bob")
-        Assert.assertEquals(pairs[2].second, "Carol")
+        Assert.assertEquals(pairs[0].birthdate, LocalDate.parse("1995-03-29", formatter))
+        Assert.assertEquals(pairs[0].name, "Alice")
+        Assert.assertEquals(pairs[1].name, "Bob")
+        Assert.assertEquals(pairs[2].name, "Carol")
     }
 }
