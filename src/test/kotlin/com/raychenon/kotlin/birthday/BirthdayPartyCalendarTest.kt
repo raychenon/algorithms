@@ -1,4 +1,4 @@
-package com.raychenon.kotlin
+package com.raychenon.kotlin.birthday
 
 import com.raychenon.kotlin.birthday.BirthdayPartyCalendar
 import org.junit.Assert
