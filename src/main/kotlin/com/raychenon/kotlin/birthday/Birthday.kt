@@ -1,7 +1,9 @@
 package com.raychenon.kotlin.birthday
 
+import java.time.DayOfWeek
 import java.time.LocalDate
-import java.time.chrono.ChronoLocalDate
+import java.time.Month
+import java.time.temporal.TemporalAdjusters
 
 /**
  * User: raychenon
@@ -12,18 +14,24 @@ data class Birthday(
     val name: String
 ) {
 
+    fun nextDateToCelebrate(now: LocalDate, month: Month): LocalDate? {
+        val ne = LocalDate.of(now.year, this.birthdate.month, this.birthdate.dayOfMonth)
+        val newDate = ne.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
+        return if (newDate.month == month) newDate else null
+    }
+
     /**
      * isAfter in the calendar year
      */
-    fun isAfter(other: Birthday): Boolean {
-        return   compareTo0(other.birthdate ) > 0
+    fun isAfter(other: LocalDate): Boolean {
+        return compareTo0(other) > 0
     }
 
     /**
      * is before in the calendar year
      */
-    fun isBefore(other: Birthday): Boolean {
-        return   compareTo0(other.birthdate ) < 0
+    fun isBefore(other: LocalDate): Boolean {
+        return compareTo0(other) < 0
     }
 
     private fun compareTo0(otherDate: LocalDate): Int {

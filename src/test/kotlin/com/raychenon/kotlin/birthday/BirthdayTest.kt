@@ -15,13 +15,13 @@ class BirthdayTest {
 
     @Test
     fun isBeforeTest() {
-        Assert.assertEquals(true, b1.isBefore(b2))
+        Assert.assertEquals(true, b1.isBefore(b2.birthdate))
         Assert.assertEquals(false, b1.birthdate.isBefore(b2.birthdate))
     }
 
     @Test
     fun isAfterTest() {
-        Assert.assertEquals(true, b2.isAfter(b1))
+        Assert.assertEquals(true, b2.isAfter(b1.birthdate))
         Assert.assertEquals(false, b2.birthdate.isAfter(b1.birthdate))
     }
 
