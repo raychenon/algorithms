@@ -39,6 +39,28 @@ class BirthdayPartyCalendarTest {
 
 
     @Test
+    fun birthdaysCalendarTest() {
+
+        val date = LocalDate.of(2020, 2, 23)
+
+        // todo, "2020-03-07" should be expected
+        Assert.assertEquals(
+            """
+                2020-03-01 Alice, Bob
+            """.trimIndent()
+            , BirthdayPartyCalendar.findNextBirthdayDates(
+                """
+                    1995-02-29 Alice
+                    1988-03-01 Bob
+                    2005-04-06 Carol
+                    1979-05-10 Dave
+                """.trimIndent(),
+                date
+            )
+        )
+    }
+
+    @Test
     fun getEndOfNextMonthTest() {
 
         val localDate = LocalDate.parse("2020-02-18", formatter)

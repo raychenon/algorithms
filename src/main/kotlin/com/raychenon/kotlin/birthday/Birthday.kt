@@ -15,6 +15,7 @@ data class Birthday(
 ) {
 
     fun nextDateToCelebrate(now: LocalDate, month: Month): LocalDate? {
+        // the only case of Sunday is 1st of month OR the birthday is on a Sunday in the last week
         val ne = LocalDate.of(now.year, this.birthdate.month, this.birthdate.dayOfMonth)
         if(ne.month == month && (ne.dayOfWeek == DayOfWeek.SATURDAY ||
                     (ne.dayOfWeek == DayOfWeek.SUNDAY && ne.dayOfMonth == 1))){
