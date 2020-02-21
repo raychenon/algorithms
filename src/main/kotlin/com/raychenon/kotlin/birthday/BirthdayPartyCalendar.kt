@@ -3,8 +3,6 @@ package com.raychenon.kotlin.birthday
 import java.time.LocalDate
 import java.time.Month
 import java.time.format.DateTimeFormatter
-import java.util.*
-import kotlin.collections.HashMap
 
 /**
  * User: raychenon
@@ -26,11 +24,13 @@ object BirthdayPartyCalendar {
 
         // Birthday parties can only take place on weekends (weekend is Saturday and Sunday).
         // If several birthday parties take place on the same weekend, they are combined. There can only be one party per weekend.
-        val map = HashMap<LocalDate, TreeSet<String>>()
+        val map = HashMap<LocalDate, MutableSet<String>>()
         for (birthday in birthdaysList) {
-            val validDate = birthday.nextDateToCelebrate(now, month = endMonth)
-            validDate.let {
-                map.getOrDefault(validDate, TreeSet<String>()).add(birthday.name)
+            val validDate = birthday.nextDateToCelebrate(now, endMonth)
+            validDate?.let { it ->
+                val set = map.getOrDefault(it, hashSetOf())
+                set.add(birthday.name)
+                map.put(it, set)
             }
         }
 
@@ -38,7 +38,7 @@ object BirthdayPartyCalendar {
         val str = StringBuffer()
         for ((k, v) in sortedMap) {
             val list = v.sorted()
-            str.append(k).append(list.joinToString { it }).append("\n")
+            str.append("$k ${list.joinToString { it }}\n")
         }
 
         return str.toString()

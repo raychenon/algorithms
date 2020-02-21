@@ -18,12 +18,13 @@ class BirthdayPartyCalendarTest {
     @Test
     fun birthdaysInAprilTest() {
 
-        val date = LocalDate.of(2018, 4, 1)
+        val date = LocalDate.of(2018, 3, 14)
 
         Assert.assertEquals(
             """
-                2018-04-01 Alice, Bob
-                2018-04-07 Carol
+                2018-04-01 Alice
+                2018-04-07 Bob, Carol
+
             """.trimIndent()
             , BirthdayPartyCalendar.findNextBirthdayDates(
                 """
