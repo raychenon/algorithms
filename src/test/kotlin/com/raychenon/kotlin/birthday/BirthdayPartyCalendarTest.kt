@@ -22,9 +22,8 @@ class BirthdayPartyCalendarTest {
 
         Assert.assertEquals(
             """
-                2018-04-01 Alice
-                2018-04-07 Bob, Carol
-
+                2018-04-01 Alice, Bob
+                2018-04-07 Carol
             """.trimIndent()
             , BirthdayPartyCalendar.findNextBirthdayDates(
                 """

@@ -40,6 +40,7 @@ object BirthdayPartyCalendar {
             val list = v.sorted()
             str.append("$k ${list.joinToString { it }}\n")
         }
+        str.deleteCharAt(str.length - 1)
 
         return str.toString()
     }

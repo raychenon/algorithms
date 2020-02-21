@@ -16,6 +16,10 @@ data class Birthday(
 
     fun nextDateToCelebrate(now: LocalDate, month: Month): LocalDate? {
         val ne = LocalDate.of(now.year, this.birthdate.month, this.birthdate.dayOfMonth)
+        if(ne.month == month && (ne.dayOfWeek == DayOfWeek.SATURDAY ||
+                    (ne.dayOfWeek == DayOfWeek.SUNDAY && ne.dayOfMonth == 1))){
+            return ne
+        }
         var newDate = ne.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
         // If possible, the party should happen on Saturday, otherwise Sunday
         if (newDate.month != month) {
