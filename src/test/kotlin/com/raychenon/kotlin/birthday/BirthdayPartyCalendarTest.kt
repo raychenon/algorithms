@@ -114,13 +114,12 @@ class BirthdayPartyCalendarTest {
 
 
     @Test
-    fun noBirthdayPartyTest() {
+    fun noBirthdayPartyMatchingTest() {
 
         val date = LocalDate.of(2020, 2, 25)
 
-        // 1) Birthday party has to happen during the week of the birthday but never before the
-        // birthday (for the purpose of this task consider that the week starts on Monday).
-        Assert.assertEquals(""
+        Assert.assertEquals(
+            ""
             , BirthdayPartyCalendar.findNextBirthdayDates(
                 """
                     1995-01-07 Raymond
@@ -133,6 +132,23 @@ class BirthdayPartyCalendarTest {
             )
         )
     }
+
+
+    @Test
+    fun noBirthdayEntriesNoPartyTest() {
+
+        val date = LocalDate.of(2020, 2, 25)
+
+        Assert.assertEquals(
+            ""
+            , BirthdayPartyCalendar.findNextBirthdayDates(
+                """
+                """.trimIndent(),
+                date
+            )
+        )
+    }
+
 
     @Test
     fun getEndOfNextMonthTest() {

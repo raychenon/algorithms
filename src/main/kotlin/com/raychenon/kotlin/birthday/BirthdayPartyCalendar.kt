@@ -54,17 +54,21 @@ object BirthdayPartyCalendar {
     }
 
     fun parseBirthdateLines(paragraph: String): List<Birthday> {
-        return paragraph.split("\n")
-            .fold(listOf<Birthday>()) { list, line ->
-                with(line.split(" ")) {
-                    list + Birthday(
-                        LocalDate.parse(
-                            this[0],
-                            dateFormat
-                        ), this[1]
-                    )
+        try {
+            return paragraph.split("\n")
+                .fold(listOf<Birthday>()) { list, line ->
+                    with(line.split(" ")) {
+                        list + Birthday(
+                            LocalDate.parse(
+                                this[0],
+                                dateFormat
+                            ), this[1]
+                        )
+                    }
                 }
-            }
+        } catch (e: Exception) {
+            return emptyList()
+        }
     }
 
 }
