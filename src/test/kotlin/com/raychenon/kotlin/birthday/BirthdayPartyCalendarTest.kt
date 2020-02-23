@@ -39,19 +39,20 @@ class BirthdayPartyCalendarTest {
 
 
     @Test
-    fun birthdaysCalendarTest() {
+    fun birthdaysCalendarFirstSundayOfMonthTest() {
 
         val date = LocalDate.of(2020, 2, 23)
 
-        // todo, "2020-03-07" should be expected
+        // 1st March 2020 is Sunday
         Assert.assertEquals(
             """
-                2020-03-01 Alice, Bob
+                2020-03-01 Alice
+                2020-03-07 Bob
             """.trimIndent()
             , BirthdayPartyCalendar.findNextBirthdayDates(
                 """
                     1995-02-29 Alice
-                    1988-03-01 Bob
+                    1988-03-02 Bob
                     2005-04-06 Carol
                     1979-05-10 Dave
                 """.trimIndent(),
