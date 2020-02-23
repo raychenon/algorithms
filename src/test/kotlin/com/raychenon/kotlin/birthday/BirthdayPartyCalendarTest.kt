@@ -61,6 +61,79 @@ class BirthdayPartyCalendarTest {
         )
     }
 
+
+    @Test
+    fun birthdayPartyNeverHappenBeforeBirthdayTest() {
+
+        val date = LocalDate.of(2020, 2, 23)
+
+        // 1) Birthday party has to happen during the week of the birthday but never before the
+        // birthday (for the purpose of this task consider that the week starts on Monday).
+        Assert.assertEquals(
+            """
+                2020-03-01 Albin, Auguste
+                2020-03-14 Justine
+                2020-03-21 Herbert
+            """.trimIndent()
+            , BirthdayPartyCalendar.findNextBirthdayDates(
+                """
+                    1995-02-29 Auguste
+                    1988-03-20 Herbert
+                    2005-03-12 Justine
+                    1979-03-01 Albin
+                """.trimIndent(),
+                date
+            )
+        )
+    }
+
+
+    @Test
+    fun birthdayPartyExtremeMonthTest() {
+
+        val date = LocalDate.of(2020, 2, 25)
+
+        // 1) Birthday party has to happen during the week of the birthday but never before the
+        // birthday (for the purpose of this task consider that the week starts on Monday).
+        Assert.assertEquals(
+            """
+                2020-03-01 Romain
+            """.trimIndent()
+            , BirthdayPartyCalendar.findNextBirthdayDates(
+                """
+                    1995-01-07 Raymond
+                    1988-02-28 Romain
+                    1976-04-03 Richard
+                    1956-05-25 Sophie
+                    2005-06-12 Guy
+                """.trimIndent(),
+                date
+            )
+        )
+    }
+
+
+    @Test
+    fun noBirthdayPartyTest() {
+
+        val date = LocalDate.of(2020, 2, 25)
+
+        // 1) Birthday party has to happen during the week of the birthday but never before the
+        // birthday (for the purpose of this task consider that the week starts on Monday).
+        Assert.assertEquals(""
+            , BirthdayPartyCalendar.findNextBirthdayDates(
+                """
+                    1995-01-07 Raymond
+                    2005-06-12 Guy
+                    1984-08-15 Ainhoa
+                    1984-10-07 Auguste
+                    1991-12-05 Gerald
+                """.trimIndent(),
+                date
+            )
+        )
+    }
+
     @Test
     fun getEndOfNextMonthTest() {
 

@@ -22,8 +22,8 @@ object BirthdayPartyCalendar {
 
     fun applyPartyCalendarRules(birthdaysList: List<Birthday>, now: LocalDate, endMonth: Month): String {
 
-        // Birthday parties can only take place on weekends (weekend is Saturday and Sunday).
-        // If several birthday parties take place on the same weekend, they are combined. There can only be one party per weekend.
+        // 2) Birthday parties can only take place on weekends (weekend is Saturday and Sunday).
+        // 3) If several birthday parties take place on the same weekend, they are combined. There can only be one party per weekend.
         val map = HashMap<LocalDate, MutableSet<String>>()
         for (birthday in birthdaysList) {
             val validDate = birthday.nextDateToCelebrate(now, endMonth)
@@ -38,9 +38,9 @@ object BirthdayPartyCalendar {
         val str = StringBuffer()
         for ((k, v) in sortedMap) {
             val list = v.sorted()
-            str.append("$k ${list.joinToString { it }}\n")
+            str.append("$k ${list.joinToString(separator = ", ") { it }}\n")
         }
-        str.deleteCharAt(str.length - 1)
+        if (str.length > 1) str.deleteCharAt(str.length - 1)
 
         return str.toString()
     }

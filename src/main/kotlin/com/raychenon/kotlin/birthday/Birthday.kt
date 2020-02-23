@@ -22,7 +22,7 @@ data class Birthday(
             return ne
         }
         var newDate = ne.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
-        // If possible, the party should happen on Saturday, otherwise Sunday
+        // 4)If possible, the party should happen on Saturday, otherwise Sunday
         if (newDate.month != month) {
             newDate = newDate?.with(TemporalAdjusters.next(DayOfWeek.SUNDAY))
         }
