@@ -20,7 +20,7 @@ object BirthdayPartyCalendar {
         return applyPartyCalendarRules(selectedBirthdays, now, endPeriod.month)
     }
 
-    fun applyPartyCalendarRules(birthdaysList: List<Birthday>, now: LocalDate, endMonth: Month): String {
+    internal fun applyPartyCalendarRules(birthdaysList: List<Birthday>, now: LocalDate, endMonth: Month): String {
 
         // 2) Birthday parties can only take place on weekends (weekend is Saturday and Sunday).
         // 3) If several birthday parties take place on the same weekend, they are combined. There can only be one party per weekend.
@@ -45,7 +45,7 @@ object BirthdayPartyCalendar {
         return str.toString()
     }
 
-    fun getEndOfNextMonth(localDate: LocalDate): LocalDate {
+    internal fun getEndOfNextMonth(localDate: LocalDate): LocalDate {
         val nextLocalDate = localDate.plusMonths(1)
         val result = nextLocalDate.withDayOfMonth(
             nextLocalDate.getMonth().length(nextLocalDate.isLeapYear())
@@ -53,7 +53,7 @@ object BirthdayPartyCalendar {
         return result
     }
 
-    fun parseBirthdateLines(paragraph: String): List<Birthday> {
+    internal fun parseBirthdateLines(paragraph: String): List<Birthday> {
         try {
             return paragraph.split("\n")
                 .fold(listOf<Birthday>()) { list, line ->
