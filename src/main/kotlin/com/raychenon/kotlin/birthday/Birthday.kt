@@ -14,19 +14,25 @@ data class Birthday(
     val name: String
 ) {
 
-    fun nextDateToCelebrate(now: LocalDate, month: Month): LocalDate? {
-        // the only case of Sunday is 1st of month OR the birthday is on a Sunday in the last week
-        val ne = LocalDate.of(now.year, this.birthdate.month, this.birthdate.dayOfMonth)
-        if(ne.month == month && (ne.dayOfWeek == DayOfWeek.SATURDAY ||
-                    (ne.dayOfWeek == DayOfWeek.SUNDAY && ne.dayOfMonth == 1))){
-            return ne
+    fun nextDateToCelebrate(endPeriod: LocalDate): LocalDate? {
+        // the only case of Sunday is 1st of month
+        val month = endPeriod.month
+        // 2) Birthday parties can only take place on weekends (weekend is Saturday and Sunday).
+        var birthdayThisYear = LocalDate.of(endPeriod.year, this.birthdate.month, this.birthdate.dayOfMonth)
+        if (birthdayThisYear.isAfter(endPeriod)) { // case month is december, the returned cannot be after the end period
+            birthdayThisYear = LocalDate.of(endPeriod.year - 1, this.birthdate.month, this.birthdate.dayOfMonth)
         }
-        var newDate = ne.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
+        if (birthdayThisYear.month == month && (birthdayThisYear.dayOfWeek == DayOfWeek.SATURDAY ||
+                    (birthdayThisYear.dayOfWeek == DayOfWeek.SUNDAY && birthdayThisYear.dayOfMonth == 1))
+        ) {
+            return birthdayThisYear
+        }
+        var partyDate = birthdayThisYear.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
         // 4)If possible, the party should happen on Saturday, otherwise Sunday
-        if (newDate.month != month) {
-            newDate = newDate?.with(TemporalAdjusters.next(DayOfWeek.SUNDAY))
+        if (partyDate.month != month) { // the only case of Sunday is 1st of month
+            partyDate = partyDate?.with(TemporalAdjusters.next(DayOfWeek.SUNDAY))
         }
-        return if (newDate.month == month) newDate else null
+        return if (partyDate.month == month) partyDate else null
     }
 
     /**

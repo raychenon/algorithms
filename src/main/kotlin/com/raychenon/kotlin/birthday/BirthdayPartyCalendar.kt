@@ -13,20 +13,31 @@ object BirthdayPartyCalendar {
     val dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
     fun findNextBirthdayDates(paragraph: String, now: LocalDate): String {
-        val birthdays = parseBirthdateLines(paragraph)
-        val endPeriod = getEndOfNextMonth(now)
-        val selectedBirthdays = birthdays.filter { b -> b.isAfter(now) && b.isBefore(endPeriod) }
-
-        return applyPartyCalendarRules(selectedBirthdays, now, endPeriod.month)
+        val (selectedBirthdays, endPeriod) = selectBirthdays(paragraph, now)
+        return applyPartyCalendarRules(selectedBirthdays, endPeriod)
     }
 
-    internal fun applyPartyCalendarRules(birthdaysList: List<Birthday>, now: LocalDate, endMonth: Month): String {
+    internal fun selectBirthdays(paragraph: String, now: LocalDate): Pair<List<Birthday>, LocalDate> {
+        val birthdays = parseBirthdateLines(paragraph)
+        val endPeriod = now.getEndOfNextMonth()
+        val selectedBirthdays = birthdays.filter { b ->
+            if (now.month == Month.DECEMBER) {
+                b.isAfter(now) || b.isBefore(endPeriod)
+            } else {
+                b.isAfter(now) && b.isBefore(endPeriod)
+            }
+        }
+
+        return Pair(selectedBirthdays, endPeriod)
+    }
+
+    internal fun applyPartyCalendarRules(birthdaysList: List<Birthday>, endPeriod: LocalDate): String {
 
         // 2) Birthday parties can only take place on weekends (weekend is Saturday and Sunday).
         // 3) If several birthday parties take place on the same weekend, they are combined. There can only be one party per weekend.
         val map = HashMap<LocalDate, MutableSet<String>>()
         for (birthday in birthdaysList) {
-            val validDate = birthday.nextDateToCelebrate(now, endMonth)
+            val validDate = birthday.nextDateToCelebrate(endPeriod)
             validDate?.let { it ->
                 val set = map.getOrDefault(it, hashSetOf())
                 set.add(birthday.name)
@@ -43,14 +54,6 @@ object BirthdayPartyCalendar {
         if (str.length > 1) str.deleteCharAt(str.length - 1)
 
         return str.toString()
-    }
-
-    internal fun getEndOfNextMonth(localDate: LocalDate): LocalDate {
-        val nextLocalDate = localDate.plusMonths(1)
-        val result = nextLocalDate.withDayOfMonth(
-            nextLocalDate.getMonth().length(nextLocalDate.isLeapYear())
-        )
-        return result
     }
 
     internal fun parseBirthdateLines(paragraph: String): List<Birthday> {
