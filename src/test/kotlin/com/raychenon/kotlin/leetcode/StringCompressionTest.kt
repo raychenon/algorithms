@@ -16,6 +16,23 @@ class StringCompressionTest {
     }
 
     @Test
+    fun aabbaaaTest() {
+        assertEquals(6, StringCompression.compress(charArrayOf('a', 'a', 'b', 'b', 'a', 'a', 'a')))
+    }
+
+    @Test
+    fun aabbaaadeTest() {
+        assertEquals(8, StringCompression.compress(charArrayOf('a', 'a', 'b', 'b', 'a', 'a', 'a','d','e')))
+    }
+
+    @Test
+    fun moreThan10TimesTest() {
+        // 11 times, "z11"
+        assertEquals(3, StringCompression.compress(charArrayOf('z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z','z')))
+    }
+
+
+    @Test
     fun aTest() {
         assertEquals(1, StringCompression.compress(charArrayOf('a')))
     }
