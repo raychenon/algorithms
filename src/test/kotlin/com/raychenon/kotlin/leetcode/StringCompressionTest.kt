@@ -12,7 +12,17 @@ class StringCompressionTest {
 
     @Test
     fun aabbcccTest() {
-        assertEquals(6, StringCompression.compress(charArrayOf('a', 'a', 'a', 'b', 'b', 'c', 'c', 'c')))
+        assertEquals(6, StringCompression.compress(charArrayOf('a', 'a', 'b', 'b', 'c', 'c', 'c')))
+    }
+
+    @Test
+    fun aTest() {
+        assertEquals(1, StringCompression.compress(charArrayOf('a')))
+    }
+
+    @Test
+    fun emptyCharTest() {
+        assertEquals(0, StringCompression.compress(charArrayOf()))
     }
 
 }

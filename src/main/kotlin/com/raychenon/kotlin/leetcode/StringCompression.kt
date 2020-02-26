@@ -9,28 +9,28 @@ object StringCompression {
 
     fun compress(chars: CharArray): Int {
 
-        if(chars.isEmpty() || chars.size == 0 ){
+        if (chars.isEmpty() || chars.size == 0) {
             return 0
         }
-        
-        val DEFAULT_CHAR = ' '
-        var accChar: Char = DEFAULT_CHAR
-        var accCount: Int = 0
+
         var str = StringBuilder()
-        var i = 0
+        var left = 0
+        var right = 0
+        val n = chars.size
 
-        while (i++ < chars.size) {
-            var c = chars.get(i)
-            accChar = c
-            while (i < chars.size && chars.get(i++) == accChar) {
-                accCount++
+        while (left < n) {
+            while ((right < n) && chars.get(left) == chars.get(right)) {
+                right++
             }
-            str.append(accChar)
-
-            if (accCount > 1) { str.append(accCount) }
+            str.append(chars.get(left))
+            val freq = right - left
+            if (freq > 1) {
+                str.append(freq)
+            }
+            left = right
         }
 
-        print("str ${str.toString()}")
+        print("compress, str = ${str.toString()} \n")
         return str.length
     }
 }
