@@ -30,7 +30,7 @@ object StringCompression {
             left = right
         }
 
-        // print("compress, str = ${str.toString()} \n")
+        print("compress, str = ${str.toString()} \n")
         return str.length
     }
 }
