@@ -72,6 +72,5 @@ public class SubtreeOfAnotherTreeTest {
 
         return tRoot;
     }
-
-
+    
 }
