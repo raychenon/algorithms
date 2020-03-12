@@ -38,7 +38,7 @@ object BirthdayPartyCalendar {
         val map = HashMap<LocalDate, MutableSet<String>>()
         for (birthday in birthdaysList) {
             val validDate = birthday.nextDateToCelebrate(endPeriod)
-            validDate?.let { it ->
+            validDate?.also { it ->
                 val set = map.getOrDefault(it, hashSetOf())
                 set.add(birthday.name)
                 map.put(it, set)
