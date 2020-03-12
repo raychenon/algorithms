@@ -11,15 +11,17 @@ import com.raychenon.leetcode.tree.TreeNode
 object SubtreeOfAnotherTree {
 
     fun isSubtree(s: TreeNode?, t: TreeNode?): Boolean {
-        val tree1 = preorder(s, true)
-        val tree2 = preorder(t, true)
-        return tree1.indexOf(tree2) >= 0
+        return traverse(s, t)
     }
 
-    fun preorder(t: TreeNode?, left: Boolean): String {
-        t?.also {
-
-            return "#${t.value} ${preorder(t.left, true)} ${preorder(t.right, false)}"
-        }.run { return if (left) "lnull" else "rnull" }
+    fun equals(x: TreeNode?, y: TreeNode?): Boolean {
+        if (x == null && y == null) return true
+        return if (x == null || y == null) false
+        else x.value === y.value && equals(x.left, y.left) && equals(x.right, y.right)
     }
+
+    fun traverse(s: TreeNode?, t: TreeNode?): Boolean {
+        return s != null && (equals(s, t) || traverse(s.left, t) || traverse(s.right, t))
+    }
+
 }
