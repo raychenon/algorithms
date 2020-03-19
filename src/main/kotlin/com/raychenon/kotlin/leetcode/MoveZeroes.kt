@@ -7,6 +7,10 @@ package com.raychenon.kotlin.leetcode
  */
 object MoveZeroes {
 
+    /**
+     * time complexity: O(n)
+     * space complexity: O(1)
+     */
     fun moveZeroes(nums: IntArray): Unit {
 
         var lastNonZeroFoundAt = 0
