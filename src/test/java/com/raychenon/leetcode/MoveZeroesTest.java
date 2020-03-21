@@ -37,4 +37,32 @@ public class MoveZeroesTest {
         assertArrayEquals(expected, input);
     }
 
+
+    @Test
+    public void allZeroesBehindTest() {
+        int[] input = {1, 2, 5, 3, 4, 0, 0, 0};
+        instance.moveZeroes(input);
+
+        int[] expected = {1, 2, 5, 3, 4, 0, 0, 0};
+        assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void allZeroesInFrontTest() {
+        int[] input = {0, 0, 0, 1, 2, 5, 3, 4};
+        instance.moveZeroes(input);
+
+        int[] expected = {1, 2, 5, 3, 4, 0, 0, 0};
+        assertArrayEquals(expected, input);
+    }
+
+
+    @Test
+    public void OneZeroesInMiddleTest() {
+        int[] input = {1, 2, 5, 0, 3, 22, 4};
+        instance.moveZeroes(input);
+
+        int[] expected = {1, 2, 5, 3, 22, 4, 0};
+        assertArrayEquals(expected, input);
+    }
 }
