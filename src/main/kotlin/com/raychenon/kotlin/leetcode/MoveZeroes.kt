@@ -31,6 +31,22 @@ object MoveZeroes {
                 nums[i - zeroCount] = temp
             }
         }
+    }
 
+    /**
+     * Space Complexity : O(1). Only constant space is used.
+     * 
+     * Time Complexity: O(n). However, the total number of operations are optimal. There is only a single loop.
+     * However, the worst-case (when all elements are non-0) complexity for both the algorithms is same.
+     */
+    fun moveZeroesLeetcodeSolution3(nums: IntArray): Unit {
+        var lastNonZeroFoundAt = 0
+        for (i in 0..nums.size - 1) {
+            if (nums.get(i) != 0) {
+                val temp = nums.get(i)
+                nums[i] = 0
+                nums[lastNonZeroFoundAt++] = temp
+            }
+        }
     }
 }
