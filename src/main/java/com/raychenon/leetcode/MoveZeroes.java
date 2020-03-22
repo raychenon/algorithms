@@ -15,7 +15,8 @@ public class MoveZeroes {
      * <p>
      * The idea is that we go through the array and gather all zeros on our road.
      * example: input [0,1,0,3,12]
-     * [1,0,0,3,12]  Our ball size is 1. Swap the most left 0 of our snowball with element 1.
+     * [0,1,0,3,12], Our ball size is 1. First element is 0.
+     * [1,0,0,3,12], We encounter a non zero(1). Swap the most left 0 of our snowball with element 1.
      * [1,0,0,3,12], Our ball gets bigger, now its size = 2.
      * [1,3,0,0,12], Swap again with the most left zero.
      * [1,3,12,0,0], Swap again.
@@ -23,14 +24,16 @@ public class MoveZeroes {
      * @param nums
      */
     public void moveZeroes(int[] nums) {
-        int accumulatedZeroSize = 0;
+        int accumulatedSnowballSize = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 0) {
-                accumulatedZeroSize++;
-            } else if (accumulatedZeroSize > 0) {
+                accumulatedSnowballSize++;
+            } else if (accumulatedSnowballSize > 0) {
+                // [1,0,0,3,12]
                 int temp = nums[i];
                 nums[i] = 0;
-                nums[i - accumulatedZeroSize] = temp;
+                nums[i - accumulatedSnowballSize] = temp;
+                // [1,3,0,0,12] swapped
             }
         }
 
