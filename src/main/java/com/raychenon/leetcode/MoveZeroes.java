@@ -36,6 +36,26 @@ public class MoveZeroes {
                 // [1,3,0,0,12] swapped
             }
         }
+    }
 
+    /**
+     * time complexity: O(n) However, the total number of operations are optimal.
+     * The total operations (array writes) that code does is Number of non-0 elements.
+     * This gives us a much better best-case (when most of the elements are 0) complexity than last solution.
+     * However, the worst-case (when all elements are non-0) complexity for both the algorithms is same.
+     *
+     * space complexity: O(1)
+     * 
+     * @param nums
+     */
+    public void moveZeroesLeetcodeSolution3(int nums[]) {
+        int lastNonZeroFoundAt = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                int temp = nums[i];
+                nums[i] = 0;
+                nums[lastNonZeroFoundAt++] = temp;
+            }
+        }
     }
 }
