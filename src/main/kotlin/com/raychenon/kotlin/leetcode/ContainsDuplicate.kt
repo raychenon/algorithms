@@ -19,4 +19,22 @@ object ContainsDuplicate {
         return false
     }
 
+    /**
+     * time complexity: O(n)
+     * space complexity: O(n)
+     */
+    fun containsDuplicateSet(nums: IntArray): Boolean {
+        val set = mutableSetOf<Int>()
+
+        for (i in 0..nums.size - 1) {
+            if (set.contains(nums.get(i))) {
+                return true
+            } else {
+                set.add(nums.get(i))
+            }
+        }
+        return false
+    }
+
+
 }

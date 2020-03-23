@@ -28,6 +28,7 @@ class ContainsDuplicateTest {
 
     fun assertWithVariousMethods(expected: Boolean, array: IntArray) {
         Assert.assertEquals(expected, ContainsDuplicate.containsDuplicateSort(array))
+        Assert.assertEquals(expected, ContainsDuplicate.containsDuplicateSet(array))
     }
 
 }
