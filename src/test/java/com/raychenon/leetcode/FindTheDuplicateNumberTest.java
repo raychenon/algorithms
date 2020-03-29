@@ -22,13 +22,18 @@ public class FindTheDuplicateNumberTest {
     @Test
     public void example1Test() {
         int[] array = {1, 3, 4, 2, 2};
-        assertEquals(2, instance.findDuplicate(array));
+        assertMethods(2, array);
     }
 
     @Test
     public void example2Test() {
         int[] array = {3, 1, 3, 4, 2};
-        assertEquals(3, instance.findDuplicate(array));
+        assertMethods(3, array);
     }
 
+
+    public void assertMethods(int expectedDuplicate, int[] array) {
+        assertEquals(expectedDuplicate, instance.findDuplicate(array));
+        assertEquals(expectedDuplicate, instance.findDuplicateMemory(array));
+    }
 }

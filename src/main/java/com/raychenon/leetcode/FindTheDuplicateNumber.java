@@ -1,11 +1,35 @@
 package com.raychenon.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * User: raychenon
  * Date: 28/3/2020
  * https://leetcode.com/problems/find-the-duplicate-number/
  */
 public class FindTheDuplicateNumber {
+
+    /**
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     * @param nums
+     * @return
+     */
+    public int findDuplicateMemory(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+
+            if (set.contains(num)) {
+                return num;
+            } else {
+                set.add(num);
+            }
+        }
+
+        return -1;
+    }
+
 
     /**
      * Time complexity: O(n)
