@@ -13,6 +13,7 @@ public class FindTheDuplicateNumber {
     /**
      * Time complexity: O(n)
      * Space complexity: O(n)
+     *
      * @param nums
      * @return
      */
@@ -39,6 +40,9 @@ public class FindTheDuplicateNumber {
      * @return
      */
     public int findDuplicate(int[] nums) {
+        // there must be a duplicate
+        if (nums.length <= 1) return -1;
+
         // find intersection point
         int tortoise = nums[0];
         int hare = nums[0];

@@ -22,6 +22,11 @@ class FindTheDuplicateNumberTest {
         assertMethods(3, array)
     }
 
+    @Test
+    fun exampleNoDuplicateTest() {
+        val array = intArrayOf(0)
+        assertMethods(-1, array)
+    }
 
     fun assertMethods(expectedDuplicate: Int, array: IntArray) {
         TestCase.assertEquals(
@@ -33,6 +38,5 @@ class FindTheDuplicateNumberTest {
             FindTheDuplicateNumber.findDuplicateMemory(array)
         )
     }
-
 
 }

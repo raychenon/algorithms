@@ -1,7 +1,5 @@
 package com.raychenon.kotlin.leetcode
 
-import java.util.*
-
 /**
  * User: raychenon
  * Date: 29/3/2020
@@ -17,12 +15,13 @@ object FindTheDuplicateNumber {
      * @return
      */
     fun findDuplicateMemory(nums: IntArray): Int {
-        val set: MutableSet<Int> = HashSet()
+        // due to Pigeonhole, a Set can be replaced by an array to avoid autoboxing
+        val set = IntArray(nums.size)
         for (num in nums) {
-            if (set.contains(num)) {
+            if (set[num] != 0) {
                 return num
             } else {
-                set.add(num)
+                set[num] = num
             }
         }
         return -1
@@ -34,6 +33,8 @@ object FindTheDuplicateNumber {
      *  Space complexity : O(1)
      */
     fun findDuplicate(nums: IntArray): Int {
+        if (nums.size <= 1) return -1
+
         var tortoise = nums[0]
         var hare = nums[0]
         do {

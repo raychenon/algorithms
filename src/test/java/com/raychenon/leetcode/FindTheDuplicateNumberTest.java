@@ -31,6 +31,11 @@ public class FindTheDuplicateNumberTest {
         assertMethods(3, array);
     }
 
+    @Test
+    public void noDuplicateTest() {
+        int[] array = {3};
+        assertMethods(-1, array);
+    }
 
     public void assertMethods(int expectedDuplicate, int[] array) {
         assertEquals(expectedDuplicate, instance.findDuplicate(array));
