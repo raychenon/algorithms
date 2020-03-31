@@ -3,6 +3,9 @@ from typing import List
 
 
 def findDuplicate(nums: List[int]) -> int:
+    """
+    https://leetcode.com/problems/find-the-duplicate-number
+    """
     numSet = set()
     for num in nums:
         if num in numSet:
