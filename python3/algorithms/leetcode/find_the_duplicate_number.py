@@ -16,9 +16,39 @@ def findDuplicate(nums: List[int]) -> int:
         numSet.add(num)
 
 
+def find_duplicate_floyd(nums: List[int]) -> int:
+    """
+    Floyd's Tortoise and Hare
 
-def assert_methods(expected_result: int, nums: List[int]):
+    constraints of the problem: `nums` contain integer ranged from 1 to n
+    Each number in `nums` will point to an index that exists.
+    The list can eb traversed infinitely => cycle.
+
+    Time complexity : O(n)
+    Space complexity : O(1)
+    """
+    tortoise = nums[0]
+    hare = nums[0]
+    # do while loop Pythonic way
+    while tortoise != hare:
+        tortoise = nums[tortoise]
+        hare = nums[nums[hare]]
+        if tortoise == hare:
+            break
+
+    # find the entrance to the cycle
+    ptr1 = nums[0]
+    ptr2 = tortoise
+    while ptr1 != ptr2:
+        ptr1 = nums[ptr1]
+        ptr2 = nums[ptr2]
+
+    return ptr1
+
+
+def assert_methods(expected_result: int, nums: List[int]) -> None:
     assert findDuplicate(nums) == expected_result
+    assert find_duplicate_floyd(nums) == expected_result
 
 
 if __name__ == "__main__":
