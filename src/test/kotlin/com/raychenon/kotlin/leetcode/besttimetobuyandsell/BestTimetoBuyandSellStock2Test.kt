@@ -46,6 +46,10 @@ class BestTimetoBuyandSellStock2Test {
             BestTimetoBuyandSellStock2.maxProfit(array)
         )
 
+        TestCase.assertEquals(
+            expectedDuplicate,
+            BestTimetoBuyandSellStock2.maxProfitPeakValleyApproach(array)
+        )
     }
 
 }
