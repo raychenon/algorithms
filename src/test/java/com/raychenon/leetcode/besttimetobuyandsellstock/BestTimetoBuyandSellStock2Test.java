@@ -38,9 +38,21 @@ public class BestTimetoBuyandSellStock2Test {
         assertWithVariousMethods(0, nums);
     }
 
+    @Test
+    public void example4Test() {
+        int[] nums = {7, 6, 4, 3, 1, 1, 7, 1, 9};
+        assertWithVariousMethods(14, nums);
+    }
+
+    @Test
+    public void exampleEmptyTest() {
+        int[] nums = {};
+        assertWithVariousMethods(0, nums);
+    }
 
     void assertWithVariousMethods(int expected, int[] array) {
         assertEquals(expected, instance.maxProfit(array));
+        assertEquals(expected, instance.maxProfitPeakValleyApproach(array));
     }
-    
+
 }
