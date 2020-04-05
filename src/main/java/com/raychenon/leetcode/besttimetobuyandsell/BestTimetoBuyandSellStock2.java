@@ -1,4 +1,4 @@
-package com.raychenon.leetcode.besttimetobuyandsellstock;
+package com.raychenon.leetcode.besttimetobuyandsell;
 
 /**
  * User: raychenon
