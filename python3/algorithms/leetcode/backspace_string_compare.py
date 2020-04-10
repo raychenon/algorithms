@@ -1,7 +1,7 @@
 #!/bin/python3
 from typing import List
 
-def backspace_compare(self, S: str, T: str) -> bool:
+def backspace_compare(S: str, T: str) -> bool:
     """
     https://leetcode.com/problems/backspace-string-compare/
     """
