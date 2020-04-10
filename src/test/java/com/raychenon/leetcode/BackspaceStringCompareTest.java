@@ -42,7 +42,7 @@ public class BackspaceStringCompareTest {
 
     @Test
     public void example5Test() {
-        assertMethods("a#c", "#c", false);
+        assertMethods("a#c", "#c", true);
     }
 
     private void assertMethods(String T, String S, boolean expected) {
