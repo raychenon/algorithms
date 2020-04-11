@@ -12,10 +12,11 @@ public class SingleNumber {
     /**
      * Time complexity: O(n)
      * Space complexity: O(1)
+     *
      * @param nums
      * @return
      */
-    public static int singleNumber(int[] nums) {
+    public int singleNumber(int[] nums) {
         int a = 0;
         for (int i : nums) {
             a ^= i;

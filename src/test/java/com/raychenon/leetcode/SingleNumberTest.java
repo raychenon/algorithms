@@ -1,5 +1,6 @@
 package com.raychenon.leetcode;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -11,17 +12,23 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class SingleNumberTest {
 
+    private static SingleNumber singleNumber;
+
+    @BeforeClass
+    public static void setUp() {
+        singleNumber = new SingleNumber();
+    }
+
     @Test
     public void example1Test() {
         int[] array = {2, 2, 1};
-        assertEquals(1, SingleNumber.singleNumber(array));
+        assertEquals(1, singleNumber.singleNumber(array));
     }
 
     @Test
     public void example2Test() {
         int[] array = {4, 1, 2, 1, 2};
-        assertEquals(4, SingleNumber.singleNumber(array));
+        assertEquals(4, singleNumber.singleNumber(array));
     }
-
 
 }
