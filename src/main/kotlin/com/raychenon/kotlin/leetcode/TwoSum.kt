@@ -16,9 +16,7 @@ object TwoSum {
         for (i in 0..nums.size - 1) {
             val complement = target - nums[i]
             if (map.containsKey(complement)) {
-                map.get(complement)?.let {
-                    return intArrayOf(it, i)
-                }
+                return intArrayOf(map.get(complement)!!, i)
             }
             map.put(nums[i], i)
         }
