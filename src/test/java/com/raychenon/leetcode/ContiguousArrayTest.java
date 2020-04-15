@@ -21,12 +21,12 @@ public class ContiguousArrayTest {
 
     @Test
     public void example1Test() {
-        assertEquals(2, instance.findMaxLength(new int[]{0, 1});
+        assertEquals(2, instance.findMaxLength(new int[]{0, 1}));
     }
 
     @Test
     public void example2Test() {
-        assertEquals(2, instance.findMaxLength(new int[]{0, 1, 0});
+        assertEquals(2, instance.findMaxLength(new int[]{0, 1, 0}));
     }
 
 }
