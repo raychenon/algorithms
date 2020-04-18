@@ -19,6 +19,5 @@ class ContiguousArrayTest {
     fun example2Test() {
         TestCase.assertEquals(2, ContiguousArray.findMaxLength(intArrayOf(0, 1, 0)))
     }
-
-
+    
 }
