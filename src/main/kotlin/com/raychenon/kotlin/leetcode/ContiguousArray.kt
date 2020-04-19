@@ -35,16 +35,16 @@ object ContiguousArray {
      * Space complexity: O(n)
      */
     fun findMaxLengthHashMap(nums: IntArray): Int {
-        var map = mutableMapOf<Int, Int>()
-        map.put(0, -1)
+        val map = mutableMapOf<Int, Int>(0 to -1)
         var maxlen = 0
         var count = 0
-        for (i in 0..nums.size - 1) {
-            count = count + if (nums.get(i) == 1) 1 else -1
-            if (map.containsKey(count)) {
-                maxlen = Math.max(maxlen, i - map.get(count)!!)
+        nums.forEachIndexed { i, num ->
+            count = count + if (num == 1) 1 else -1
+            val previousIndex = map.get(count)
+            if (previousIndex == null) {
+                map[count] = i  // faster to run on leetcode than map.put(count,i)
             } else {
-                map.put(count, i)
+                maxlen = Math.max(maxlen, i - map.get(count)!!)
             }
         }
         return maxlen
