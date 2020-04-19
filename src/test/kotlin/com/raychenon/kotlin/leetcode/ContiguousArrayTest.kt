@@ -12,12 +12,17 @@ class ContiguousArrayTest {
 
     @Test
     fun example1Test() {
-        TestCase.assertEquals(2, ContiguousArray.findMaxLength(intArrayOf(0, 1)))
+        assertMethods(2, intArrayOf(0, 1))
     }
 
     @Test
     fun example2Test() {
-        TestCase.assertEquals(2, ContiguousArray.findMaxLength(intArrayOf(0, 1, 0)))
+        assertMethods(2, intArrayOf(0, 1, 0))
     }
-    
+
+    fun assertMethods(expected: Int, nums: IntArray) {
+        TestCase.assertEquals(expected, ContiguousArray.findMaxLength(nums))
+        TestCase.assertEquals(expected, ContiguousArray.findMaxLengthBruteForce(nums))
+    }
+
 }
