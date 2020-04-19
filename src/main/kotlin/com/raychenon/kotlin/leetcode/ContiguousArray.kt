@@ -32,10 +32,30 @@ object ContiguousArray {
 
     /**
      * Time complexity: O(n)
+     * Space complexity: O(n)
+     */
+    fun findMaxLengthHashMap(nums: IntArray): Int {
+        var map = mutableMapOf<Int, Int>()
+        map.put(0, -1)
+        var maxlen = 0
+        var count = 0
+        for (i in 0..nums.size - 1) {
+            count = count + if (nums.get(i) == 1) 1 else -1
+            if (map.containsKey(count)) {
+                maxlen = Math.max(maxlen, i - map.get(count)!!)
+            } else {
+                map.put(count, i)
+            }
+        }
+        return maxlen
+    }
+
+    /**
+     * Time complexity: O(n)
      * Time complexity: O(n)
      *
      */
-    fun findMaxLength(nums: IntArray): Int {
+    fun findMaxLengthExtraArray(nums: IntArray): Int {
         val arr = IntArray(2 * nums.size + 1)
         Arrays.fill(arr, -2)
         arr[nums.size] = -1

@@ -36,7 +36,8 @@ class ContiguousArrayTest {
     }
 
     fun assertMethods(expected: Int, nums: IntArray) {
-        TestCase.assertEquals(expected, ContiguousArray.findMaxLength(nums))
+        TestCase.assertEquals(expected, ContiguousArray.findMaxLengthExtraArray(nums))
+        TestCase.assertEquals(expected, ContiguousArray.findMaxLengthHashMap(nums))
         TestCase.assertEquals(expected, ContiguousArray.findMaxLengthBruteForce(nums))
     }
 
