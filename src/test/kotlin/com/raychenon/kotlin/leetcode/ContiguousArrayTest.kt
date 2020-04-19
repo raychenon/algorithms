@@ -35,10 +35,15 @@ class ContiguousArrayTest {
         assertMethods(8, intArrayOf(1, 1, 1, 1, 0, 0, 0, 0, 0))
     }
 
+    @Test
+    fun symmetricalMTest() {
+        assertMethods(6, intArrayOf(0, 0, 1, 0, 0, 0, 1, 1))
+    }
+
     fun assertMethods(expected: Int, nums: IntArray) {
         TestCase.assertEquals(expected, ContiguousArray.findMaxLengthExtraArray(nums))
-        TestCase.assertEquals(expected, ContiguousArray.findMaxLengthHashMap(nums))
         TestCase.assertEquals(expected, ContiguousArray.findMaxLengthBruteForce(nums))
+        TestCase.assertEquals(expected, ContiguousArray.findMaxLengthHashMap(nums))
     }
 
 }
