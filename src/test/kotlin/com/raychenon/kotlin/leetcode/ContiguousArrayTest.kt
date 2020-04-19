@@ -20,6 +20,21 @@ class ContiguousArrayTest {
         assertMethods(2, intArrayOf(0, 1, 0))
     }
 
+    @Test
+    fun example3Test() {
+        assertMethods(6, intArrayOf(0, 1, 0, 1, 0, 1))
+    }
+
+    @Test
+    fun symmetricalTest() {
+        assertMethods(6, intArrayOf(0, 0, 0, 1, 1, 1))
+    }
+
+    @Test
+    fun symmetricalInvertedTest() {
+        assertMethods(8, intArrayOf(1, 1, 1, 1, 0, 0, 0, 0, 0))
+    }
+
     fun assertMethods(expected: Int, nums: IntArray) {
         TestCase.assertEquals(expected, ContiguousArray.findMaxLength(nums))
         TestCase.assertEquals(expected, ContiguousArray.findMaxLengthBruteForce(nums))
