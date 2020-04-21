@@ -26,7 +26,7 @@ public class MinimumPathSumTest {
     }
 
     private void assertMinimumPathSumMethods(int expected, int[][] input) {
-        assertEquals(expected, instance.minPathSum(input));
+        assertEquals(expected, instance.minPathSumBruteForce(input));
     }
 
 }
