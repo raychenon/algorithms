@@ -31,6 +31,13 @@ public class MinimumPathSum {
     }
 
 
+    /**
+     * Time complexity: O(m * n)
+     * Space complexity: O(m * n)
+     *
+     * @param grid
+     * @return
+     */
     public int minPathSumDP(int[][] grid) {
         int nbRows = grid.length;
         int nbCols = grid[0].length;
