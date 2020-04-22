@@ -16,8 +16,8 @@ object MinimumPathSum {
         val H = grid[0].size
         val dp = Array(W) { IntArray(H) }
 
-        for (i in 0..W - 1) {
-            for (j in 0..H - 1) {
+        for (i in 0 until W) {
+            for (j in 0 until H) {
                 dp[i][j] = grid[i][j]
                 if (i > 0 && j > 0) {
                     dp[i][j] += Math.min(dp[i - 1][j], dp[i][j - 1])
