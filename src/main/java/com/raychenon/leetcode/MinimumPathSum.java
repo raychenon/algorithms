@@ -76,17 +76,19 @@ public class MinimumPathSum {
 
         for (int i = nbRows; i >= 0; i--) {
             for (int j = nbCols; j >= 0; j--) {
-                grid[i][j] = grid[i][j];
-                if (i == nbRows && j != nbCols) {
-                    grid[i][j] += grid[i][j + 1];
-                } else if (i != nbRows && j == nbCols) {
-                    grid[i][j] += grid[i + 1][j];
-                } else if (i != nbCols && j != nbCols) {
-                    grid[i][j] += Math.min(grid[i + 1][j], grid[i][j + 1]);
-                }
+                // cannot just += to current values because it is reused
+                //        | x1 |
+                //     x2 | xnn|
+                //
+                // where  x1 = x1 + xnn ,  x2 = x2 + xnn
+                if (i == nbRows && j != nbCols)
+                    grid[i][j] = grid[i][j] + grid[i][j + 1];
+                else if (j == nbCols && i != nbRows)
+                    grid[i][j] = grid[i][j] + grid[i + 1][j];
+                else if (j != nbCols && i != nbRows)
+                    grid[i][j] = grid[i][j] + Math.min(grid[i + 1][j], grid[i][j + 1]);
             }
         }
-
         return grid[0][0];
     }
 
