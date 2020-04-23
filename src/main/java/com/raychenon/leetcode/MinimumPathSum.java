@@ -34,6 +34,12 @@ public class MinimumPathSum {
     /**
      * Find the optimal path from top left to bottom right
      * <p>
+     * x00 | x1 |
+     * x2  |    |
+     * <p>
+     * where x1 = x1 + x00 , x2 = x2 + x00
+     *
+     * <p>
      * Time complexity: O(m * n)
      * Space complexity: O(m * n)
      *
@@ -63,6 +69,11 @@ public class MinimumPathSum {
 
     /**
      * Find the optimal path from arrival (bottom right) to start point(top left)
+     * // cannot just += to current values because it is reused
+     * //        | x1 |
+     * //     x2 | xnn|
+     * //
+     * // where  x1 = x1 + xnn ,  x2 = x2 + xnn
      * <p>
      * Time complexity: O(m * n)
      * Space complexity: O(1)
@@ -76,11 +87,7 @@ public class MinimumPathSum {
 
         for (int i = nbRows; i >= 0; i--) {
             for (int j = nbCols; j >= 0; j--) {
-                // cannot just += to current values because it is reused
-                //        | x1 |
-                //     x2 | xnn|
-                //
-                // where  x1 = x1 + xnn ,  x2 = x2 + xnn
+
                 if (i == nbRows && j != nbCols)
                     grid[i][j] = grid[i][j] + grid[i][j + 1];
                 else if (j == nbCols && i != nbRows)
