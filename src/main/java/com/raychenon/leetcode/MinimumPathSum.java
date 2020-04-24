@@ -100,24 +100,29 @@ public class MinimumPathSum {
     }
 
 
+    /**
+     * Time complexity: O(m * n)
+     * Space complexity: O(n)  array of row size
+     *
+     * @param grid
+     * @return
+     */
     public int minPathSumDPOneArraySpace(int[][] grid) {
-        int nbRows = grid.length;
-        int nbCols = grid[0].length;
-        int[] dp = new int[nbCols];
+        int[] dp = new int[grid[0].length];
 
-        for (int i = 0; i < nbRows; i++) {
-            for (int j = 0; j < nbCols; j++) {
-                dp[i] = grid[i][j];
-                if (i > 0 && j > 0) {
-                    dp[j] += Math.min(dp[j], dp[j - 1]);
-                } else if (i > 0) {
+        for (int i = grid.length - 1; i >= 0; i--) {
+            for (int j = grid[0].length - 1; i >= 0; j--) {
+                if (i == grid.length - 1 && j != grid[0].length - 1) {
+                    dp[j] = grid[i][j] + dp[j + 1];
+                } else if (j == grid[0].length - 1 && i != grid.length - 1) {
                     dp[j] = grid[i][j] + dp[j];
-                } else if (j > 0) {
-                    dp[j] += dp[j - 1];
+                } else if (j != grid[0].length - 1 && i != grid.length - 1) {
+                    dp[j] = grid[i][j] + dp[j] + Math.min(dp[j], dp[j + 1]);
+                } else {
+                    dp[j] = grid[i][j];
                 }
             }
         }
-
-        return dp[nbRows - 1];
+        return dp[0];
     }
 }
