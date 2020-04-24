@@ -45,6 +45,7 @@ public class MinimumPathSumTest {
         assertEquals(expected, instance.minPathSumDP(input));
         assertEquals(expected, instance.minPathSumBruteForce(input));
         assertEquals(expected, instance.minPathSumDPOneArraySpace(input));
+        assertEquals(expected, instance.minPathSumDPLinearSpace(input));
         assertEquals(expected, instance.minPathSumDPWithoutExtraSpace(input.clone()));
     }
 

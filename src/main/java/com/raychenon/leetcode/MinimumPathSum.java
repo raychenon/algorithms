@@ -101,6 +101,8 @@ public class MinimumPathSum {
 
 
     /**
+     * Find the optimal path from arrival (bottom right) to start point(top left)
+     * <p>
      * Time complexity: O(m * n)
      * Space complexity: O(n)  array of row size
      *
@@ -124,5 +126,25 @@ public class MinimumPathSum {
             }
         }
         return dp[0];
+    }
+
+    /**
+     * From Top Left to Bottom Right
+     *
+     * @param grid
+     * @return
+     */
+    public int minPathSumDPLinearSpace(int[][] grid) {
+        int width = grid[0].length;
+        int[] dp = new int[width];
+        for (int i = 1; i < width; i++) dp[i] = Integer.MAX_VALUE;
+
+        for (int[] r : grid) {
+            for (int i = 0; i < width; i++) {
+                if (i == 0) dp[i] += r[i];
+                else dp[i] = r[i] + Math.min(dp[i], dp[i - 1]);
+            }
+        }
+        return dp[width - 1];
     }
 }
