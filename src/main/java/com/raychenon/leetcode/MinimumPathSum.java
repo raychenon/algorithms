@@ -92,7 +92,7 @@ public class MinimumPathSum {
                     grid[i][j] = grid[i][j] + grid[i][j + 1];
                 else if (j == nbCols && i != nbRows)
                     grid[i][j] = grid[i][j] + grid[i + 1][j];
-                else if (!(j == nbCols || i == nbRows))    // De Morgan's laws (j != nbCols && i != nbRows)
+                else if (j != nbCols && i != nbRows)   // TODO codecov.io yellow (partially run)
                     grid[i][j] = grid[i][j] + Math.min(grid[i + 1][j], grid[i][j + 1]);
             }
         }
@@ -118,7 +118,7 @@ public class MinimumPathSum {
                     dp[j] = grid[i][j] + dp[j + 1];
                 } else if (j == grid[0].length - 1 && i != grid.length - 1) {
                     dp[j] = grid[i][j] + dp[j];
-                } else if ((j != grid[0].length - 1) && (i != grid.length - 1)) {
+                } else if (j != grid[0].length - 1 && i != grid.length - 1) {   // TODO codecov.io yellow (partially run)
                     dp[j] = grid[i][j] + Math.min(dp[j], dp[j + 1]);
                 } else {
                     dp[j] = grid[i][j];
