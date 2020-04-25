@@ -42,6 +42,7 @@ public class BitwiseANDofNumbersRangeTest {
 
     void assertBitwiseANDWithVariousMethods(int m, int n, int expected) {
         assertEquals(expected, instance.rangeBitwiseAnd(m, n));
+        assertEquals(expected, instance.rangeBitwiseAndBruteForce(m, n));
     }
 
 

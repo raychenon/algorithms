@@ -7,6 +7,15 @@ package com.raychenon.leetcode;
  */
 public class BitwiseANDofNumbersRange {
 
+    public int rangeBitwiseAndBruteForce(int m, int n) {
+        int res = m;
+        for (int i = m + 1; i <= n; i++) {
+            res = res & i;
+        }
+        return res;
+    }
+
+
     public int rangeBitwiseAnd(int m, int n) {
         if (getMSBposition(n) != getMSBposition(m)) return 0;
 
