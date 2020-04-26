@@ -10,6 +10,16 @@ package com.raychenon.leetcode;
  */
 public class BitwiseANDofNumbersRange {
 
+    /**
+     * 1 right shift both numbers to the right to get their common prefix (most significant bit)
+     * 2 left shift by the number of common prefix
+     * Time Complexity: O(1), the number of iterations is bounded by the number of bits that an integer has, which is fixed
+     * Space Complexity: O(1)
+     *
+     * @param m
+     * @param n
+     * @return
+     */
     public int rangeBitwiseAndShift(int m, int n) {
         int shift = 0;
         while (m < n) {
@@ -18,6 +28,22 @@ public class BitwiseANDofNumbersRange {
             shift++;
         }
         return m << shift;
+    }
+
+    /**
+     * Brian Kernighan's Algorithm : n AND (n-1), the rightmost bit is 0
+     * Time Complexity: O(1), the number of iterations is bounded by the number of bits that an integer has, which is fixed
+     * Space Complexity: O(1)
+     *
+     * @param m
+     * @param n
+     * @return the bitwise AND of all numbers in this range, inclusive
+     */
+    public int rangeBitwiseAndKernighan(int m, int n) {
+        while (m < n) {
+            n = n & (n - 1);
+        }
+        return m & n;
     }
 
 

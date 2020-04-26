@@ -30,6 +30,12 @@ public class BitwiseANDofNumbersRangeTest {
     }
 
     @Test
+    public void and3Test() {
+        assertBitwiseANDWithVariousMethods(9, 12, 8);
+    }
+
+
+    @Test
     public void ANbigRangeTest() {
         assertBitwiseANDWithVariousMethods(0, 2147483647, 0);
     }
@@ -39,11 +45,10 @@ public class BitwiseANDofNumbersRangeTest {
         assertBitwiseANDWithVariousMethods(2147483646, 2147483647, 2147483646);
     }
 
-
     void assertBitwiseANDWithVariousMethods(int m, int n, int expected) {
         assertEquals(expected, instance.rangeBitwiseAnd(m, n));
         assertEquals(expected, instance.rangeBitwiseAndShift(m, n));
+        assertEquals(expected, instance.rangeBitwiseAndKernighan(m, n));
     }
-
 
 }
