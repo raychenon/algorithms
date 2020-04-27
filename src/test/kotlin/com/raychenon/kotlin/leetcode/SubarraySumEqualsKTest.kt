@@ -29,5 +29,8 @@ class SubarraySumEqualsKTest {
         TestCase.assertEquals(
             expected, SubarraySumEqualsK.subarraySumBruteForce(nums, k)
         )
+        TestCase.assertEquals(
+            expected, SubarraySumEqualsK.subarraySumDP(nums, k)
+        )
     }
 }
