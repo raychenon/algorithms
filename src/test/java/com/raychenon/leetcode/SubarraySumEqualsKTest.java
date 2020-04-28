@@ -36,6 +36,7 @@ public class SubarraySumEqualsKTest {
 
     void evaluateMethods(int expected, int[] nums, int k) {
         assertEquals(expected, subarraySumEqualsK.subarraySumBruteForce(nums, k));
+        assertEquals(expected, subarraySumEqualsK.subarraySumDP(nums, k));
     }
 
 }

@@ -25,6 +25,11 @@ class SubarraySumEqualsKTest {
         evaluateMethods(2, intArrayOf(1, -2, 3, 1, 2, -3, 1), -1)
     }
 
+    @Test
+    fun only1SubarrayFoundTest() {
+        evaluateMethods(1, intArrayOf(1, 2, 1, 3, 4, 5, 9), 6)
+    }
+
     fun evaluateMethods(expected: Int, nums: IntArray, k: Int) {
         TestCase.assertEquals(
             expected, SubarraySumEqualsK.subarraySumBruteForce(nums, k)
