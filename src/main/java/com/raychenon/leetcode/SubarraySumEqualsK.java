@@ -37,6 +37,13 @@ public class SubarraySumEqualsK {
     /**
      * Time complexity: O(n)
      * Space complexity: O(n)
+     * <p>
+     * Explanations:
+     * <p>
+     * -   [1, 2, 1, 3, 4, 5, 9]
+     * -       j     i
+     * <p>
+     * k = sum[i] - sum[j] , where sum[i] is the cumulative sum from index 0 to index i.
      *
      * @param nums
      * @param k

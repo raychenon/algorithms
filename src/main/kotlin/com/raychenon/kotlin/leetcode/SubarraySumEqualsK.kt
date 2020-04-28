@@ -34,11 +34,9 @@ object SubarraySumEqualsK {
      * Calculate the cumulative sum and stores the sum frequency in a Map
      * ex:
      *  [1,2,1,3,4,5,9] , k = 6
-     *     i   j   , the subarray sum between i and j = sum[j] - sum[i]
+     *     j   i   , the subarray sum between i and j = sum[i] - sum[j] = K
      *
      */
-    //  [1,2,1,3,4,5,9] , k = 6
-    //     i   j   , the subarray sum between i and j = sum[j] - sum[i]
     fun subarraySumDP(nums: IntArray, k: Int): Int {
         var nb = 0
         var sum = 0 // cumulative sum
