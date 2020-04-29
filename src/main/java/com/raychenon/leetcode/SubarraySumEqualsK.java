@@ -53,7 +53,10 @@ public class SubarraySumEqualsK {
         int nbSubArray = 0;
         int cumulSum = 0;
         Map<Integer, Integer> map = new HashMap();
+
+        // IMPORTANT whenever prefix sum problems, always initialize that auxiliary data structure(a dict in this case) as {0:1}
         map.put(0, 1);
+
         for (int n : nums) {
             cumulSum += n;
             if (map.containsKey(cumulSum - k)) {
