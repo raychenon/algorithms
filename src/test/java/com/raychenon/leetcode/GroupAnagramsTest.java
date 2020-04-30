@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static junit.framework.TestCase.assertEquals;
+
 
 /**
  * User: raychenon
@@ -27,11 +29,12 @@ public class GroupAnagramsTest {
         List<List<String>> expectedResult = Arrays.asList(Arrays.asList("bat"), Arrays.asList("nat", "tan"), Arrays.asList("ate", "eat", "tea"));
         List<List<String>> result = groupAnagrams.groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
 
+        assertEquals(expectedResult.size(), result.size());
         // to test the equality without order, assert that all elements are contained in a list and vice versa
-        Assert.assertTrue(expectedResult.get(0).containsAll(result.get(0)));
-        Assert.assertTrue(result.get(0).containsAll(expectedResult.get(0)));
-
-        Assert.assertTrue(result.get(1).containsAll(expectedResult.get(1)));
+        for (int i = 0; i < result.size(); i++) {
+            Assert.assertTrue(expectedResult.get(i).containsAll(result.get(i)));
+            Assert.assertTrue(result.get(i).containsAll(expectedResult.get(i)));
+        }
     }
 
     @Test
