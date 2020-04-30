@@ -30,7 +30,8 @@ public class GroupAnagramsTest {
         List<List<String>> result = groupAnagrams.groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
 
         assertEquals(expectedResult.size(), result.size());
-        // to test the equality without order, assert that all elements are contained in a list and vice versa
+        // to test the equality without order,
+        // assert that all elements are contained in the compared list and vice versa
         for (int i = 0; i < result.size(); i++) {
             Assert.assertTrue(expectedResult.get(i).containsAll(result.get(i)));
             Assert.assertTrue(result.get(i).containsAll(expectedResult.get(i)));
@@ -43,5 +44,26 @@ public class GroupAnagramsTest {
         List<List<String>> expectedResult = Arrays.asList(Arrays.asList("eat", "tea", "ate"), Arrays.asList("bat"));
 
         Assert.assertTrue(expectedResult.containsAll(result));
+    }
+
+
+    @Test
+    public void groupLongerAnagramsTest() {
+        List<List<String>> expectedResult = Arrays.asList(
+                Arrays.asList("tensor", "toners"),
+                Arrays.asList("edits", "diets"),
+                Arrays.asList("assert", "stares")
+        );
+
+        List<List<String>> result = groupAnagrams.groupAnagrams(
+                new String[]{"assert", "tensor", "toners", "stares", "diets", "edits"});
+
+        assertEquals(expectedResult.size(), result.size());
+        // to test the equality without order,
+        // assert that all elements are contained in the compared list and vice versa
+        for (int i = 0; i < result.size(); i++) {
+            Assert.assertTrue(expectedResult.get(i).containsAll(result.get(i)));
+            Assert.assertTrue(result.get(i).containsAll(expectedResult.get(i)));
+        }
     }
 }
