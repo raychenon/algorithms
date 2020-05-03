@@ -15,6 +15,7 @@ public class RansomNoteChar {
      * Are all char in "ransomNote: contained in "magazine"?
      * Time complexity: O(n)
      * Space complexity: O(M)
+     *
      * @param ransomNote
      * @param magazine
      * @return
@@ -35,6 +36,19 @@ public class RansomNoteChar {
                 return false;
             }
         }
+        return true;
+    }
+
+    public boolean canConstructArray(String ransomNote, String magazine) {
+        int[] chars = new int[]{26}; // 26 letters in alphabet
+        
+        for (Character c : ransomNote.toCharArray()) {
+            int index = magazine.indexOf(c, chars[c - 'a']);
+            if (index == -1)    // not found
+                return false;
+            chars[c - 'a'] = index + 1;
+        }
+
         return true;
     }
 

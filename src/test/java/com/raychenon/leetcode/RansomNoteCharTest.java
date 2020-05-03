@@ -21,16 +21,22 @@ public class RansomNoteCharTest {
 
     @Test
     public void test1() {
-        assertEquals(false, instance.canConstruct("a", "b"));
+        compareCanConstructRansomMethods(false, "a", "b");
     }
 
     @Test
     public void test2() {
-        assertEquals(false, instance.canConstruct("aa", "ab"));
+        compareCanConstructRansomMethods(false, "aa", "ab");
     }
 
     @Test
     public void test3() {
-        assertEquals(true, instance.canConstruct("aa", "aab"));
+        compareCanConstructRansomMethods(true, "aa", "aab");
     }
+
+    public void compareCanConstructRansomMethods(boolean expected, String ransom, String magazine) {
+        assertEquals(expected, instance.canConstruct(ransom, magazine));
+        assertEquals(expected, instance.canConstructArray(ransom, magazine));
+    }
+
 }
