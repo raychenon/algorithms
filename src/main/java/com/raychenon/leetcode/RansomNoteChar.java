@@ -49,7 +49,6 @@ public class RansomNoteChar {
      * @return
      */
     public boolean canConstructArray(String ransomNote, String magazine) {
-        if (magazine.length() < ransomNote.length()) return false;
 
         int ransomChars[] = new int[26];  // 26 letters in alphabet
         for (char c : ransomNote.toCharArray()) {
