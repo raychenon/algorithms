@@ -12,16 +12,21 @@ class RansomNoteCharTest {
 
     @Test
     fun testRansom1() {
-        Assert.assertEquals(false, RansomNoteChar.canConstruct("a", "b"))
+        assertRansomConstructMethods(false, "a", "b")
     }
 
     @Test
     fun testRansom2() {
-        Assert.assertEquals(false, RansomNoteChar.canConstruct("aa", "ab"))
+        assertRansomConstructMethods(false, "aa", "ab")
     }
 
     @Test
     fun testRansom3() {
-        Assert.assertEquals(true, RansomNoteChar.canConstruct("aa", "aab"))
+        assertRansomConstructMethods(true, "aa", "aab")
+    }
+
+    fun assertRansomConstructMethods(expected: Boolean, ransom: String, magazine: String): Unit {
+        Assert.assertEquals(expected, RansomNoteChar.canConstruct(ransom, magazine))
+        Assert.assertEquals(expected, RansomNoteChar.canConstructArray(ransom, magazine))
     }
 }

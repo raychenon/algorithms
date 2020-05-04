@@ -32,4 +32,22 @@ object RansomNoteChar {
         }
         return true
     }
+
+    /**
+     * Time complexity: O(R*M) ~ O(n)
+     * Space complexity: O(1), the array is constant size
+     *
+     */
+    fun canConstructArray(ransomNote: String, magazine: String): Boolean {
+        val ransomChars = IntArray(26) // 26 letters in alphabet
+        for (c in ransomNote.toCharArray()) {
+            // m.indexOf(n) run time is O(m*n). It depends on teh string length
+            val index = magazine.indexOf(c, ransomChars[c - 'a'])
+            if (index == -1) // not found
+                return false
+            // 'a' ASCII is 97
+            ransomChars[c - 'a'] = index + 1
+        }
+        return true
+    }
 }
