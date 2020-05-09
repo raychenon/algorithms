@@ -11,6 +11,7 @@ import static junit.framework.TestCase.assertEquals;
  * https://leetcode.com/problems/longest-common-subsequence/
  */
 public class LongestCommonSubsequenceTest {
+
     private static LongestCommonSubsequence instance;
 
     @BeforeClass
@@ -33,7 +34,7 @@ public class LongestCommonSubsequenceTest {
         assertLongestCommonSubsequenceMethods(0, "abc", "def");
     }
 
-    void assertLongestCommonSubsequenceMethods(int expected, String text1, String text2) {
-        assertEquals(expected, instance.longestCommonSubsequence(text1, text2));
+    private void assertLongestCommonSubsequenceMethods(int expected, String text1, String text2) {
+        assertEquals(expected, instance.longestCommonSubsequenceDP(text1, text2));
     }
 }
