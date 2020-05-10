@@ -28,6 +28,46 @@ public class LongestCommonSubsequence {
     }
 
 
+    /**
+     * Dynamic programming with reverse grid
+     *
+     * Time complexity : O(M⋅N)
+     * Space complexity : O(M⋅N)
+     *
+     * @param text1
+     * @param text2
+     * @return
+     */
+    public int longestCommonSubsequenceDPreverse(String text1, String text2) {
+
+        // make a grid with columns +1 and rows + 1
+        int[][] dp = new int[text1.length() + 1][text2.length() + 1];
+        for (int col = text2.length() - 1; col >= 0; col--) {
+            for (int row = text1.length() - 1; row >= 0; row--) {
+
+                /**
+                 * 2 cases
+                 * - The first letter of each string is the same, remove the first letter from each, and add 1.
+                 *  Add diagonal immediately down and right + 1
+                 * - The first letter of each string is different,
+                 *  1) remove the first letter off the first word,
+                 *  2) remove the first letter off the second word,
+                 *  grid[row][col] = max(grid[row + 1][col], grid[row][col + 1])
+                 */
+                // If the corresponding characters for this cell are the same...
+                if (text1.charAt(row) == text2.charAt(col)) {
+                    dp[row][col] = 1 + dp[row + 1][col + 1];
+                } else {
+                    dp[row][col] = Math.max(dp[row+1][col],dp[row][col+1]);
+                }
+            }
+        }
+
+        // The original problem's answer is in dp_grid[0][0]
+        return dp[0][0];
+    }
+
+
     private final static int INIT_VALUE = -1;
 
     /**
