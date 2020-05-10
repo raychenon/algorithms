@@ -26,4 +26,45 @@ public class LongestCommonSubsequence {
 
         return dp[l1][l2];
     }
+
+
+    private final static int INIT_VALUE = -1;
+
+    /**
+     * Memoization and recursive
+     * Time complexity : O(M⋅N)
+     * Space complexity : O(M⋅N)
+     *
+     * @param text1
+     * @param text2
+     * @return
+     */
+    public int longestCommonSubsequenceRecursive(String text1, String text2) {
+        int[][] memo = new int[text1.length() + 1][text2.length() + 1];
+
+        // init 2D array to INIT_VALUE1 different than 0.
+        // Because 0 can be a value for LongestCommonSubsequence (LCS)
+        for (int i = 0; i < text1.length(); i++) {
+            for (int j = 0; j < text2.length(); j++) {
+                memo[i][j] = INIT_VALUE;
+            }
+        }
+
+        return memoSolve(memo, text1, text2, 0, 0);
+    }
+
+    private int memoSolve(int[][] memo, String text1, String text2, int p1, int p2) {
+        if (memo[p1][p2] != INIT_VALUE) return memo[p1][p2];  // already filled
+
+        int answer = 0;
+        if (text1.charAt(p1) == text2.charAt(p2)) {
+            answer = 1 + memoSolve(memo, text1, text2, p1 + 1, p2 + 1);
+        } else {
+            answer = Math.max(memoSolve(memo, text1, text2, p1, p2 + 1),
+                    memoSolve(memo, text1, text2, p1 + 1, p2));
+        }
+
+        memo[p1][p2] = answer;
+        return answer;
+    }
 }
