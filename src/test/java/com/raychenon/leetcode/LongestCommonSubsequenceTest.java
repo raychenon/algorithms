@@ -37,6 +37,17 @@ public class LongestCommonSubsequenceTest {
         assertLongestCommonSubsequenceMethods(0, "abc", "def");
     }
 
+    @Test
+    public void exampleDNA1Test() {
+        // The longest common subsequence is "ttg"
+        assertLongestCommonSubsequenceMethods(3, "gtgatcg", "attag");
+    }
+
+    @Test
+    public void exampleDNA2Test() {
+        assertLongestCommonSubsequenceMethods(5, "actgattag", "gtgtgatcg");
+    }
+
     private void assertLongestCommonSubsequenceMethods(int expected, String text1, String text2) {
         assertEquals(expected, instance.longestCommonSubsequenceDP(text1, text2));
         assertEquals(expected, instance.longestCommonSubsequenceDPreverse(text1, text2));
