@@ -40,7 +40,7 @@ public class LongestCommonSubsequenceTest {
     @Test
     public void exampleDNA1Test() {
         // The longest common subsequence is "ttg"
-        assertLongestCommonSubsequenceMethods(3, "gtgatcg", "attag");
+        assertLongestCommonSubsequenceMethods(3, "ttag", "gtgatcg");
     }
 
     @Test
