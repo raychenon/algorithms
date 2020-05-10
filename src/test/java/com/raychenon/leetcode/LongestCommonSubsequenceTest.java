@@ -37,6 +37,7 @@ public class LongestCommonSubsequenceTest {
     private void assertLongestCommonSubsequenceMethods(int expected, String text1, String text2) {
         assertEquals(expected, instance.longestCommonSubsequenceDP(text1, text2));
         assertEquals(expected, instance.longestCommonSubsequenceDPreverse(text1, text2));
+        assertEquals(expected, instance.longestCommonSubsequenceDPSpaceOptimized(text1, text2));
         assertEquals(expected, instance.longestCommonSubsequenceRecursive(text1, text2));
     }
 }

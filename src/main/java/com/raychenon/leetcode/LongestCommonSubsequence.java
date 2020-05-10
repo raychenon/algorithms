@@ -29,8 +29,41 @@ public class LongestCommonSubsequence {
 
 
     /**
-     * Dynamic programming with reverse grid
+     * same as {@link #longestCommonSubsequenceDPreverse} with optimized memory.
+     * The trick is to save only the last 2 columns
+     * Time complexity : O(M⋅N)
+     * Space complexity : O(min(M⋅N))
      *
+     * @param text1
+     * @param text2
+     * @return
+     */
+    public int longestCommonSubsequenceDPSpaceOptimized(String text1, String text2) {
+        // swap with the shortest
+        if (text2.length() > text1.length()) {
+            String temp = text1;
+            text1 = text2;
+            text2 = temp;
+        }
+
+        int[] dpPrevious = new int[text1.length() + 1];
+        for (int col = text2.length() - 1; col >= 0; col--) {
+            int[] dpCurrent = new int[text1.length() + 1];
+            for (int row = text1.length() - 1; row >= 0; row--) {
+                if (text1.charAt(row) == text2.charAt(col)) {
+                    dpCurrent[row] = 1 + dpPrevious[row + 1];
+                } else {
+                    dpCurrent[row] = Math.max(dpPrevious[row], dpCurrent[row + 1]);
+                }
+                dpPrevious = dpCurrent;
+            }
+        }
+        return dpPrevious[0];
+    }
+
+    /**
+     * Dynamic programming with reverse grid
+     * <p>
      * Time complexity : O(M⋅N)
      * Space complexity : O(M⋅N)
      *
@@ -58,7 +91,7 @@ public class LongestCommonSubsequence {
                 if (text1.charAt(row) == text2.charAt(col)) {
                     dp[row][col] = 1 + dp[row + 1][col + 1];
                 } else {
-                    dp[row][col] = Math.max(dp[row+1][col],dp[row][col+1]);
+                    dp[row][col] = Math.max(dp[row + 1][col], dp[row][col + 1]);
                 }
             }
         }
