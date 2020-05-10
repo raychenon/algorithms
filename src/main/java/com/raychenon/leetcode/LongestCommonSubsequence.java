@@ -30,7 +30,8 @@ public class LongestCommonSubsequence {
 
     /**
      * same as {@link #longestCommonSubsequenceDPreverse} with optimized memory.
-     * The trick is to save only the last 2 columns
+     * The trick is to save only the last 2 columns.
+     * <p>
      * Time complexity : O(M⋅N)
      * Space complexity : O(min(M⋅N))
      *
@@ -47,6 +48,7 @@ public class LongestCommonSubsequence {
         }
 
         int[] dpPrevious = new int[text1.length() + 1];
+
         for (int col = text2.length() - 1; col >= 0; col--) {
             int[] dpCurrent = new int[text1.length() + 1];
             for (int row = text1.length() - 1; row >= 0; row--) {
@@ -55,9 +57,10 @@ public class LongestCommonSubsequence {
                 } else {
                     dpCurrent[row] = Math.max(dpPrevious[row], dpCurrent[row + 1]);
                 }
-                dpPrevious = dpCurrent;
             }
+            dpPrevious = dpCurrent;
         }
+
         return dpPrevious[0];
     }
 

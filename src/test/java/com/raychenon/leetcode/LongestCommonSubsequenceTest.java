@@ -21,16 +21,19 @@ public class LongestCommonSubsequenceTest {
 
     @Test
     public void example1Test() {
+        //  The longest common subsequence is "ace"
         assertLongestCommonSubsequenceMethods(3, "abcde", "ace");
     }
 
     @Test
     public void example2Test() {
+        // The longest common subsequence is "abc"
         assertLongestCommonSubsequenceMethods(3, "abc", "abc");
     }
 
     @Test
     public void example3Test() {
+        // There is no such common subsequence,
         assertLongestCommonSubsequenceMethods(0, "abc", "def");
     }
 
