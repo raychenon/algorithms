@@ -47,6 +47,7 @@ class LongestCommonSubsequenceTest {
         debug: Boolean = false
     ) {
         TestCase.assertEquals(expected, LongestCommonSubsequence.longestCommonSubsequenceDP(text1, text2, debug))
+        TestCase.assertEquals(expected, LongestCommonSubsequence.longestCommonSubsequenceDP1Darray(text1, text2, debug))
         TestCase.assertEquals(expected, LongestCommonSubsequence.longestCommonSubsequenceDPreverse(text1, text2))
     }
 }

@@ -11,6 +11,38 @@ package com.raychenon.kotlin.leetcode
 object LongestCommonSubsequence {
 
     /**
+     * Dynamic programming with 1D array
+     *
+     * Time complexity : O(M⋅N)
+     * Space complexity : O(N)
+     */
+    fun longestCommonSubsequenceDP1Darray(text1: String, text2: String, displayArray: Boolean = false): Int {
+        val nbCol = text1.length
+        val nbRow = text2.length
+        val memo = IntArray(nbRow + 1)
+
+        for (i in 1..nbCol) {
+            var prev = 0
+            for (j in 1..nbRow) {
+                var temp = memo[j]
+                if (text1[i - 1] == text2[j - 1]) {
+                    memo[j] = prev + 1
+                } else {
+                    memo[j] = Math.max(memo[j], memo[j - 1])
+                }
+                prev = temp
+            }
+            // debug
+            if (displayArray) {
+                displayArray(memo)
+            }
+            // debug
+        }
+
+        return memo[nbRow]
+    }
+
+    /**
      * Dynamic programming with 2D array
      *
      * Time complexity : O(M⋅N)
@@ -56,11 +88,16 @@ object LongestCommonSubsequence {
 
     private fun displayMatrix(matrix: Array<IntArray>): Unit {
         for (line in matrix) {
-            for (e in line) {
-                print("${e.toString()}  ")
-            }
-            print("\n")
+            displayArray(line)
         }
+        print("----------------------\n")
+    }
+
+    private fun displayArray(line: IntArray): Unit {
+        for (e in line) {
+            print("${e}  ")
+        }
+        print("\n")
     }
 
 
