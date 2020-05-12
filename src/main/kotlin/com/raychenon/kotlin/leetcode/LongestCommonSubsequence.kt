@@ -16,14 +16,14 @@ object LongestCommonSubsequence {
      * Time complexity : O(M⋅N)
      * Space complexity : O(N)
      */
-    fun longestCommonSubsequenceDP1Darray(text1: String, text2: String, displayArray: Boolean = false): Int {
+    fun longestCommonSubsequenceDP1Darray(text1: String, text2: String, displayArray: Boolean): Int {
         val nbCol = text1.length
         val nbRow = text2.length
         val memo = IntArray(nbRow + 1)
 
-        for (i in 1..nbCol) {
+        for (i in 1 until nbCol + 1) {
             var prev = 0
-            for (j in 1..nbRow) {
+            for (j in 1 until nbRow + 1) {
                 var temp = memo[j]
                 if (text1[i - 1] == text2[j - 1]) {
                     memo[j] = prev + 1
@@ -62,13 +62,13 @@ object LongestCommonSubsequence {
      *  d | 0  1  2  3  4  5  6
      *
      */
-    fun longestCommonSubsequenceDP(text1: String, text2: String, displayMatrix: Boolean = false): Int {
+    fun longestCommonSubsequenceDP(text1: String, text2: String, displayMatrix: Boolean): Int {
         val memo = Array(text1.length + 1) { IntArray(text2.length + 1) }
         val nbCol = text1.length
         val nbRow = text2.length
 
-        for (i in 0..nbCol) {
-            for (j in 0..nbRow) {
+        for (i in 0 until nbCol + 1) {
+            for (j in 0 until nbRow + 1) {
                 if (i == 0 || j == 0) {
                     memo[i][j] = 0
                 } else if (text1[i - 1] == text2[j - 1]) {
