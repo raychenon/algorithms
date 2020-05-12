@@ -4,6 +4,9 @@ package com.raychenon.kotlin.leetcode
  * User: raychenon
  * Date: 11/5/2020
  * https://leetcode.com/problems/longest-common-subsequence/
+ *
+ * Longest Common Subsequence(LCS) Dynamic Programming In O(N) Space
+ * https://youtu.be/DuikFLPt8WQ
  */
 object LongestCommonSubsequence {
 

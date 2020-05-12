@@ -9,6 +9,9 @@ package com.raychenon.leetcode;
  * A subsequence of a string is a new string generated from the original string with some characters(can be none)
  * deleted without changing the relative order of the remaining characters. (eg, "ace" is a subsequence of "abcde"
  * while "aec" is not). A common subsequence of two strings is a subsequence that is common to both strings.
+ * <p>
+ * Longest Common Subsequence(LCS) Dynamic Programming In O(N) Space
+ * https://youtu.be/DuikFLPt8WQ
  */
 public class LongestCommonSubsequence {
 
