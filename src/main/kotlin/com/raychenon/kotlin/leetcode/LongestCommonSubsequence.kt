@@ -30,7 +30,7 @@ object LongestCommonSubsequence {
      *  d | 0  1  2  3  4  5  6
      *
      */
-    fun longestCommonSubsequenceDP(text1: String, text2: String): Int {
+    fun longestCommonSubsequenceDP(text1: String, text2: String, displayMatrix: Boolean = false): Int {
         val memo = Array(text1.length + 1) { IntArray(text2.length + 1) }
         val nbCol = text1.length
         val nbRow = text2.length
@@ -46,14 +46,21 @@ object LongestCommonSubsequence {
                 }
             }
         }
-        print("Memo = \n${memo.toString()} \n")
-        for (line in memo) {
+
+        if (displayMatrix) {
+            displayMatrix(memo)
+        }
+
+        return memo[nbCol][nbRow]
+    }
+
+    private fun displayMatrix(matrix: Array<IntArray>): Unit {
+        for (line in matrix) {
             for (e in line) {
                 print("${e.toString()}  ")
             }
             print("\n")
         }
-        return memo[nbCol][nbRow]
     }
 
 
