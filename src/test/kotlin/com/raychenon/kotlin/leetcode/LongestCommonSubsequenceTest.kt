@@ -30,9 +30,9 @@ class LongestCommonSubsequenceTest {
     }
 
     @Test
-    fun exampleDNA1Test() {
-        // The longest common subsequence is "ttg"
-        assertLongestCommonSubsequenceMethods(3, "ttag", "gtgatcg")
+    fun exampleJAVAIDTest() {
+        // The longest common subsequence is "javaid"
+        assertLongestCommonSubsequenceMethods(6, "javaaid", "javaid")
     }
 
     @Test
@@ -40,14 +40,8 @@ class LongestCommonSubsequenceTest {
         assertLongestCommonSubsequenceMethods(5, "actgattag", "gtgtgatcg")
     }
 
-    private fun assertLongestCommonSubsequenceMethods(
-        expected: Int,
-        text1: String,
-        text2: String
-    ) {
-        TestCase.assertEquals(
-            expected,
-            LongestCommonSubsequence.longestCommonSubsequenceDPreverse(text1, text2)
-        )
+    private fun assertLongestCommonSubsequenceMethods(expected: Int, text1: String, text2: String) {
+        TestCase.assertEquals(expected, LongestCommonSubsequence.longestCommonSubsequenceDP(text1, text2))
+        TestCase.assertEquals(expected, LongestCommonSubsequence.longestCommonSubsequenceDPreverse(text1, text2))
     }
 }

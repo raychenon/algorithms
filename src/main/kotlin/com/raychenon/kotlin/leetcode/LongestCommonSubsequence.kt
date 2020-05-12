@@ -11,6 +11,53 @@ package com.raychenon.kotlin.leetcode
 object LongestCommonSubsequence {
 
     /**
+     * Dynamic programming with 2D array
+     *
+     * Time complexity : O(M⋅N)
+     * Space complexity : O(M⋅N)
+     *
+     * ex : LCS(javaaid,javaid)
+     *
+     *         j  a  v  a  i  d
+     *     --------------------
+     *    | 0  0  0  0  0  0  0
+     *  j | 0  1  1  1  1  1  1
+     *  a | 0  1  2  2  2  2  2
+     *  v | 0  1  2  3  3  3  3
+     *  a | 0  1  2  3  4  4  4
+     *  a | 0  1  2  3  4  4  4
+     *  i | 0  1  2  3  4  5  5
+     *  d | 0  1  2  3  4  5  6
+     *
+     */
+    fun longestCommonSubsequenceDP(text1: String, text2: String): Int {
+        val memo = Array(text1.length + 1) { IntArray(text2.length + 1) }
+        val nbCol = text1.length
+        val nbRow = text2.length
+
+        for (i in 0..nbCol) {
+            for (j in 0..nbRow) {
+                if (i == 0 || j == 0) {
+                    memo[i][j] = 0
+                } else if (text1[i - 1] == text2[j - 1]) {
+                    memo[i][j] = memo[i - 1][j - 1] + 1
+                } else {
+                    memo[i][j] = Math.max(memo[i - 1][j], memo[i][j - 1])
+                }
+            }
+        }
+        print("Memo = \n${memo.toString()} \n")
+        for (line in memo) {
+            for (e in line) {
+                print("${e.toString()}  ")
+            }
+            print("\n")
+        }
+        return memo[nbCol][nbRow]
+    }
+
+
+    /**
      * Dynamic programming with reverse grid
      * <p>
      * Time complexity : O(M⋅N)
