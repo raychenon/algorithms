@@ -10,6 +10,15 @@ package com.raychenon.leetcode;
  */
 public class SingleElementinaSortedArray {
 
+    /**
+     * XOR of the same number equals to 0.
+     * By iterating all elements, every numbers appearing twice will be eliminated, only the single number will remain
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     *
+     * @param nums
+     * @return single number
+     */
     public int singleNonDuplicate(int[] nums) {
 
         int single = nums[0];
