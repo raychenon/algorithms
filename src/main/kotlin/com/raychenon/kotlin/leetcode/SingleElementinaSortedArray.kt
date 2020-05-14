@@ -48,7 +48,7 @@ object SingleElementinaSortedArray {
      * <p>
      * The single element is at the first even index not followed by its pair
      * Before the unique number, the pair starts with EVEN index.
-     * After the unique number, the pa starts with ODD index.
+     * After the unique number, the pair starts with ODD index.
      *
      * <p> nums = [1,1, ... , s   ,     100,100,...,500,500]
      * <p> indexes 0         i%2==0     i100 % 2 == 1
