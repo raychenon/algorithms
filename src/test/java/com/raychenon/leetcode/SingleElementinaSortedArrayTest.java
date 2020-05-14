@@ -29,7 +29,11 @@ public class SingleElementinaSortedArrayTest {
     public void example2Test() {
         assertSingleNonDuplicateMethods(10, new int[]{3, 3, 7, 7, 10, 11, 11});
     }
-
+    
+    @Test
+    public void exampleSingleAtLastTest() {
+        assertSingleNonDuplicateMethods(12, new int[]{3, 3, 7, 7, 11, 11, 12});
+    }
 
     void assertSingleNonDuplicateMethods(int expectedValue, int[] nums) {
         assertEquals(expectedValue, singleElementinaSortedArray.singleNonDuplicateXOR(nums));
