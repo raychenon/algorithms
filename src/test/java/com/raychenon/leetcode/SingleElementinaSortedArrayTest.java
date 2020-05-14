@@ -33,7 +33,8 @@ public class SingleElementinaSortedArrayTest {
 
     void assertSingleNonDuplicateMethods(int expectedValue, int[] nums) {
         assertEquals(expectedValue, singleElementinaSortedArray.singleNonDuplicateXOR(nums));
-        assertEquals(expectedValue,singleElementinaSortedArray.singleNonDuplicateBrut(nums));
+        assertEquals(expectedValue, singleElementinaSortedArray.singleNonDuplicateBrut(nums));
+        assertEquals(expectedValue, singleElementinaSortedArray.singleNonDuplicateBinarySearch(nums));
     }
 
 

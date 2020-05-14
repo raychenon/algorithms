@@ -45,4 +45,37 @@ public class SingleElementinaSortedArray {
         }
         return nums[size - 1];
     }
+
+    /**
+     * Binary Search
+     * <p>
+     * The single element is at the first even index not followed by its pair
+     * Before the unique number, the pair starts with EVEN index.
+     * After the unique number, the pa starts with ODD index.
+     *
+     * <p> nums = [1,1, ... , s   ,     100,100,...,500,500]
+     * <p> indexes 0         i%2==0     i100 % 2 == 1
+     * <p>
+     * Time complexity: O(log2(n))
+     * Space complexity: O(1)
+     *
+     * @param nums
+     * @return
+     */
+    public int singleNonDuplicateBinarySearch(int[] nums) {
+        int size = nums.length;
+        int lo = 0;
+        int hi = nums.length - 1;
+
+        while (lo < hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (mid % 2 == 1) mid--;
+            if (nums[mid] == nums[mid + 1]) {
+                lo = mid + 2;
+            } else {
+                hi = mid;
+            }
+        }
+        return nums[lo];
+    }
 }
