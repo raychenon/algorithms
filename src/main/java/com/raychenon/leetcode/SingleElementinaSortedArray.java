@@ -64,7 +64,6 @@ public class SingleElementinaSortedArray {
      * @return
      */
     public int singleNonDuplicateBinarySearch(int[] nums) {
-        int size = nums.length;
         int lo = 0;
         int hi = nums.length - 1;
 
