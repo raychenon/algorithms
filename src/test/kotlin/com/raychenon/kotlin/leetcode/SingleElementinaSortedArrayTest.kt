@@ -30,6 +30,14 @@ class SingleElementinaSortedArrayTest {
             expectedValue,
             SingleElementinaSortedArray.singleNonDuplicateBrut(nums)
         )
+        TestCase.assertEquals(
+            expectedValue,
+            SingleElementinaSortedArray.singleNonDuplicateBinarySearch(nums)
+        )
+        TestCase.assertEquals(
+            expectedValue,
+            SingleElementinaSortedArray.singleNonDuplicateXOR(nums)
+        )
     }
 
 
