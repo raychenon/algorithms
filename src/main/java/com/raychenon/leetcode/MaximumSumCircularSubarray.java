@@ -32,9 +32,9 @@ public class MaximumSumCircularSubarray {
 
         int total = 0;
         int accMax = 0;
-        int sumMax = A[0];
+        int sumMax = Integer.MIN_VALUE;
         int accMin = 0;
-        int sumMin = A[0];
+        int sumMin = Integer.MAX_VALUE;
 
         for (int a : A) {
             total += a;
