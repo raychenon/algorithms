@@ -43,6 +43,6 @@ object MaximumSumCircularSubarray {
 
         }
 
-        return if (maxSum > 0) Math.max(accMax, totalSum - minSum) else maxSum
+        return if (maxSum > 0) Math.max(maxSum, totalSum - minSum) else maxSum
     }
 }
