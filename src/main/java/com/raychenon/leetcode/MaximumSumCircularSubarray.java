@@ -10,6 +10,9 @@ package com.raychenon.leetcode;
 public class MaximumSumCircularSubarray {
 
     /**
+     * Time complexity: O(N)
+     * Space complexity: O(1)
+     * <p>
      * case 1 : the max subarray  is NOT circular
      * [    | max_subarray_sum |       ]
      * <p>
@@ -17,9 +20,10 @@ public class MaximumSumCircularSubarray {
      * [max_subarray_sum1 | min_subarray_sum  | max_subarray_sum2]
      * == total_sum - min_subarray_sum
      * <p>
+     * Corner case
+     * If all numbers are negative, maxSum = max(A) and minSum = sum(A).
      * <p>
-     * Time complexity: O(N)
-     * Space complexity: O(1)
+     * https://leetcode.com/problems/maximum-sum-circular-subarray/discuss/178422/One-Pass
      *
      * @param A
      * @return
@@ -27,10 +31,10 @@ public class MaximumSumCircularSubarray {
     public int maxSubarraySumCircular(int[] A) {
 
         int total = 0;
-        int accMax = A[0];
-        int sumMax = 0;
-        int accMin = A[0];
-        int sumMin = 0;
+        int accMax = 0;
+        int sumMax = A[0];
+        int accMin = 0;
+        int sumMin = A[0];
 
         for (int a : A) {
             total += a;
