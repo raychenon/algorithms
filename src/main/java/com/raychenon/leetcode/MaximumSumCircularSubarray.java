@@ -32,9 +32,9 @@ public class MaximumSumCircularSubarray {
 
         int total = 0;
         int accMax = 0;
-        int sumMax = Integer.MIN_VALUE;
+        int sumMax = A[0];
         int accMin = 0;
-        int sumMin = Integer.MAX_VALUE;
+        int sumMin = A[0];
 
         for (int a : A) {
             total += a;
@@ -45,12 +45,14 @@ public class MaximumSumCircularSubarray {
             accMin = Math.min(accMin + a, a);
             sumMin = Math.min(sumMin, accMin);
         }
+        //  If all numbers are negative, maxSum = max(A) and minSum = sum(A)
         return sumMax > 0 ? Math.max(sumMax, total - sumMin) : sumMax;
     }
 
     /**
      * Time complexity: O(N)
      * Space complexity: O(1)
+     *
      * @param A
      * @return
      */
@@ -63,11 +65,11 @@ public class MaximumSumCircularSubarray {
         int accMax = 0;
         int accMin = 0;
 
-        for(int j = 0;j<n;j++){
+        for (int j = 0; j < n; j++) {
             totalSum += A[j];
 
             accMax += A[j];
-            maxStraightSum = Math.max(maxStraightSum,accMax);
+            maxStraightSum = Math.max(maxStraightSum, accMax);
             accMax = accMax < 0 ? 0 : accMax;
 
             accMin += A[j];
@@ -76,10 +78,10 @@ public class MaximumSumCircularSubarray {
         }
 
 
-        if(totalSum == minStraightSum){ // if all numbers are negative
+        if (totalSum == minStraightSum) { // if all numbers are negative
             return maxStraightSum;
         }
 
-        return  Math.max(maxStraightSum, (totalSum - minStraightSum));
+        return Math.max(maxStraightSum, (totalSum - minStraightSum));
     }
 }

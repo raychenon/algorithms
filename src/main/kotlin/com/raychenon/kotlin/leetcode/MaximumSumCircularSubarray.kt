@@ -42,7 +42,7 @@ object MaximumSumCircularSubarray {
             minSum = Math.min(minSum, accMin)
 
         }
-
+        // If all numbers are negative, maxSum = max(A) and minSum = sum(A)
         return if (maxSum > 0) Math.max(maxSum, totalSum - minSum) else maxSum
     }
 
@@ -57,7 +57,7 @@ object MaximumSumCircularSubarray {
         var totalSum = 0
         var accMax = 0
         var accMin = 0
-        A.forEach{
+        A.forEach {
             totalSum += it
             accMax += it
             maxStraightSum = Math.max(maxStraightSum, accMax)
