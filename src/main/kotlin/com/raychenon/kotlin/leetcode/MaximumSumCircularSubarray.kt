@@ -45,4 +45,29 @@ object MaximumSumCircularSubarray {
 
         return if (maxSum > 0) Math.max(maxSum, totalSum - minSum) else maxSum
     }
+
+
+    /**
+     * Time complexity: O(N)
+     * Space complexity: O(1)
+     */
+    fun maxSubarraySumCircular1stSubmission(A: IntArray): Int {
+        var minStraightSum = Int.MAX_VALUE
+        var maxStraightSum = Int.MIN_VALUE
+        var totalSum = 0
+        var accMax = 0
+        var accMin = 0
+        A.forEach{
+            totalSum += it
+            accMax += it
+            maxStraightSum = Math.max(maxStraightSum, accMax)
+            accMax = if (accMax < 0) 0 else accMax
+            accMin += it
+            minStraightSum = Math.min(minStraightSum, accMin)
+            accMin = if (accMin > 0) 0 else accMin
+        }
+        return if (totalSum == minStraightSum) { // if all numbers are negative
+            maxStraightSum
+        } else Math.max(maxStraightSum, totalSum - minStraightSum)
+    }
 }

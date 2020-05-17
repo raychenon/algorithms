@@ -1,6 +1,5 @@
 package com.raychenon.kotlin.leetcode
 
-import com.raychenon.leetcode.MaximumSumCircularSubarrayTest
 import junit.framework.TestCase
 import org.junit.Test
 
@@ -45,6 +44,10 @@ class MaximumSumCircularSubarrayTest {
         TestCase.assertEquals(
             expected,
             MaximumSumCircularSubarray.maxSubarraySumCircular(A)
+        )
+        TestCase.assertEquals(
+            expected,
+            MaximumSumCircularSubarray.maxSubarraySumCircular1stSubmission(A)
         )
     }
 }
