@@ -51,6 +51,7 @@ public class MaximumSumCircularSubarrayTest {
 
     private void assertMaximumSumCircularSubarray(int[] A, int expected) {
         assertEquals(expected, maximumSumCircularSubarray.maxSubarraySumCircular(A));
+        assertEquals(expected, maximumSumCircularSubarray.maxSubarraySumCircular1stSubmission(A));
     }
 
 }
