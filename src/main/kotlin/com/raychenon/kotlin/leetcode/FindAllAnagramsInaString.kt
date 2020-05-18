@@ -13,6 +13,12 @@ object FindAllAnagramsInaString {
      * <p>
      * Find all the start indices of p's anagrams in s.
      *
+     * Ex: s = "cbaebabacd", p = "abc"
+     *
+     *              |c   b   a|   e   b   a   |b   a   c|   d"
+     *              |a   b   c|               |a   b   c|
+     * indexes:      0                          6
+     * output = [0,6]
      * @param s
      * @param p
      * @return
