@@ -21,7 +21,7 @@ object PermutationinString {
         val n1 = s1.length
         val n2 = s2.length
         val frequency2 = IntArray(26)
-        for (i in 0..n2 - 1) {
+        for (i in 0 until n2) {
             frequency2[s2[i] - 'a']++
 
             if (i >= n1) {
