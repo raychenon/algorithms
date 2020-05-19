@@ -29,6 +29,11 @@ public class PermutationinStringTest {
         assertPermutationinStringMethods("ab", "eidboaoo", false);
     }
 
+    @Test
+    public void example3Test() {
+        assertPermutationinStringMethods("acb", "ooeabidabcoaoo", true);
+    }
+
     private void assertPermutationinStringMethods(String s1, String s2, boolean expected) {
         assertEquals(permutationinString.checkInclusion(s1, s2), expected);
     }
