@@ -13,6 +13,8 @@ class FindAllAnagramsInaStringTest {
 
     @Test
     fun find_ABC_Test() {
+        // cba|eba|bac|d
+        // 0       6
         val expected = listOf(0, 6)
         Assert.assertEquals(expected, FindAllAnagramsInaString.findAnagrams("cbaebabacd", "abc"))
     }

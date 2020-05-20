@@ -11,7 +11,17 @@ object FindAllAnagramsInaString {
      * time complexity: O(n), supposing the method {@link #equals(int[], int[])} could be O(1) at best
      * space complexity: O(1)
      * <p>
-     * Find all the start indices of p's anagrams in s.
+     * Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
+     *
+     * Anagram string must be of same length.
+     * We use a sliding window and check if characters in this window are the same frequency of letters
+     *
+     * Ex: s = "cbaebabacd", p = "abc"
+     *
+     *              |c   b   a|   e   b   a   |b   a   c|   d"
+     *              |a   b   c|               |a   b   c|
+     * indexes:      0                          6
+     * output = [0,6]
      *
      * @param s
      * @param p
