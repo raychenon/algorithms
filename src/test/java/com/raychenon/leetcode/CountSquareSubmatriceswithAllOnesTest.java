@@ -25,6 +25,12 @@ public class CountSquareSubmatriceswithAllOnesTest {
                 {1, 1, 1, 1},
                 {0, 1, 1, 1}
         };
+        /**
+         * 0    0   0   0   0
+         * 0    0   1   1   1
+         * 0    1   1   2   2
+         * 0    0   1   2   3
+         */
         assertEquals(15, countSquareSubmatriceswithAllOnes.countSquares(matrix));
     }
 

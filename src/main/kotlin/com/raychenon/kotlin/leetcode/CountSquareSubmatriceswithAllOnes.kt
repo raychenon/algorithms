@@ -6,7 +6,10 @@ package com.raychenon.kotlin.leetcode
  * https://leetcode.com/problems/count-square-submatrices-with-all-ones/
  */
 object CountSquareSubmatriceswithAllOnes {
-
+    /**
+     * Time complexity: O(row * col) :
+     * Space complexity: O(1) : the matrix itself is used to store the dynamic programming data
+     */
     fun countSquares(matrix: Array<IntArray>): Int {
         var res = 0
         for (row in 0 until matrix.size) {

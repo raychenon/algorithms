@@ -9,6 +9,13 @@ package com.raychenon.leetcode;
  */
 public class CountSquareSubmatriceswithAllOnes {
 
+    /**
+     * Time complexity: O(row * col) :
+     * Space complexity: O(1) : the matrix itself is used to store the dynamic programming data
+     *
+     * @param matrix
+     * @return
+     */
     public int countSquares(int[][] matrix) {
         int res = 0;
         for (int r = 0; r < matrix.length; r++) {
