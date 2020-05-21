@@ -15,8 +15,32 @@ def countSquares(matrix: List[List[int]]) -> int:
     return sum(map(sum, matrix))
 
 
+def countSquares2(matrix: List[List[int]]) -> int:
+    """
+    https://www.youtube.com/watch?v=ojz8xZc8pog
+    from "thecodingworld" channel
+    :param matrix:
+    :return:
+    """
+    n = len(matrix)
+    m = len(matrix[0])
+    dpmatrix = [[0] * (m + 1) for _ in range(n + 1)]
+    res = 0
+
+    for row in range(1, n + 1):
+        for col in range(1, m + 1):
+            if matrix[row - 1][col - 1] > 0:
+                dpmatrix[row][col] = 1 + min(
+                    dpmatrix[row][col - 1],
+                    dpmatrix[row - 1][col],
+                    dpmatrix[row - 1][col - 1])
+                res += dpmatrix[row][col]
+    return res
+
+
 def assertCountSquares(matrix: List[List[int]], expected: int) -> int:
     assert countSquares(matrix) == expected
+    assert countSquares2(matrix) == expected
 
 
 if __name__ == "__main__":
