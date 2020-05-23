@@ -35,6 +35,7 @@ public class MaximalSquareTest {
     @Test
     public void biggerMatrixTest() {
 
+        // 2 matrix of size 9
         char[][] matrix = {
                 {'1', '1', '0', '0', '0'},
                 {'1', '1', '1', '1', '0'},
