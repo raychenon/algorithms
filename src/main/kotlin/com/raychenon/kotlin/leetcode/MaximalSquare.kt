@@ -8,6 +8,38 @@ package com.raychenon.kotlin.leetcode
 object MaximalSquare {
 
     /**
+     * Dynamic programming with 1D array storage
+     * Remember this formula for matrix
+     * dp(i) = min(dp(i−1),dp(i),prev)+1.
+     * ****   prev | dp[i]
+     * --------------------
+     * **  dp[i-1] | next dp[i]
+     *
+     * <p>
+     * time complexity: O(row * col)
+     * space complexity: O(col)
+     */
+    fun maximalSquareDP1Darray(matrix: Array<CharArray>): Int {
+        val rows = matrix.size
+        val cols = matrix[0].size
+        var maxLen = 0
+        var prev = 0
+        val dp = IntArray(cols + 1)
+        for (r in 1..rows) {
+            for (c in 1..cols) {
+                val temp = dp[c]
+                if (matrix[r - 1][c - 1] == '1') {
+                    dp[c] = minOf(prev, dp[c], dp[c - 1]) + 1
+                    maxLen = maxOf(dp[c], maxLen)
+                }
+                prev = temp
+            }
+        }
+
+        return maxLen * maxLen
+    }
+
+    /**
      * Dynamic programming  with 2D array storage
      * Remember this formula for matrix
      * dp(i,j) = min(dp(i−1,j),dp(i−1,j−1),dp(i,j−1))+1.
@@ -28,8 +60,8 @@ object MaximalSquare {
             for (c in 1..cols) {
                 if (matrix[r - 1][c - 1] == '1') {
                     dp[r][c] = minOf(dp[r - 1][c - 1], dp[r - 1][c], dp[r][c - 1]) + 1
+                    maxLength = maxOf(dp[r][c], maxLength)
                 }
-                maxLength = maxOf(dp[r][c], maxLength)
             }
         }
 

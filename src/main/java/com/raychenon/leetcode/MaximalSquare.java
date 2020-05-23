@@ -19,7 +19,7 @@ public class MaximalSquare {
      *
      * <p>
      * time complexity: O(row * col)
-     * space complexity: O(row)
+     * space complexity: O(col)
      *
      * @param matrix
      * @return

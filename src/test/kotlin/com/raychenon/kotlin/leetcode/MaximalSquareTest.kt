@@ -35,9 +35,7 @@ class MaximalSquareTest {
     }
 
     fun evaluateMaximalSquareOriginal(expected: Int, matrix: Array<CharArray>) {
-        TestCase.assertEquals(
-            expected,
-            MaximalSquare.maximalSquareDP2Darray(matrix)
-        )
+        TestCase.assertEquals(expected, MaximalSquare.maximalSquareDP2Darray(matrix))
+        TestCase.assertEquals(expected, MaximalSquare.maximalSquareDP1Darray(matrix))
     }
 }
