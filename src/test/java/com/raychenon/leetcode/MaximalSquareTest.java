@@ -29,7 +29,7 @@ public class MaximalSquareTest {
                 {'1', '0', '0', '1', '0'}
         };
 
-        assertEquals(4, maximalSquare.maximalSquareOriginal(matrix));
+        evaluateMaximalSquareOriginal(4, matrix);
     }
 
     @Test
@@ -42,7 +42,12 @@ public class MaximalSquareTest {
                 {'1', '1', '1', '1', '0'}
         };
 
-        assertEquals(9, maximalSquare.maximalSquareOriginal(matrix));
+        evaluateMaximalSquareOriginal(9, matrix);
+    }
+
+    void evaluateMaximalSquareOriginal(int expected, char[][] matrix) {
+        assertEquals(expected, maximalSquare.maximalSquareOriginal(matrix));
+        assertEquals(expected, maximalSquare.maximalSquareDP(matrix));
     }
 
 

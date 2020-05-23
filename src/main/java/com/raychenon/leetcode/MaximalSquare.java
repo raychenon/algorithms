@@ -10,6 +10,36 @@ package com.raychenon.leetcode;
 public class MaximalSquare {
 
     /**
+     * Dynamic programming
+     * Remember this formula for matrix
+     * dp(i,j) = min(dp(i−1,j),dp(i−1,j−1),dp(i,j−1))+1.
+     * <p>
+     * time complexity: O(row * col)
+     * space complexity: O(row * col)
+     *
+     * @param matrix
+     * @return
+     */
+    public int maximalSquareDP(char[][] matrix) {
+
+        if (matrix.length == 0) return 0;
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[][] dp = new int[rows + 1][cols + 1];
+        int len = 0;
+
+        for (int r = 1; r < rows; r++) {
+            for (int c = 1; c < cols; c++) {
+                if (matrix[r - 1][c - 1] == '1') {
+                    dp[r][c] = Math.min(dp[r - 1][c - 1], Math.min(dp[r - 1][c], dp[r][c - 1]));
+                    len = Math.max(dp[r][c], len);
+                }
+            }
+        }
+        return len * len;
+    }
+
+    /**
      * Original submission
      * Brute force
      * time complexity: O((row * col)^2).
