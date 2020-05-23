@@ -29,7 +29,20 @@ public class MaximalSquareTest {
                 {'1', '0', '0', '1', '0'}
         };
 
-        assertEquals(4, maximalSquare.maximalSquare(matrix));
+        assertEquals(4, maximalSquare.maximalSquareOriginal(matrix));
+    }
+
+    @Test
+    public void biggerMatrixTest() {
+
+        char[][] matrix = {
+                {'1', '1', '0', '0', '0'},
+                {'1', '1', '1', '1', '0'},
+                {'1', '1', '1', '1', '1'},
+                {'1', '1', '1', '1', '0'}
+        };
+
+        assertEquals(9, maximalSquare.maximalSquareOriginal(matrix));
     }
 
 

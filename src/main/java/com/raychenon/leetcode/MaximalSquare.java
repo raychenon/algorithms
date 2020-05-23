@@ -9,7 +9,16 @@ package com.raychenon.leetcode;
  */
 public class MaximalSquare {
 
-    public int maximalSquare(char[][] matrix) {
+    /**
+     * Original submission
+     * Brute force
+     * time complexity: O((row * col)^2).
+     * space complexity: O(1),
+     *
+     * @param matrix
+     * @return
+     */
+    public int maximalSquareOriginal(char[][] matrix) {
         int area = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
@@ -38,7 +47,8 @@ public class MaximalSquare {
     }
 
     boolean isSquare(char[][] matrix, int iStart, int iEnd, int jStart, int jEnd) {
-        if (iEnd >= matrix.length || jEnd >= matrix[0].length) return false;
+        if (iEnd >= matrix.length || jEnd >= matrix[0].length)
+            return false;
 
         for (int i = iStart; i <= iEnd; i++) {
             for (int j = jStart; j <= jEnd; j++) {
