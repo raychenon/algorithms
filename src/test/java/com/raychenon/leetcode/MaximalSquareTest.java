@@ -53,6 +53,20 @@ public class MaximalSquareTest {
     }
 
     @Test
+    public void MatrixCoversRightColsTest() {
+
+        // 2 matrix of size 4
+        char[][] matrix = {
+                {'1', '1', '0', '0'},
+                {'1', '0', '1', '1'},
+                {'1', '1', '1', '1'},
+                {'1', '0', '1', '1'}
+        };
+
+        evaluateMaximalSquareOriginal(4, matrix);
+    }
+
+    @Test
     public void MatrixThatBroke1DTest() {
         char[][] matrix = {
                 {'1', '0', '1', '1', '1'},
