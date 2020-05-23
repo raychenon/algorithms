@@ -49,7 +49,7 @@ public class MaximalSquareTest {
     void evaluateMaximalSquareOriginal(int expected, char[][] matrix) {
         assertEquals(expected, maximalSquare.maximalSquareOriginal(matrix));
         assertEquals(expected, maximalSquare.maximalSquareDP(matrix));
-        assertEquals(expected,maximalSquare.maximalSquareDP1Dmemory(matrix));
+        assertEquals(expected, maximalSquare.maximalSquareDP1Dmemory(matrix));
     }
 
 
