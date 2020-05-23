@@ -10,9 +10,48 @@ package com.raychenon.leetcode;
 public class MaximalSquare {
 
     /**
-     * Dynamic programming
+     * Dynamic programming with 1D array storage
+     * Remember this formula for matrix
+     * dp(i) = min(dp(i−1),dp(i),prev)+1.
+     * ****   prev | dp[i]
+     * --------------------
+     * **  dp[i-1] | next dp[i]
+     *
+     * <p>
+     * time complexity: O(row * col)
+     * space complexity: O(row)
+     *
+     * @param matrix
+     * @return
+     */
+    public int maximalSquareDP1Dmemory(char[][] matrix) {
+
+        if (matrix.length == 0) return 0;
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[] dp = new int[cols + 1];
+        int maxEdge = 0, prev = 0;
+
+        for (int r = 1; r <= rows; r++) {
+            for (int c = 1; c <= cols; c++) {
+                int temp = dp[c];
+                if (matrix[r - 1][c - 1] == '1') {
+                    dp[c] = Math.min(prev, Math.min(dp[c - 1], dp[c])) + 1;
+                    maxEdge = Math.max(dp[c], maxEdge);
+                }
+                prev = temp;
+            }
+        }
+        return maxEdge * maxEdge;
+    }
+
+    /**
+     * Dynamic programming  with 2D array storage
      * Remember this formula for matrix
      * dp(i,j) = min(dp(i−1,j),dp(i−1,j−1),dp(i,j−1))+1.
+     * * dp[i-1][j-1] | dp[i-1][j]
+     * ---------------------------
+     * *** dp[i][j-1] | dp[i][j]
      * <p>
      * time complexity: O(row * col)
      * space complexity: O(row * col)
