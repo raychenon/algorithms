@@ -27,7 +27,7 @@ public class MaximalSquare {
     public int maximalSquareDP1Dmemory(char[][] matrix) {
 
         int rows = matrix.length;
-        int cols = (rows > 0) ? matrix[0].length : 0;  // empty matrix
+        int cols = matrix[0].length;
         int[] dp = new int[cols + 1];
         int maxEdge = 0, prev = 0;
 
@@ -63,7 +63,7 @@ public class MaximalSquare {
     public int maximalSquareDP(char[][] matrix) {
 
         int rows = matrix.length;
-        int cols = (rows > 0) ? matrix[0].length : 0;  // empty matrix
+        int cols = matrix[0].length;
         int[][] dp = new int[rows + 1][cols + 1];
         int maxEdge = 0;
 
@@ -116,8 +116,10 @@ public class MaximalSquare {
     }
 
     boolean isSquare(char[][] matrix, int iStart, int iEnd, int jStart, int jEnd) {
-        if (iEnd >= matrix.length ||
-                jEnd >= matrix[0].length) {
+        if (iEnd >= matrix.length) {
+            return false;
+        }
+        if (jEnd >= matrix[0].length) {
             return false;
         }
 

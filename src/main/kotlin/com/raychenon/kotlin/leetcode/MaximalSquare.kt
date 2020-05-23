@@ -21,7 +21,7 @@ object MaximalSquare {
      */
     fun maximalSquareDP1Darray(matrix: Array<CharArray>): Int {
         val rows = matrix.size
-        val cols = if (rows > 0) matrix[0].size else 0
+        val cols = matrix[0].size
         var maxsqlen = 0
         var prev = 0
         val dp = IntArray(cols + 1)
@@ -54,7 +54,7 @@ object MaximalSquare {
     fun maximalSquareDP2Darray(matrix: Array<CharArray>): Int {
 
         val rows = matrix.size
-        val cols = if (rows > 0) matrix[0].size else 0
+        val cols = matrix[0].size
         var maxsqlen = 0
         val dp = Array(rows + 1) { IntArray(cols + 1) }
 
