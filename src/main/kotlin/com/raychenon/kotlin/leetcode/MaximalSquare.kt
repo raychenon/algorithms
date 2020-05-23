@@ -21,24 +21,26 @@ object MaximalSquare {
      */
     fun maximalSquareDP1Darray(matrix: Array<CharArray>): Int {
         if (matrix.size == 0) return 0
-        
+
         val rows = matrix.size
         val cols = matrix[0].size
-        var maxLen = 0
+        var maxsqlen = 0
         var prev = 0
         val dp = IntArray(cols + 1)
-        for (r in 1 until rows+1) {
-            for (c in 1 until cols+1) {
+        for (r in 1 until rows + 1) {
+            for (c in 1 until cols + 1) {
                 val temp = dp[c]
                 if (matrix[r - 1][c - 1] == '1') {
                     dp[c] = minOf(prev, dp[c], dp[c - 1]) + 1
-                    maxLen = maxOf(dp[c], maxLen)
+                    maxsqlen = maxOf(dp[c], maxsqlen)
+                } else {
+                    dp[c] = 0
                 }
                 prev = temp
             }
         }
 
-        return maxLen * maxLen
+        return maxsqlen * maxsqlen
     }
 
     /**
@@ -57,18 +59,18 @@ object MaximalSquare {
 
         val rows = matrix.size
         val cols = matrix[0].size
-        var maxLength = 0
+        var maxsqlen = 0
         val dp = Array(rows + 1) { IntArray(cols + 1) }
 
         for (r in 1..rows) {
             for (c in 1..cols) {
                 if (matrix[r - 1][c - 1] == '1') {
                     dp[r][c] = minOf(dp[r - 1][c - 1], dp[r - 1][c], dp[r][c - 1]) + 1
-                    maxLength = maxOf(dp[r][c], maxLength)
+                    maxsqlen = maxOf(dp[r][c], maxsqlen)
                 }
             }
         }
 
-        return maxLength * maxLength
+        return maxsqlen * maxsqlen
     }
 }

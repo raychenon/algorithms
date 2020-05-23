@@ -38,6 +38,8 @@ public class MaximalSquare {
                 if (matrix[r - 1][c - 1] == '1') {
                     dp[c] = Math.min(prev, Math.min(dp[c - 1], dp[c])) + 1;
                     maxEdge = Math.max(dp[c], maxEdge);
+                } else {
+                    dp[c] = 0;
                 }
                 prev = temp;
             }

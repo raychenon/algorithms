@@ -15,8 +15,7 @@ class MaximalSquareTest {
         val matrix = arrayOf(CharArray(0))
         evaluateMaximalSquareOriginal(0, matrix)
     }
-
-
+    
     @Test
     fun example1Test() {
         val matrix = arrayOf(
@@ -39,6 +38,18 @@ class MaximalSquareTest {
             charArrayOf('1', '1', '1', '1', '0')
         )
         evaluateMaximalSquareOriginal(9, matrix)
+    }
+
+    @Test
+    fun MatrixThatBroke1DTest() {
+        val matrix = arrayOf(
+            charArrayOf('1', '0', '1', '1', '1'),
+            charArrayOf('0', '1', '0', '1', '0'),
+            charArrayOf('1', '1', '0', '1', '1'),
+            charArrayOf('1', '1', '0', '1', '1'),
+            charArrayOf('0', '1', '1', '1', '1')
+        )
+        evaluateMaximalSquareOriginal(4, matrix)
     }
 
     fun evaluateMaximalSquareOriginal(expected: Int, matrix: Array<CharArray>) {

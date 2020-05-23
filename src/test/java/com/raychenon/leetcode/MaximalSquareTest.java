@@ -52,6 +52,19 @@ public class MaximalSquareTest {
         evaluateMaximalSquareOriginal(9, matrix);
     }
 
+    @Test
+    public void MatrixThatBroke1DTest() {
+        char[][] matrix = {
+                {'1', '0', '1', '1', '1'},
+                {'0', '1', '0', '1', '0'},
+                {'1', '1', '0', '1', '1'},
+                {'1', '1', '0', '1', '1'},
+                {'0', '1', '1', '1', '1'}
+        };
+
+        evaluateMaximalSquareOriginal(4, matrix);
+    }
+
     void evaluateMaximalSquareOriginal(int expected, char[][] matrix) {
         assertEquals(expected, maximalSquare.maximalSquareOriginal(matrix));
         assertEquals(expected, maximalSquare.maximalSquareDP(matrix));
