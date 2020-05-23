@@ -20,6 +20,12 @@ public class MaximalSquareTest {
     }
 
     @Test
+    public void emptyMatrixTest() {
+        char[][] matrix = {{}};
+        evaluateMaximalSquareOriginal(0, matrix);
+    }
+
+    @Test
     public void example1Test() {
 
         char[][] matrix = {

@@ -20,13 +20,15 @@ object MaximalSquare {
      * space complexity: O(col)
      */
     fun maximalSquareDP1Darray(matrix: Array<CharArray>): Int {
+        if (matrix.size == 0) return 0
+        
         val rows = matrix.size
         val cols = matrix[0].size
         var maxLen = 0
         var prev = 0
         val dp = IntArray(cols + 1)
-        for (r in 1..rows) {
-            for (c in 1..cols) {
+        for (r in 1 until rows+1) {
+            for (c in 1 until cols+1) {
                 val temp = dp[c]
                 if (matrix[r - 1][c - 1] == '1') {
                     dp[c] = minOf(prev, dp[c], dp[c - 1]) + 1
@@ -51,6 +53,8 @@ object MaximalSquare {
      * space complexity: O(row * col)
      */
     fun maximalSquareDP2Darray(matrix: Array<CharArray>): Int {
+        if (matrix.size == 0) return 0
+
         val rows = matrix.size
         val cols = matrix[0].size
         var maxLength = 0

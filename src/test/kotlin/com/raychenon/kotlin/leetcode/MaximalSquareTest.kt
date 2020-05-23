@@ -11,6 +11,13 @@ import org.junit.Test
 class MaximalSquareTest {
 
     @Test
+    fun emptyMatrixTest() {
+        val matrix = arrayOf(CharArray(0))
+        evaluateMaximalSquareOriginal(0, matrix)
+    }
+
+
+    @Test
     fun example1Test() {
         val matrix = arrayOf(
             charArrayOf('1', '0', '1', '0', '0'),
