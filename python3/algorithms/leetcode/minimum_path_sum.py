@@ -14,7 +14,7 @@ def minPathSumNSpace(grid) -> int:
     for j in range(1,r):
         cur[0] += grid[i][0]
         for j in range(1, c):
-    cur[j] = min(cur[j-1], cur[j]) + grid[i][j]
+            cur[j] = min(cur[j-1], cur[j]) + grid[i][j]
     return cur[-1]
 
 
