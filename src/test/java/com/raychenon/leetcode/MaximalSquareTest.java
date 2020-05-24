@@ -49,6 +49,8 @@ public class MaximalSquareTest {
                 {'1', '1', '1', '1', '0'}
         };
 
+        assertEquals(false, maximalSquare.isSquare(matrix,1,3,3,5));
+        assertEquals(true, maximalSquare.isSquare(matrix,1,3,1,3));
         evaluateMaximalSquareOriginal(9, matrix);
     }
 

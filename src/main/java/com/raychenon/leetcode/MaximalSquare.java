@@ -116,12 +116,14 @@ public class MaximalSquare {
     }
 
     boolean isSquare(char[][] matrix, int iStart, int iEnd, int jStart, int jEnd) {
+
         if (iEnd >= matrix.length) {
             return false;
         }
         if (jEnd >= matrix[0].length) {
             return false;
         }
+
         for (int i = iStart; i <= iEnd; i++) {
             for (int j = jStart; j <= jEnd; j++) {
                 if (matrix[i][j] == '0') {
