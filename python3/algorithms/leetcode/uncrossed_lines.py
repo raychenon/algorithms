@@ -2,8 +2,11 @@ from typing import List
 
 
 def maxUncrossedLines(A: List[int], B: List[int]) -> int:
-    """"
+    """
     https://www.youtube.com/watch?v=duCx_62nMOA
+
+    Time complexity: O(len_A * len_B)
+    Space complexity: O(len_A * len_B)
     """
     lenA = len(A)
     lenB = len(B)
