@@ -3,7 +3,9 @@ from typing import List
 
 def maxUncrossedLines(A: List[int], B: List[int]) -> int:
     """
-    https://www.youtube.com/watch?v=duCx_62nMOA
+    https://leetcode.com/problems/uncrossed-lines/
+
+    Best explanations: https://www.youtube.com/watch?v=duCx_62nMOA
 
     Time complexity: O(len_A * len_B)
     Space complexity: O(len_A * len_B)
