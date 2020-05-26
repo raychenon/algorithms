@@ -22,14 +22,14 @@ public class UncrossedLines {
         int lenB = B.length;
         int[][] dp = new int[lenA + 1][lenB + 1];
 
-        for (int r = 0; r < lenA; r++) {
-            for (int c = 0; c < lenB; c++) {
+        for (int r = 0; r <= lenA; r++) {
+            for (int c = 0; c <= lenB; c++) {
                 if (r == 0 || c == 0) {
                     dp[r][c] = 0;
-                } else if (A[r] == B[c]) {
-                    dp[r + 1][c + 1] = 1 + dp[r][c];
+                } else if (A[r - 1] == B[c - 1]) {
+                    dp[r][c] = 1 + dp[r - 1][c - 1];
                 } else {
-                    dp[r + 1][c + 1] = Math.max(dp[r + 1][c], dp[r][c + 1]);
+                    dp[r][c] = Math.max(dp[r - 1][c], dp[r][c - 1]);
                 }
             }
         }
