@@ -25,8 +25,8 @@ object UncrossedLines {
         val lenB = B.size
         val dp = Array(lenA + 1) { IntArray(lenB + 1) }
 
-        for (iA in 0..lenA) {
-            for (iB in 0..lenB) {
+        for (iA in 0 until lenA + 1) {
+            for (iB in 0 until lenB + 1) {
                 if (iB == 0 || iA == 0) {
                     dp[iA][iB] = 0
                 } else if (A[iA - 1] == B[iB - 1]) {
