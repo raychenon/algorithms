@@ -12,6 +12,7 @@ public class PossibleBipartition {
      * Space complexity : O(E*V)
      * <p>
      * Best explanation : https://youtu.be/0ACfAqs8mm0?t=575
+     * A bipartite graph can only have even edges. == > odd edges means Not bipartite
      *
      * @param N
      * @param dislikes
