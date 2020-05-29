@@ -10,6 +10,8 @@ public class PossibleBipartition {
     /**
      * Time complexity : O(E+V) E edges , V vertices
      * Space complexity : O(E*V)
+     * <p>
+     * Best explanation : https://youtu.be/0ACfAqs8mm0?t=575
      *
      * @param N
      * @param dislikes
