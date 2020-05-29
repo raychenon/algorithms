@@ -35,14 +35,16 @@ object PossibleBipartition {
     /**
      * color: parameter is to separate the group of Bipartite (1 or -1) 0  if uninitialized
      */
-    fun dfs(graph: Array<IntArray>, group: IntArray, index: Int, color: Int): Boolean {
+    private fun dfs(graph: Array<IntArray>, group: IntArray, index: Int, color: Int): Boolean {
         group[index] = color
-        for (i in 0 until graph.size) {
+        for (i in graph.indices) {
             if (graph[index][i] == 1) {
                 if (group[i] == color) return false
-                if (group[i] == 0 &&
-                    !dfs(graph, group, index, -color) // -color to flip the value
+
+                if (group[i] == 0
+                    && !dfs(graph, group, i, -color)   // -color to flip the value
                 ) return false
+
             }
         }
         return true
