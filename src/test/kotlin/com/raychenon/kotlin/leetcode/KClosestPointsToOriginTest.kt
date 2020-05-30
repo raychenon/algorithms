@@ -46,6 +46,10 @@ class KClosestPointsToOriginTest {
             expected,
             KClosestPointsToOrigin.kClosestOriginal(points, K)
         )
+        Assert.assertArrayEquals(
+            expected,
+            KClosestPointsToOrigin.kClosest(points, K)
+        )
 
     }
 

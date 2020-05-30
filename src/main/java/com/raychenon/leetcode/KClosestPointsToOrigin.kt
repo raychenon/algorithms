@@ -1,5 +1,7 @@
 package com.raychenon.leetcode
 
+import java.util.*
+
 /**
  * User: raychenon
  * Date: 30/5/2020
@@ -8,9 +10,20 @@ package com.raychenon.leetcode
 object KClosestPointsToOrigin {
 
     fun kClosest(points: Array<IntArray>, K: Int): Array<IntArray> {
+        val compareByDistance: Comparator<IntArray> = compareBy { distance(it) }
+        val queue = PriorityQueue<IntArray>(compareByDistance)     // Priority Queue is similar to a Max Heap
+        for (p in points) {
+            queue.add(p)
+        }
 
+        val arr = Array<IntArray>(K) { intArrayOf(0) }
+        for (i in 0 until K) {
+            arr[i] = queue.peek()
+            queue.remove()
+        }
+        return arr
     }
-    
+
     fun kClosestOriginal(points: Array<IntArray>, K: Int): Array<IntArray> {
         var min = Integer.MAX_VALUE
         val pointsMap = mutableMapOf<IntArray, Int>()
@@ -24,11 +37,11 @@ object KClosestPointsToOrigin {
 
 
         val sorted = pointsMap.toList().sortedBy { (_, value) -> value }.toMap()
-        var arr = Array(K){ intArrayOf(1,2)}
+        var arr = Array(K) { intArrayOf(1, 2) }
 
 
         var iter = sorted.entries.iterator()
-        for(i in 0 until K){
+        for (i in 0 until K) {
             arr[i] = iter.next().key as IntArray
         }
 
