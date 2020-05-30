@@ -13,34 +13,40 @@ class KClosestPointsToOriginTest {
 
     @Test
     fun example1Test() {
-        Assert.assertArrayEquals(
+        evaluatekClosest(
             arrayOf(intArrayOf(-2, 2)),
-            KClosestPointsToOrigin.kClosestOriginal(arrayOf(intArrayOf(1, 3), intArrayOf(-2, 2)), 1)
+            arrayOf(intArrayOf(1, 3), intArrayOf(-2, 2)), 1
         )
     }
 
     @Test
     fun example2Test() {
-        Assert.assertArrayEquals(
+        evaluatekClosest(
             arrayOf(intArrayOf(3, 3), intArrayOf(-2, 4)),
-            KClosestPointsToOrigin.kClosestOriginal(arrayOf(intArrayOf(3, 3), intArrayOf(5, -1), intArrayOf(-2, 4)), 2)
+            arrayOf(intArrayOf(3, 3), intArrayOf(5, -1), intArrayOf(-2, 4)), 2
         )
     }
 
     @Test
     fun exampleSameDistanceTest() {
-        Assert.assertArrayEquals(
+        evaluatekClosest(
             arrayOf(intArrayOf(1, 1), intArrayOf(-1, 1)),
-            KClosestPointsToOrigin.kClosestOriginal(
-                arrayOf(
-                    intArrayOf(1, 1),
-                    intArrayOf(3, 3),
-                    intArrayOf(5, -1),
-                    intArrayOf(-1, 1),
-                    intArrayOf(-2, 4)
-                ), 2
-            )
+            arrayOf(
+                intArrayOf(1, 1),
+                intArrayOf(3, 3),
+                intArrayOf(5, -1),
+                intArrayOf(-1, 1),
+                intArrayOf(-2, 4)
+            ), 2
         )
+    }
+
+    fun evaluatekClosest(expected: Array<IntArray>, points: Array<IntArray>, K: Int): Unit {
+        Assert.assertArrayEquals(
+            expected,
+            KClosestPointsToOrigin.kClosestOriginal(points, K)
+        )
+
     }
 
 

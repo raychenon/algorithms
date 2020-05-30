@@ -7,6 +7,10 @@ package com.raychenon.leetcode
  */
 object KClosestPointsToOrigin {
 
+    fun kClosest(points: Array<IntArray>, K: Int): Array<IntArray> {
+
+    }
+    
     fun kClosestOriginal(points: Array<IntArray>, K: Int): Array<IntArray> {
         var min = Integer.MAX_VALUE
         val pointsMap = mutableMapOf<IntArray, Int>()
