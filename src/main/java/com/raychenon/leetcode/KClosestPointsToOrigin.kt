@@ -49,9 +49,7 @@ object KClosestPointsToOrigin {
     }
 
     // distance from (0,0)
-    fun distance(point: IntArray): Int {
-        return point[0] * point[0] + point[1] * point[1]
-    }
+    inline fun distance(point: IntArray): Int = point[0] * point[0] + point[1] * point[1]
 
     fun List<IntArray>.toIntArray(size: Int): Array<IntArray> {
         val iter = iterator()
