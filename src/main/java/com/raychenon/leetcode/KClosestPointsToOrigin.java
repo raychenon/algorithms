@@ -12,6 +12,50 @@ import java.util.Queue;
  */
 public class KClosestPointsToOrigin {
 
+
+    public int[][] kClosestQuickSelectSort(int[][] points, int K) {
+
+        quickSelect(points,0,points.length-1,K);
+        return Arrays.copyOfRange(points,0,K);
+    }
+
+    private void quickSelect(int[][] points ,int start, int end ,int k) {
+
+        if(start<end){
+            int pivot = partition(points,start,end);
+
+            if(pivot == k)
+                return;
+            if(pivot< k)
+                quickSelect(points, pivot+1,end,k);
+            else
+                quickSelect(points, start, pivot-1,k);
+        }
+
+    }
+
+    private int partition(int[][] points ,int start, int end) {
+        int[] pivot = points[end];
+        int pIndex = start;
+
+        while(start<end){
+            if(distance(points[start]) <= distance(pivot)){
+                swap(points,start,pIndex);
+                pIndex++;
+            }
+            start++;
+        }
+        swap(points ,pIndex,end);
+        return pIndex;
+    }
+
+    private void swap(int[][] points, int index1,int index2){
+        int[] temp = points[index1];
+        points[index1] = points[index2];
+        points[index2] = temp;
+
+    }
+
     public int[][] kClosestQueue(int[][] points, int K) {
         int N = points.length;
         Queue<int[]> queue = new PriorityQueue<>(new PointComparator());
