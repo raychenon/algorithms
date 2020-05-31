@@ -11,7 +11,7 @@ import static junit.framework.TestCase.assertEquals;
 /**
  * User: raychenon
  * Date: 2019-10-06
- * Time: 14:39
+ * https://leetcode.com/problems/k-closest-points-to-origin
  */
 public class IntersectionOfSortedArraysTest {
 
