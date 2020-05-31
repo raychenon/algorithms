@@ -48,6 +48,10 @@ public class KClosestPointsToOriginTest {
                 expected,
                 kClosestPointsToOrigin.kClosestSort(points, K)
         );
+        Assert.assertArrayEquals(
+                expected,
+                kClosestPointsToOrigin.kClosestQueue(points, K)
+        );
     }
 
 }
