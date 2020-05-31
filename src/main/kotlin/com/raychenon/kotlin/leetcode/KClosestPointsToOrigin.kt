@@ -1,4 +1,4 @@
-package com.raychenon.leetcode
+package com.raychenon.kotlin.leetcode
 
 import java.util.*
 

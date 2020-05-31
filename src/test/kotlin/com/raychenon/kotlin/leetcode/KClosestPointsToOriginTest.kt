@@ -1,6 +1,5 @@
 package com.raychenon.kotlin.leetcode
 
-import com.raychenon.leetcode.KClosestPointsToOrigin
 import org.junit.Assert
 import org.junit.Test
 
