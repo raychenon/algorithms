@@ -9,6 +9,13 @@ import java.util.*
  */
 object KClosestPointsToOrigin {
 
+    fun kClosestShorter(points: Array<IntArray>, K: Int): Array<IntArray> {
+        return points
+            .sortedWith(compareBy { distance(it) })
+            .take(K)
+            .toTypedArray()
+    }
+
     fun kClosest(points: Array<IntArray>, K: Int): Array<IntArray> {
         val compareByDistance: Comparator<IntArray> = compareBy { distance(it) }
         val queue = PriorityQueue<IntArray>(compareByDistance)     // Priority Queue is similar to a Max Heap

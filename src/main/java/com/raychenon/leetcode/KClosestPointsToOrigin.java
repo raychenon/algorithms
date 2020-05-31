@@ -9,6 +9,13 @@ import java.util.Arrays;
  */
 public class KClosestPointsToOrigin {
 
+    /**
+     * Time complexity: O(N*log(N)) , due to sorting . N is the number of points
+     * Space complexity: O(N)
+     * @param points
+     * @param K
+     * @return
+     */
     public int[][] kClosestSort(int[][] points, int K) {
         int N = points.length;
         int[] dists = new int[N];
