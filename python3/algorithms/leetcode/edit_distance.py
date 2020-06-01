@@ -9,10 +9,10 @@ def minDistance(word1: str, word2: str) -> int:
     n2 = len(word2)
     dp = [[0] * (n2 + 1) for _ in range(n1 + 1)]
 
-    for i in range(n1):
+    for i in range(1, n1 + 1):
         dp[i][0] = i
 
-    for i in range(n2):
+    for i in range(1, n2 + 1):
         dp[0][i] = i
 
     for i1 in range(1, n1 + 1):
@@ -56,4 +56,4 @@ if __name__ == '__main__':
     assertminDistance(3, "horse", "ros")
     assertminDistance(5, "intention", "execution")
     assertminDistance(10, "zoologicoarchaeologist", "zoogeologist")
-    # assertminDistance(1, "", "a")
+    assertminDistance(1, "", "a")
