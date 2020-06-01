@@ -27,5 +27,6 @@ class EditDistanceTest {
 
     fun assertEditDistance(expected: Int, word1: String, word2: String) {
         TestCase.assertEquals(expected, EditDistance.minDistance(word1, word2))
+        TestCase.assertEquals(expected, EditDistance.minDistance1DarrayMemory(word1, word2))
     }
 }
