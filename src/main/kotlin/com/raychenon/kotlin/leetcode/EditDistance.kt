@@ -7,10 +7,17 @@ package com.raychenon.kotlin.leetcode
  */
 object EditDistance {
 
+    /**
+     * Levenshtein distance
+     * Code rewritten 2 times after watching explanations without code
+     * Intuitive dynamic programming https://www.youtube.com/watch?v=MiqoA-yF-0M
+     * <p>
+     * Time Complexity: O(len_word1 * len_word2)
+     * Space Complexity: O(len_word1 * len_word2)
+     */
     fun minDistance(word1: String, word2: String): Int {
         val n1 = word1.length
         val n2 = word2.length
-
 
         val dp = Array(n1 + 1) { IntArray(n2 + 1) }
 
