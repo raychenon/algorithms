@@ -48,4 +48,38 @@ public class EditDistance {
 
         return dp[n1][n2];
     }
+
+    /**
+     * Time Complexity: O(len_word1 * len_word2)
+     * Space Complexity: O(len_word2)
+     *
+     * @param word1
+     * @param word2
+     * @return
+     */
+    public int minDistance1DArrayMemory(String word1, String word2) {
+        int n1 = word1.length();
+        int n2 = word2.length();
+        int[] dp = new int[n2 + 1];
+
+        for (int i = 0; i <= n2; i++) {
+            dp[i] = i;
+        }
+
+        for (int i1 = 1; i1 <= n1; i1++) {
+            dp[0] = i1;
+            int prev = i1 - 1;
+            for (int i2 = 1; i2 <= n2; i2++) {
+                int temp = dp[i2];
+                if (word1.charAt(i1 - 1) == word2.charAt(i2 - 1)) {
+                    dp[i2] = prev;
+                } else {
+                    dp[i2] = 1 + Math.min(prev, Math.min(dp[i2], dp[i2 - 1]));
+                }
+                prev = temp;
+            }
+        }
+
+        return dp[n2];
+    }
 }

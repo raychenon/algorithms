@@ -36,6 +36,7 @@ public class EditDistanceTest {
 
     void assertEditDistance(int expected, String word1, String word2) {
         assertEquals(expected, editDistance.minDistance(word1, word2));
+        assertEquals(expected, editDistance.minDistance1DArrayMemory(word1, word2));
     }
 
 }
