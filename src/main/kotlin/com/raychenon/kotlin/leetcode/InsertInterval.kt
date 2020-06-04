@@ -7,6 +7,10 @@ package com.raychenon.kotlin.leetcode
  */
 object InsertInterval {
 
+    fun insert(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
+
+    }
+    
     fun mostCommonWord(paragraph: String, banned: Array<String>): String {
         val re = Regex("[^A-Za-z0-9 ]")
         val paragraphNoPunctuation = re.replace(paragraph, "")
