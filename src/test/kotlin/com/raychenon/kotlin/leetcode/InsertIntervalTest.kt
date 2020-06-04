@@ -26,6 +26,15 @@ class InsertIntervalTest {
             intArrayOf(4, 8)
         )
     }
+    
+    @Test
+    fun fullIntervalTest() {
+        evaluateInsertInterval(
+            arrayOf(intArrayOf(1, 16)),
+            arrayOf(intArrayOf(1, 2), intArrayOf(3, 5), intArrayOf(6, 7), intArrayOf(8, 10), intArrayOf(12, 16)),
+            intArrayOf(2, 13)
+        )
+    }
 
     fun evaluateInsertInterval(expected: Array<IntArray>, intervals: Array<IntArray>, newInterval: IntArray) {
         Assert.assertArrayEquals(expected, InsertInterval.insert(intervals, newInterval))

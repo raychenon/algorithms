@@ -7,7 +7,4 @@ package com.raychenon.kotlin.leetcode
  */
 object StickerstoSpellWord {
 
-    fun minStickers(stickers: Array<String>, target: String): Int {
-
-    }
 }
