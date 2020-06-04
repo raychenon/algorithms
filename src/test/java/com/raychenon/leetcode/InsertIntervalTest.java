@@ -35,6 +35,14 @@ public class InsertIntervalTest {
         );
     }
 
+    @Test
+    public void fullIntervalTest() {
+        evaluateInsertInterval(
+                new int[][]{{1, 16}},
+                new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}}, new int[]{2, 13}
+        );
+    }
+
     void evaluateInsertInterval(int[][] expected, int[][] intervals, int[] newInterval) {
         assertArrayEquals(expected, insertInterval.insert(intervals, newInterval));
     }
