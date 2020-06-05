@@ -45,5 +45,6 @@ public class InsertIntervalTest {
 
     void evaluateInsertInterval(int[][] expected, int[][] intervals, int[] newInterval) {
         assertArrayEquals(expected, insertInterval.insert(intervals, newInterval));
+        assertArrayEquals(expected, insertInterval.insertLeetcode(intervals, newInterval));
     }
 }
