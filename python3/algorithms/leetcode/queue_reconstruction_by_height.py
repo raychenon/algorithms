@@ -16,7 +16,7 @@ def reconstructQueue(people: List[List[int]]) -> List[List[int]]:
     for i in range(len(people)):
         p = people[i]
         if p[0] in people_dict:
-            people_dict[p[0]] += (p[1], i),
+            people_dict[p[0]].append((p[1], i))
         else:
             people_dict[p[0]] = [(p[1], i)]
             height.append(p[0])
