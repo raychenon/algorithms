@@ -18,7 +18,7 @@ object CoinChange2 {
         dp[0] = 1 // always 1 combination to make the amount to 0
 
         for (coin in coins) {
-            for (i in 1 until coins.size) {
+            for (i in 1 until dp.size) {
                 if (i >= coin) {
                     dp[i] += dp[i - coin]
                 }
