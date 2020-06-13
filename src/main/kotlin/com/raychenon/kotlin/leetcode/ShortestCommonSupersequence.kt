@@ -12,25 +12,22 @@ import java.util.*
  */
 object ShortestCommonSupersequence {
 
-    fun shortestCommonSupersequence(str1: String, str2: String): String {
-
-        var lcs = longestCommonSubSeq(str1, str1)!!
+    fun shortestCommonSupersequence(str1: String, str2: String): String? {
+        val lcs = longestCommonSubSeq(str1, str2)
         var p1 = 0
         var p2 = 0
         var sb = StringBuffer()
-        for (i in 0 until lcs.length) {
-            while (p1 < str1.length && str1[p1] != lcs[1]) {
+        for (i in 0 until lcs!!.length) {
+            while (p1 < str1.length && str1[p1] != lcs[i]) {
                 sb.append(str1[p1++])
             }
             while (p2 < str2.length && str2[p2] != lcs[i]) {
                 sb.append(str2[p2++])
             }
-
             sb.append(lcs[i])
             p1++
             p2++
         }
-
         sb.append(str1.substring(p1)).append(str2.substring(p2))
         return sb.toString()
     }
