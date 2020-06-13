@@ -9,9 +9,14 @@ import java.util.*
  * https://leetcode.com/problems/shortest-common-supersequence/
  *
  * This problem is NP-hard
+ * https://en.wikipedia.org/wiki/Shortest_common_supersequence_problem
  */
 object ShortestCommonSupersequence {
 
+    /**
+     * time complexity : O(s1 * s2)
+     * space complexity : O(s1 * s2)
+     */
     fun shortestCommonSupersequence(str1: String, str2: String): String? {
         val lcs = longestCommonSubSeq(str1, str2)
         var p1 = 0
