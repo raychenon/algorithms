@@ -4,9 +4,15 @@ package com.raychenon.leetcode;
  * User: raychenon
  * Date: 10/6/2020
  * https://leetcode.com/problems/shortest-common-supersequence/
+ * <p>
+ * https://en.wikipedia.org/wiki/Shortest_common_supersequence_problem
  */
 public class ShortestCommonSupersequence {
 
+    /**
+     * time complexity : O(s1 * s2)
+     * space complexity : O(s1 * s2)
+     */
     public String shortestCommonSupersequence(String str1, String str2) {
         int n1 = str1.length();
         int n2 = str2.length();
