@@ -32,6 +32,6 @@ public class CheapestFlightsWithinKStopsTest {
     }
 
     private void assertMethods(int expected, int n, int[][] flights, int src, int dst, int K) {
-        assertEquals(expected, instance.findCheapestPrice(n, flights, src, dst, K));
+        assertEquals(expected, instance.findCheapestPriceBF(n, flights, src, dst, K));
     }
 }
