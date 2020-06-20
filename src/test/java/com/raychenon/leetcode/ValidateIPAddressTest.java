@@ -20,8 +20,6 @@ public class ValidateIPAddressTest {
         instance = new ValidateIPAddress();
     }
 
-
-
     @Test
     public void IPV4addressTest() {
         assertMethods("IPv4", "172.16.254.1");
@@ -44,7 +42,7 @@ public class ValidateIPAddressTest {
 
     @Test
     public void IPv6AddressNeither2Test() {
-        assertMethods("Neither","2001:0db8:85a3:0:0:8A2E:0370:7334:");
+        assertMethods("Neither", "2001:0db8:85a3:0:0:8A2E:0370:7334:");
     }
 
 //    @Test
@@ -55,6 +53,7 @@ public class ValidateIPAddressTest {
 
     private void assertMethods(String expected, String IP) {
         assertEquals(expected, instance.validIPAddressOriginal(IP));
+        assertEquals(expected, instance.validIPAddress(IP));
     }
 
 }
