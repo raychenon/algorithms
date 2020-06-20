@@ -5,6 +5,7 @@ from typing import List
 https://leetcode.com/problems/string-compression/
 """
 
+
 def compress(chars: List[str]) -> int:
     left = i = 0
     while i < len(chars):
@@ -23,4 +24,4 @@ def compress(chars: List[str]) -> int:
 if __name__ == "__main__":
     assert compress(["a", "a", "b", "b", "c", "c", "c"]) == 6
     assert compress(["a"]) == 1
-    assert compress([]) = 0
+    assert compress([]) == 0
