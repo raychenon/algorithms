@@ -102,9 +102,6 @@ public class ValidateIPAddress {
             if (ip6.length() != 4 && !"0".equals(ip6)) {
                 return false;
             }
-            if ("0000".equals(ip6)) {
-                return false;
-            }
         }
 
         return (ipv6Arr.length == 8);

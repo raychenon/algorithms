@@ -26,6 +26,11 @@ public class ValidateIPAddressTest {
     }
 
     @Test
+    public void IPV4addressBeyondRangeTest() {
+        assertMethods("Neither", "257.16.264.1");
+    }
+
+    @Test
     public void IPv4addressWithETest() {
         assertMethods("Neither", "1e1.4.5.6");
     }
@@ -44,6 +49,12 @@ public class ValidateIPAddressTest {
     public void IPv6AddressNeither2Test() {
         assertMethods("Neither", "2001:0db8:85a3:0:0:8A2E:0370:7334:");
     }
+
+    @Test
+    public void IPAddressNeitherTest() {
+        assertMethods("Neither", "whatever");
+    }
+
 
 //    @Test
 //    public void IPv6AddressTest() {
