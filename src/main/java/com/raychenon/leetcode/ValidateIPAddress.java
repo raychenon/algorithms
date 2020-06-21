@@ -1,5 +1,7 @@
 package com.raychenon.leetcode;
 
+import java.util.regex.Pattern;
+
 /**
  * User: raychenon
  * Date: 17/6/2020
@@ -12,6 +14,13 @@ public class ValidateIPAddress {
     private final String IPv4 = "IPv4";
     private final String IPv6 = "IPv6";
 
+    /**
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     *
+     * @param IP
+     * @return
+     */
     public String validIPAddress(String IP) {
         String[] ipv4 = IP.split("\\.", -1);
         String[] ipv6 = IP.split("\\:", -1);
@@ -48,6 +57,13 @@ public class ValidateIPAddress {
     }
 
 
+    /**
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     *
+     * @param IP
+     * @return
+     */
     public String validIPAddressOriginal(String IP) {
 
         if (IP.contains(".")) {
@@ -105,4 +121,27 @@ public class ValidateIPAddress {
         return false;
     }
 
+    /**
+     * Time complexity: O(1), patterns to match have constant length
+     * Space complexity: O(1)
+     *
+     * @param IP
+     * @return
+     */
+    public String validIPAddressRegex(String IP) {
+
+        String chunkIPv4 = "([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])";
+        Pattern pattenIPv4 = Pattern.compile("^(" + chunkIPv4 + "\\.){3}" + chunkIPv4 + "$");
+
+        if (pattenIPv4.matcher(IP).matches()) return IPv4;
+
+        String chunkIPv6 = "([0-9a-fA-F]{1,4})";
+        Pattern pattenIPv6 = Pattern.compile("^(" + chunkIPv6 + "\\:){7}" + chunkIPv6 + "$");
+
+        if (pattenIPv6.matcher(IP).matches()) {
+            return IPv6;
+        } else {
+            return neither;
+        }
+    }
 }

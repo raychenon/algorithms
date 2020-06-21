@@ -54,6 +54,7 @@ public class ValidateIPAddressTest {
     private void assertMethods(String expected, String IP) {
         assertEquals(expected, instance.validIPAddressOriginal(IP));
         assertEquals(expected, instance.validIPAddress(IP));
+        assertEquals(expected, instance.validIPAddressRegex(IP));
     }
 
 }
