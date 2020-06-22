@@ -26,6 +26,17 @@ public class ValidateIPAddressTest {
     }
 
     @Test
+    public void dotAtEndNeitherIPaddressTest() {
+        assertMethods("Neither", "172.16.254.1.");
+    }
+
+    @Test
+    public void NegativeNumberIPaddressTest() {
+        assertMethods("Neither", "-172.16.254.1");
+    }
+
+
+    @Test
     public void IPV4addressBeyondRangeTest() {
         assertMethods("Neither", "257.16.264.1");
     }
@@ -55,11 +66,16 @@ public class ValidateIPAddressTest {
         assertMethods("Neither", "whatever");
     }
 
+    @Test
+    public void IPaddressOutOfRangeTest() {
+        assertMethods("Neither", "-2000:0db8:85a3:0:0:8A2E:0370:7334");
+    }
 
-//    @Test
-//    public void IPv6AddressTest() {
-//        assertMethods("IPv6","2001:0db8:85a3:0000:0:8A2E:0370:733a");
-//    }
+
+    @Test
+    public void IPv6AddressTest() {
+        assertMethods("IPv6", "2001:0db8:85a3:0000:0:8A2E:0370:733a");
+    }
 
 
     private void assertMethods(String expected, String IP) {
