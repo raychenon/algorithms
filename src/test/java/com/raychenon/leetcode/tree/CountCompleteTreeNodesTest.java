@@ -44,10 +44,18 @@ public class CountCompleteTreeNodesTest {
         assertMethods(0, root);
     }
 
+    @Test
+    public void singleNodeTest() {
+        TreeNode root = new TreeNode(2);;
+        assertMethods(1, root);
+    }
+
+
     private void assertMethods(int count, TreeNode root) {
         assertEquals(count, completeTreeNodes.countNodesRecursive(root));
         assertEquals(count, completeTreeNodes.countNodesBFS(root));
         assertEquals(count, completeTreeNodes.countNodesBinarySearch(root));
+        assertEquals(count, completeTreeNodes.countNodesBinarySearchLC(root));
     }
 
 }

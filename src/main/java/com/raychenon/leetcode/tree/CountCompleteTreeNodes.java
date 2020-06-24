@@ -11,16 +11,73 @@ import java.util.Queue;
 public class CountCompleteTreeNodes {
 
     /**
-     * https://www.youtube.com/watch?v=i_r2uKbwHCU
-     *
      * Use the fact that the tree is a "complete binary tree" every level.
-     * In a complete binary tree every level, except possibly the last,
-     * is completely filled, and all nodes in the last level are as far left as possible.
-     *
+     * <p>
      * total number of nodes = (2^h-1) + nb nodes in last level
      * nb nodes in last level is found by binary search
      * <p>
-     * Time complexity: O(h), where h is the height of the tree
+     * Time complexity: O(h^2) ~ O(log2(N)), where h is the height of the tree
+     * Space complexity: O(1)
+     *
+     * @param root
+     * @return
+     */
+    public int countNodesBinarySearchLC(TreeNode root) {
+
+        if (root == null) return 0;
+        int depth = getTreeDepth(root);
+        if (depth == 0) return 1;
+
+        int leftIndexLastLevel = 1;
+        int right = (int) Math.pow(2, depth) - 1;
+        while (leftIndexLastLevel <= right) {
+            int pivot = leftIndexLastLevel + (right - leftIndexLastLevel) / 2;
+            if (existsNode(pivot, depth, root)) leftIndexLastLevel = pivot + 1;
+            else right = pivot - 1;
+        }
+        return (int) Math.pow(2, depth) - 1 + leftIndexLastLevel;
+    }
+
+    private int getTreeDepth(TreeNode root) {
+        TreeNode leftNode = root;
+        int depth = 0;
+        // left node traversal will give the height (hl)
+        while (leftNode != null) {
+            depth += 1;
+            leftNode = leftNode.left;
+        }
+
+        return depth;
+    }
+
+    private boolean existsNode(int index, int depth, TreeNode node) {
+        int left = 0;
+        int right = (int) Math.pow(2, depth) - 1;
+
+        for (int i = 0; i < index; i++) {
+            int pivot = left + (right - left) / 2;
+            if (index <= pivot) {
+                node = node.left;
+                right = pivot;
+            } else {
+                node = node.right;
+                left = pivot + 1;
+            }
+        }
+        return node != null;
+    }
+
+    /**
+     * https://www.youtube.com/watch?v=i_r2uKbwHCU
+     * <p>
+     * Use the fact that the tree is a "complete binary tree" every level.
+     * In a complete binary tree every level, except possibly the last,
+     * is completely filled, and all nodes in the last level are as far left as possible.
+     * <p>
+     * total number of nodes = (2^h-1) + nb nodes in last level
+     * nb nodes in last level is found by binary search
+     * <p>
+     * Time complexity: O(h^2) ~ O(log2(N)), where h is the height of the tree
      * Space complexity: O(1)
      *
      * @param root
