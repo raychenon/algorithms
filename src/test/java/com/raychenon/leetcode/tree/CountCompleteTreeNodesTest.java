@@ -47,6 +47,7 @@ public class CountCompleteTreeNodesTest {
     private void assertMethods(int count, TreeNode root) {
         assertEquals(count, completeTreeNodes.countNodesRecursive(root));
         assertEquals(count, completeTreeNodes.countNodesBFS(root));
+        assertEquals(count, completeTreeNodes.countNodesDepth(root));
     }
 
 }
