@@ -36,10 +36,21 @@ class CountCompleteTreeNodesTest {
         assertMethods(0, root)
     }
 
+    @Test
+    fun singleNodeTest() {
+        val root = TreeNode(1)
+        assertMethods(1, root)
+    }
+
+
     private fun assertMethods(count: Int, root: TreeNode?) {
         TestCase.assertEquals(
             count,
             CountCompleteTreeNodes.countNodesRecursive(root)
+        )
+        TestCase.assertEquals(
+            count,
+            CountCompleteTreeNodes.countNodesBinarySearch(root)
         )
     }
 }
