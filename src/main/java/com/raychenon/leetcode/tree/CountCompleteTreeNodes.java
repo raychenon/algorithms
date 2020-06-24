@@ -12,6 +12,13 @@ public class CountCompleteTreeNodes {
 
     /**
      * https://www.youtube.com/watch?v=i_r2uKbwHCU
+     *
+     * Use the fact that the tree is a "complete binary tree" every level.
+     * In a complete binary tree every level, except possibly the last,
+     * is completely filled, and all nodes in the last level are as far left as possible.
+     *
+     * total number of nodes = (2^h-1) + nb nodes in last level
+     * nb nodes in last level is found by binary search
      * <p>
      * Time complexity: O(h), where h is the height of the tree
      * Space complexity: O(1)
@@ -19,26 +26,27 @@ public class CountCompleteTreeNodes {
      * @param root
      * @return
      */
-    public int countNodesDepth(TreeNode root) {
+    public int countNodesBinarySearch(TreeNode root) {
         if (root == null) return 0;
-        TreeNode left = root;
-        TreeNode right = root;
+        TreeNode leftNode = root;
+        TreeNode rightNode = root;
         int hl = 0, hr = 0;
 
-        while (left != null) {
+        // left node traversal will give the height (hl)
+        while (leftNode != null) {
             hl += 1;
-            left = left.left;
+            leftNode = leftNode.left;
         }
 
-        while (right != null) {
+        while (rightNode != null) {
             hr += 1;
-            right = right.right;
+            rightNode = rightNode.right;
         }
 
         if (hl == hr) {
-            return (1 << hl) - 1;
+            return (1 << hl) - 1;  // left shift (2^hl -1)
         }
-        return 1 + countNodesDepth(root.left) + countNodesDepth(root.right);
+        return 1 + countNodesBinarySearch(root.left) + countNodesBinarySearch(root.right);
     }
 
     /**
