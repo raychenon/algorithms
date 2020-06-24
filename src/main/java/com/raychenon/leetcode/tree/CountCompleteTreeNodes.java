@@ -42,7 +42,7 @@ public class CountCompleteTreeNodes {
         TreeNode leftNode = root;
         int depth = 0;
         // left node traversal will give the height (hl)
-        while (leftNode != null) {
+        while (leftNode.left != null) {
             depth += 1;
             leftNode = leftNode.left;
         }
@@ -53,8 +53,7 @@ public class CountCompleteTreeNodes {
     private boolean existsNode(int index, int depth, TreeNode node) {
         int left = 0;
         int right = (int) Math.pow(2, depth) - 1;
-
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < depth; i++) {
             int pivot = left + (right - left) / 2;
             if (index <= pivot) {
                 node = node.left;
