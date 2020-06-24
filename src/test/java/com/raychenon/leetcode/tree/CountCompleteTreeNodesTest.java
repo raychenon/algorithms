@@ -27,18 +27,15 @@ public class CountCompleteTreeNodesTest {
      * 4  5
      */
     @Test
-    public void exampleLCTest() {
+    public void example1Test() {
         TreeNode root = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3);
         root.left = node2;
         root.right = node3;
 
-
         node2.left = new TreeNode(4);
         node2.right = new TreeNode(5);
-
-        //node3.left   = new TreeNode(6);
 
         assertMethods(5, root);
     }
@@ -52,7 +49,7 @@ public class CountCompleteTreeNodesTest {
      * 1  3  6  9
      */
     @Test
-    public void example1Test() {
+    public void example2Test() {
         TreeNode root = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);
         TreeNode node7 = new TreeNode(7);

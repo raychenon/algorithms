@@ -11,8 +11,36 @@ import org.junit.Test
  */
 class CountCompleteTreeNodesTest {
 
+    /**
+     * --- 1
+     * -- / \
+     * - 2   3
+     * -/ \  /
+     * 4  5 6
+     */
     @Test
     fun example1Test() {
+        val root = TreeNode(1)
+        val node2 = TreeNode(2)
+        val node3 = TreeNode(3)
+        root.left = node2
+        root.right = node3
+        node2.left = TreeNode(4)
+        node2.right = TreeNode(5)
+
+        node3.left   =  TreeNode(6);
+        assertMethods(6, root)
+    }
+
+    /**
+     * ---- 4
+     * -- /  \
+     * - 2    7
+     * -/ \  / \
+     * 1  3  6  9
+     */
+    @Test
+    fun example2Test() {
         val root = TreeNode(4)
         val node2 = TreeNode(2)
         val node7 = TreeNode(7)
@@ -29,6 +57,7 @@ class CountCompleteTreeNodesTest {
 
         assertMethods(7, root)
     }
+
 
     @Test
     fun nullTest() {
