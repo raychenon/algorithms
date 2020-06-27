@@ -40,4 +40,16 @@ public class SumRoottoLeafNumbersTest {
 
         assertEquals(1026, instance.sumNumbersRecursive(t2Root));
     }
+
+    @Test
+    public void nullNodeTest() {
+        //  [4,9,0,null,1]
+        TreeNode t2Root = new TreeNode(4);
+        t2Root.left = new TreeNode(9);
+        t2Root.right = new TreeNode(0);
+        t2Root.left.left = null;
+        t2Root.left.right = new TreeNode(1);
+
+        assertEquals(531, instance.sumNumbersRecursive(t2Root));
+    }
 }
