@@ -19,7 +19,7 @@ class SumRoottoLeafNumbersTest {
         t1Root.right = TreeNode(3)
         TestCase.assertEquals(
             25,
-            SumRoottoLeafNumbers.sumNumbers(t1Root)
+            SumRoottoLeafNumbers.sumNumbersRecursive(t1Root)
         )
     }
 
