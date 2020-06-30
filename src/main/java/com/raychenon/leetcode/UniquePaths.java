@@ -1,4 +1,4 @@
-package com.raychenon.kotlin.leetcode;
+package com.raychenon.leetcode;
 
 /**
  * User: raychenon
