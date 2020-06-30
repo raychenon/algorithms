@@ -36,7 +36,8 @@ public class UniquePathsTest {
 
 
     void assertUniquePaths(int expected, int m, int n) {
-        assertEquals(expected, uniquePaths.uniquePaths(m, n));
+        assertEquals(expected, uniquePaths.uniquePathsDP(m, n));
+        assertEquals(expected, uniquePaths.uniquePathsRecursive(m, n));
     }
 
 }
