@@ -25,8 +25,8 @@ class UniquePathsTest {
         assertUniquePaths(48620, 10, 10)
     }
 
-
     fun assertUniquePaths(expected: Int, m: Int, n: Int) {
+        TestCase.assertEquals(expected, UniquePaths.uniquePathsDP(m, n))
         TestCase.assertEquals(expected, UniquePaths.uniquePathsRecursive(m, n))
     }
 }
