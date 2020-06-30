@@ -40,8 +40,8 @@ object UniquePaths {
     /**
      * Recurrence relation:
      * uniquePaths(m, n) = uniquePaths(m - 1, n) + uniquePaths(m, n - 1).
-     *
-     * Note: tailrec avoids the stack overflow, it doesn't memoize intermediary results
+     * tailrec avoids the stack overflow, it doesn't memoize intermediary results
+     * Note: tailrec replaces the recursion by an iteration, but instructs the compiler to store the accumulator of the result in the stack
      */
     tailrec fun uniquePathsRecursive(m: Int, n: Int): Int {
         return if (m == 1 || n == 1) 1 else uniquePathsRecursive(m - 1, n) + uniquePathsRecursive(m, n - 1)
