@@ -1,12 +1,10 @@
 """
 https://leetcode.com/problems/unique-paths/
 """
+
+
 def uniquePaths(m: int, n: int) -> int:
-    dp = [[0 for _ in range(n)] for _ in range(m)]
-    for i in range(m):
-        dp[i][0] = 1
-    for i in range(n):
-        dp[0][i] = 1
+    dp = [[1] * n for _ in range(m)]
 
     for r in range(1, m):
         for c in range(1, n):
