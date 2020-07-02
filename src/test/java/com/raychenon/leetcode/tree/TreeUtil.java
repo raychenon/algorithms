@@ -21,14 +21,22 @@ public class TreeUtil {
      * @param values
      * @return
      */
-    public static TreeNode createTree(int[] values) {
-        if (values == null || values.length == 0) return null;
+    public static TreeNode createTree(List<Integer> values) {
+        if (values == null || values.size() == 0) return null;
 
         List<TreeNode> nodes = new LinkedList<>(); // store the list of parent nodes
-        TreeNode root = new TreeNode(values[0]);
+        TreeNode root = new TreeNode(values.get(0));
+        nodes.add(root);
         TreeNode temp = root;
-        for (int i = 1; i < values.length; i = i + 2) {
-            insertPreOrderNode(temp, values[i], values[i + 1]);
+        for (int i = 1; i < values.size(); i = i + 1) {
+            if (i % 2 == 1) {
+                Integer left = values.get(1);
+                if (left != null) temp.left = new TreeNode(left);
+            } else {
+                Integer right = values.get(1);
+                if (right != null) temp.right = new TreeNode(right);
+
+            }
         }
         return root;
     }
