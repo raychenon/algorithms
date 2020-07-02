@@ -1,6 +1,5 @@
 package com.raychenon.leetcode.tree;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -23,27 +22,18 @@ public class TreeUtil {
      */
     public static TreeNode createTree(List<Integer> values) {
         if (values == null || values.size() == 0) return null;
-
-        List<TreeNode> nodes = new LinkedList<>(); // store the list of parent nodes
-        TreeNode root = new TreeNode(values.get(0));
-        nodes.add(root);
-        TreeNode temp = root;
-        for (int i = 1; i < values.size(); i = i + 1) {
-            if (i % 2 == 1) {
-                Integer left = values.get(1);
-                if (left != null) temp.left = new TreeNode(left);
-            } else {
-                Integer right = values.get(1);
-                if (right != null) temp.right = new TreeNode(right);
-
-            }
-        }
+        TreeNode root = createTree(values, 0);
         return root;
     }
 
-    private static void insertPreOrderNode(TreeNode node, Integer left, Integer right) {
-        if (left != null) node.left = new TreeNode(left);
-        if (right != null) node.right = new TreeNode(right);
+    public static TreeNode createTree(List<Integer> values, int index) {
+        Integer value = values.get(index);
+        TreeNode tree = (value == null) ? null : new TreeNode(value); 
+        if (index * 2 < values.size() - 1)
+            tree.left = createTree(values, index * 2 + 1);
+        if (index * 2 + 1 < values.size() - 1)
+            tree.right = createTree(values, index * 2 + 2);
+        return tree;
     }
 
 }

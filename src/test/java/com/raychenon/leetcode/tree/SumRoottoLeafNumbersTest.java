@@ -3,6 +3,9 @@ package com.raychenon.leetcode.tree;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
 
 /**
@@ -22,21 +25,14 @@ public class SumRoottoLeafNumbersTest {
     @Test
     public void example1Test() {
         //  [1,2,3]
-        TreeNode t1Root = new TreeNode(1);
-        t1Root.left = new TreeNode(2);
-        t1Root.right = new TreeNode(3);
-
+        TreeNode t1Root =  TreeUtil.createTree(Arrays.asList(1,2,3));
         assertEquals(25, instance.sumNumbersRecursive(t1Root));
     }
 
     @Test
     public void example2Test() {
         //  [4,9,0,5,1]
-        TreeNode t2Root = new TreeNode(4);
-        t2Root.left = new TreeNode(9);
-        t2Root.right = new TreeNode(0);
-        t2Root.left.left = new TreeNode(5);
-        t2Root.left.right = new TreeNode(1);
+        TreeNode t2Root = TreeUtil.createTree(Arrays.asList(4, 9, 0, 5, 1));
 
         assertEquals(1026, instance.sumNumbersRecursive(t2Root));
     }
@@ -44,11 +40,7 @@ public class SumRoottoLeafNumbersTest {
     @Test
     public void nullNodeTest() {
         //  [4,9,0,null,1]
-        TreeNode t2Root = new TreeNode(4);
-        t2Root.left = new TreeNode(9);
-        t2Root.right = new TreeNode(0);
-        t2Root.left.left = null;
-        t2Root.left.right = new TreeNode(1);
+        TreeNode t2Root = TreeUtil.createTree(Arrays.asList(4,9,0,null,1));
 
         assertEquals(531, instance.sumNumbersRecursive(t2Root));
     }
