@@ -26,13 +26,20 @@ public class TreeUtil {
         return root;
     }
 
-    public static TreeNode createTree(List<Integer> values, int index) {
+    private static TreeNode createTree(List<Integer> values, int index) {
         Integer value = values.get(index);
-        TreeNode tree = (value == null) ? null : new TreeNode(value); 
-        if (index * 2 < values.size() - 1)
-            tree.left = createTree(values, index * 2 + 1);
-        if (index * 2 + 1 < values.size() - 1)
-            tree.right = createTree(values, index * 2 + 2);
+        TreeNode tree = (value == null) ? null : new TreeNode(value);
+
+        // tree(index).left = 2 * index + 1
+        int leftIndex = index * 2 + 1;
+        if (leftIndex < values.size()) {
+            tree.left = createTree(values, leftIndex);
+        }
+        // tree(index).right = 2 * index + 2
+        int rightIndex = index * 2 + 2;
+        if (rightIndex < values.size()) {
+            tree.right = createTree(values, rightIndex);
+        }
         return tree;
     }
 
