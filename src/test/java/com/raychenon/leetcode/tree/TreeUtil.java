@@ -27,19 +27,19 @@ public class TreeUtil {
     }
 
     private static TreeNode createTree(List<Integer> values, int index) {
+        if (index >= values.size()) return null;
+
         Integer value = values.get(index);
-        TreeNode tree = (value == null) ? null : new TreeNode(value);
+        if (value == null) return null;
+
+        TreeNode tree = new TreeNode(value);
 
         // tree(index).left = 2 * index + 1
-        int leftIndex = index * 2 + 1;
-        if (leftIndex < values.size()) {
-            tree.left = createTree(values, leftIndex);
-        }
+        tree.left = createTree(values, index * 2 + 1);
+
         // tree(index).right = 2 * index + 2
-        int rightIndex = index * 2 + 2;
-        if (rightIndex < values.size()) {
-            tree.right = createTree(values, rightIndex);
-        }
+        tree.right = createTree(values, index * 2 + 2);
+
         return tree;
     }
 
