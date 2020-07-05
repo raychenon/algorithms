@@ -20,8 +20,20 @@ object TreeUtil {
      * @param values
      * @return
      */
-    fun createTree(values: List<Int?>?): TreeNode? {
+    fun createTree(vararg nums: Int?): TreeNode? {
+        val values = asList(*nums)
         return if (values == null || values.size == 0) null else createTree(values, 0)
+    }
+
+    /**
+     * similar to kotlin.collections.listOf
+     *
+     * help from https://stackoverflow.com/questions/44090019/how-to-pass-vararg-as-array-to-function-in-kotlin
+     */
+    private fun <Int> asList(vararg ts: Int?): List<Int?> {
+        val result = mutableListOf<Int?>()
+        for (t in ts) result.add(t)
+        return result
     }
 
     private fun createTree(values: List<Int?>, index: Int): TreeNode? {
