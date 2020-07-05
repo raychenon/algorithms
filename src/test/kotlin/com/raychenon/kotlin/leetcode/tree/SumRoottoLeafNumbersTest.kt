@@ -2,7 +2,6 @@ package com.raychenon.kotlin.leetcode.tree
 
 import junit.framework.TestCase
 import org.junit.Test
-import java.util.*
 
 /**
  * User: raychenon
@@ -30,7 +29,7 @@ class SumRoottoLeafNumbersTest {
     @Test
     fun nullNodeTest() {
         //  [4,9,0,null,1]
-        val t2Root = TreeUtil.createTree(Arrays.asList((4, 9, 0, null, 1))
+        val t2Root = TreeUtil.createTree(listOf(4, 9, 0, null, 1))
         TestCase.assertEquals(531, SumRoottoLeafNumbers.sumNumbersRecursive(t2Root))
     }
 

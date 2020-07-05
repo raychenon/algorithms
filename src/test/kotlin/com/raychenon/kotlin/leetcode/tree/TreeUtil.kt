@@ -20,14 +20,11 @@ object TreeUtil {
      * @param values
      * @return
      */
-    fun createTree(values: List<Int>?): TreeNode? {
+    fun createTree(values: List<Int?>?): TreeNode? {
         return if (values == null || values.size == 0) null else createTree(values, 0)
     }
 
-    private fun createTree(
-        values: List<Int>,
-        index: Int
-    ): TreeNode? {
+    private fun createTree(values: List<Int?>, index: Int): TreeNode? {
         if (index >= values.size) return null
         val value = values[index] ?: return null
         val tree = TreeNode(value)
