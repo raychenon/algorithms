@@ -4,7 +4,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -25,7 +24,7 @@ public class SumRoottoLeafNumbersTest {
     @Test
     public void example1Test() {
         //  [1,2,3]
-        TreeNode t1Root =  TreeUtil.createTree(Arrays.asList(1,2,3));
+        TreeNode t1Root = TreeUtil.createTree(Arrays.asList(1, 2, 3));
         assertSumNumber(25, t1Root);
     }
 
@@ -37,10 +36,17 @@ public class SumRoottoLeafNumbersTest {
     }
 
     @Test
-    public void nullNodeTest() {
+    public void nullLeftNodeTest() {
         //  [4,9,0,null,1]
-        TreeNode t2Root = TreeUtil.createTree(Arrays.asList(4,9,0,null,1));
+        TreeNode t2Root = TreeUtil.createTree(Arrays.asList(4, 9, 0, null, 1));
         assertSumNumber(531, t2Root);
+    }
+
+    @Test
+    public void nullRightNodeTest() {
+        //  [4,9,0,null,1]
+        TreeNode t2Root = TreeUtil.createTree(Arrays.asList(4, 9, null, 0, 1));
+        assertSumNumber(981, t2Root);
     }
 
     private void assertSumNumber(int expected, TreeNode root) {
