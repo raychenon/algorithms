@@ -26,22 +26,25 @@ public class SumRoottoLeafNumbersTest {
     public void example1Test() {
         //  [1,2,3]
         TreeNode t1Root =  TreeUtil.createTree(Arrays.asList(1,2,3));
-        assertEquals(25, instance.sumNumbersRecursive(t1Root));
+        assertSumNumber(25, t1Root);
     }
 
     @Test
     public void example2Test() {
         //  [4,9,0,5,1]
         TreeNode t2Root = TreeUtil.createTree(Arrays.asList(4, 9, 0, 5, 1));
-
-        assertEquals(1026, instance.sumNumbersRecursive(t2Root));
+        assertSumNumber(1026, t2Root);
     }
 
     @Test
     public void nullNodeTest() {
         //  [4,9,0,null,1]
         TreeNode t2Root = TreeUtil.createTree(Arrays.asList(4,9,0,null,1));
+        assertSumNumber(531, t2Root);
+    }
 
-        assertEquals(531, instance.sumNumbersRecursive(t2Root));
+    private void assertSumNumber(int expected, TreeNode root) {
+        assertEquals(expected, instance.sumNumbersRecursive(root));
+        assertEquals(expected, instance.sumNumbersMorris(root));
     }
 }
