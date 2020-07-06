@@ -49,6 +49,13 @@ public class SumRoottoLeafNumbersTest {
         assertSumNumber(981, t2Root);
     }
 
+    @Test
+    public void nullRightandLeftNodeTest() {
+        //  [1,2,3,null,4,5,null]
+        TreeNode t2Root = TreeUtil.createTree(Arrays.asList(1, 2, 3, null, 4, 5, null));
+        assertSumNumber(259, t2Root);
+    }
+
     private void assertSumNumber(int expected, TreeNode root) {
         assertEquals(expected, instance.sumNumbersRecursive(root));
         assertEquals(expected, instance.sumNumbersMorris(root));

@@ -39,6 +39,13 @@ class SumRoottoLeafNumbersTest {
         assertSumNumber(981, t2Root)
     }
 
+    @Test
+    fun nullRightandLeftNodeTest() {
+        //  [1,2,3,null,4,5,null]
+        val root = TreeUtil.createTree(1, 2, 3, null, 4, 5, null)
+        assertSumNumber(259, root)
+    }
+
 
     private fun assertSumNumber(expected: Int, root: TreeNode?) {
         TestCase.assertEquals(expected, SumRoottoLeafNumbers.sumNumbersRecursive(root))

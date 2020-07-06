@@ -19,7 +19,7 @@ public class SumRoottoLeafNumbers {
     }
 
     private int traverse(TreeNode node, int prefix) {
-        if (node == null) return prefix;
+        // if (node == null) return prefix;
 
         int current = prefix * 10 + node.value;
         //System.out.println("current = " + current);
