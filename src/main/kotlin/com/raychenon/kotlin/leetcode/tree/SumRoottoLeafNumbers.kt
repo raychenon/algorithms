@@ -14,7 +14,7 @@ object SumRoottoLeafNumbers {
     }
 
     fun traverse(node: TreeNode?, prefix: Int): Int {
-        // if (node == null) return prefix
+        if (node == null) return prefix
 
         var current = prefix * 10 + node?.value!!
         var left = 0
