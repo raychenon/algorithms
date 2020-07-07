@@ -28,7 +28,23 @@ public class IslandPerimeterTest {
         );
     }
 
+    @Test
+    public void emptyTest() {
+        evaluateIslandPerimeter(
+                0,
+                new int[][]{{}}
+        );
+    }
+
+    @Test
+    public void nullTest() {
+        evaluateIslandPerimeter(
+                0, null
+        );
+    }
+
     void evaluateIslandPerimeter(int expected, int[][] grid) {
         assertEquals(expected, islandPerimeter.islandPerimeter(grid));
+        assertEquals(expected, islandPerimeter.islandPerimeterCount1by1(grid));
     }
 }

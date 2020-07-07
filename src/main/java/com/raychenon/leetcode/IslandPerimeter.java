@@ -8,6 +8,32 @@ package com.raychenon.leetcode;
 public class IslandPerimeter {
 
     /**
+     * Iterate each cells , IF land(1) then check all 4 adjacent cells (vertically, horizontally)
+     * <p>
+     * Time complexity: O(rows * cols)
+     * Space complexity: O(1)
+     */
+    public int islandPerimeterCount1by1(int[][] grid) {
+        if (grid == null || grid.length == 0) return 0;
+        int result = 0;
+        int rows = grid.length;
+        int cols = grid[0].length;
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == 0) continue;
+
+                if (r == 0 || grid[r - 1][c] == 0) result += 1; // top row or cell above
+                if (r == rows - 1 || grid[r + 1][c] == 0) result += 1;   // bottom row or cell under
+
+                if (c == 0 || grid[r][c - 1] == 0) result += 1;   // left
+                if (c == cols - 1 || grid[r][c + 1] == 0) result += 1; // right side or s=cell on the right side
+            }
+        }
+
+        return result;
+    }
+
+    /**
      * Time complexity: O(rows * cols)
      * Space complexity: O(1)
      */
