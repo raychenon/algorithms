@@ -24,7 +24,24 @@ public class IslandPerimeterTest {
     public void example1Test() {
         evaluateIslandPerimeter(
                 16,
-                new int[][]{{0, 1, 0, 0}, {1, 1, 1, 0}, {0, 1, 0, 0}, {1, 1, 0, 0}}
+                new int[][]{
+                        {0, 1, 0, 0},
+                        {1, 1, 1, 0},
+                        {0, 1, 0, 0},
+                        {1, 1, 0, 0}
+                }
+        );
+    }
+
+    @Test
+    public void example2Test() {
+        evaluateIslandPerimeter(
+                18,
+                new int[][]{
+                        {0, 1, 0, 0},
+                        {1, 1, 1, 0},
+                        {0, 0, 1, 1},
+                        {0, 1, 1, 0}}
         );
     }
 
@@ -33,13 +50,6 @@ public class IslandPerimeterTest {
         evaluateIslandPerimeter(
                 0,
                 new int[][]{{}}
-        );
-    }
-
-    @Test
-    public void nullTest() {
-        evaluateIslandPerimeter(
-                0, null
         );
     }
 

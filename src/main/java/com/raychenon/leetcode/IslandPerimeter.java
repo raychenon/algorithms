@@ -14,7 +14,6 @@ public class IslandPerimeter {
      * Space complexity: O(1)
      */
     public int islandPerimeterCount1by1(int[][] grid) {
-        if (grid == null || grid.length == 0) return 0;
         int result = 0;
         int rows = grid.length;
         int cols = grid[0].length;
@@ -39,7 +38,6 @@ public class IslandPerimeter {
      */
     public int islandPerimeter(int[][] grid) {
         // https://www.youtube.com/watch?v=FkjFlNtTzc8
-        if (grid == null || grid.length == 0) return 0;
         int result = 0;
 
         for (int i = 0; i < grid.length; i++) {
