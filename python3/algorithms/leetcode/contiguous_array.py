@@ -1,3 +1,5 @@
+from typing import List
+
 def findMaxLength(nums: List[int]) -> int:
     index = {0: -1}
     balance = 0
