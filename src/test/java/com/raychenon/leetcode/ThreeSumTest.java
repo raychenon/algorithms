@@ -3,9 +3,11 @@ package com.raychenon.leetcode;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * User: raychenon
@@ -23,15 +25,12 @@ public class ThreeSumTest {
 
     @Test
     public void example1Test() {
-        threeSumEval(new int[][]{{-1, -1, 2}, {-1, 0, 1}}, new int[]{-1, 0, 1, 2, -1, -4});
+        threeSumEval(Arrays.asList(Arrays.asList(-1, -1, 2), Arrays.asList(-1, 0, 1)), new int[]{-1, 0, 1, 2, -1, -4});
     }
 
-    private void threeSumEval(int[][] expected, int[] nums) {
-        //assertEquals(expected, threeSum.threeSum(nums));
-        List<List<Integer>>  actual = threeSum.threeSum(nums);
-        for(int i=0;i<actual.size();i++){
-            assertArrayEquals(expected[i],actual.get(i).toArray());
-        }
+    private void threeSumEval(List<List<Integer>> expected, int[] nums) {
+        List<List<Integer>> actual = threeSum.threeSum(nums);
+        assertThat(expected, is(actual));
     }
 
 }
