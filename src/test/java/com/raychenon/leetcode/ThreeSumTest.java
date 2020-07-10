@@ -38,8 +38,7 @@ public class ThreeSumTest {
         threeSumEval(Arrays.asList(), new int[]{-1, 0});
         threeSumEval(Arrays.asList(), null);
     }
-
-
+    
     private void threeSumEval(List<List<Integer>> expected, int[] nums) {
         List<List<Integer>> actual = threeSum.threeSum(nums);
         assertThat(expected, is(actual));

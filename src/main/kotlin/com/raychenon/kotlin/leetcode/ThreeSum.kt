@@ -12,16 +12,16 @@ object ThreeSum {
 
     fun threeSum(nums: IntArray): List<List<Int>> {
         Arrays.sort(nums)
-        val res =  mutableListOf<List<Int>>()
-        for(i in 0 until nums.size){
-            if(i == 0 || nums[i-1] != nums[i]){
-                twoSumII(nums,i,res)
+        val res = mutableListOf<List<Int>>()
+        for (i in 0 until nums.size) {
+            if (i == 0 || nums[i - 1] != nums[i]) {
+                twoSumII(nums, i, res)
             }
         }
-        return res
+        return res.toList()
     }
 
-    fun twoSumII(nums: IntArray, i: Int, res: MutableList<List<Int>?>) {
+    fun twoSumII(nums: IntArray, i: Int, res: MutableList<List<Int>>) {
         var lo = i + 1
         var hi = nums.size - 1
         while (lo < hi) {
