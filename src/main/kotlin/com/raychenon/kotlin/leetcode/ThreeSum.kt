@@ -26,9 +26,15 @@ object ThreeSum {
         var hi = nums.size - 1
         while (lo < hi) {
             val sum = nums[i] + nums[lo] + nums[hi]
-            if (sum < 0 || lo > i + 1 && nums[lo] == nums[lo - 1]) {
+            if (sum < 0 ||
+                lo > i + 1 &&
+                nums[lo] == nums[lo - 1]
+            ) {
                 ++lo
-            } else if (sum > 0 || hi < nums.size - 1 && nums[hi] == nums[hi + 1]) {
+            } else if (sum > 0 ||
+                hi < nums.size - 1 &&
+                nums[hi] == nums[hi + 1]
+            ) {
                 --hi
             } else {
                 res.add(Arrays.asList(nums[i], nums[lo++], nums[hi--]))
