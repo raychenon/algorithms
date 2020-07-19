@@ -35,6 +35,16 @@ class ThreeSumTest {
         threeSumEval(Arrays.asList(), intArrayOf(-1, 0))
     }
 
+    @Test
+    fun binarySearchCoverageTest() {
+        threeSumEval(
+            Arrays.asList(
+                Arrays.asList(-2, -1, 3),
+                Arrays.asList(-1, -1, 2)
+            ), intArrayOf(2, -2, -1, -1, -1, 1, 3)
+        )
+    }
+
 
     private fun threeSumEval(expected: List<List<Int>>, nums: IntArray) {
         val actual = ThreeSum.threeSum(nums)

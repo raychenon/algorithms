@@ -10,6 +10,13 @@ import java.util.*
  */
 object ThreeSum {
 
+    /**
+     * Time complexity: O(n^2)
+     * https://github.com/eMahtab/three-sum
+     *
+     * @param nums
+     * @return
+     */
     fun threeSum(nums: IntArray): List<List<Int>> {
         Arrays.sort(nums)
         val res = mutableListOf<List<Int>>()

@@ -38,7 +38,12 @@ public class ThreeSumTest {
         threeSumEval(Arrays.asList(), new int[]{-1, 0});
         threeSumEval(Arrays.asList(), null);
     }
-    
+
+    @Test
+    public void binarySearchCoverageTest() {
+        threeSumEval(Arrays.asList(Arrays.asList(-2, -1, 3), Arrays.asList(-1, -1, 2)), new int[]{2, -2, -1, -1, -1, 1, 3});
+    }
+
     private void threeSumEval(List<List<Integer>> expected, int[] nums) {
         List<List<Integer>> actual = threeSum.threeSum(nums);
         assertThat(expected, is(actual));

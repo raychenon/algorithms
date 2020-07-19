@@ -11,7 +11,13 @@ import java.util.List;
  */
 public class ThreeSum {
 
-    // https://github.com/eMahtab/three-sum
+    /**
+     * Time complexity: O(n^2)
+     * https://github.com/eMahtab/three-sum
+     *
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         if (nums == null || nums.length < 3)
