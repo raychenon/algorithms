@@ -71,6 +71,16 @@ public class WordSearchTest {
         evaluateWordExistence(true, board, "EEDASABCES");
     }
 
+    @Test
+    public void givenWordCCE_end_bottom() {
+        evaluateWordExistence(false, board, "CEE");
+    }
+
+    @Test
+    public void givenWordEEDA_end_left() {
+        evaluateWordExistence(false, board, "EED");
+    }
+
     private void evaluateWordExistence(boolean expected, char[][] board, String word) {
         assertEquals(expected, wordSearch.exist(board, word));
     }
