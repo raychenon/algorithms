@@ -40,6 +40,16 @@ public class WordSearchTest {
         evaluateWordExistence(false, board, "ABCB");
     }
 
+    @Test
+    public void givenWordESEE() {
+        evaluateWordExistence(true, board, "ESEE");
+    }
+
+    @Test
+    public void givenWordSADE() {
+        evaluateWordExistence(true, board, "SADE");
+    }
+
     private void evaluateWordExistence(boolean expected, char[][] board, String word) {
         assertEquals(expected, wordSearch.exist(board, word));
     }
