@@ -83,5 +83,6 @@ public class WordSearchTest {
 
     private void evaluateWordExistence(boolean expected, char[][] board, String word) {
         assertEquals(expected, wordSearch.exist(board, word));
+        assertEquals(expected, wordSearch.existLP(board, word));
     }
 }
