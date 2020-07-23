@@ -15,7 +15,6 @@ public class WordSearch {
                 if (exist(board, i, j, word.toCharArray(), 0)) return true;
             }
         }
-
         return false;
     }
 
