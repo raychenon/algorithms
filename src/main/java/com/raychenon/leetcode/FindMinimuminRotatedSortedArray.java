@@ -55,6 +55,6 @@ public class FindMinimuminRotatedSortedArray {
      * @return
      */
     public int findMinBFstream(int[] nums) {
-        return Arrays.stream(nums).map(v -> v).min().orElse(-1);
+        return Arrays.stream(nums).min().getAsInt();
     }
 }

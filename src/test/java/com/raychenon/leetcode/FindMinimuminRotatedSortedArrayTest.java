@@ -22,13 +22,19 @@ public class FindMinimuminRotatedSortedArrayTest {
 
     @Test
     public void findMinimumTest() {
-        int[] array = {3,4,5,1,2};
+        int[] array = {3, 4, 5, 1, 2};
         assertMethods(1, array);
     }
 
     @Test
     public void find0Test() {
-        int[] array = {4,5,6,7,0,1,2};
+        int[] array = {4, 5, 6, 7, 0, 1, 2};
+        assertMethods(0, array);
+    }
+
+    @Test
+    public void findMinimumleftShiftTest() {
+        int[] array = {7, 0, 1, 2, 4, 5, 6};
         assertMethods(0, array);
     }
 
