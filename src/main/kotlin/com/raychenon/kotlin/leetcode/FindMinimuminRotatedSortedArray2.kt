@@ -7,6 +7,10 @@ package com.raychenon.kotlin.leetcode
  */
 object FindMinimuminRotatedSortedArray2 {
 
+    /**
+     * Time complexity: O(log2(n))
+     * Space complexity: O(1)
+     */
     fun findMin(nums: IntArray): Int {
         var left = 0
         var right = nums.lastIndex
@@ -24,16 +28,22 @@ object FindMinimuminRotatedSortedArray2 {
         return nums[left]
     }
 
-
+    /**
+     * Time complexity: O(log2(n))
+     * Space complexity: O(1)
+     */
     fun findMax(nums: IntArray): Int {
         var left = 0
         var right = nums.lastIndex
         while (left < right) {
             var mid = left + (right - left) / 2
             // find the highest num
-            if (nums[mid] > nums[right]) {
+            if (nums[mid] == nums[right]) {
+                // equal
+                right = right + 1
+            } else if (nums[mid] > nums[right]) {
                 right = mid
-            } else {
+            } else if (nums[mid] < nums[right]) {
                 left = mid + 1
             }
         }
