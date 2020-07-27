@@ -40,6 +40,17 @@ public class FindMinimuminRotatedSortedArray2Test {
         assertFindMax(2, array);
     }
 
+    @Test
+    public void otherExamplesTest() {
+        int[] array = {5, 7, 11, 1, 3};
+        assertFindMin(1, array);
+        assertFindMax(11, array);
+
+        int[] array1 = {7, 9, 15, 1, 3};
+        assertFindMin(1, array1);
+        assertFindMax(15, array1);
+    }
+
     void assertFindMin(int expectedDuplicate, int[] array) {
         TestCase.assertEquals(expectedDuplicate, instance.findMin(array));
     }

@@ -42,7 +42,7 @@ object FindMinimuminRotatedSortedArray2 {
                 // equal
                 left = left + 1
             } else if (nums[left] < nums[mid]) {
-                left = mid + 1
+                left = mid
             } else {
                 right = mid - 1
             }

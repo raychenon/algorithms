@@ -32,6 +32,13 @@ public class FindMinimuminRotatedSortedArray2 {
         return nums[left];
     }
 
+    /**
+     * Time complexity: O(log2(n))
+     * Space complexity: O(1)
+     *
+     * @param nums
+     * @return
+     */
     public int findMax(int[] nums) {
         // binary search
         int left = 0;
@@ -39,12 +46,12 @@ public class FindMinimuminRotatedSortedArray2 {
 
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] == nums[left]) {
-                left = left + 1;
-            } else if (nums[left] < nums[mid]) {
-                left = mid + 1;
+            if (nums[left] < nums[mid]) {
+                left = mid;
             } else if (nums[left] > nums[mid]) {
                 right = mid - 1;
+            } else {    // equality
+                left = left + 1;
             }
         }
         return nums[left];
