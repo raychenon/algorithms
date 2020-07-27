@@ -38,13 +38,13 @@ object FindMinimuminRotatedSortedArray2 {
         while (left < right) {
             var mid = left + (right - left) / 2
             // find the highest num
-            if (nums[mid] == nums[right]) {
+            if (nums[mid] == nums[left]) {
                 // equal
-                right = right + 1
-            } else if (nums[mid] < nums[right]) {
+                left = left + 1
+            } else if (nums[left] < nums[mid]) {
                 left = mid + 1
             } else {
-                right = mid
+                right = mid - 1
             }
         }
         return nums[left]
