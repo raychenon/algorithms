@@ -47,6 +47,13 @@ class FindMinimuminRotatedSortedArray2Test {
         assertFindMax(15, array)
     }
 
+    @Test
+    fun onlySameValueTest() {
+        val array = intArrayOf(1, 1, 1, 1, 1, 1, 1, 1)
+        assertFindMin(1, array)
+        assertFindMax(1, array)
+    }
+
     fun assertFindMin(expectedDuplicate: Int, array: IntArray) {
         TestCase.assertEquals(
             expectedDuplicate,

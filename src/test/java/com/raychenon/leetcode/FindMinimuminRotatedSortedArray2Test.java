@@ -54,6 +54,14 @@ public class FindMinimuminRotatedSortedArray2Test {
         assertFindMax(15, array);
     }
 
+    @Test
+    public void onlySameValueTest() {
+        int[] array = {1, 1, 1, 1, 1, 1, 1, 1};
+        assertFindMin(1, array);
+        assertFindMax(1, array);
+    }
+
+
     void assertFindMin(int expectedDuplicate, int[] array) {
         TestCase.assertEquals(expectedDuplicate, instance.findMin(array));
     }
