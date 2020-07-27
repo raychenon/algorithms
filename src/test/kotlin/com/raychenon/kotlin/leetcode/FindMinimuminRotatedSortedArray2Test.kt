@@ -34,16 +34,15 @@ class FindMinimuminRotatedSortedArray2Test {
     }
 
     @Test
-    fun example3Test() {
-        val array = intArrayOf(5, 7, 7, 11, 1, 3)
+    fun minInMiddleTest() {
+        val array = intArrayOf(5, 7, 11, 1, 1, 1, 1, 3)
         assertFindMin(1, array)
         assertFindMax(11, array)
     }
 
-
     @Test
-    fun example4Test() {
-        val array = intArrayOf(7, 9, 15, 15, 15, 1, 1, 3)
+    fun maxInMiddleTest() {
+        val array = intArrayOf(7, 9, 15, 15, 15, 1, 3)
         assertFindMin(1, array)
         assertFindMax(15, array)
     }
