@@ -9,5 +9,15 @@ public class BestTimetoBuyandSellStockWithCooldown {
 
     public int maxProfit(int[] prices) {
 
+        int profit = 0;
+        int i = 0;
+        while (i < prices.length) {
+            if (prices[i + 1] > prices[i]) {
+                profit += prices[i + 1] - prices[i];
+                i++;
+            }
+            i++;
+        }
+        return profit;
     }
 }
