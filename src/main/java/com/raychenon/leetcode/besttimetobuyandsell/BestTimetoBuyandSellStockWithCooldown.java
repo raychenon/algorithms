@@ -7,28 +7,27 @@ package com.raychenon.leetcode.besttimetobuyandsell;
  */
 public class BestTimetoBuyandSellStockWithCooldown {
 
-    public int maxProfit(int[] prices) {
+    /**
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfitDPWithStateMachine(int[] prices) {
 
-        int profit = 0;
-        int i = 0;
-        int low = prices[0];
-        int high = prices[0];
-        int length = prices.length - 1;
-        while (i < length) {
-            while (i < length && prices[i] >= prices[i + 1]) {
-                i++;
-            }
-            low = prices[i];
+        int sold = Integer.MIN_VALUE;
+        int held = Integer.MIN_VALUE;
+        int reset = 0;
 
-            while (i < length && prices[i] <= prices[i + 1]) {
-                i++;
-            }
-            high = prices[i];
+        for (int price : prices) {
+            int preSold = sold;
 
-            profit += high - low;
-
-            i++; // cooldown
+            sold = held + price;
+            held = Math.max(held, reset - price);
+            reset = Math.max(reset, preSold);
         }
-        return profit - 1;
+
+        return Math.max(sold, reset);
     }
 }

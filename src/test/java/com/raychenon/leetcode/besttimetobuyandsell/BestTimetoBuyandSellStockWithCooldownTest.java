@@ -36,6 +36,6 @@ public class BestTimetoBuyandSellStockWithCooldownTest {
 
 
     void evaluteMaxProfit(int expected, int[] array) {
-        assertEquals(expected, instance.maxProfit(array));
+        assertEquals(expected, instance.maxProfitDPWithStateMachine(array));
     }
 }
