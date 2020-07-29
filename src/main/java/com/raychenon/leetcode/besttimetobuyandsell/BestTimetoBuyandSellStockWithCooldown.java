@@ -11,13 +11,24 @@ public class BestTimetoBuyandSellStockWithCooldown {
 
         int profit = 0;
         int i = 0;
-        while (i < prices.length) {
-            if (prices[i + 1] > prices[i]) {
-                profit += prices[i + 1] - prices[i];
+        int low = prices[0];
+        int high = prices[0];
+        int length = prices.length - 1;
+        while (i < length) {
+            while (i < length && prices[i] >= prices[i + 1]) {
                 i++;
             }
-            i++;
+            low = prices[i];
+
+            while (i < length && prices[i] <= prices[i + 1]) {
+                i++;
+            }
+            high = prices[i];
+
+            profit += high - low;
+
+            i++; // cooldown
         }
-        return profit;
+        return profit - 1;
     }
 }
