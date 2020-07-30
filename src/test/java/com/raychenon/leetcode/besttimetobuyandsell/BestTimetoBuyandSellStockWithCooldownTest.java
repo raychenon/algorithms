@@ -18,7 +18,7 @@ public class BestTimetoBuyandSellStockWithCooldownTest {
     public static void setUp() {
         instance = new BestTimetoBuyandSellStockWithCooldown();
     }
-    
+
     @Test
     public void example1Test() {
         int[] nums = {1, 2, 3, 0, 2};
@@ -37,5 +37,6 @@ public class BestTimetoBuyandSellStockWithCooldownTest {
 
     void evaluteMaxProfit(int expected, int[] array) {
         assertEquals(expected, instance.maxProfitDPWithStateMachine(array));
+        assertEquals(expected, instance.maxProfitDP(array));
     }
 }
