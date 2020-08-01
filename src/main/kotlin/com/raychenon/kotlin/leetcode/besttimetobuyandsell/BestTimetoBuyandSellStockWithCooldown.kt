@@ -27,6 +27,13 @@ object BestTimetoBuyandSellStockWithCooldown {
         return Math.max(sold, reset)
     }
 
+    /**
+     * Time complexity: O(n^2)
+     * Space complexity: O(n)
+     *
+     * @param prices
+     * @return
+     */
     fun maxProfitDP(prices: IntArray): Int {
         val MP = IntArray(prices.size + 2)
         for (i in prices.indices.reversed()) {

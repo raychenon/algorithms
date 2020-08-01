@@ -31,6 +31,13 @@ public class BestTimetoBuyandSellStockWithCooldown {
         return Math.max(sold, reset);
     }
 
+    /**
+     * Time complexity: O(n^2)
+     * Space complexity: O(n)
+     *
+     * @param prices
+     * @return
+     */
     public int maxProfitDP(int[] prices) {
         int[] MP = new int[prices.length + 2];
 
