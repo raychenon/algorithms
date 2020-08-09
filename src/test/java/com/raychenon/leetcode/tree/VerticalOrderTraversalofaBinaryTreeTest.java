@@ -39,5 +39,6 @@ public class VerticalOrderTraversalofaBinaryTreeTest {
 
     private void assertVerticalTraversal(List<List<Integer>> expectedTraversal, TreeNode root) {
         assertEquals(expectedTraversal, instance.verticalTraversal(root));
+        assertEquals(expectedTraversal, instance.verticalTraversalDFS(root));
     }
 }
