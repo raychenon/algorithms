@@ -24,6 +24,11 @@ public class HIndexTest {
         evaluateHIndex(3, new int[]{3, 0, 6, 1, 5});
     }
 
+    @Test
+    public void only0Test() {
+        evaluateHIndex(0, new int[]{0, 0, 0});
+    }
+
     private void evaluateHIndex(int expected, int[] citations) {
         assertEquals(expected, hIndex.hIndex(citations));
     }
