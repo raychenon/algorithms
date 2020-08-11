@@ -31,6 +31,7 @@ public class HIndexTest {
 
     private void evaluateHIndex(int expected, int[] citations) {
         assertEquals(expected, hIndex.hIndex(citations));
+        assertEquals(expected, hIndex.hIndexBucketSort(citations));
     }
 
 }

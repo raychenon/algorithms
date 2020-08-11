@@ -9,14 +9,47 @@ import java.util.Arrays;
  */
 public class HIndex {
 
+    /**
+     * Time complexity: 0(n*log(n)) = 0(n*log(n)) + O(n)
+     * Space complexity: O(1)
+     *
+     * @param citations
+     * @return
+     */
     public int hIndex(int[] citations) {
 
-        Arrays.sort(citations);
+        Arrays.sort(citations);   // 0(n*log(n))
         int n = citations.length;
         int i = 1;
         for (i = 1; i <= n; i++) {
             if (citations[n - i] < i) break;
         }
         return i - 1;
+    }
+
+    /**
+     * Counting sort
+     * 
+     * Time complexity: 0(n)
+     * Space complexity: O(n)
+     *
+     * @param citations
+     * @return
+     */
+    public int hIndexBucketSort(int[] citations) {
+        int n = citations.length;
+        int[] frequencyPapers = new int[n + 1];
+
+        // count papers for each citations
+        for (int c : citations) {
+            frequencyPapers[Math.min(n, c)]++;
+        }
+
+        // find the h-index
+        int hIndex = n;
+        for (int j = frequencyPapers[n]; hIndex > j; j += frequencyPapers[hIndex]) {
+            hIndex--;
+        }
+        return hIndex;
     }
 }
