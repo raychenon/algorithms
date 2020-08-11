@@ -10,14 +10,14 @@ import java.util.*
 object HIndex {
 
     /**
-     * Time complexity: 0(n*log(n)) = 0(n*log(n)) + O(n)
+     * Time complexity: O(n*log(n)) = 0(n*log(n)) + O(n)
      * Space complexity: O(1)
      *
      * @param citations
      * @return
      */
     fun hIndex(citations: IntArray): Int {
-        Arrays.sort(citations) // 0(n*log(n))
+        Arrays.sort(citations) // O(n*log(n))
         val n = citations.size
         var i = 1
         while (i <= n && (citations[n - i] >= i)) {
@@ -29,7 +29,7 @@ object HIndex {
     /**
      * Counting sort
      *
-     * Time complexity: 0(n)
+     * Time complexity: O(n)
      * Space complexity: O(n)
      *
      * @param citations

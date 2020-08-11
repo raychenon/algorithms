@@ -20,6 +20,16 @@ class HIndexTest {
         evaluateHIndex(0, intArrayOf(0, 0, 0))
     }
 
+    @Test
+    fun hIndexEqualLengthTest() {
+        evaluateHIndex(6, intArrayOf(12, 7, 8, 9, 10, 11))
+    }
+
+    @Test
+    fun hIndexValueNotInCitations() {
+        evaluateHIndex(5, intArrayOf(12, 7, 8, 9, 10, 3))
+    }
+
     private fun evaluateHIndex(expected: Int, citations: IntArray) {
         TestCase.assertEquals(expected, HIndex.hIndex(citations))
         TestCase.assertEquals(expected, HIndex.hIndexCountingSort(citations))

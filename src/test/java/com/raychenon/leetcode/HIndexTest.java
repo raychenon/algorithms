@@ -25,6 +25,17 @@ public class HIndexTest {
     }
 
     @Test
+    public void hIndexEqualLengthTest() {
+        evaluateHIndex(6, new int[]{12, 7, 8, 9, 10, 11});
+    }
+
+    @Test
+    public void hIndexValueNotInCitations() {
+        evaluateHIndex(5, new int[]{12, 7, 8, 9, 10, 3});
+    }
+
+
+    @Test
     public void only0Test() {
         evaluateHIndex(0, new int[]{0, 0, 0});
     }
