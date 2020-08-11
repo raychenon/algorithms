@@ -21,15 +21,15 @@ public class HIndex {
         Arrays.sort(citations);   // 0(n*log(n))
         int n = citations.length;
         int i = 1;
-        for (i = 1; i <= n; i++) {
-            if (citations[n - i] < i) break;
+        while (i <= n && (citations[n - i] >= i)) {
+            i++;
         }
         return i - 1;
     }
 
     /**
      * Counting sort
-     * 
+     * <p>
      * Time complexity: 0(n)
      * Space complexity: O(n)
      *

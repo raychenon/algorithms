@@ -20,8 +20,7 @@ object HIndex {
         Arrays.sort(citations) // 0(n*log(n))
         val n = citations.size
         var i = 1
-        while (i <= n) {
-            if (citations[n - i] < i) break
+        while (i <= n && (citations[n - i] >= i)) {
             i++
         }
         return i - 1
