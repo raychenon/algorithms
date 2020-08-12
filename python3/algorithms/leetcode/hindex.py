@@ -21,8 +21,30 @@ def hIndex(citations: List[int]) -> int:
     return i - 1
 
 
+def hindex_counting_sort(citations: List[int]) -> int:
+    """"
+    Time complexity: O(n)
+    Space complexity: O(n)
+    """
+    n = len(citations)
+    papers = [0] * (n + 1)
+    # counting papers for each citation frequency
+    for c in citations:
+        papers[min(c, n)] += 1
+
+    # finding the h-index
+    hindex = n
+    s = papers[n]
+    while hindex > s:
+        hindex -= 1
+        s += papers[hindex]
+
+    return hindex
+
+
 def evalHIndex(expected: int, citations: List[int]):
     assert expected == hIndex(citations)
+    assert expected == hindex_counting_sort(citations)
 
 
 if __name__ == "__main__":
