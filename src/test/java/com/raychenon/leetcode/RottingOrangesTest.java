@@ -50,9 +50,10 @@ public class RottingOrangesTest {
         assertOrangesRotting(0, matrix);
     }
 
-    private void assertOrangesRotting(int minutesExpected, int[][] matrix) {
-        assertEquals(0, instance.orangesRotting(matrix));
-        assertEquals(0, instance.orangesRottingBFS(matrix));
+    private void assertOrangesRotting(int minutesExpected, int[][] grid) {
+        assertEquals(minutesExpected, instance.orangesRottingBFS(grid));
+        // the 2nd method modifies in space the grid
+        assertEquals(minutesExpected, instance.orangesRotting(grid));
     }
 
 }
