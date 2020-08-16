@@ -8,7 +8,7 @@ import java.util.*
  * https://leetcode.com/problems/rotting-oranges/
  */
 object RottingOranges {
-    
+
     val FRESH: Int = 1
     val ROTTEN: Int = 2
 
@@ -78,5 +78,51 @@ object RottingOranges {
         }
 
         return counter
+    }
+
+
+    /**
+     * by Kevin Naughton Jr. https://www.youtube.com/watch?v=TzoDDOj60zE
+     * Time complexity : O(n), where n is the number of cells in the grid.
+     * Space complexity : O(n)
+     *
+     * @param grid
+     * @return
+     */
+    fun orangesRottingBFS(grid: Array<IntArray>): Int {
+        val fresh: MutableSet<String> = HashSet()
+        var rotten: MutableSet<String> = HashSet()
+        for (r in grid.indices) {
+            for (c in 0 until grid[0].size) {
+                if (grid[r][c] == 1) // 1 fresh
+                    fresh.add("" + r + c) else if (grid[r][c] == 2) { // 2 rotten
+                    rotten.add("" + r + c)
+                }
+            }
+        }
+        var minutes = 0
+        val directions =
+            arrayOf(intArrayOf(0, 1), intArrayOf(1, 0), intArrayOf(-1, 0), intArrayOf(0, -1))
+        while (fresh.size > 0) {
+            val infected: MutableSet<String> = HashSet()
+            for (s in rotten) {
+                val i = s[0] - '0'
+                val j = s[1] - '0'
+                for (dir in directions) {
+                    val nextI = i + dir[0]
+                    val nextJ = j + dir[1]
+                    if (fresh.contains("" + nextI + nextJ)) {
+                        fresh.remove("" + nextI + nextJ)
+                        infected.add("" + nextI + nextJ)
+                    }
+                }
+            }
+            if (infected.size == 0) {
+                return -1
+            }
+            rotten = infected
+            minutes++
+        }
+        return minutes
     }
 }
