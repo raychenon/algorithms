@@ -27,7 +27,7 @@ public class RottingOrangesTest {
                 {0, 1, 1}
         };
 
-        assertEquals(4, instance.orangesRotting(matrix));
+        assertOrangesRotting(4, matrix);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class RottingOrangesTest {
                 {1, 0, 1}
         };
 
-        assertEquals(-1, instance.orangesRotting(matrix));
+        assertOrangesRotting(-1, matrix);
     }
 
     @Test
@@ -47,7 +47,13 @@ public class RottingOrangesTest {
                 {0, 2}
         };
 
-        assertEquals(0, instance.orangesRotting(matrix));
+        assertOrangesRotting(0, matrix);
+    }
+
+    private void assertOrangesRotting(int minutesExpected, int[][] grid) {
+        assertEquals(minutesExpected, instance.orangesRottingBFS(grid));
+        // the 2nd method modifies in space the grid
+        assertEquals(minutesExpected, instance.orangesRotting(grid));
     }
 
 }
