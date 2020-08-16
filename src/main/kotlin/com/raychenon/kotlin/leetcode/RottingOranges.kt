@@ -90,30 +90,31 @@ object RottingOranges {
      * @return
      */
     fun orangesRottingBFS(grid: Array<IntArray>): Int {
-        val fresh: MutableSet<String> = HashSet()
-        var rotten: MutableSet<String> = HashSet()
+        val fresh = mutableSetOf<String>()
+        var rotten = mutableSetOf<String>()
         for (r in grid.indices) {
             for (c in 0 until grid[0].size) {
-                if (grid[r][c] == 1) // 1 fresh
-                    fresh.add("" + r + c) else if (grid[r][c] == 2) { // 2 rotten
-                    rotten.add("" + r + c)
+                if (grid[r][c] == FRESH) { // 1 fresh
+                    fresh.add("$r$c")
+                } else if (grid[r][c] == ROTTEN) { // 2 rotten
+                    rotten.add("$r$c")
                 }
             }
         }
         var minutes = 0
-        val directions =
-            arrayOf(intArrayOf(0, 1), intArrayOf(1, 0), intArrayOf(-1, 0), intArrayOf(0, -1))
+        val directions = arrayOf(intArrayOf(0, 1), intArrayOf(1, 0), intArrayOf(-1, 0), intArrayOf(0, -1))
         while (fresh.size > 0) {
-            val infected: MutableSet<String> = HashSet()
+            val infected = mutableSetOf<String>()
             for (s in rotten) {
                 val i = s[0] - '0'
                 val j = s[1] - '0'
                 for (dir in directions) {
                     val nextI = i + dir[0]
                     val nextJ = j + dir[1]
-                    if (fresh.contains("" + nextI + nextJ)) {
-                        fresh.remove("" + nextI + nextJ)
-                        infected.add("" + nextI + nextJ)
+                    val key = "$nextI$nextJ"
+                    if (fresh.contains(key)) {
+                        fresh.remove(key)
+                        infected.add(key)
                     }
                 }
             }
@@ -121,7 +122,7 @@ object RottingOranges {
                 return -1
             }
             rotten = infected
-            minutes++
+            minutes += 1
         }
         return minutes
     }

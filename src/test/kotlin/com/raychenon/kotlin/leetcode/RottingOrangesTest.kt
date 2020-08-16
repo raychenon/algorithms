@@ -30,9 +30,11 @@ class RottingOrangesTest {
         evaluateRottingOranges(0, matrix)
     }
 
-    fun evaluateRottingOranges(expectedDays: Int, grid: Array<IntArray>): Unit {
-        TestCase.assertEquals(expectedDays, RottingOranges.orangesRotting(grid))
-        TestCase.assertEquals(expectedDays, RottingOranges.orangesRottingBFS(grid))
+    fun evaluateRottingOranges(expectedMinutes: Int, grid: Array<IntArray>): Unit {
+        // does not modify the grid
+        TestCase.assertEquals(expectedMinutes, RottingOranges.orangesRottingBFS(grid))
+        // modifies the grid in-place
+        TestCase.assertEquals(expectedMinutes, RottingOranges.orangesRotting(grid))
     }
 
 }
