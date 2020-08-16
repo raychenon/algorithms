@@ -9,6 +9,9 @@ public class BestTimetoBuyandSellStock3 {
 
     /**
      * https://www.youtube.com/watch?v=0FKn0FSIQYE
+     * <p>
+     * Time complexity: O(n)
+     * Space complexity: O(n)
      *
      * @param prices
      * @return
@@ -29,15 +32,15 @@ public class BestTimetoBuyandSellStock3 {
 
             // <--
             int j = n - 1 - i;
-            profit2[j] = Math.max(profit2[j + 1], prices[j] - p2);
+            profit2[j] = Math.max(profit2[j + 1], p2 - prices[j]);
             p2 = Math.max(prices[j], p2);
         }
 
-        int profit = 0 ;
+        int profit = 0;
         for (int i = 1; i < n; i++) {
             profit = Math.max(profit, profit1[i] + profit2[i]);
         }
-        
+
         return profit;
     }
 }
