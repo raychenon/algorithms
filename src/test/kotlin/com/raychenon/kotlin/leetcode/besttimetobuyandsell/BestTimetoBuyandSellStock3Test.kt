@@ -29,6 +29,12 @@ class BestTimetoBuyandSellStock3Test {
         assertBestTimetoBuyandSellStock3(0, prices)
     }
 
+    @Test
+    fun sizeLessThan2Test() {
+        val prices = intArrayOf(1)
+        assertBestTimetoBuyandSellStock3(0, prices)
+    }
+
     fun assertBestTimetoBuyandSellStock3(expected: Int, prices: IntArray) {
         TestCase.assertEquals(
             expected,

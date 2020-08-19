@@ -38,6 +38,12 @@ public class BestTimetoBuyandSellStock3Test {
         assertBestTimetoBuyandSellStock3(0, prices);
     }
 
+    @Test
+    public void sizeLessThan2Test() {
+        int[] prices = {1};
+        assertBestTimetoBuyandSellStock3(0, prices);
+    }
+    
     void assertBestTimetoBuyandSellStock3(int expected, int[] prices) {
         assertEquals(expected, instance.maxProfit(prices));
     }
