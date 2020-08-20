@@ -43,4 +43,37 @@ public class BestTimetoBuyandSellStock3 {
 
         return profit;
     }
+
+    /**
+     * Leetcode solution similar to above
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfitBidirectionalDP(int[] prices) {
+        int length = prices.length;
+        if (length <= 1) return 0;
+
+        int leftMin = prices[0];
+        int rightMax = prices[length - 1];
+        int[] leftProfits = new int[length];
+        int[] rightProfits = new int[length + 1];
+
+        for (int leftIndex = 1; leftIndex < length; ++leftIndex) {
+            leftProfits[leftIndex] = Math.max(leftProfits[leftIndex - 1], prices[leftIndex] - leftMin);
+            leftMin = Math.min(leftMin, prices[leftIndex]);
+
+            int rightIndex = length - 1 - leftIndex;
+            rightProfits[rightIndex] = Math.max(rightProfits[rightIndex + 1], rightMax - prices[rightIndex]);
+            rightMax = Math.max(rightMax, prices[rightIndex]);
+        }
+
+        int maxProfit = 0;
+        for (int i = 0; i < length; ++i) {
+            maxProfit = Math.max(maxProfit, leftProfits[i] + rightProfits[i + 1]);
+        }
+        return maxProfit;
+    }
 }

@@ -46,6 +46,7 @@ public class BestTimetoBuyandSellStock3Test {
     
     void assertBestTimetoBuyandSellStock3(int expected, int[] prices) {
         assertEquals(expected, instance.maxProfit(prices));
+        assertEquals(expected, instance.maxProfitBidirectionalDP(prices));
     }
 
 }
