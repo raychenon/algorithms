@@ -76,4 +76,31 @@ public class BestTimetoBuyandSellStock3 {
         }
         return maxProfit;
     }
+
+    /**
+     * Super intuitive solution
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfitOnePass(int[] prices) {
+        int t1Cost = Integer.MAX_VALUE;
+        int t2Cost = Integer.MAX_VALUE;
+
+        int t1Profit = 0, t2Profit = 0;
+
+        for (int price : prices) {
+            // 1st transaction: the maximum profit if only one transaction is allowed
+            t1Cost = Math.min(t1Cost, price);
+            t1Profit = Math.max(t1Profit, price - t1Cost);
+
+            // 2nd transaction: reinvest the gained profit
+            t2Cost = Math.min(t2Cost, price - t1Profit);
+            t2Profit = Math.max(t2Profit, price - t2Cost);
+        }
+
+        return t2Profit;
+    }
 }
