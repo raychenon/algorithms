@@ -40,5 +40,10 @@ class BestTimetoBuyandSellStock3Test {
             expected,
             BestTimetoBuyandSellStock3.maxProfit(prices)
         )
+
+        TestCase.assertEquals(
+            expected,
+            BestTimetoBuyandSellStock3.maxProfitOnePass(prices)
+        )
     }
 }

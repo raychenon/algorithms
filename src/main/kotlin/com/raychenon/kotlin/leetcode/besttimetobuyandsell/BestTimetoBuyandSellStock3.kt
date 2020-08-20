@@ -39,4 +39,25 @@ object BestTimetoBuyandSellStock3 {
         }
         return profit
     }
+
+    /**
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     */
+    fun maxProfitOnePass(prices: IntArray): Int {
+        var t1Cost = Integer.MAX_VALUE
+        var t2Cost = Int.MAX_VALUE
+
+        var t1Profit = 0
+        var t2Profit = 0
+
+        for (price in prices) {
+            t1Cost = minOf(t1Cost, price)
+            t1Profit = maxOf(t1Profit, price - t1Cost)
+
+            t2Cost = minOf(t2Cost, price - t1Profit)
+            t2Profit = maxOf(t2Profit, price - t2Cost)
+        }
+        return t2Profit
+    }
 }
