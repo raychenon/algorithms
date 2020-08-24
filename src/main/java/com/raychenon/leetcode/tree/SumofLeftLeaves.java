@@ -15,9 +15,9 @@ public class SumofLeftLeaves {
     private int leftLeaf(TreeNode root, boolean isLeft) {
         if (root == null) return 0;
         // left leaf
-        if (isLeft &&
-                (root.left == null &&
-                        root.right == null)) {
+        if ((root.left == null &&
+                root.right == null) &&
+                isLeft) {
             return root.value;
         }
 
