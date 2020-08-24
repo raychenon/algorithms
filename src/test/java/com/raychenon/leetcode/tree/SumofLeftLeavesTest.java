@@ -28,6 +28,12 @@ public class SumofLeftLeavesTest {
     }
 
     @Test
+    public void sumofLeftLeavesTest2() {
+        TreeNode root = TreeUtil.createTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+        evaluateSumofLeftLeaves(30, root);
+    }
+
+    @Test
     public void sumofLeftLeavesOfEmptyTreeTest() {
         TreeNode parent = null;
         evaluateSumofLeftLeaves(0, parent);
