@@ -29,7 +29,7 @@ public class SumofLeftLeavesTest {
 
     @Test
     public void sumofLeftLeavesTest2() {
-        TreeNode root = TreeUtil.createTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+        TreeNode root = TreeUtil.createTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, null, 10, null, 12, 13, null, 15));
         evaluateSumofLeftLeaves(30, root);
     }
 
