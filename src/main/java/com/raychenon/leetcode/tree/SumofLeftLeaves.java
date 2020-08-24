@@ -7,13 +7,30 @@ package com.raychenon.leetcode.tree;
  */
 public class SumofLeftLeaves {
 
-    public int sumOfLeftLeavesRec(TreeNode root) {
+    public int sumOfLeftLeavesRec1(TreeNode root) {
+        if (root == null) return 0;
+        return leftLeaf(root.left, true) + leftLeaf(root.right, false);
+    }
+
+    private int leftLeaf(TreeNode root, boolean isLeft) {
+        if (root == null) return 0;
+        // left leaf
+        if (isLeft && (root.left == null && root.right == null)) return root.value;
+
+        // go deeper
+        TreeNode temp = root;
+        return leftLeaf(temp.left, true) + leftLeaf(temp.right, false);
+    }
+
+    public int sumOfLeftLeavesRec2(TreeNode root) {
         if (root == null) return 0;
 
         if (root.left != null && root.left.left == null && root.left.right == null) {
-            return root.left.value + sumOfLeftLeavesRec(root.right);
+            return root.left.value + sumOfLeftLeavesRec2(root.right);
         } else {
-            return sumOfLeftLeavesRec(root.left) + sumOfLeftLeavesRec(root.right);
+            return sumOfLeftLeavesRec2(root.left) + sumOfLeftLeavesRec2(root.right);
         }
     }
+
+
 }
