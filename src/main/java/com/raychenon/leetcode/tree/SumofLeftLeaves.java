@@ -16,7 +16,8 @@ public class SumofLeftLeaves {
         if (root == null) return 0;
         // left leaf
         if (isLeft &&
-                (root.left == null && root.right == null)) {
+                (root.left == null &&
+                        root.right == null)) {
             return root.value;
         }
 
@@ -29,7 +30,8 @@ public class SumofLeftLeaves {
         if (root == null) return 0;
 
         if (root.left != null &&
-                (root.left.left == null && root.left.right == null)) {
+                (root.left.left == null &&
+                        root.left.right == null)) {
             return root.left.value + sumOfLeftLeavesRec2(root.right);
         } else {
             return sumOfLeftLeavesRec2(root.left) + sumOfLeftLeavesRec2(root.right);
