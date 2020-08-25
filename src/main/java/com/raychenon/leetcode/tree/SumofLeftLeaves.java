@@ -10,25 +10,41 @@ import java.util.Deque;
  */
 public class SumofLeftLeaves {
 
+    /**
+     * Recursive pass extra information to tell the node is left child
+     * <p>
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     *
+     * @param root
+     * @return
+     */
     public int sumOfLeftLeavesRec1(TreeNode root) {
         if (root == null) return 0;
-        return leftLeaf(root.left, true) + leftLeaf(root.right, false);
+        return leftLeaf(root, false);
     }
 
-    private int leftLeaf(TreeNode root, boolean isLeft) {
-        if (root == null) return 0;
+    private int leftLeaf(TreeNode node, boolean isLeft) {
+        if (node == null) return 0;
         // left leaf
-        if ((root.left == null &&
-                root.right == null) &&
-                isLeft) {
-            return root.value;
+        if (node.left == null &&
+                node.right == null) {
+            return isLeft ? node.value : 0;
         }
 
         // go deeper
-        TreeNode temp = root;
-        return leftLeaf(temp.left, true) + leftLeaf(temp.right, false);
+        return leftLeaf(node.left, true) + leftLeaf(node.right, false);
     }
 
+    /**
+     * Recursive check if the left chil is a leaf node
+     * <p>
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     *
+     * @param root
+     * @return
+     */
     public int sumOfLeftLeavesRec2(TreeNode root) {
         if (root == null) return 0;
 
