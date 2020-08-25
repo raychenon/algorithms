@@ -34,5 +34,6 @@ class SumofLeftLeavesTest {
     private fun evaluateSumofLeftLeaves(expectedSum: Int, root: TreeNode?) {
         TestCase.assertEquals(expectedSum, SumofLeftLeaves.sumOfLeftLeavesRec1(root))
         TestCase.assertEquals(expectedSum, SumofLeftLeaves.sumOfLeftLeavesRec2(root))
+        TestCase.assertEquals(expectedSum, SumofLeftLeaves.sumOfLeftLeavesIter(root))
     }
 }

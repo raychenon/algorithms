@@ -1,6 +1,7 @@
 package com.raychenon.kotlin.leetcode.tree
 
 import com.raychenon.leetcode.tree.TreeNode
+import java.util.*
 
 /**
  * User: raychenon
@@ -10,8 +11,16 @@ import com.raychenon.leetcode.tree.TreeNode
 object SumofLeftLeaves {
 
 
+    /**
+     *  Time complexity: O(n)
+     * Space complexity: O(n)
+     */
     fun sumOfLeftLeavesRec1(root: TreeNode?): Int {
-        return if (root == null) 0 else leftLeaf(root.left, true) + leftLeaf(root.right, false)
+        return if (root == null) {
+            0
+        } else {
+            leftLeaf(root.left, true) + leftLeaf(root.right, false)
+        }
     }
 
     private fun leftLeaf(root: TreeNode?, isLeft: Boolean): Int {
@@ -27,6 +36,10 @@ object SumofLeftLeaves {
         return leftLeaf(temp.left, true) + leftLeaf(temp.right, false)
     }
 
+    /**
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     */
     fun sumOfLeftLeavesRec2(root: TreeNode?): Int {
         if (root == null) return 0
         return if (root.left != null &&
@@ -37,5 +50,40 @@ object SumofLeftLeaves {
         } else {
             sumOfLeftLeavesRec2(root.left) + sumOfLeftLeavesRec2(root.right)
         }
+    }
+
+    /**
+     * Pre-order() traversal DFS
+     *
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     *
+     * @param root
+     * @return
+     */
+    fun sumOfLeftLeavesIter(root: TreeNode?): Int {
+        if (root == null) return 0
+        var total = 0
+        val stack = ArrayDeque<TreeNode>()
+        stack.push(root)
+        while (!stack.isEmpty()) {
+            val subRoot = stack.pop()
+            subRoot?.left?.run {
+                if (isLeaf(this)) {
+                    total += this.value
+                }
+            }
+
+            subRoot?.right?.let { stack.push(it) }
+
+            subRoot?.left?.let { stack.push(it) }
+        }
+        return total
+    }
+
+    private fun isLeaf(node: TreeNode?): Boolean {
+        return node != null &&
+                node.left == null &&
+                node.right == null
     }
 }
