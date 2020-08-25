@@ -35,5 +35,6 @@ class SumofLeftLeavesTest {
         TestCase.assertEquals(expectedSum, SumofLeftLeaves.sumOfLeftLeavesRec1(root))
         TestCase.assertEquals(expectedSum, SumofLeftLeaves.sumOfLeftLeavesRec2(root))
         TestCase.assertEquals(expectedSum, SumofLeftLeaves.sumOfLeftLeavesIter(root))
+        TestCase.assertEquals(expectedSum, SumofLeftLeaves.sumOfLeftLeavesMorris(root))
     }
 }

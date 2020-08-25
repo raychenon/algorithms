@@ -43,7 +43,7 @@ public class SumofLeftLeavesTest {
         assertEquals(expectedSum, instance.sumOfLeftLeavesRec1(root));
         assertEquals(expectedSum, instance.sumOfLeftLeavesRec2(root));
         assertEquals(expectedSum, instance.sumOfLeftLeavesIter(root));
-        assertEquals(expectedSum, instance.sumOfLeftLeavesMTT(root));
+        assertEquals(expectedSum, instance.sumOfLeftLeavesMorris(root));
     }
 
 }

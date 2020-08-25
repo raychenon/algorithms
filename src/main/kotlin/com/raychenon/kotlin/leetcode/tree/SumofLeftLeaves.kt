@@ -86,4 +86,39 @@ object SumofLeftLeaves {
                 node.left == null &&
                 node.right == null
     }
+
+    /**
+     * Morris Tree Traversal (Pre-order)
+     *
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     *
+     * @param root
+     * @return
+     */
+    fun sumOfLeftLeavesMorris(root: TreeNode?): Int {
+        var total = 0
+        var currentNode = root
+        while (currentNode != null) {
+            if (currentNode.left == null) {
+                currentNode = currentNode.right
+            } else {
+                var previous = currentNode.left
+                if (isLeaf(previous)) {
+                    total += previous.value
+                }
+                while (previous.right != null && previous.right != currentNode) {
+                    previous = previous.right
+                }
+                if (previous.right == null) {
+                    previous.right = currentNode
+                    currentNode = currentNode.left
+                } else {
+                    previous.right = null
+                    currentNode = currentNode.right
+                }
+            }
+        }
+        return total
+    }
 }

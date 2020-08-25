@@ -105,7 +105,7 @@ public class SumofLeftLeaves {
      * @param root
      * @return
      */
-    public int sumOfLeftLeavesMTT(TreeNode root) {
+    public int sumOfLeftLeavesMorris(TreeNode root) {
         int total = 0;
         TreeNode currentNode = root;
         while (currentNode != null) {
