@@ -117,7 +117,7 @@ public class SumofLeftLeaves {
                     total += previous.value;
                 }
 
-                while (previous.right != null && previous.right.equals(currentNode)) {
+                while (previous.right != null && !previous.right.equals(currentNode)) {
                     previous = previous.right;
                 }
 
