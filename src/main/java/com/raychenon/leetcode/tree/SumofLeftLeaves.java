@@ -1,5 +1,8 @@
 package com.raychenon.leetcode.tree;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * User: raychenon
  * Date: 24/8/2020
@@ -38,5 +41,42 @@ public class SumofLeftLeaves {
         }
     }
 
+
+    /**
+     * Pre-order() traversal DFS
+     * <p>
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     *
+     * @param root
+     * @return
+     */
+    public int sumOfLeftLeavesIter(TreeNode root) {
+        if (root == null) return 0;
+
+        int total = 0;
+        Deque<TreeNode> stack = new ArrayDeque<TreeNode>();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            TreeNode subRoot = stack.pop();
+            if (isLeaf(subRoot.left)) {
+                total += subRoot.left.value;
+            }
+            if (subRoot.right != null) {
+                stack.push(subRoot.right);
+            }
+            if (subRoot.left != null) {
+                stack.push(subRoot.left);
+            }
+        }
+        return total;
+    }
+
+    private boolean isLeaf(TreeNode node) {
+        return node != null &&
+                (node.left == null &&
+                        node.right == null);
+    }
 
 }

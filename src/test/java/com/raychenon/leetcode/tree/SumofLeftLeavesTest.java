@@ -42,6 +42,7 @@ public class SumofLeftLeavesTest {
     private void evaluateSumofLeftLeaves(int expectedSum, TreeNode root) {
         assertEquals(expectedSum, instance.sumOfLeftLeavesRec1(root));
         assertEquals(expectedSum, instance.sumOfLeftLeavesRec2(root));
+        assertEquals(expectedSum, instance.sumOfLeftLeavesIter(root));
     }
 
 }
