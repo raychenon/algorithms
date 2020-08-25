@@ -95,4 +95,41 @@ public class SumofLeftLeaves {
                         node.right == null);
     }
 
+
+    /**
+     * Morris Tree Traversal (Pre-order)
+     * <p>
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     *
+     * @param root
+     * @return
+     */
+    public int sumOfLeftLeavesMTT(TreeNode root) {
+        int total = 0;
+        TreeNode currentNode = root;
+        while (currentNode != null) {
+            if (currentNode.left == null) {
+                currentNode = currentNode.right;
+            } else {
+                TreeNode previous = currentNode.left;
+                if (isLeaf(previous)) {
+                    total += previous.value;
+                }
+
+                while (previous.right != null && previous.right.equals(currentNode)) {
+                    previous = previous.right;
+                }
+
+                if (previous.right == null) {
+                    previous.right = currentNode;
+                    currentNode = currentNode.left;
+                } else {
+                    previous.right = null;
+                    currentNode = currentNode.right;
+                }
+            }
+        }
+        return total;
+    }
 }
