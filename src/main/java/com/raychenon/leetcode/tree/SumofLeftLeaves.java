@@ -48,9 +48,7 @@ public class SumofLeftLeaves {
     public int sumOfLeftLeavesRec2(TreeNode root) {
         if (root == null) return 0;
 
-        if (root.left != null &&
-                (root.left.left == null &&
-                        root.left.right == null)) {
+        if (isLeaf(root.left)) {
             return root.left.value + sumOfLeftLeavesRec2(root.right);
         } else {
             return sumOfLeftLeavesRec2(root.left) + sumOfLeftLeavesRec2(root.right);

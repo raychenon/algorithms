@@ -42,10 +42,7 @@ object SumofLeftLeaves {
      */
     fun sumOfLeftLeavesRec2(root: TreeNode?): Int {
         if (root == null) return 0
-        return if (root.left != null &&
-            root.left.left == null &&
-            root.left.right == null
-        ) {
+        return if (isLeaf(root.left)) {
             root.left.value + sumOfLeftLeavesRec2(root.right)
         } else {
             sumOfLeftLeavesRec2(root.left) + sumOfLeftLeavesRec2(root.right)
@@ -68,15 +65,19 @@ object SumofLeftLeaves {
         stack.push(root)
         while (!stack.isEmpty()) {
             val subRoot = stack.pop()
-            subRoot?.left?.run {
+            subRoot.left?.run {
                 if (isLeaf(this)) {
                     total += this.value
                 }
             }
 
-            subRoot?.right?.let { stack.push(it) }
+            subRoot.right?.let {
+                stack.push(it)
+            }
 
-            subRoot?.left?.let { stack.push(it) }
+            subRoot.left?.let {
+                stack.push(it)
+            }
         }
         return total
     }
