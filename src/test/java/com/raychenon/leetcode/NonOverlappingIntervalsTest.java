@@ -37,6 +37,12 @@ public class NonOverlappingIntervalsTest {
         assertNonOverlappingIntervals(0, input);
     }
 
+    @Test
+    public void example4Test() {
+        int[][] array = {{1, 100}, {11, 22}, {1, 11}, {2, 12}};
+        assertNonOverlappingIntervals(2, array);
+    }
+
     private void assertNonOverlappingIntervals(int expected, int[][] arr) {
         assertEquals(expected, instance.eraseOverlapIntervals(arr));
     }

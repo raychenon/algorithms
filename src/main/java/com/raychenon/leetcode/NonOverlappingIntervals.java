@@ -17,9 +17,6 @@ public class NonOverlappingIntervals {
      * @return
      */
     public int eraseOverlapIntervals(int[][] intervals) {
-        if (intervals.length < 2) {
-            return 0;
-        }
         Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
 
         int last = 0;

@@ -26,7 +26,9 @@ object NonOverlappingIntervals {
         for (i in 1 until sorted.size) {
             if (sorted[i][0] < sorted[last][1]) {
                 removed += 1
-                if (sorted[i][1] < sorted[last][1]) last = i
+                if (sorted[i][1] < sorted[last][1]) {
+                    last = i
+                }
             } else {
                 last = i
             }

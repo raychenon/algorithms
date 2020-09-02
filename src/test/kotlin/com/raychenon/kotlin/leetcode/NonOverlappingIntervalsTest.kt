@@ -28,6 +28,12 @@ class NonOverlappingIntervalsTest {
         assertNonOverlappingIntervals(0, input)
     }
 
+    @Test
+    fun example4Test() {
+        val array = arrayOf(intArrayOf(1, 100), intArrayOf(11, 22), intArrayOf(1, 11), intArrayOf(2, 12))
+        assertNonOverlappingIntervals(2, array)
+    }
+
     private fun assertNonOverlappingIntervals(expected: Int, arr: Array<IntArray>) {
         TestCase.assertEquals(expected, NonOverlappingIntervals.eraseOverlapIntervals(arr))
     }
