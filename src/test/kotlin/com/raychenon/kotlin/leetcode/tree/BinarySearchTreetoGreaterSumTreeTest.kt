@@ -36,7 +36,7 @@ class BinarySearchTreetoGreaterSumTreeTest {
         instance = BinarySearchTreetoGreaterSumTree()
         Assert.assertEquals(
             "30,36,36,35,33,21,26,15,8",
-            instance?.bstToGst(root)?.preOrderPath()
+            instance.bstToGst(root)?.preOrderPath()
         )
     }
 
@@ -46,7 +46,7 @@ class BinarySearchTreetoGreaterSumTreeTest {
         instance = BinarySearchTreetoGreaterSumTree()
         Assert.assertEquals(
             null,
-            instance?.bstToGst(root)?.preOrderPath()
+            instance.bstToGst(root)?.preOrderPath()
         )
     }
 }
