@@ -3,6 +3,8 @@ package com.raychenon.leetcode;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
 
 /**
@@ -21,17 +23,17 @@ public class PartitionLabelsTest {
 
     @Test
     public void ababcbacadefegdehijhklijTest() {
-        assertEquals(new int[]{8, 7, 9}, instance.partitionLabels("ababcbacadefegdehijhklij"));
+        assertEquals(List.of(9, 7, 8), instance.partitionLabels("ababcbacadefegdehijhklij"));
     }
 
     @Test
     public void ababcbadefegdehijhklijopopTest() {
-        assertEquals(new int[]{7, 7, 8, 4}, instance.partitionLabels("ababcbadefegdehijhklijopop"));
+        assertEquals(List.of(7, 7, 8, 4), instance.partitionLabels("ababcbadefegdehijhklijopop"));
     }
 
     @Test
     public void abcdefghijklTest() {
-        assertEquals(new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, instance.partitionLabels("abcdefghijkl"));
+        assertEquals(List.of(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), instance.partitionLabels("abcdefghijkl"));
     }
 
 
