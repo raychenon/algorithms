@@ -27,5 +27,6 @@ class PartitionLabelsTest {
 
     private fun evaluatePartitionLabels(expected: List<Int>, S: String): Unit {
         TestCase.assertEquals(expected, PartitionLabels.partitionLabelsOriginalSolution(S))
+        TestCase.assertEquals(expected, PartitionLabels.partitionLabels(S))
     }
 }

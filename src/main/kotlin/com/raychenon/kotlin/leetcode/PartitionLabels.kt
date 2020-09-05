@@ -7,6 +7,35 @@ package com.raychenon.kotlin.leetcode
  */
 object PartitionLabels {
 
+    /**
+     * Greedy algorithm
+     * Time Complexity O(n)
+     * Space Complexity O(1)
+     */
+    fun partitionLabels(S: String): List<Int> {
+        val last = IntArray(26)
+        for (i in 0 until S.length) {
+            last[S[i] - 'a'] = i
+        }
+
+        var j = 0
+        var start = 0
+        val list = mutableListOf<Int>()
+        for (i in 0 until S.length) {
+            j = maxOf(j, last[S[i] - 'a'])
+            if (i == j) {
+                val distance = i - start + 1
+                list.add(distance)
+                start = i + 1
+            }
+        }
+        return list
+    }
+
+    /**
+     * Time Complexity O(n)
+     * Space Complexity O(1)
+     */
     fun partitionLabelsOriginalSolution(S: String): List<Int> {
         val n = S.length
         val letMap = mutableMapOf<Char, Letter>()
