@@ -3,9 +3,10 @@ package com.raychenon.leetcode.tree;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * User: raychenon
@@ -21,17 +22,40 @@ public class BinaryTreeLevelOrderTraversalTest {
         binaryTreeLevelOrderTraversal = new BinaryTreeLevelOrderTraversal();
     }
 
+    /**
+     * --- 3
+     * -- / \
+     * - 9   20
+     * ---\  / \
+     * 15   7
+     */
     @Test
     public void example1Test() {
-        TreeNode root = TreeUtil.createTree(List.of(3, 9, 20, null, null, 15, 7));
+        TreeNode root = TreeUtil.createTree(Arrays.asList(3, 9, 20, null, null, 15, 7));
         List<List<Integer>> expected = List.of(List.of(3), List.of(9, 20), List.of(15, 7));
+        assertMethods(expected, root);
+    }
+
+    /**
+     * --- 4
+     * -- / \
+     * - 9   0
+     * -/ \
+     * 5  1
+     */
+    @Test
+    public void example2Test() {
+        TreeNode root = TreeUtil.createTree(Arrays.asList(4, 9, 0, 5, 1));
+        List<List<Integer>> expected = List.of(List.of(4), List.of(9, 0), List.of(5, 1));
         assertMethods(expected, root);
     }
 
     private void assertMethods(List<List<Integer>> expected, TreeNode root) {
         List<List<Integer>> answer = binaryTreeLevelOrderTraversal.levelOrder(root);
         for (int i = 0; i < expected.size(); i++) {
-            assertTrue(expected.get(i).contains(answer.get(i)));
+            for (int j = 0; j < expected.get(i).size(); j++) {
+                assertEquals(expected.get(i).get(j), answer.get(i).get(j));
+            }
         }
     }
 }
