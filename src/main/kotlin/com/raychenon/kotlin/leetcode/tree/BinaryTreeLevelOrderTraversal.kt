@@ -64,10 +64,10 @@ object BinaryTreeLevelOrderTraversal {
 
                 subList.add(curr.value)
 
-                curr?.left?.let {
+                curr.left?.let {
                     queue.offer(it)
                 }
-                curr?.right?.let {
+                curr.right?.let {
                     queue.offer(it)
                 }
             }
