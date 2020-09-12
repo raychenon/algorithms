@@ -40,11 +40,20 @@ class BinaryTreeLevelOrderTraversalTest {
         assertMethods(expected, root)
     }
 
+    @Test
+    fun nullNodeTest() {
+        val root = null
+        val expected = emptyList<List<Int>>()
+        assertMethods(expected, root)
+    }
+
     private fun assertMethods(expected: List<List<Int>>, root: TreeNode?): Unit {
         val answer = BinaryTreeLevelOrderTraversal.levelOrder(root)
+        val answerRec = BinaryTreeLevelOrderTraversal.levelOrderRec(root)
         for (i in 0 until expected.size) {
             for (j in 0 until expected[i].size) {
                 TestCase.assertEquals(expected[i][j], answer[i][j])
+                TestCase.assertEquals(expected[i][j], answerRec[i][j])
             }
         }
     }

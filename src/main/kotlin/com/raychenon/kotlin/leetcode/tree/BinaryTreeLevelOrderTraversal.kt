@@ -10,6 +10,45 @@ import java.util.*
  */
 object BinaryTreeLevelOrderTraversal {
 
+    /**
+     * Recursive
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     *
+     * @param root
+     * @return
+     */
+    fun levelOrderRec(root: TreeNode?): List<List<Int>> {
+        val list = mutableListOf<MutableList<Int>>()
+        if (root == null) {
+            return list
+        }
+        levelOrderRec(root, 0, list)
+        return list
+    }
+
+    private fun levelOrderRec(node: TreeNode, level: Int, levels: MutableList<MutableList<Int>>): Unit {
+        if (levels.size == level) {
+            levels.add(LinkedList<Int>())
+        }
+        levels.get(level).add(node.value)
+
+        node.left?.let {
+            levelOrderRec(it, level + 1, levels)
+        }
+        node.right?.let {
+            levelOrderRec(it, level + 1, levels)
+        }
+    }
+
+    /**
+     * Iterative
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     *
+     * @param root
+     * @return
+     */
     fun levelOrder(root: TreeNode?): List<List<Int>> {
         val list = mutableListOf<List<Int>>()
         val queue: Queue<TreeNode> = LinkedList<TreeNode>()
@@ -25,8 +64,12 @@ object BinaryTreeLevelOrderTraversal {
 
                 subList.add(curr.value)
 
-                curr?.left?.let { queue.offer(it) }
-                curr?.right?.let { queue.offer(it) }
+                curr?.left?.let {
+                    queue.offer(it)
+                }
+                curr?.right?.let {
+                    queue.offer(it)
+                }
             }
             list.add(subList)
         }
