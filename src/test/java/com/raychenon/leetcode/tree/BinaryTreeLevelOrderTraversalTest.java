@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -50,11 +51,21 @@ public class BinaryTreeLevelOrderTraversalTest {
         assertMethods(expected, root);
     }
 
+    @Test
+    public void nullRootTest() {
+        TreeNode root = null;
+        List<List<Integer>> expected = new LinkedList<>();
+        assertMethods(expected, root);
+    }
+
+
     private void assertMethods(List<List<Integer>> expected, TreeNode root) {
         List<List<Integer>> answer = binaryTreeLevelOrderTraversal.levelOrder(root);
+        List<List<Integer>> answerRec = binaryTreeLevelOrderTraversal.levelOrderRec(root);
         for (int i = 0; i < expected.size(); i++) {
             for (int j = 0; j < expected.get(i).size(); j++) {
                 assertEquals(expected.get(i).get(j), answer.get(i).get(j));
+                assertEquals(expected.get(i).get(j), answerRec.get(i).get(j));
             }
         }
     }
