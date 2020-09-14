@@ -55,7 +55,8 @@ public class SymmetricTreeTest {
         assertSymetricTree(false, root);
     }
 
-    private void assertSymetricTree(boolean isSymetric, TreeNode root) {
-        assertEquals(isSymetric, instance.isSymmetricRec(root));
+    private void assertSymetricTree(boolean isSymmetric, TreeNode root) {
+        assertEquals(isSymmetric, instance.isSymmetricRec(root));
+        assertEquals(isSymmetric, instance.isSymmetricIter(root));
     }
 }
