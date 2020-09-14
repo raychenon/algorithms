@@ -26,9 +26,13 @@ object SymmetricTree {
     private fun isMirror(left: TreeNode?, right: TreeNode?): Boolean {
 
         // leaf node
-        if (left == null && right == null) return true
+        if (left == null && right == null) {
+            return true
+        }
         // at the same level, one of the other node is null, the other not => no symmetry
-        if (left == null || right == null) return false
+        if (left == null || right == null) {
+            return false
+        }
 
         return (left!!.value == right!!.value)
                 && isMirror(left!!.right, right!!.left)
@@ -44,7 +48,7 @@ object SymmetricTree {
      * @param root
      * @return
      */
-    open fun isSymmetricIter(root: TreeNode): Boolean {
+    open fun isSymmetricIter(root: TreeNode?): Boolean {
         val q: Queue<TreeNode> = LinkedList()
         q.add(root)
         q.add(root)

@@ -24,8 +24,12 @@ public class SymmetricTree {
     }
 
     private boolean isSymmetricRec(TreeNode t1, TreeNode t2) {
-        if (t1 == null && t2 == null) return true;
-        if (t1 == null || t2 == null) return false;
+        if (t1 == null && t2 == null) {
+            return true;
+        }
+        if (t1 == null || t2 == null) {
+            return false;
+        }
         return (t1.value == t2.value)
                 && isSymmetricRec(t1.right, t2.left)
                 && isSymmetricRec(t1.left, t2.right);

@@ -55,6 +55,39 @@ public class SymmetricTreeTest {
         assertSymetricTree(false, root);
     }
 
+    /**
+     * ----1
+     * -- / \
+     * -- 3  3
+     * --/
+     * --2
+     */
+    @Test
+    public void example3Test() {
+        TreeNode root = TreeUtil.createTree(List.of(1, 3, 3, 2));
+        assertSymetricTree(false, root);
+    }
+
+    /**
+     * ----1
+     * -- / \
+     * -- 3  3
+     * ------ \
+     * ------- 2
+     */
+    @Test
+    public void example4Test() {
+        TreeNode root = TreeUtil.createTree(Arrays.asList(1, 3, 3, null, null, null, 2));
+        assertSymetricTree(false, root);
+    }
+
+    @Test
+    public void example5Test() {
+        TreeNode root = TreeUtil.createTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        assertSymetricTree(false, root);
+    }
+
+
     private void assertSymetricTree(boolean isSymmetric, TreeNode root) {
         assertEquals(isSymmetric, instance.isSymmetricRec(root));
         assertEquals(isSymmetric, instance.isSymmetricIter(root));

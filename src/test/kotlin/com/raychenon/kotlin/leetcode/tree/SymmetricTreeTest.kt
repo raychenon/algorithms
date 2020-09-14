@@ -47,8 +47,40 @@ class SymmetricTreeTest {
         assertSymetricTree(false, root)
     }
 
+    /**
+     * ----1
+     * -- / \
+     * -- 3  3
+     * --/
+     * --2
+     */
+    @Test
+    fun example3Test() {
+        val root = TreeUtil.createTree(List.of(1, 3, 3, 2))
+        assertSymetricTree(false, root)
+    }
+
+    /**
+     * ----1
+     * -- / \
+     * -- 3  3
+     * ------ \
+     * ------- 2
+     */
+    @Test
+    fun example4Test() {
+        val root = TreeUtil.createTree(Arrays.asList(1, 3, 3, null, null, null, 2))
+        assertSymetricTree(false, root)
+    }
+
+    @Test
+    fun example5Test() {
+        val root = TreeUtil.createTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9))
+        assertSymetricTree(false, root)
+    }
+
     private fun assertSymetricTree(isSymmetric: Boolean, root: TreeNode?) {
         TestCase.assertEquals(isSymmetric, SymmetricTree.isSymmetricRec(root))
-        //TestCase.assertEquals(isSymmetric, SymmetricTree.isSymmetricIter(root))
+        TestCase.assertEquals(isSymmetric, SymmetricTree.isSymmetricIter(root))
     }
 }
