@@ -45,10 +45,11 @@ object Search2DMatrix {
 
         // find row
         var r = 0
-        while (r < row) {
-            if (target >= matrix[r][0] && target <= matrix[r][col - 1]) {
-                break
-            } else r++
+        while (r < row &&
+            !(target >= matrix[r][0]
+                    && target <= matrix[r][col - 1])
+        ) {
+            r++
         }
         if (r == row) return false
 
