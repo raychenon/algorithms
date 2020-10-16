@@ -9,6 +9,8 @@ object Search2DMatrix {
 
     /**
      * Consider the matrix (2D array) as a 1D array.
+     * Time complexity: O( log2(row * col))
+     * Space complexity: O(1)
      */
     fun searchMatrix(matrix: Array<IntArray>, target: Int): Boolean {
         val row = matrix.size
@@ -18,8 +20,8 @@ object Search2DMatrix {
 
         var l = 0
         var r = col * row - 1
-        while (l != r) {
-            val mid = (l + r - 1) / 2
+        while (l < r) {
+            val mid = l + (r - l) / 2 // (l + r - 1) / 2
             if (matrix[mid / col][mid % col] < target) {
                 l = mid + 1
             } else {
