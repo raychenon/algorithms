@@ -8,6 +8,36 @@ package com.raychenon.kotlin.leetcode.matrix
 object Search2DMatrix {
 
     /**
+     * Binary Search template 1 https://leetcode.com/explore/learn/card/binary-search/125/template-i/938/
+     * <p>
+     * Time complexity: O( log2(row * col))
+     * Space complexity: O(1)
+     */
+    fun searchMatrixBinarySearchTemplate1(matrix: Array<IntArray>, target: Int): Boolean {
+        val row = matrix.size
+        if (row == 0) return false
+        val col = matrix[0].size
+        if (col == 0) return false
+
+        var l = 0
+        var r = col * row - 1
+        while (l <= r) {
+            val mid = l + (r - l) / 2
+            val currentValue = matrix[mid / col][mid % col]
+            if (currentValue == target) {
+                return true
+            } else if (currentValue < target) {
+                l = mid + 1
+            } else {
+                r = mid - 1
+            }
+        }
+
+        return false
+    }
+
+
+    /**
      * Consider the matrix (2D array) as a 1D array.
      * Time complexity: O( log2(row * col))
      * Space complexity: O(1)

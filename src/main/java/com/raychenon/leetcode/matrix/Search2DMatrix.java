@@ -8,12 +8,12 @@ package com.raychenon.leetcode.matrix;
 public class Search2DMatrix {
 
     /**
-     * https://leetcode.com/explore/learn/card/binary-search/125/template-i/938/
-     *
+     * Binary Search template 1 https://leetcode.com/explore/learn/card/binary-search/125/template-i/938/
+     * <p>
      * Time complexity: O( log2(row * col))
      * Space complexity: O(1)
      */
-    public boolean searchMatrixBinarySearchTemplate(int[][] matrix, int target) {
+    public boolean searchMatrixBinarySearchTemplate1(int[][] matrix, int target) {
         int row = matrix.length;
         if (row == 0) return false;
         int col = matrix[0].length;

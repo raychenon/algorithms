@@ -78,6 +78,6 @@ public class Search2DMatrixTest {
 
     void assertSearch2DMatrix(int[][] matrix, int target, boolean expected) {
         TestCase.assertEquals(expected, search2DMatrix.searchMatrix(matrix, target));
-        TestCase.assertEquals(expected, search2DMatrix.searchMatrixBinarySearchTemplate(matrix, target));
+        TestCase.assertEquals(expected, search2DMatrix.searchMatrixBinarySearchTemplate1(matrix, target));
     }
 }

@@ -78,6 +78,7 @@ class Search2DMatrixTest {
 
     fun assertSearch2DMatrix(matrix: Array<IntArray>, target: Int, expected: Boolean) {
         TestCase.assertEquals(expected, Search2DMatrix.searchMatrix(matrix, target))
+        TestCase.assertEquals(expected, Search2DMatrix.searchMatrixBinarySearchTemplate1(matrix, target))
         TestCase.assertEquals(expected, Search2DMatrix.searchMatrixOriginal(matrix, target))
     }
 }
