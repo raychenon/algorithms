@@ -55,6 +55,26 @@ class Search2DMatrixTest {
         assertSearch2DMatrix(matrix, 50, true)
     }
 
+    @Test
+    fun `Target is higher than max of matrix`() {
+        val matrix = arrayOf(
+            intArrayOf(1, 3, 5, 7),
+            intArrayOf(10, 11, 16, 20),
+            intArrayOf(23, 30, 34, 50),
+        )
+        assertSearch2DMatrix(matrix, 100, false)
+    }
+
+    @Test
+    fun `Target is lower than min of matrix`() {
+        val matrix = arrayOf(
+            intArrayOf(1, 3, 5, 7),
+            intArrayOf(10, 11, 16, 20),
+            intArrayOf(23, 30, 34, 50),
+        )
+        assertSearch2DMatrix(matrix, 0, false)
+    }
+
 
     fun assertSearch2DMatrix(matrix: Array<IntArray>, target: Int, expected: Boolean) {
         TestCase.assertEquals(expected, Search2DMatrix.searchMatrix(matrix, target))
