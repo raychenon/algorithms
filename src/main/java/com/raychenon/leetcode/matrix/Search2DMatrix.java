@@ -14,7 +14,7 @@ public class Search2DMatrix {
         if (col == 0) return false;
 
         int l = 0;
-        int r = row - 1;
+        int r = row * col - 1;
         while (l < r) {
             int mid = l + (r - l) / 2;
             if (matrix[mid / col][mid % col] < target) {

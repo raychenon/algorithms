@@ -21,7 +21,7 @@ object Search2DMatrix {
         var l = 0
         var r = col * row - 1
         while (l < r) {
-            val mid = l + (r - l) / 2 // (l + r - 1) / 2
+            val mid = l + (r - l) / 2
             if (matrix[mid / col][mid % col] < target) {
                 l = mid + 1
             } else {
