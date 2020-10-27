@@ -23,7 +23,7 @@ class FloodFillTest {
             intArrayOf(2, 0, 1)
         )
 
-        Assert.assertEquals(result, FloodFill.floodFill(image, 1, 1, 2))
+        compareFloodFillMethods(result, image, 1, 1, 2)
     }
 
     @Test
@@ -39,6 +39,12 @@ class FloodFillTest {
             intArrayOf(2, 0, 1, 1)
         )
 
-        Assert.assertEquals(result, FloodFill.floodFill(image, 1, 1, 2))
+        compareFloodFillMethods(result, image, 1, 1, 2)
+    }
+
+
+    fun compareFloodFillMethods(expected: Array<IntArray>, image: Array<IntArray>, row: Int, col: Int, newColor: Int) {
+        Assert.assertArrayEquals(expected, FloodFill.floodFill(image, row, col, newColor))
+        Assert.assertArrayEquals(expected, FloodFill.floodFillRec(image, row, col, newColor))
     }
 }

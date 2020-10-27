@@ -22,5 +22,26 @@ object FloodFill {
             if (col < image[0].size - 1) DFS(image, row, col + 1, fromColor, targetColor)   // right
         }
     }
+
+
+    fun floodFillRec(image: Array<IntArray>, sr: Int, sc: Int, newColor: Int): Array<IntArray> {
+        if(image[sr][sc] == newColor) return image
+        return floodFill(image,sr,sc,image[sr][sc], newColor)
+    }
+
+    private fun floodFill(image: Array<IntArray>, sr: Int, sc: Int,oldColor: Int, newColor: Int): Array<IntArray> {
+        // outside of boundaries and cell is different color
+        if(sr < 0 || sr >= image.size || sc < 0 || sc >= image[0].size ||
+            image[sr][sc] != oldColor) return image
+
+        image[sr][sc] = newColor
+
+        floodFill(image, sr+1,sc, oldColor, newColor)
+        floodFill(image, sr-1,sc, oldColor, newColor)
+        floodFill(image, sr,sc+1, oldColor, newColor)
+        floodFill(image, sr,sc-1, oldColor, newColor)
+
+        return image
+    }
     
 }
