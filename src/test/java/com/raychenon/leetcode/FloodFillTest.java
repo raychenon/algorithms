@@ -32,7 +32,7 @@ public class FloodFillTest {
                 {2, 0, 1}
         };
 
-        Assert.assertEquals(result, floodfill.floodFill(image, 1, 1, 2));
+        compareFloodFillMethods(result, image, 1, 1, 2);
     }
 
     @Test
@@ -48,7 +48,12 @@ public class FloodFillTest {
                 {2, 0, 1, 1}
         };
 
-        Assert.assertEquals(result, floodfill.floodFill(image, 1, 1, 2));
+        compareFloodFillMethods(result, image, 1, 1, 2);
     }
 
+
+    private void compareFloodFillMethods(int[][] expected, int[][] image, int row, int col, int newColor) {
+        Assert.assertArrayEquals(expected, floodfill.floodFill(image, row, col, newColor));
+        Assert.assertArrayEquals(expected, floodfill.floodFillIterative(image, row, col, newColor));
+    }
 }
