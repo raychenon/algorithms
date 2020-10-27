@@ -42,6 +42,21 @@ class FloodFillTest {
         compareFloodFillMethods(result, image, 1, 1, 2)
     }
 
+    @Test
+    fun sameColorTest() {
+        val image = arrayOf(
+            intArrayOf(1, 1, 1),
+            intArrayOf(1, 1, 0),
+            intArrayOf(1, 0, 1)
+        )
+        val result = arrayOf(
+            intArrayOf(1, 1, 1),
+            intArrayOf(1, 1, 0),
+            intArrayOf(1, 0, 1)
+        )
+        compareFloodFillMethods(result, image, 1, 1, 1)
+    }
+
 
     fun compareFloodFillMethods(expected: Array<IntArray>, image: Array<IntArray>, row: Int, col: Int, newColor: Int) {
         Assert.assertArrayEquals(expected, FloodFill.floodFill(image, row, col, newColor))

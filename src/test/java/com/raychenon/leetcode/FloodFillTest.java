@@ -51,6 +51,22 @@ public class FloodFillTest {
         compareFloodFillMethods(result, image, 1, 1, 2);
     }
 
+    @Test
+    public void sameColorTest() {
+        int[][] image = new int[][]{
+                {1, 1, 1},
+                {1, 1, 0},
+                {1, 0, 1}
+        };
+        int[][] result = new int[][]{
+                {1, 1, 1},
+                {1, 1, 0},
+                {1, 0, 1}
+        };
+
+        compareFloodFillMethods(result, image, 1, 1, 1);
+    }
+
 
     private void compareFloodFillMethods(int[][] expected, int[][] image, int row, int col, int newColor) {
         Assert.assertArrayEquals(expected, floodfill.floodFill(image, row, col, newColor));
