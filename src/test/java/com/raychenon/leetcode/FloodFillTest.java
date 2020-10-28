@@ -1,5 +1,6 @@
 package com.raychenon.leetcode;
 
+import com.raychenon.kotlin.ext.ArrayExtKt;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -32,7 +33,7 @@ public class FloodFillTest {
                 {2, 0, 1}
         };
 
-        Assert.assertEquals(result, floodfill.floodFill(image, 1, 1, 2));
+        compareFloodFillMethods(result, image, 1, 1, 2);
     }
 
     @Test
@@ -48,7 +49,29 @@ public class FloodFillTest {
                 {2, 0, 1, 1}
         };
 
-        Assert.assertEquals(result, floodfill.floodFill(image, 1, 1, 2));
+        compareFloodFillMethods(result, image, 1, 1, 2);
     }
 
+    @Test
+    public void sameColorTest() {
+        int[][] image = new int[][]{
+                {1, 1, 1},
+                {1, 1, 0},
+                {1, 0, 1}
+        };
+        int[][] result = new int[][]{
+                {1, 1, 1},
+                {1, 1, 0},
+                {1, 0, 1}
+        };
+
+        compareFloodFillMethods(result, image, 1, 1, 1);
+    }
+
+
+    private void compareFloodFillMethods(int[][] expected, int[][] image, int row, int col, int newColor) {
+        // image parameter is modified by reference, so pass a copy
+        Assert.assertArrayEquals(expected, floodfill.floodFillIterative(ArrayExtKt.copyDeep(image), row, col, newColor));
+        Assert.assertArrayEquals(expected, floodfill.floodFill(ArrayExtKt.copyDeep(image), row, col, newColor));
+    }
 }
