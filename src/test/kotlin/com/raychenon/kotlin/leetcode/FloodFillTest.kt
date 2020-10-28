@@ -1,5 +1,6 @@
 package com.raychenon.kotlin.leetcode
 
+import com.raychenon.kotlin.ext.copyDeep
 import org.junit.Assert
 import org.junit.Test
 
@@ -60,7 +61,7 @@ class FloodFillTest {
 
     fun compareFloodFillMethods(expected: Array<IntArray>, image: Array<IntArray>, row: Int, col: Int, newColor: Int) {
         // image parameter is modified by reference, so pass a copy
-        Assert.assertArrayEquals(expected, FloodFill.floodFillRec(image.clone(), row, col, newColor))
-        Assert.assertArrayEquals(expected, FloodFill.floodFill(image.clone(), row, col, newColor))
+        Assert.assertArrayEquals(expected, FloodFill.floodFillRec(image.copyDeep(), row, col, newColor))
+        Assert.assertArrayEquals(expected, FloodFill.floodFill(image.copyDeep(), row, col, newColor))
     }
 }
