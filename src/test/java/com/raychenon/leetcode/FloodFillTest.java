@@ -69,7 +69,8 @@ public class FloodFillTest {
 
 
     private void compareFloodFillMethods(int[][] expected, int[][] image, int row, int col, int newColor) {
-        Assert.assertArrayEquals(expected, floodfill.floodFill(image, row, col, newColor));
-        Assert.assertArrayEquals(expected, floodfill.floodFillIterative(image, row, col, newColor));
+        // image parameter is modified by reference, so pass a copy
+        Assert.assertArrayEquals(expected, floodfill.floodFill(image.clone(), row, col, newColor));
+        Assert.assertArrayEquals(expected, floodfill.floodFillIterative(image.clone(), row, col, newColor));
     }
 }
