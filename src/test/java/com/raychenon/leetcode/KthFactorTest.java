@@ -37,6 +37,7 @@ public class KthFactorTest {
 
     void evaluateKthFactorMethods(int expected, int n, int k) {
         assertEquals(expected, instance.kthFactorLinear(n, k));
+        assertEquals(expected, instance.kthFactorSqrt(n, k));
     }
 
 }
