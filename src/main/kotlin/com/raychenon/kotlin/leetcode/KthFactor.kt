@@ -19,7 +19,7 @@ object KthFactor {
      */
     fun kthFactorLinear(n: Int, k: Int): Int {
         var count = 0
-        for (i in 1..n) {
+        for (i in 1 until n + 1) {
             if (n % i == 0) {
                 count++
                 if (count == k) {
@@ -45,7 +45,8 @@ object KthFactor {
         while (i * i <= n) {
             if (n % i == 0) {
                 if (i * i != n) list.add(n / i)
-                if (++count == k) return i
+                count++
+                if (count == k) return i
             }
             i++
         }
