@@ -25,6 +25,11 @@ class KthFactorTest {
         evaluateKthFactorMethods(-1, 4, 4)
     }
 
+    @Test
+    fun largeNumberTest() {
+        evaluateKthFactorMethods(4, 1000, 3)
+    }
+
     fun evaluateKthFactorMethods(expected: Int, n: Int, k: Int) {
         TestCase.assertEquals(expected, KthFactor.kthFactorLinear(n, k))
         TestCase.assertEquals(expected, KthFactor.kthFactorSqrt(n, k))

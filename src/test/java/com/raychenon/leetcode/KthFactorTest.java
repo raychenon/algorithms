@@ -35,6 +35,11 @@ public class KthFactorTest {
         evaluateKthFactorMethods(-1, 4, 4);
     }
 
+    @Test
+    public void largeNumberTest() {
+        evaluateKthFactorMethods(4, 1000, 3);
+    }
+
     void evaluateKthFactorMethods(int expected, int n, int k) {
         assertEquals(expected, instance.kthFactorLinear(n, k));
         assertEquals(expected, instance.kthFactorSqrt(n, k));
