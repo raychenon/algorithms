@@ -3,6 +3,8 @@ package com.raychenon.leetcode;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static junit.framework.TestCase.assertEquals;
 
 /**
@@ -20,12 +22,17 @@ public class SumofAbsoluteDifferencesinaSortedArrayTest {
     }
 
     @Test
-    public void aabbcccTest() {
-        evaluate(new int[]{4, 3, 5}, new int[]{2, 3, 5});
+    public void example1() {
+        evaluateSumofAbsoluteDifferencesinaSortedArray(new int[]{4, 3, 5}, new int[]{2, 3, 5});
     }
 
-    private void evaluate(int[] expected, int[] input) {
-        assertEquals(expected, instance.getSumAbsoluteDifferences(input));
+    @Test
+    public void example2() {
+        evaluateSumofAbsoluteDifferencesinaSortedArray(new int[]{24, 15, 13, 15, 21}, new int[]{1, 4, 6, 8, 10});
+    }
+
+    private void evaluateSumofAbsoluteDifferencesinaSortedArray(int[] expected, int[] input) {
+        assertEquals(true, Arrays.equals(expected, instance.getSumAbsoluteDifferences(input)));
     }
 
 }
