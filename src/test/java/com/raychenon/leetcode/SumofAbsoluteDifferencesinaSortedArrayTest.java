@@ -1,11 +1,8 @@
 package com.raychenon.leetcode;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.Arrays;
-
-import static junit.framework.TestCase.assertEquals;
 
 /**
  * User: raychenon
@@ -32,7 +29,7 @@ public class SumofAbsoluteDifferencesinaSortedArrayTest {
     }
 
     private void evaluateSumofAbsoluteDifferencesinaSortedArray(int[] expected, int[] input) {
-        assertEquals(true, Arrays.equals(expected, instance.getSumAbsoluteDifferences(input)));
+        Assert.assertArrayEquals(expected, instance.getSumAbsoluteDifferences(input));
     }
 
 }

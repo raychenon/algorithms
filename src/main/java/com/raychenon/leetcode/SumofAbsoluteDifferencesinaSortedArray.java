@@ -9,6 +9,12 @@ import java.util.Arrays;
  */
 public class SumofAbsoluteDifferencesinaSortedArray {
 
+    /**
+     * Time complexity: O(n)
+     * Space complexity: O(1) , the output space is not counted
+     * @param nums
+     * @return
+     */
     public int[] getSumAbsoluteDifferences(int[] nums) {
         int n = nums.length;
         int[] res = new int[n];
