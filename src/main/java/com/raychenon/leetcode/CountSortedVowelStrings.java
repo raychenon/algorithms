@@ -9,14 +9,14 @@ package com.raychenon.leetcode;
 public class CountSortedVowelStrings {
 
     /**
-     * Top Down dynamic programming
+     * dynamic programming Bottom Up with 2D array
      * Time complexity: O(n*k)
      * Space complexity: O(nk)
      *
      * @param n
      * @return
      */
-    public int countVowelStringsDPTopDown(int n) {
+    public int countVowelStringsDPBottomUp(int n) {
         int[][] dp = new int[n + 1][6];
         for (int i = 1; i <= n; i++) {
             for (int k = 1; k <= 5; k++) {
@@ -27,14 +27,14 @@ public class CountSortedVowelStrings {
     }
 
     /**
-     * Bottom Up  dynamic programming
+     * dynamic programming Bottom Up with 1D array
      * Time complexity: O(n*k)
-     * Space complexity: O(nk)
+     * Space complexity: O(k)
      *
      * @param n
      * @return
      */
-    public int countVowelStringsDPBottomUp(int n) {
+    public int countVowelStringsDPBottomUp1D(int n) {
         int[] dp = new int[]{0, 1, 1, 1, 1, 1};
         for (int i = 1; i <= n; i++) {
             for (int k = 1; k <= 5; k++) {

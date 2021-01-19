@@ -35,7 +35,7 @@ public class CountSortedVowelStringsTest {
     }
 
     void assertCountSortedVowel(int expected, int n) {
-        TestCase.assertEquals(expected, instance.countVowelStringsDPTopDown(n));
         TestCase.assertEquals(expected, instance.countVowelStringsDPBottomUp(n));
+        TestCase.assertEquals(expected, instance.countVowelStringsDPBottomUp1D(n));
     }
 }
