@@ -17,7 +17,7 @@ object CountSortedVowelStrings {
      */
     fun countVowelStringsDPBottomUp(n: Int): Int {
         val dp = Array(n + 1) { IntArray(6) }
-        for (i in 1..n) {
+        for (i in 1 until (n + 1)) {
             for (k in 1..5) {
                 dp[i][k] = dp[i][k - 1] + if (i > 1) dp[i - 1][k] else 1
             }
@@ -35,7 +35,7 @@ object CountSortedVowelStrings {
      */
     fun countVowelStringsDPBottomUp1D(n: Int): Int {
         val dp = intArrayOf(0, 1, 1, 1, 1, 1)
-        for (i in 1..n) {
+        for (i in 1 until (n + 1)) {
             for (k in 1..5) {
                 dp[k] += dp[k - 1]
             }
