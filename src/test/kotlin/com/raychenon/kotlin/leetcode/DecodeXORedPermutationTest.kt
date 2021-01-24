@@ -23,7 +23,7 @@ class DecodeXORedPermutationTest {
 
     @Test
     fun decode2Test() {
-        decodeTest(intArrayOf(1, 7, 2, 6, 0), intArrayOf(6, 5, 4, 6))
+        decodeTest(intArrayOf(2, 4, 1, 5, 3), intArrayOf(6, 5, 4, 6))
     }
 
     @Test
