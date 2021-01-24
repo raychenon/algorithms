@@ -22,11 +22,11 @@ object DecodeXORedPermutation {
     fun decode(encoded: IntArray): IntArray {
         var first = 0
         val n = encoded.size + 1
-        for (i in 1..n) {
+        for (i in 1 until n + 1) {
             first = first xor i
         }
 
-        for (i in 1 until n step 2) {
+        for (i in 1 until (n - 1) step 2) {
             first = first xor encoded[i]
         }
 
