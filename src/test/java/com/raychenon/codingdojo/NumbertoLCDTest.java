@@ -1,9 +1,11 @@
 package com.raychenon.codingdojo;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Nested;
 
 import static com.raychenon.codingdojo.NumbertoLCD.numberToLcd;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * User: raychenon
@@ -15,7 +17,7 @@ public class NumbertoLCDTest {
 
     @Test
     void one() {
-        assertThat(numberToLcd(1)).isEqualTo("""
+        assertThat(NumbertoLCD.numberToLcd(1)).isEqualTo("""
                       \s
                       |
                       |
@@ -103,78 +105,80 @@ public class NumbertoLCDTest {
                     """);
     }
 
-}
 
-@Nested
-class Several_Digits {
+    @Nested
+    class Several_Digits {
 
-    @Test
-    void ten() {
-        assertThat(numberToLcd(10)).isEqualTo("""
+        @Test
+        void ten() {
+            assertThat(numberToLcd(10)).isEqualTo("""
                         _\s
                       || |
                       ||_|
                     """);
-    }
+        }
 
-    @Test
-    void eleven() {
-        assertThat(numberToLcd(11)).isEqualTo("""
+        @Test
+        void eleven() {
+            assertThat(numberToLcd(11)).isEqualTo("""
                          \s
                       |  |
                       |  |
                     """);
-    }
+        }
 
-    @Test
-    void twelve() {
-        assertThat(numberToLcd(12)).isEqualTo("""
+        @Test
+        void twelve() {
+            assertThat(numberToLcd(12)).isEqualTo("""
                         _\s
                       | _|
                       ||_\s
                     """);
-    }
+        }
 
-    @Test
-    void one_hundred() {
-        assertThat(numberToLcd(100)).isEqualTo("""
+        @Test
+        void one_hundred() {
+            assertThat(numberToLcd(100)).isEqualTo("""
                         _  _\s
                       || || |
                       ||_||_|
                     """);
-    }
+        }
 
-    @Test
-    void one_hundred_twenty_three() {
-        assertThat(numberToLcd(123)).isEqualTo("""
+        @Test
+        void one_hundred_twenty_three() {
+            assertThat(numberToLcd(123)).isEqualTo("""
                         _  _\s
                       | _| _|
                       ||_  _|
                     """);
-    }
+        }
 
-    @Test
-    void all_digits() {
-        assertThat(numberToLcd(1234567890)).isEqualTo("""
+        @Test
+        void all_digits() {
+            assertThat(numberToLcd(1234567890)).isEqualTo("""
                         _  _     _  _  _  _  _  _\s
                       | _| _||_||_ |_   ||_||_|| |
                       ||_  _|  | _||_|  ||_| _||_|
                     """);
+        }
     }
-}
 
-@Nested
-class Scaling_one_digit {
+    @Nested
+    class Scaling_one_digit {
 
-    @Disabled
-    @Test
-    void one() {
-        assertThat(numberToLcd(1, 2)).isEqualTo("""
+        @Disabled
+        @Test
+        void one() {
+            assertThat(numberToLcd(1, 2)).isEqualTo("""
                       \s
                       |
                       |
                       |
                       |
                     """);
+        }
     }
+
+
 }

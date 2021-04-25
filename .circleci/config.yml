@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/algorithms
     docker:
-      - image: circleci/openjdk:9.0.4-jdk
+      - image: cimg/openjdk:16.0.0
 
     environment:
       # Customize the JVM maximum heap limit

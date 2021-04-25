@@ -1,6 +1,7 @@
 package com.raychenon.codingdojo;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * User: raychenon
@@ -31,13 +32,29 @@ public class NumbertoLCD {
                 .chars()
                 .map(Character::getNumericValue)
                 .mapToObj(NumbertoLCD::digitToLcd)
-                .toList();
+                .collect(Collectors.toList());
     }
 
-    private static final String[][] DIGITS = transpose(new String[][] {
+    private static final String[][] DIGITS = (new String[][]{
             {" _ ", "   ", " _ ", " _ ", "   ", " _ ", " _ ", " _ ", " _ ", " _ "},
             {"| |", "  |", " _|", " _|", "|_|", "|_ ", "|_ ", "  |", "|_|", "|_|"},
             {"|_|", "  |", "|_ ", " _|", "  |", " _|", "|_|", "  |", "|_|", " _|"},
     });
-    
+
+    private static final String[][] DIGITS_T = {
+            {DIGITS[0][0], DIGITS[1][0], DIGITS[2][0]},
+            {DIGITS[0][1], DIGITS[1][1], DIGITS[2][1]},
+            {DIGITS[0][2], DIGITS[1][2], DIGITS[2][2]},
+            {DIGITS[0][3], DIGITS[1][3], DIGITS[2][3]},
+            {DIGITS[0][4], DIGITS[1][4], DIGITS[2][4]},
+            {DIGITS[0][5], DIGITS[1][5], DIGITS[2][5]},
+            {DIGITS[0][6], DIGITS[1][6], DIGITS[2][6]},
+            {DIGITS[0][7], DIGITS[1][7], DIGITS[2][7]},
+            {DIGITS[0][8], DIGITS[1][8], DIGITS[2][8]},
+            {DIGITS[0][9], DIGITS[1][9], DIGITS[2][9]},
+    };
+
+    private static String[] digitToLcd(int number) {
+        return DIGITS_T[number];
+    }
 }
