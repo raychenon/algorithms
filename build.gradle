@@ -5,23 +5,22 @@ plugins {
 }
 
 jacoco {
-    toolVersion = "0.8.4"
+    toolVersion = "0.8.7"
 }
 
 allprojects {
     apply plugin: 'java'
-    apply plugin: 'maven'
     apply plugin: 'jacoco'
 
-    sourceCompatibility = 1.9
-    targetCompatibility = 1.9
+    sourceCompatibility = 1.11
+    targetCompatibility = 1.11
 
     repositories {
         mavenLocal()
         mavenCentral()
         jcenter()
 
-        maven { url "http://repo1.maven.org/maven2/" }
+        maven { url "https://repo1.maven.org/maven2/" }
     }
 
     dependencies {
