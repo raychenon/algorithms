@@ -14,8 +14,8 @@ class BinarySearchTreetoGreaterSumTree {
     fun bstToGst(root: TreeNode?): TreeNode? {
         if (root == null) return null
         root?.right?.apply { bstToGst(this) }
-        root?.value = previous + root?.value
-        previous = root?.value
+        root?.value = previous + root?.value!!
+        previous = root?.value!!
 
         root?.left?.apply { bstToGst(this) }
         return root
