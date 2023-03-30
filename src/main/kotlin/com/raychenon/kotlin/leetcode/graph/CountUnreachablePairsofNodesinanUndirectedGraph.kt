@@ -18,10 +18,10 @@ object CountUnreachablePairsofNodesinanUndirectedGraph {
 
         var nbPairs = 0L
         var sizeOfComponents = 0L
-        var remainingNodes = 0L
+        var remainingNodes = n.toLong()
         for (nodeId in 0 until n) {
             if (!visited[nodeId]) {
-                sizeOfComponents = dfsEdges(nodeId, graph, visited)
+                sizeOfComponents = dfsEdges(nodeId, graph, visited).toLong()
                 nbPairs += sizeOfComponents * (remainingNodes - sizeOfComponents);
                 remainingNodes -= sizeOfComponents;
             }
@@ -30,21 +30,19 @@ object CountUnreachablePairsofNodesinanUndirectedGraph {
         return nbPairs
     }
 
-    fun dfsEdges(nodeId: Int, graph: Map<Int, Set<Int>>, visited: BooleanArray): Long {
-        var count = 0L
+    private fun dfsEdges(nodeId: Int, graph: Map<Int, Set<Int>>, visited: BooleanArray): Int {
+        var count = 1
         if (visited[nodeId]) return count
 
         visited[nodeId] = true
 
-        val directAdj = graph.get(nodeId)!!
-        for (adj in directAdj) {
-            if (!visited[adj]) {
-                count += dfsEdges(adj, graph, visited)
+        graph.get(nodeId)?.forEach {
+            if (!visited[it]) {
+                count += dfsEdges(it, graph, visited)
             }
         }
 
         return count
     }
-
 
 }
