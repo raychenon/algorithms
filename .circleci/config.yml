@@ -10,6 +10,10 @@ jobs:
     working_directory: ~/algorithms
     docker:
       - image: cimg/openjdk:19.0.2
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:1gIKtG6aZaTozC1QIa2SdwJuZ+cmIZGTt14G3mwn2DU"
 
     environment:
       # Customize the JVM maximum heap limit
