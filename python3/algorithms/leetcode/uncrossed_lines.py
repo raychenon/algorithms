@@ -24,7 +24,7 @@ def maxUncrossedLines(A: List[int], B: List[int]) -> int:
     return dp[lenA][lenB]
 
 
-if __name__ == "__main__":
+def test_uncrossed_lines():
     assert maxUncrossedLines([1, 4, 2], [1, 2, 4]) == 2
     assert maxUncrossedLines([2, 5, 1, 2, 5], [10, 5, 2, 1, 5, 2]) == 3
     assert maxUncrossedLines([1, 3, 7, 1, 7, 5], [1, 9, 2, 5, 1]) == 2

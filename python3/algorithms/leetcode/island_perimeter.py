@@ -35,8 +35,8 @@ def islandPerimeter(grid: List[List[int]]) -> int:
     return result
 
 
-if __name__ == "__main__":
-    assert 16 == islandPerimeter([[[0, 1, 0, 0],
+def test_island_perimeter():
+    assert 16 == islandPerimeter([[0, 1, 0, 0],
                                    [1, 1, 1, 0],
                                    [0, 1, 0, 0],
                                    [1, 1, 0, 0]])

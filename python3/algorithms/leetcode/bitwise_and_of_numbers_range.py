@@ -50,7 +50,7 @@ def assertRangeBitwiseMethods(arr: List[int], expected: int) -> None:
     assert rangeBitwiseAndBK(arr[0], arr[1]) == expected
 
 
-if __name__ == "__main__":
+def test_RangeBitwiseMethods():
     assertRangeBitwiseMethods([5, 7], 4)
     assertRangeBitwiseMethods([0, 1], 0)
     assertRangeBitwiseMethods([8, 12], 8)

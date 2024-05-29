@@ -5,7 +5,7 @@ A subarray is a contiguous part of an array.
 
 https://leetcode.com/problems/subarray-sums-divisible-by-k
 """
-
+from typing import List
 
 def subarraysDivByK(self, nums: List[int], k: int) -> int:
     n = len(nums)
@@ -24,7 +24,7 @@ def subarraysDivByK(self, nums: List[int], k: int) -> int:
     return count
 
 
-if __name__ == "__main__":
+def test_subarray_div_by_k():
     assert subarraysDivByK([4, 5, 0, -2, -3, 1], 5) == 7
     assert subarraysDivByK([5], 9) == 0
     assert subarraysDivByK([3, 4, 5, 1, 2], 5) == 3

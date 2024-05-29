@@ -52,7 +52,7 @@ def assertminDistance(expected: int, word1: str, word2: str) -> None:
     assert minDistance1Darray(word1, word2) == expected
 
 
-if __name__ == '__main__':
+def test_min_distance():
     assertminDistance(3, "horse", "ros")
     assertminDistance(5, "intention", "execution")
     assertminDistance(10, "zoologicoarchaeologist", "zoogeologist")

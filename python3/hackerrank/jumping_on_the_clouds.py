@@ -16,3 +16,19 @@ def jumpingOnClouds(c):
         nbJump += 1
         i += 1
     return nbJump
+
+
+def assertEquals(a, b):
+    return a == b
+
+
+def test_case_0():
+    assertEquals(jumpingOnClouds([0, 0, 1, 0, 0, 1, 0]), 4)
+
+
+def test_case_1():
+    assertEquals(jumpingOnClouds([0, 0, 0, 1, 0, 0]), 3)
+
+
+def test_case_contain_only_0():
+    assertEquals(jumpingOnClouds([0, 0, 0, 0, 0, 0]), 3)

@@ -36,6 +36,6 @@ def countPairs(n: int, edges: List[List[int]]) -> int:
     return result
 
 
-if __name__ == "__main__":
+def test_count_pairs():
     assert countPairs(3, [[0, 1], [0, 2], [1, 2]]) == 0
     assert countPairs(7, [[0, 2], [0, 5], [2, 4], [1, 6], [5, 4]]) == 14

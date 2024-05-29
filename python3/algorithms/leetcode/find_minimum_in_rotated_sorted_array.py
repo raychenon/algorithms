@@ -20,6 +20,6 @@ def findMin(nums: List[int]) -> int:
     return nums[left]
 
 
-if __name__ == "__main__":
+def test_find_min():
     assert findMin([3, 4, 5, 1, 2]) == 1
     assert findMin([4, 5, 6, 7, 0, 1, 2]) == 0

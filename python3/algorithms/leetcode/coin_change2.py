@@ -27,7 +27,7 @@ def change(amount: int, coins: List[int]) -> int:
     return dp[amount]
 
 
-if __name__ == "__main__":
+def test_change():
     assert change(5, [1, 2, 5]) == 4
     assert change(5, [5, 2, 1]) == 4  # change of coins
     assert change(12, [1, 2, 5]) == 13

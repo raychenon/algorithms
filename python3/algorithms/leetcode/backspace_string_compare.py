@@ -17,7 +17,7 @@ def backspace_compare(S: str, T: str) -> bool:
     return backspaced(S) == backspaced(T)
 
 
-if __name__ == '__main__':
+def test_backspace_compare():
     assert backspace_compare("ab#c", "ad#c") == True
     assert backspace_compare("a#c", "b") ==  False
     assert backspace_compare("ab##", "c#d#") == True

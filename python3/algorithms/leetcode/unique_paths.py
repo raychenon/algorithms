@@ -30,7 +30,7 @@ def assert_unique_paths(m, n, expected):
     assert uniquePathsCombinatorial(m, n) == expected
 
 
-if __name__ == "__main__":
+def test_unique_paths():
     assert_unique_paths(3, 2, 3)
     assert_unique_paths(7, 3, 28)
     assert_unique_paths(8, 8, 3432)

@@ -10,7 +10,7 @@ self.right (the right child of the node)
 self.info (the value of the node)
 https://www.hackerrank.com/challenges/tree-level-order-traversal/problem
 """
-def levelOrder(root):
+def levelOrder(root: Node):
     if root is None:
         return
 

@@ -30,7 +30,7 @@ def assertDuplicateMethods(expected: bool, nums: List[int]) -> None:
     assert expected == containsDuplicateOneLine(nums)
 
 
-if __name__ == "__main__":
+def test_contains_duplicate():
     assertDuplicateMethods(True, [1, 2, 3, 1])
     assertDuplicateMethods(False, [1, 2, 3, 4])
     assertDuplicateMethods(True, [1, 1, 1, 3, 3, 4, 3, 2, 4, 2])
