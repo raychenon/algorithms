@@ -55,7 +55,7 @@ def assert_methods(nums: List[int], expected: int) -> None:
     assert single_non_duplicate_binary_search(nums) == expected
 
 
-if __name__ == "__main__":
+def test_single_non_duplicate_binary_search():
     assert_methods([1, 1, 2, 3, 3, 4, 4, 8, 8], 2)
     assert_methods([3, 3, 7, 7, 10, 11, 11], 10)
     assert_methods([3, 3, 7, 7, 11, 11, 12], 12)

@@ -56,7 +56,7 @@ def key_combination(c):
     }.get(c, 0)
 
 
-if __name__ == '__main__':
+def test_t9_text():
     dico = build_dictionary(["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", "eox"])
     # "eox" has the same combination as "fox"
     print(dico)

@@ -1,6 +1,6 @@
 #!/bin/python3
 from typing import List
-from collections import defaultdict
+import collections
 
 
 def groupAnagrams(strs: List[str]) -> List[List[str]]:

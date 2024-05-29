@@ -26,7 +26,7 @@ def subarraySum(nums: List[int], k: int) -> int:
     return nb_subarray
 
 
-if __name__ == "__main__":
+def test_subarray_sum():
     assert subarraySum([1, 1, 1], 2) == 2
     assert subarraySum([1, -2, 3, 1, 2, -3, 1], -1) == 2
     assert subarraySum([1, 2, 1, 3, 4, 5, 9], 6) == 1

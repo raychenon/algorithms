@@ -30,3 +30,40 @@ def checkMagazine(magazine, ransom):
                 del ransomMap[w]
 
     return (len(ransomMap) == 0)
+
+
+def assertEquals(a, b):
+    return a == b
+def test_ransom_note_is_valid():
+    assertEquals(
+        checkMagazine(['give', 'me', 'one', 'grand', 'today', 'night'], ['give', 'one', 'grand', 'today']), True)
+
+def test_ransom_note_is_equal_to_magazine():
+    assertEquals(checkMagazine(['some'], ['some']), True)
+
+def test_ransom_smaller_than_magazine():
+    assertEquals(checkMagazine(['catch', 'me', 'if', 'you', 'can'], ['catch', 'me']), True)
+
+def test_ransom_case_sensitive():
+    assertEquals(checkMagazine(['me'], ['Me']), False)
+
+def test_ransom_empty():
+    assertEquals(checkMagazine(['me'], []), True)
+
+def test_ransom_1():
+    assertEquals(
+        checkMagazine(
+            ["o", "l", "x", "imjaw", "bee", "khmla", "v", "o", "v", "o", "imjaw", "l", "khmla", "imjaw", "x"],
+            ["imjaw", "l", "khmla", "x", "imjaw", "o", "l", "l", "o", "khmla", "v", "bee", "o", "o", "imjaw",
+             "imjaw", "o"]),
+        False)
+
+def test_ransom_2():
+    assertEquals(
+        checkMagazine(["two", "times", "three", "is", "not", "four"], ["two", "times", "two", "is", "four"]), False)
+
+
+def test_ransom_3():
+    assertEquals(
+        checkMagazine(["ive", "got", "a", "lovely", "bunch", "of", "coconuts"], ["ive", "got", "some", "coconuts"]),
+        False)

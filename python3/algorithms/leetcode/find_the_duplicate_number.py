@@ -29,21 +29,21 @@ def find_duplicate_floyd(nums: List[int]) -> int:
     """
     tortoise = nums[0]
     hare = nums[0]
-    # do while loop Pythonic way
-    while tortoise != hare:
+    # do while loop Pythonic way , if condition then break
+    while True:
         tortoise = nums[tortoise]
         hare = nums[nums[hare]]
         if tortoise == hare:
             break
 
     # find the entrance to the cycle
-    ptr1 = nums[0]
-    ptr2 = tortoise
-    while ptr1 != ptr2:
-        ptr1 = nums[ptr1]
-        ptr2 = nums[ptr2]
+    slow = nums[0]
+    fast = tortoise
+    while slow != fast:
+        slow = nums[slow]
+        fast = nums[fast]
 
-    return ptr1
+    return slow
 
 
 def assert_methods(expected_result: int, nums: List[int]) -> None:
@@ -51,6 +51,7 @@ def assert_methods(expected_result: int, nums: List[int]) -> None:
     assert find_duplicate_floyd(nums) == expected_result
 
 
-if __name__ == "__main__":
+def test_find_duplicate():
     assert_methods(2, [1, 3, 4, 2, 2])
     assert_methods(3, [3, 1, 3, 4, 2])
+    assert_methods(3, [3, 3, 3, 3, 3])

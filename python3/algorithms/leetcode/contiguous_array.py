@@ -14,6 +14,6 @@ def assert_methods(expected_result: int, nums: List[int]) -> None:
     assert findMaxLength(nums) == expected_result
 
 
-if __name__ == "__main__":
+def test_findMaxLength():
     assert_methods(2, [0, 1])
     assert_methods(2, [0, 1, 0])

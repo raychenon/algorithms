@@ -15,6 +15,6 @@ def singleNumber(nums: List[int]) -> int:
     return a
 
 
-if __name__ == "__main__":
+def test_single_number():
     assert singleNumber([2, 2, 1]) == 1
     assert singleNumber([4, 1, 2, 1, 2]) == 4

@@ -21,7 +21,7 @@ def compress(chars: List[str]) -> int:
     return left
 
 
-if __name__ == "__main__":
+def test_compress():
     assert compress(["a", "a", "b", "b", "c", "c", "c"]) == 6
     assert compress(["a"]) == 1
     assert compress([]) == 0

@@ -15,6 +15,6 @@ def addBinary(a: str,b: str) -> str:
 		x, y = answer, carry
 	return bin(x)[2:]
 
-if __name__ == "__main__":
+def tests():
 	assert addBinary("11","1") == "100"
 	assert addBinary("1010","1011") == "10101"

@@ -23,7 +23,7 @@ def shortestCommonSupersequence(str1: str, str2: str) -> str:
     return dp[0][-1]
 
 
-if __name__ == "__main__":
+def test_shortest_common_supersequence():
     """
     str1 = "abac" is a subsequence of "cabac" because we can delete the first "c".
     str2 = "cab" is a subsequence of "cabac" because we can delete the last "ac".

@@ -47,7 +47,7 @@ def evalHIndex(expected: int, citations: List[int]):
     assert expected == hindex_counting_sort(citations)
 
 
-if __name__ == "__main__":
+def test_h_index():
     evalHIndex(3, [3, 0, 6, 1, 5])
     evalHIndex(6, [12, 7, 8, 9, 10, 11])
     evalHIndex(5, [12, 7, 8, 9, 10, 3])

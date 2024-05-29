@@ -43,7 +43,7 @@ def assertCountSquares(matrix: List[List[int]], expected: int) -> int:
     assert countSquares2(matrix) == expected
 
 
-if __name__ == "__main__":
+def test_count_squares():
     assertCountSquares([
         [0, 1, 1, 1],
         [1, 1, 1, 1],
