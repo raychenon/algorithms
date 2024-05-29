@@ -7,7 +7,7 @@ https://leetcode.com/problems/subarray-sums-divisible-by-k
 """
 from typing import List
 
-def subarraysDivByK(self, nums: List[int], k: int) -> int:
+def subarraysDivByK(nums: List[int], k: int) -> int:
     n = len(nums)
     map = dict()
     map[0] = 1
@@ -15,9 +15,7 @@ def subarraysDivByK(self, nums: List[int], k: int) -> int:
     sum = 0
 
     for i in range(n):
-        sum = (sum + nums[i]) % k
-        if sum < k:
-            sum += k
+        sum = (sum + nums[i] + k) % k
         count += map.get(sum, 0)
         map[sum] = map.get(sum, 0) + 1
 
